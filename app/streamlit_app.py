@@ -96,7 +96,7 @@ def load_or_train_model():
         doy = df["month"] * 30
         feats = np.column_stack([
             df["rainfall_mm"], df["temp_c"], df["humidity_pct"],
-            2.5, df["rain_7d"], df["rain_30d"],
+            np.full(len(df), 2.5), df["rain_7d"], df["rain_30d"],
             df["rainfall_mm"] - df["rain_30d"] / 30,
             np.maximum(0, 7 - np.where(df["rain_7d"] > 0, df["rain_7d"], 0) * 7) * 7,
             np.sin(2*np.pi*df["month"]/12), np.cos(2*np.pi*df["month"]/12),
