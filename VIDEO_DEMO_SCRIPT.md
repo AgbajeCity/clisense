@@ -1,70 +1,59 @@
 # Clisense — Video Demo Script
-## ALU Mission Capstone 2026 | H. Ayomide Agbaje
+ALU Mission Capstone 2026 | H. Ayomide Agbaje
 
-**Target Duration:** 7 minutes  
-**Format:** Screen recording with narration  
-**Tool:** Loom (recommended)
+Target Duration: 5 minutes
+Format: Screen recording with narration
+Tool: Loom, OBS, or QuickTime
 
----
+Per the assignment guidance, this script skips sign-up and sign-in entirely and focuses on core functionality: live predictions, the API, and model performance.
 
 ## Pre-Recording Checklist
-
-- [ ] Open Streamlit app: https://agbajecity-clisense.streamlit.app
-- [ ] Open FastAPI docs: https://clisense-production.up.railway.app/docs
-- [ ] Open GitHub repo: https://github.com/AgbajeCity/clisense
-- [ ] Close all irrelevant browser tabs
-- [ ] Test microphone and screen capture
-- [ ] Prepare sample inputs (Benue August, Kano June)
-
----
-
-## Script Outline
-
-### [0:00 – 0:30] Introduction
-"Hello, my name is Ayomide Agbaje, and this is Clisense — a Machine Learning-powered Predictive Climate Intelligence and Early Warning System for smallholder farmers in rural Nigeria. This is my ALU Mission Capstone 2026 project."
-
-### [0:30 – 1:30] Problem Statement
-"Over 70% of Nigeria's food supply depends on smallholder farmers who have no reliable access to climate forecasting. Floods in Benue and droughts in Kano cost thousands of livelihoods each year. Clisense changes that."
-
-### [1:30 – 3:30] Live Demo — Prediction Tab
-- Navigate to the Prediction tab
-- Input: State = Benue, Month = August, Rainfall = 280mm, Temp = 29°C, Humidity = 85%
-- "Notice the model predicts Flood Risk with over 85% confidence — and provides an actionable recommendation for the farmer."
-- Input: State = Kano, Month = June, Rainfall = 40mm, Temp = 38°C, Humidity = 30%
-- "For Kano in June, the model correctly identifies Drought Risk."
-
-### [3:30 – 4:30] Data Explorer Tab
-- Show the historical climate data visualization
-- "The system is trained on 10 years of historical climate data across all 36 Nigerian states."
-
-### [4:30 – 5:30] Model Performance Tab
-- Show accuracy metrics, confusion matrix
-- "Our Gradient Boosting model achieves 92% accuracy across 4 climate risk classes."
-
-### [5:30 – 6:00] API Demo
-- Navigate to FastAPI /docs
-- Show the /predict endpoint
-- Execute a test call
-- "Clisense also exposes a REST API for integration with SMS gateways and mobile apps used by extension workers."
-
-### [6:00 – 6:30] GitHub & Architecture
-- Show GitHub repo structure
-- "The full source code is open on GitHub. The architecture follows a clean separation between the ML pipeline, the Streamlit frontend, and the FastAPI backend."
-
-### [6:30 – 7:00] Closing
-"Clisense represents a practical, deployable solution for climate risk early warning in Nigeria. Thank you for watching — I'm Ayomide Agbaje, ALU Cohort 14, Machine Learning track."
-
----
-
-## Sample Test Inputs
-
-| Scenario | State | Month | Rainfall (mm) | Temp (°C) | Humidity (%) | Expected |
-|----------|-------|-------|---------------|-----------|--------------|----------|
-| Flood Risk | Benue | August | 280 | 29 | 85 | Flood Risk |
-| Drought Risk | Kano | June | 40 | 38 | 30 | Drought Risk |
-| Normal | Lagos | April | 120 | 28 | 70 | Normal |
-| Moderate | Enugu | July | 160 | 26 | 75 | Moderate Risk |
-
----
-
-*Generated for ALU Mission Capstone 2026 — Clisense Project*
+- Open the live Streamlit app: https://agbajecity-clisense.streamlit.app
+- - Open the FastAPI docs: https://clisense-production.up.railway.app/docs
+  - - Have this script open on a second screen or phone
+    - - Close irrelevant browser tabs and turn off notifications
+      - - Test microphone and screen capture, then do one dry run before the final take
+       
+        - ## Script Outline
+       
+        - ### [0:00 - 0:15] Introduction
+        - "Hello, I'm Ayomide Agbaje, and this is Clisense, a Machine Learning-powered predictive climate intelligence and early warning system for smallholder farmers in rural Nigeria. This is my ALU Mission Capstone 2026 project."
+       
+        - ### [0:15 - 0:30] Problem Statement
+        - "Nigeria has around 33 million smallholder farmers producing most of the country's food, largely without access to local climate forecasting. Floods in Benue and droughts in Kano cost livelihoods every year. Clisense predicts these threats before they happen."
+       
+        - ### [0:30 - 2:00] Live Demo - Prediction Tab (Streamlit)
+        - - Navigate to the Prediction tab
+          - - Input: State = Benue, Month = 8, Rainfall = 48mm, Temp = 27C, Humidity = 88%, 7-Day Rain = 180mm, 30-Day Rain = 620mm
+            - - "The model predicts Flood Risk with over 90% confidence, and provides an actionable recommendation for the farmer."
+              - - Input: State = Kano, Month = 6, Rainfall = 0.3mm, Temp = 32.5C, Humidity = 32%, 7-Day Rain = 2.1mm, 30-Day Rain = 12mm
+                - - "For Kano in June, the model correctly identifies Drought Risk instead."
+                  - - Input: State = Kaduna, Month = 10, Rainfall = 5.2mm, Temp = 26C, Humidity = 65%, 7-Day Rain = 28mm, 30-Day Rain = 95mm
+                    - - "And for contrast, Kaduna in October returns Normal, with no alert needed."
+                     
+                      - ### [2:00 - 3:00] Model Performance Tab
+                      - - Show the accuracy metrics and confusion matrix
+                        - - "Clisense uses an XGBoost classifier trained on over 18,500 daily climate records across 5 Nigerian agro-ecological zones, reaching 99.84% accuracy on held-out test data. The strongest predictors are 7-day and 30-day cumulative rainfall."
+                         
+                          - ### [3:00 - 4:00] API Demo (FastAPI Swagger)
+                          - - Navigate to FastAPI /docs
+                            - - Expand POST /predict, click Try it out
+                              - - Paste the Kano drought example and execute
+                                - - "The same prediction engine is exposed as a REST API, so any system, an SMS gateway, a mobile app, or a government platform, can call it directly with a simple HTTP request."
+                                 
+                                  - ### [4:00 - 4:45] GitHub and Architecture
+                                  - - Show the GitHub repo structure briefly
+                                    - - "The full source is open on GitHub, with a clean separation between the ML pipeline, the Streamlit frontend, and the FastAPI backend."
+                                     
+                                      - ### [4:45 - 5:00] Closing
+                                      - "That's Clisense. Full testing documentation, the deployed app, and this video are all linked in the README. Thank you for watching."
+                                     
+                                      - ## Post-Recording Checklist
+                                      - - Trim dead air from the start and end
+                                        - - Export at 1080p and upload to Loom or YouTube as Unlisted
+                                          - - Paste the link into the README under Live Links
+                                            - - File name: Clisense_Demo_Ayomide_Agbaje.mp4
+                                             
+                                              - ---
+                                              Clisense — ALU Mission Capstone 2026 | H. Ayomide Agbaje
+                                              
