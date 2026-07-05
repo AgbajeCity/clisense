@@ -104,5 +104,72 @@ curl -X POST "https://clisense-production.up.railway.app/predict" \
 | Plateau | Jos Plateau Highland |
 
 ---
+## Installation and Setup (Step by Step)
+
+Requirements: Python 3.10 or higher, pip, and Git.
+
+1. Clone the repository:
+2. ```
+   git clone https://github.com/AgbajeCity/clisense.git
+   cd clisense
+   ```
+   2. Create and activate a virtual environment:
+   3. ```
+      python -m venv venv
+      source venv/bin/activate
+      ```
+      On Windows use venv\Scripts\activate instead.
+
+      3. Install dependencies:
+      4. ```
+         pip install -r requirements.txt
+         ```
+         4. Run the notebook (optional, regenerates model artifacts and figures):
+         5. ```
+            jupyter notebook notebooks/Clisense_ML_Notebook_executed.ipynb
+            ```
+            5. Run the Streamlit dashboard locally:
+            6. ```
+               streamlit run app/streamlit_app.py
+               ```
+               Open http://localhost:8501 in a browser.
+
+               6. Run the FastAPI backend locally (in a separate terminal):
+               7. ```
+                  uvicorn app.api:app --reload --port 8000
+                  ```
+                  Open http://localhost:8000/docs for the Swagger UI.
+
+                  7. Run the unit tests:
+                  8. ```
+                     pytest tests/test_clisense_unit.py -v
+                     ```
+## Testing
+
+Five testing strategies were used to validate Clisense, with full test cases, edge case tables, and screenshots organized in the testing_screenshots/ folder (see testing_screenshots/README.md).
+
+- Unit testing: pytest tests/test_clisense_unit.py covers the prediction logic, scaler, and encoders (14 tests).
+- - Integration testing: End-to-end runs through the Streamlit UI and FastAPI Swagger UI producing Normal, Drought Risk, and Flood Risk predictions.
+  - - Edge case testing: Boundary inputs such as missing values, invalid state or month, and extreme humidity, run through the /predict endpoint.
+    - - Data variation testing: A matrix of 15 cases spanning all five states, multiple months and seasons, and all three threat classes.
+      - - Cross-environment testing: Chrome vs Firefox, mobile viewport vs desktop, and local vs deployed inference latency.
+       
+        - Full deployment steps and a post-deployment verification checklist are in DEPLOYMENT_GUIDE.md.
+       
+        - ## Video Demo
+        - 
+        [Link to the 5-minute demo video - paste here after recording]
+
+A full script and shot list is in VIDEO_DEMO_SCRIPT.md.
+
+## Recommendations and Future Work
+
+For the community: partner with Nigeria's Agricultural Development Programme extension officer network to route alerts through trusted local channels, replace the current synthetic training data with live NASA POWER or CHIRPS feeds before relying on this for real alerting, and build the SMS/USSD delivery pipeline so alerts reach farmers on basic phones.
+
+For future technical work: a Bidirectional LSTM for genuine time-series forecasting, expanding beyond the current 5 states to fuller Nigerian agro-ecological coverage, crop-specific risk modeling, and formal validation of the computed threat labels against NIMET's official drought and flood incident records.
+
+
+                     
+
 
 *ALU Mission Capstone 2026 — Machine Learning Track*
