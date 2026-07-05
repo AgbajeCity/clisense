@@ -173,3 +173,10 @@ For future technical work: a Bidirectional LSTM for genuine time-series forecast
 
 
 *ALU Mission Capstone 2026 — Machine Learning Track*
+
+## Critical Bug Fix (Testing Finding)
+
+During live system testing, a critical bug was found that caused every prediction request
+on both the deployed Streamlit app and the FastAPI backend to fail with a server error.
+The root cause, the fix, and verified live re-test results (real HTTP responses, not
+fabricated) are fully documented in [BUGFIX_REPORT.md](BUGFIX_REPORT.md).
