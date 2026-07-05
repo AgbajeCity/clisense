@@ -35,8 +35,9 @@ ZONE_MAP = {
     "Niger": "Northern Guinea Savanna",
     "Plateau": "Jos Plateau Highland",
 }
-MONTH_NAMES = {1:"Jan",2:"Feb",3:"Mar",4:"Apr",5:"May",6:"Jun",
-               7:"Jul",8:"Aug",9:"Sep",10:"Oct",11:"Nov",12:"Dec"}
+MONTH_NAMES = {1: "Jan", 2: "Feb", 3: "Mar", 4: "Apr", 5: "May", 6: "Jun",
+               7: "Jul", 8: "Aug", 9: "Sep", 10: "Oct", 11: "Nov", 12: "Dec"}
+
 
 @st.cache_data
 def generate_data():
@@ -76,15 +77,18 @@ def generate_data():
         })
     return pd.DataFrame(records)
 
+
 @st.cache_resource
 def load_or_train_model():
     model_path = BASE / "models" / "clisense_xgb_model.pkl"
-    if model_path.exists():
+    label_path = BASE / "models" / "clisense_le_label.pkl"
+    if model_path.exists() and label_path.exists():
         model = joblib.load(model_path)
         scaler = joblib.load(BASE / "models" / "clisense_scaler.pkl")
         le_s = joblib.load(BASE / "models" / "clisense_le_state.pkl")
         le_se = joblib.load(BASE / "models" / "clisense_le_season.pkl")
         le_z = joblib.load(BASE / "models" / "clisense_le_zone.pkl")
+        le_label = joblib.load(label_path)
     else:
         df = generate_data()
         le_s = LabelEncoder(); le_se = LabelEncoder(); le_z = LabelEncoder()
@@ -116,11 +120,12 @@ def load_or_train_model():
         joblib.dump(le_s, BASE / "models" / "clisense_le_state.pkl")
         joblib.dump(le_se, BASE / "models" / "clisense_le_season.pkl")
         joblib.dump(le_z, BASE / "models" / "clisense_le_zone.pkl")
-        model.classes_ = le_label.classes_
-    return model, scaler, le_s, le_se, le_z
+        joblib.dump(le_label, label_path)
+    return model, scaler, le_s, le_se, le_z, le_label
+
 
 def run_prediction(state, month, rainfall_mm, temp_c, humidity_pct, rain_7d, rain_30d):
-    model, scaler, le_s, le_se, le_z = load_or_train_model()
+    model, scaler, le_s, le_se, le_z, le_label = load_or_train_model()
     season = "wet" if 4 <= month <= 10 else "dry"
     zone = ZONE_MAP.get(state, "Northern Guinea Savanna")
     doy = month * 30
@@ -150,10 +155,11 @@ def run_prediction(state, month, rainfall_mm, temp_c, humidity_pct, rain_7d, rai
     feat_scaled = scaler.transform(feat)
     pred_idx = model.predict(feat_scaled)[0]
     proba = model.predict_proba(feat_scaled)[0]
-    classes = model.classes_
+    classes = le_label.classes_
     label = classes[pred_idx]
     confidence = proba[pred_idx]
     return label, confidence, dict(zip(classes, proba))
+
 
 # Sidebar
 st.sidebar.title("🌤️ Clisense")
@@ -175,32 +181,32 @@ if tab_sel == "🎯 Prediction":
         humidity_pct = st.number_input("Humidity (%)", 10.0, 100.0, 88.0, 0.1)
         rain_7d = st.number_input("7-Day Total Rainfall (mm)", 0.0, 2000.0, 180.0, 0.1)
         rain_30d = st.number_input("30-Day Total Rainfall (mm)", 0.0, 5000.0, 620.0, 0.1)
-    
+
     if st.button("🔍 Run Prediction", type="primary"):
         with st.spinner("Analyzing climate conditions..."):
             label, confidence, proba = run_prediction(
                 state, month, rainfall_mm, temp_c, humidity_pct, rain_7d, rain_30d
             )
-        emoji = "🌊" if label == "Flood Risk" else "🏜️" if label == "Drought Risk" else "✅"
-        color = "🔴" if label in ["Flood Risk", "Drought Risk"] else "🟢"
-        st.markdown(f"## {color} {emoji} **{label}**")
-        st.metric("Confidence", f"{confidence*100:.1f}%")
-        st.markdown("### Probability Breakdown")
-        for cls, prob in proba.items():
-            st.progress(prob, text=f"{cls}: {prob*100:.1f}%")
-        
-        if label == "Flood Risk":
-            st.warning("⚠️ **Flood Risk Detected** — Consider: avoid low-lying fields, delay planting, prepare drainage.")
-        elif label == "Drought Risk":
-            st.warning("⚠️ **Drought Risk Detected** — Consider: water conservation, drought-resistant crops, irrigation.")
-        else:
-            st.success("✅ **Conditions Normal** — Suitable for standard agricultural practices.")
+            emoji = "🌊" if label == "Flood Risk" else "🏜️" if label == "Drought Risk" else "✅"
+            color = "🔴" if label in ["Flood Risk", "Drought Risk"] else "🟢"
+            st.markdown(f"## {color} {emoji} **{label}**")
+            st.metric("Confidence", f"{confidence*100:.1f}%")
+            st.markdown("### Probability Breakdown")
+            for cls, prob in proba.items():
+                st.progress(prob, text=f"{cls}: {prob*100:.1f}%")
+
+            if label == "Flood Risk":
+                st.warning("⚠️ **Flood Risk Detected** — Consider: avoid low-lying fields, delay planting, prepare drainage.")
+            elif label == "Drought Risk":
+                st.warning("⚠️ **Drought Risk Detected** — Consider: water conservation, drought-resistant crops, irrigation.")
+            else:
+                st.success("✅ **Conditions Normal** — Suitable for standard agricultural practices.")
 
 elif tab_sel == "📊 Data Explorer":
     st.title("📊 Data Explorer")
     df = generate_data()
     st.write(f"Dataset: {len(df):,} records across {df['state'].nunique()} Nigerian states (2015–2024)")
-    
+
     col1, col2 = st.columns(2)
     with col1:
         fig, ax = plt.subplots(figsize=(8, 4))
@@ -211,7 +217,7 @@ elif tab_sel == "📊 Data Explorer":
         ax.set_title("Monthly Rainfall Trends by State")
         ax.legend(fontsize=8); ax.grid(alpha=0.3)
         st.pyplot(fig); plt.close()
-    
+
     with col2:
         fig, ax = plt.subplots(figsize=(8, 4))
         threat_counts = df["threat_label"].value_counts()
@@ -220,7 +226,7 @@ elif tab_sel == "📊 Data Explorer":
                colors=colors[:len(threat_counts)])
         ax.set_title("Threat Label Distribution")
         st.pyplot(fig); plt.close()
-    
+
     st.subheader("Seasonal Threat Heatmap")
     pivot = df.groupby(["month", "threat_label"]).size().unstack(fill_value=0)
     fig, ax = plt.subplots(figsize=(10, 4))
@@ -231,7 +237,7 @@ elif tab_sel == "📊 Data Explorer":
 
 elif tab_sel == "📈 Model Performance":
     st.title("📈 Model Performance")
-    
+
     metrics = {
         "Overall Accuracy": "99.84%",
         "Weighted F1-Score": "0.9984",
@@ -241,17 +247,15 @@ elif tab_sel == "📈 Model Performance":
     cols = st.columns(4)
     for i, (k, v) in enumerate(metrics.items()):
         cols[i].metric(k, v)
-    
+
     col1, col2 = st.columns(2)
     with col1:
         st.subheader("Confusion Matrix")
         df = generate_data()
-        le_label = LabelEncoder()
-        df["label_enc"] = le_label.fit_transform(df["threat_label"])
-        model, scaler, le_s, le_se, le_z = load_or_train_model()
-        sample = df.sample(min(1000, len(df)), random_state=42)
         le_label2 = LabelEncoder()
         le_label2.fit(df["threat_label"])
+        model, scaler, le_s, le_se, le_z, _le_label = load_or_train_model()
+        sample = df.sample(min(1000, len(df)), random_state=42)
         X_sample = scaler.transform(np.column_stack([
             sample["rainfall_mm"], sample["temp_c"], sample["humidity_pct"],
             np.full(len(sample), 2.5),
@@ -265,7 +269,7 @@ elif tab_sel == "📈 Model Performance":
             sample["rainfall_mm"] * sample["humidity_pct"],
         ]))
         y_pred = model.predict(X_sample)
-        classes = model.classes_
+        classes = le_label2.classes_
         y_true_enc = le_label2.transform(sample["threat_label"])
         cm = confusion_matrix(y_true_enc, y_pred)
         fig, ax = plt.subplots(figsize=(6, 5))
@@ -274,7 +278,7 @@ elif tab_sel == "📈 Model Performance":
         ax.set_xlabel("Predicted"); ax.set_ylabel("True")
         ax.set_title("Confusion Matrix (1000 samples)")
         st.pyplot(fig); plt.close()
-    
+
     with col2:
         st.subheader("Feature Importance")
         feature_names = [
@@ -298,15 +302,15 @@ elif tab_sel == "ℹ️ About":
     st.markdown("""
 ## Clisense — ML-Powered Predictive Climate Intelligence
 
-**Track**: Machine Learning | **Program**: ALU BSc Software Engineering, Cohort 14  
+**Track**: Machine Learning | **Program**: ALU BSc Software Engineering, Cohort 14
 **Student**: H. Ayomide Agbaje | **Supervisor**: Ndinelao Iitumba
 
 ### Project Overview
-Clisense is an AI-powered early warning system designed to help smallholder farmers in rural Nigeria 
-make informed agricultural decisions based on climate threat predictions. The system uses machine learning 
+Clisense is an AI-powered early warning system designed to help smallholder farmers in rural Nigeria
+make informed agricultural decisions based on climate threat predictions. The system uses machine learning
 to classify climate conditions into three categories:
 - **Normal** — Safe conditions for standard farming
-- **Drought Risk** — Water scarcity conditions requiring conservation measures  
+- **Drought Risk** — Water scarcity conditions requiring conservation measures
 - **Flood Risk** — Excessive rainfall conditions requiring protective action
 
 ### Model Architecture
@@ -326,3 +330,4 @@ to classify climate conditions into three categories:
 ### GitHub Repository
 [https://github.com/AgbajeCity/clisense](https://github.com/AgbajeCity/clisense)
 """)
+
