@@ -21,7 +21,7 @@ Clisense is an AI-powered early warning system that helps smallholder farmers in
 - **API Docs (Swagger)**: https://clisense-production.up.railway.app/docs
 - **API Health Check**: https://clisense-production.up.railway.app/health
 - **GitHub Repository**: https://github.com/AgbajeCity/clisense
-- **Video Demo (5 min)**: _link to be added after recording — see `VIDEO_DEMO_SCRIPT.md` for the walkthrough script_
+- **Video Demo (5 min)**: https://drive.google.com/file/d/1b3KNZLvHxq7dCOks5nZZXpBxRQgEduaw/view?usp=sharing
 
 ## How It Works / Architecture
 
