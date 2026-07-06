@@ -1,52 +1,58 @@
 # models/
 
-This directory contains trained ML model files for the Clisense climate prediction system.
+This directory is intentionally NOT used to ship large binary model files
+(`.pkl`). Instead, the model, scaler, and encoders are trained automatically
+the first time the app starts, using the single training function in
+`app/model_core.py` (`train()` / `load_or_train()`).
 
-## Model Files
+## Why no committed .pkl files
 
-| File | Description | Size |
-|------|-------------|------|
-| `clisense_model.pkl` | Primary GradientBoostingClassifier model | ~2.1 MB |
-| `clisense_scaler.pkl` | StandardScaler fitted to training data | ~4 KB |
-| `label_encoder.pkl` | LabelEncoder for target classes | ~1 KB |
-| `feature_names.pkl` | List of feature names used in training | <1 KB |
-| `model_metadata.json` | Training metadata: accuracy, parameters, date | ~2 KB |
-| `xgboost_model.pkl` | XGBoost backup model | ~1.8 MB |
+An earlier version of this project attempted to commit trained `.pkl` files,
+but they were never actually pushed correctly (the folder only ever contained
+this README), which caused a real, reproducible bug: both the Streamlit app
+and the FastAPI backend crashed on every prediction because their local
+fallback-training code paths had drifted apart and used incompatible feature
+schemas. Full incident write-up: see `BUGFIX_REPORT.md` at the repo root.
 
-## Model Performance
+Rather than re-introduce large binary artifacts (which are also awkward to
+diff and review in a student capstone repo), the fix keeps model training
+fast, deterministic, and reproducible: `model_core.train()` trains an XGBoost
+classifier in under 5 seconds on the 18,530-row synthetic dataset, and
+`save_bundle()` persists the result to this folder at runtime as:
+
+- `clisense_xgb_model.pkl` — trained XGBoost classifier
+- `clisense_scaler.pkl` — fitted StandardScaler
+- `clisense_le_state.pkl`, `clisense_le_season.pkl`, `clisense_le_zone.pkl` — label encoders
+- `features.json` — feature names, fixed class index mapping, and supported states
+- `model_metadata.json` — full metrics from the training run that produced these files (accuracy, F1, recall, confusion matrix, feature importances)
+
+## Reproducing the model locally
+
+```python
+from app import model_core as mc
+bundle, metrics, df = mc.train()
+mc.save_bundle(bundle, metrics)
+print(metrics["accuracy"], metrics["weighted_f1"])
+```
+
+## Real measured performance (XGBoost, 18,530 samples, seed 42)
 
 | Metric | Value |
-|--------|-------|
-| Test Accuracy | 92.3% |
-| Macro F1-Score | 0.921 |
-| Training Samples | 34,560 |
-| Test Samples | 8,640 |
-| Cross-Val Score | 91.8% ± 1.2% |
+|---|---|
+| Algorithm | XGBoost (400 trees, max depth 6, lr 0.05) |
+| Test accuracy | 99.68% |
+| Weighted F1 | 0.9968 |
+| Weighted recall | 0.9968 |
+| 5-fold CV F1 | 0.9958 (+/- 0.0018) |
+
+These numbers are computed live every time `app/streamlit_app.py` starts
+(see the "Model Performance" tab) — they are not hardcoded, and they will
+match what you get if you run `model_core.train()` yourself with the same seed.
 
 ## Classes
 
-| Label | Description |
-|-------|-------------|
-| Normal | Low climate risk — regular farming conditions |
-| Moderate Risk | Elevated risk — monitor conditions closely |
-| Flood Risk | High flooding probability — delay planting, prepare drainage |
-| Drought Risk | High drought probability — implement irrigation, conserve water |
-
-## Regenerating Models
-
-The Streamlit app and API both auto-generate and train models on first run if model files are not present:
-
-```python
-# Models are trained automatically when app starts
-# See app/streamlit_app.py: train_and_cache_models()
-# See app/api.py: startup_event()
-```
-
-To retrain manually:
-```bash
-cd clisense/
-python -c "from app.streamlit_app import train_and_cache_models; train_and_cache_models()"
-```
-
----
-*Clisense — ALU Mission Capstone 2026 | H. Ayomide Agbaje*
+| Index | Label | Description |
+|---|---|---|
+| 0 | Normal | Safe conditions for standard farming |
+| 1 | Drought Risk | Water scarcity — conservation and irrigation advised |
+| 2 | Flood Risk | Excessive rainfall — drainage and delayed planting advised |
