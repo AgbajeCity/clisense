@@ -62,6 +62,16 @@ FEATURE_NAMES = [
 ]
 N_FEATURES = len(FEATURE_NAMES)
 
+# Dry-season (Nov-Mar) and wet-season (Apr-Oct) baseline daily rainfall (mm)
+# per state. Dry-season values are deliberately close to zero -- this is
+# the Sahel/Sudan-Savanna dry season, where weeks can pass with no rain at
+# all. An earlier version of this generator used dry-season baselines of
+# 5-10mm/day, which (accumulated over 30 days) never actually produced a
+# real drought signal -- see BUGFIX_REPORT.md "Known Limitation" for the
+# incident this fixes.
+DRY_BASE = {"Kano": 0.6, "Kaduna": 1.2, "Benue": 2.0, "Niger": 1.0, "Plateau": 1.5}
+WET_BASE = {"Kano": 80.0, "Kaduna": 90.0, "Benue": 120.0, "Niger": 90.0, "Plateau": 85.0}
+
 
 def _season(month) -> str:
     return "wet" if 4 <= month <= 10 else "dry"
@@ -72,7 +82,7 @@ def _label_for(rainfall, rain_7d, rain_30d, humidity) -> str:
     seasonal thresholds. See README 'Testing' and 'Analysis' sections."""
     if rain_7d > 150 and humidity > 80:
         return "Flood Risk"
-    if rainfall < 2 and rain_30d < 20 and humidity < 40:
+    if rainfall < 3 and rain_30d < 25 and humidity < 45:
         return "Drought Risk"
     return "Normal"
 
@@ -87,22 +97,20 @@ def generate_synthetic_dataset(n: int = 18530, seed: int = 42) -> pd.DataFrame:
     rng = np.random.default_rng(seed)
     states = rng.choice(STATES, n)
     months = rng.integers(1, 13, n)
+    is_wet = (months >= 4) & (months <= 10)
 
-    base_rain = np.select(
-        [states == "Kano", states == "Benue"],
-        [
-            np.where((months < 5) | (months > 9), 5, 80),
-            np.where((months < 4) | (months > 10), 20, 120),
-        ],
-        default=np.where((months < 5) | (months > 9), 10, 90),
-    ).astype(float)
+    dry_base = np.array([DRY_BASE[s] for s in states])
+    wet_base = np.array([WET_BASE[s] for s in states])
+    base_rain = np.where(is_wet, wet_base, dry_base)
 
-    rainfall = np.clip(rng.normal(base_rain, base_rain * 0.4 + 1e-6), 0, None)
+    rainfall = np.clip(rng.normal(base_rain, base_rain * 0.5 + 0.3), 0, None)
     temp = rng.normal(28 + (months - 6) * 0.3, 3)
-    humidity = np.clip(rng.normal(60 + rainfall * 0.2, 10), 20, 99)
+    rain_7d = np.clip(rainfall * 7 + rng.normal(0, np.where(is_wet, 20, 5)), 0, None)
+    rain_30d = np.clip(rainfall * 30 + rng.normal(0, np.where(is_wet, 60, 12)), 0, None)
+    humidity = np.clip(
+        30 + np.minimum(rain_30d, 300) / 300 * 55 + rng.normal(0, 7, n), 15, 99
+    )
     wind = np.clip(rng.normal(8, 3), 0, None)
-    rain_7d = np.clip(rainfall * 7 + rng.normal(0, 20, n), 0, None)
-    rain_30d = np.clip(rainfall * 30 + rng.normal(0, 80, n), 0, None)
     dry_spell = np.clip(30 - rain_30d / 10, 0, 30)
     temp_anomaly = rng.normal(0, 1.0, n)
 
