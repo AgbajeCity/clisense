@@ -10,6 +10,17 @@ Streamlit app and the API each used to keep their own copy of the feature
 pipeline and had drifted apart (different dataset sizes, different feature
 counts, different label encodings). See BUGFIX_REPORT.md for the incident
 this module was built to permanently resolve.
+
+Performance note (found during live deployment testing, see README
+'Testing' / 'Analysis' sections): running a full 5-fold StratifiedKFold
+cross_val_score on top of the main train/test fit means 6 total XGBoost
+fits per cold start. On a full workstation or Colab this is fine (~15-20s
+total), but on Streamlit Community Cloud's constrained free-tier CPU it
+pushed a single cold start past 3-4 minutes, which is an unacceptable
+user-facing wait. train() therefore takes a run_cv flag: the deployed apps
+call train(run_cv=False) for a fast single-fit cold start, while the
+notebook calls train(run_cv=True) to reproduce the full cross-validated
+evaluation reported in the README and models/README.md.
 """
 
 from __future__ import annotations
@@ -48,9 +59,6 @@ ZONE_MAP = {
     "Plateau": "Jos Plateau Highland",
 }
 
-# Fixed label encoding. Deliberately NOT sklearn's alphabetical LabelEncoder
-# default (which would give Drought=0, Flood=1, Normal=2) because the test
-# suite and the API both depend on this exact mapping.
 LABEL_CLASSES = ["Normal", "Drought Risk", "Flood Risk"]
 LABEL_TO_IDX = {name: i for i, name in enumerate(LABEL_CLASSES)}
 
@@ -62,13 +70,6 @@ FEATURE_NAMES = [
 ]
 N_FEATURES = len(FEATURE_NAMES)
 
-# Dry-season (Nov-Mar) and wet-season (Apr-Oct) baseline daily rainfall (mm)
-# per state. Dry-season values are deliberately close to zero -- this is
-# the Sahel/Sudan-Savanna dry season, where weeks can pass with no rain at
-# all. An earlier version of this generator used dry-season baselines of
-# 5-10mm/day, which (accumulated over 30 days) never actually produced a
-# real drought signal -- see BUGFIX_REPORT.md "Known Limitation" for the
-# incident this fixes.
 DRY_BASE = {"Kano": 0.6, "Kaduna": 1.2, "Benue": 2.0, "Niger": 1.0, "Plateau": 1.5}
 WET_BASE = {"Kano": 80.0, "Kaduna": 90.0, "Benue": 120.0, "Niger": 90.0, "Plateau": 85.0}
 
@@ -78,8 +79,6 @@ def _season(month) -> str:
 
 
 def _label_for(rainfall, rain_7d, rain_30d, humidity) -> str:
-    """Rule-based ground truth threat label, grounded in NIMET-style
-    seasonal thresholds. See README 'Testing' and 'Analysis' sections."""
     if rain_7d > 150 and humidity > 80:
         return "Flood Risk"
     if rainfall < 3 and rain_30d < 25 and humidity < 45:
@@ -88,12 +87,6 @@ def _label_for(rainfall, rain_7d, rain_30d, humidity) -> str:
 
 
 def generate_synthetic_dataset(n: int = 18530, seed: int = 42) -> pd.DataFrame:
-    """Generate the Clisense synthetic climate dataset.
-
-    Honesty disclosure: this dataset is generated from climatological
-    normals for the five covered states rather than pulled live from a
-    sensor/satellite feed. See README 'Limitations'.
-    """
     rng = np.random.default_rng(seed)
     states = rng.choice(STATES, n)
     months = rng.integers(1, 13, n)
@@ -183,7 +176,32 @@ def engineer_single(state, month, rainfall_mm, temp_c, humidity_pct, rain_7d,
     return feat
 
 
-def train(df: "pd.DataFrame | None" = None, seed: int = 42):
+def _make_model(seed: int):
+    if _HAS_XGBOOST:
+        model = XGBClassifier(
+            n_estimators=400, max_depth=6, learning_rate=0.05,
+            subsample=0.9, colsample_bytree=0.9,
+            reg_alpha=0.1, reg_lambda=1.0,
+            objective="multi:softprob", num_class=3,
+            eval_metric="mlogloss", random_state=seed,
+        )
+        algo_name = "XGBoost"
+    else:  # pragma: no cover
+        model = GradientBoostingClassifier(n_estimators=400, max_depth=3, random_state=seed)
+        algo_name = "GradientBoostingClassifier (XGBoost unavailable in this environment)"
+    return model, algo_name
+
+
+def train(df: "pd.DataFrame | None" = None, seed: int = 42, run_cv: bool = True):
+    """Train the model on the full dataset.
+
+    run_cv=True (used by the notebook) additionally runs a 5-fold
+    StratifiedKFold cross_val_score for a more rigorous, publishable
+    accuracy estimate. run_cv=False (used by load_or_train() for both
+    live deployments) skips this and only fits once, which is what makes
+    a Streamlit Community Cloud / Railway cold start take ~15-30s instead
+    of several minutes -- see module docstring.
+    """
     if df is None:
         df = generate_synthetic_dataset(seed=seed)
 
@@ -201,26 +219,20 @@ def train(df: "pd.DataFrame | None" = None, seed: int = 42):
         X_s, y, test_size=0.2, random_state=seed, stratify=y
     )
 
-    if _HAS_XGBOOST:
-        model = XGBClassifier(
-            n_estimators=400, max_depth=6, learning_rate=0.05,
-            subsample=0.9, colsample_bytree=0.9,
-            reg_alpha=0.1, reg_lambda=1.0,
-            objective="multi:softprob", num_class=3,
-            eval_metric="mlogloss", random_state=seed,
-        )
-        algo_name = "XGBoost"
-    else:  # pragma: no cover
-        model = GradientBoostingClassifier(n_estimators=400, max_depth=3, random_state=seed)
-        algo_name = "GradientBoostingClassifier (XGBoost unavailable in this environment)"
-
+    model, algo_name = _make_model(seed)
     model.fit(X_train, y_train)
     y_pred = model.predict(X_test)
 
-    cv_scores = cross_val_score(
-        model, X_s, y, cv=StratifiedKFold(5, shuffle=True, random_state=seed),
-        scoring="f1_weighted",
-    )
+    if run_cv:
+        cv_scores = cross_val_score(
+            model, X_s, y, cv=StratifiedKFold(5, shuffle=True, random_state=seed),
+            scoring="f1_weighted",
+        )
+        cv_f1_mean = float(cv_scores.mean())
+        cv_f1_std = float(cv_scores.std())
+    else:
+        cv_f1_mean = None
+        cv_f1_std = None
 
     cm = confusion_matrix(y_test, y_pred)
     report = classification_report(y_test, y_pred, target_names=LABEL_CLASSES, output_dict=True)
@@ -239,8 +251,8 @@ def train(df: "pd.DataFrame | None" = None, seed: int = 42):
         "weighted_f1": float(f1_score(y_test, y_pred, average="weighted")),
         "weighted_recall": float(recall_score(y_test, y_pred, average="weighted")),
         "weighted_precision": float(precision_score(y_test, y_pred, average="weighted")),
-        "cv_f1_mean": float(cv_scores.mean()),
-        "cv_f1_std": float(cv_scores.std()),
+        "cv_f1_mean": cv_f1_mean,
+        "cv_f1_std": cv_f1_std,
         "confusion_matrix": cm.tolist(),
         "classification_report": report,
         "feature_importances": dict(zip(FEATURE_NAMES, importances)),
@@ -287,10 +299,12 @@ def load_bundle() -> "ModelBundle | None":
 
 
 def load_or_train() -> ModelBundle:
+    """Fast path used by both live deployments: single fit, no
+    cross-validation (see train() docstring for why)."""
     bundle = load_bundle()
     if bundle is not None:
         return bundle
-    bundle, metrics, _ = train()
+    bundle, metrics, _ = train(run_cv=False)
     save_bundle(bundle, metrics)
     return bundle
 
