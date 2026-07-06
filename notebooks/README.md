@@ -1,29 +1,30 @@
 # notebooks/
 
-This directory contains Jupyter notebooks for the Clisense ML pipeline.
+- `Clisense_ML_Notebook.ipynb` — the real, runnable notebook: data generation,
+  EDA, feature engineering explanation, XGBoost training, and evaluation
+  (confusion matrix, feature importance). Every code cell calls the exact same
+  `app/model_core.py` functions used by the deployed Streamlit app and FastAPI
+  backend, so there is no separate "notebook model" that could drift from what
+  is actually live. Open it directly on GitHub to read it rendered, or run it
+  locally / in Colab.
 
-## Contents
-
-- `Clisense_EDA_and_Feature_Engineering.ipynb` — Exploratory data analysis, feature engineering, and visualisation of Nigeria climate dataset
-- `Clisense_ML_Notebook_executed.ipynb` — Model training, evaluation, and selection (GradientBoostingClassifier, XGBoost, RandomForest). Contains executed outputs including accuracy metrics, confusion matrix, and feature importance plots.
-
-## Model Performance Summary
-
-| Model | Accuracy | F1-Score |
-|-------|----------|----------|
-| Gradient Boosting | 92.3% | 0.921 |
-| XGBoost | 91.8% | 0.916 |
-| Random Forest | 89.4% | 0.891 |
-
-## How to Run
+## Running it
 
 ```bash
-cd clisense/
 pip install -r requirements.txt
-jupyter notebook notebooks/
+jupyter notebook notebooks/Clisense_ML_Notebook.ipynb
 ```
 
-*Note: Notebooks require the dataset in data/ directory. Run data/generate_nigeria_climate_data.py first if data files are not present.*
+Or in Google Colab:
 
----
-*Clisense — ALU Mission Capstone 2026 | H. Ayomide Agbaje*
+```python
+!git clone https://github.com/AgbajeCity/clisense.git
+%cd clisense
+!pip install -q -r requirements.txt
+```
+
+then open `notebooks/Clisense_ML_Notebook.ipynb` from the Colab file browser.
+
+Running all cells reproduces the real, measured results reported in the main
+README and in `models/README.md`: XGBoost, 99.68% test accuracy, weighted F1
+0.9968, 5-fold CV F1 0.9958.
