@@ -1,0 +1,1502 @@
+state,month,season,zone,rainfall_mm,temp_c,humidity_pct,wind_speed_kmh,rain_7d,rain_30d,rain_anomaly,dry_spell_days,temp_anomaly,threat_label
+Benue,1,dry,Southern Guinea Savanna,0.66,26.4,26.31,4.04,2.75,16.69,0.11,28.3,0.56,Drought Risk
+Benue,1,dry,Southern Guinea Savanna,2.78,24.28,45.19,4.04,28.92,109.82,-0.88,19.0,-0.61,Normal
+Benue,1,dry,Southern Guinea Savanna,1.98,28.21,34.76,4.04,20.57,66.5,-0.23,23.4,1.17,Normal
+Benue,1,dry,Southern Guinea Savanna,2.02,27.4,45.05,4.04,21.38,67.75,-0.24,23.2,-0.65,Normal
+Benue,1,dry,Southern Guinea Savanna,1.52,26.99,46.48,4.04,14.71,59.36,-0.46,24.1,0.72,Normal
+Benue,1,dry,Southern Guinea Savanna,1.14,25.09,26.05,4.04,7.06,22.64,0.39,27.7,2.12,Drought Risk
+Benue,1,dry,Southern Guinea Savanna,2.58,24.57,41.19,4.04,28.55,71.23,0.21,22.9,1.89,Normal
+Benue,1,dry,Southern Guinea Savanna,0.84,29.09,27.12,4.04,10.78,17.06,0.27,28.3,-0.65,Drought Risk
+Benue,1,dry,Southern Guinea Savanna,0.76,27.57,24.46,4.04,7.76,27.58,-0.16,27.2,-0.55,Normal
+Benue,1,dry,Southern Guinea Savanna,1.75,23.99,37.28,4.04,21.53,50.99,0.05,24.9,-0.02,Normal
+Benue,1,dry,Southern Guinea Savanna,0.65,27.36,41.95,4.04,14.62,30.94,-0.38,26.9,-0.26,Normal
+Benue,1,dry,Southern Guinea Savanna,3.05,27.13,58.46,4.04,23.52,99.83,-0.28,20.0,0.26,Normal
+Benue,1,dry,Southern Guinea Savanna,2.02,24.82,32.79,4.04,18.92,57.45,0.11,24.3,-1.13,Normal
+Benue,1,dry,Southern Guinea Savanna,1.21,23.87,35.19,4.04,5.28,38.83,-0.08,26.1,-0.13,Normal
+Benue,1,dry,Southern Guinea Savanna,2.54,22.74,47.86,4.04,19.13,82.25,-0.2,21.8,-1.06,Normal
+Benue,1,dry,Southern Guinea Savanna,1.83,27.02,39.28,4.04,20.42,69.06,-0.47,23.1,0.38,Normal
+Benue,1,dry,Southern Guinea Savanna,1.23,31.9,40.07,4.04,8.13,51.26,-0.48,24.9,0.11,Normal
+Benue,2,dry,Southern Guinea Savanna,2.6,26.93,47.14,4.04,26.4,76.03,0.07,22.4,-0.29,Normal
+Benue,2,dry,Southern Guinea Savanna,2.38,28.42,52.19,4.04,9.97,73.48,-0.07,22.7,0.15,Normal
+Benue,2,dry,Southern Guinea Savanna,2.43,27.45,47.81,4.04,21.92,85.16,-0.41,21.5,1.31,Normal
+Benue,2,dry,Southern Guinea Savanna,1.67,21.19,25.08,4.04,7.77,37.43,0.43,26.3,-1.8,Normal
+Benue,2,dry,Southern Guinea Savanna,0.88,22.88,42.52,4.04,3.31,15.48,0.36,28.5,-0.56,Drought Risk
+Benue,2,dry,Southern Guinea Savanna,2.53,29.4,36.11,4.04,26.94,100.44,-0.82,20.0,0.89,Normal
+Benue,2,dry,Southern Guinea Savanna,1.97,29.1,49.64,4.04,6.23,54.99,0.14,24.5,-0.59,Normal
+Benue,2,dry,Southern Guinea Savanna,2.44,27.38,32.37,4.04,8.69,55.6,0.59,24.4,1.79,Normal
+Benue,2,dry,Southern Guinea Savanna,2.56,27.11,50.85,4.04,12.6,88.12,-0.37,21.2,-0.36,Normal
+Benue,2,dry,Southern Guinea Savanna,2.82,31.0,39.33,4.04,24.67,73.84,0.36,22.6,-1.33,Normal
+Benue,2,dry,Southern Guinea Savanna,4.4,30.83,64.4,4.04,29.85,116.64,0.51,18.3,0.57,Normal
+Benue,2,dry,Southern Guinea Savanna,2.63,25.76,39.32,4.04,20.2,78.99,0.0,22.1,0.31,Normal
+Benue,2,dry,Southern Guinea Savanna,1.35,28.95,45.4,4.04,4.08,34.94,0.18,26.5,-1.46,Normal
+Benue,2,dry,Southern Guinea Savanna,3.8,28.29,53.34,4.04,25.52,108.48,0.19,19.2,1.07,Normal
+Benue,2,dry,Southern Guinea Savanna,2.19,26.08,45.9,4.04,17.68,83.59,-0.6,21.6,-0.1,Normal
+Benue,2,dry,Southern Guinea Savanna,3.27,23.2,47.5,4.04,31.0,110.98,-0.43,18.9,-0.04,Normal
+Benue,2,dry,Southern Guinea Savanna,2.58,24.59,52.75,4.04,21.58,94.56,-0.58,20.5,-1.32,Normal
+Benue,2,dry,Southern Guinea Savanna,3.41,24.05,47.17,4.04,18.42,96.44,0.2,20.4,-1.33,Normal
+Benue,2,dry,Southern Guinea Savanna,1.1,26.65,39.32,4.04,1.3,50.47,-0.58,25.0,2.56,Normal
+Benue,2,dry,Southern Guinea Savanna,1.57,26.39,38.31,4.04,17.25,65.21,-0.61,23.5,0.52,Normal
+Benue,2,dry,Southern Guinea Savanna,3.09,26.85,50.42,4.04,27.14,85.48,0.24,21.5,-0.52,Normal
+Benue,2,dry,Southern Guinea Savanna,5.13,30.77,48.81,4.04,36.01,131.7,0.74,16.8,-0.03,Normal
+Benue,2,dry,Southern Guinea Savanna,2.11,24.18,48.47,4.04,30.81,44.76,0.62,25.5,0.28,Normal
+Benue,2,dry,Southern Guinea Savanna,2.85,24.59,53.71,4.04,19.6,61.5,0.8,23.8,-0.04,Normal
+Benue,2,dry,Southern Guinea Savanna,2.11,25.87,41.9,4.04,13.21,64.11,-0.03,23.6,-0.52,Normal
+Benue,2,dry,Southern Guinea Savanna,3.13,30.7,52.55,4.04,23.85,87.98,0.2,21.2,0.21,Normal
+Benue,2,dry,Southern Guinea Savanna,0.12,27.62,17.62,4.04,0.0,0.0,0.12,30.0,-1.39,Drought Risk
+Benue,2,dry,Southern Guinea Savanna,0.28,30.41,28.79,4.04,9.47,24.82,-0.54,27.5,-0.97,Drought Risk
+Benue,2,dry,Southern Guinea Savanna,1.7,23.27,40.94,4.04,15.29,62.48,-0.38,23.8,1.04,Normal
+Benue,2,dry,Southern Guinea Savanna,0.56,25.76,41.31,4.04,8.17,0.36,0.54,30.0,1.16,Drought Risk
+Benue,2,dry,Southern Guinea Savanna,3.46,28.45,61.71,4.04,26.16,132.32,-0.95,16.8,0.61,Normal
+Benue,2,dry,Southern Guinea Savanna,0.0,28.64,31.52,4.04,2.18,0.0,0.0,30.0,0.76,Drought Risk
+Benue,2,dry,Southern Guinea Savanna,2.74,29.03,47.58,4.04,20.48,71.01,0.38,22.9,0.48,Normal
+Benue,2,dry,Southern Guinea Savanna,3.28,23.83,55.61,4.04,31.47,104.78,-0.21,19.5,-1.1,Normal
+Benue,2,dry,Southern Guinea Savanna,2.04,26.75,43.91,4.04,14.95,54.67,0.22,24.5,1.43,Normal
+Benue,2,dry,Southern Guinea Savanna,0.0,21.4,31.53,4.04,0.0,0.0,0.0,30.0,-0.74,Drought Risk
+Benue,3,dry,Southern Guinea Savanna,4.0,23.94,67.1,4.04,27.0,130.87,-0.37,16.9,-0.95,Normal
+Benue,3,dry,Southern Guinea Savanna,0.0,28.81,34.66,4.04,0.0,0.0,0.0,30.0,-0.96,Drought Risk
+Benue,3,dry,Southern Guinea Savanna,1.85,24.76,32.61,4.04,20.21,51.83,0.12,24.8,-0.91,Normal
+Benue,3,dry,Southern Guinea Savanna,1.71,24.82,29.63,4.04,9.38,37.14,0.48,26.3,1.22,Normal
+Benue,3,dry,Southern Guinea Savanna,1.44,22.79,45.22,4.04,20.82,42.43,0.02,25.8,-1.19,Normal
+Benue,3,dry,Southern Guinea Savanna,1.32,25.37,36.36,4.04,12.27,45.05,-0.18,25.5,-1.19,Normal
+Benue,3,dry,Southern Guinea Savanna,1.58,31.75,40.01,4.04,13.94,46.67,0.02,25.3,-1.16,Normal
+Benue,3,dry,Southern Guinea Savanna,1.65,28.29,49.69,4.04,13.87,45.37,0.14,25.5,1.45,Normal
+Benue,3,dry,Southern Guinea Savanna,0.62,28.72,43.34,4.04,2.17,25.41,-0.22,27.5,-0.1,Normal
+Benue,3,dry,Southern Guinea Savanna,0.0,22.38,37.07,4.04,1.02,0.0,0.0,30.0,0.43,Drought Risk
+Benue,3,dry,Southern Guinea Savanna,0.81,29.14,19.49,4.04,0.0,11.51,0.42,28.8,-1.75,Drought Risk
+Benue,3,dry,Southern Guinea Savanna,2.87,29.5,47.42,4.04,13.66,54.64,1.05,24.5,-1.58,Normal
+Benue,3,dry,Southern Guinea Savanna,3.19,28.89,44.0,4.04,28.58,117.36,-0.72,18.3,-0.59,Normal
+Benue,3,dry,Southern Guinea Savanna,1.65,31.01,43.94,4.04,3.39,56.63,-0.24,24.3,2.4,Normal
+Benue,3,dry,Southern Guinea Savanna,2.16,18.91,36.58,4.04,10.72,48.98,0.53,25.1,0.6,Normal
+Benue,3,dry,Southern Guinea Savanna,1.25,28.77,25.84,4.04,10.58,41.04,-0.12,25.9,-0.47,Normal
+Benue,3,dry,Southern Guinea Savanna,3.84,21.5,50.94,4.04,27.68,129.03,-0.46,17.1,0.69,Normal
+Benue,3,dry,Southern Guinea Savanna,1.45,27.61,40.05,4.04,11.85,48.53,-0.16,25.1,1.02,Normal
+Benue,3,dry,Southern Guinea Savanna,3.23,27.93,45.78,4.04,26.0,99.09,-0.07,20.1,-0.52,Normal
+Benue,3,dry,Southern Guinea Savanna,1.03,27.03,40.86,4.04,18.68,54.04,-0.78,24.6,-0.05,Normal
+Benue,3,dry,Southern Guinea Savanna,2.66,24.69,40.91,4.04,20.1,80.95,-0.03,21.9,-0.87,Normal
+Benue,3,dry,Southern Guinea Savanna,1.62,24.7,28.78,4.04,16.77,33.95,0.49,26.6,2.01,Normal
+Benue,3,dry,Southern Guinea Savanna,0.54,26.95,33.88,4.04,0.93,27.11,-0.36,27.3,1.44,Normal
+Benue,3,dry,Southern Guinea Savanna,4.91,27.74,55.21,4.04,34.25,157.37,-0.34,14.3,-0.16,Normal
+Benue,3,dry,Southern Guinea Savanna,2.58,29.88,48.16,4.04,19.18,78.42,-0.04,22.2,0.45,Normal
+Benue,3,dry,Southern Guinea Savanna,2.09,31.98,36.12,4.04,10.96,62.17,0.02,23.8,0.44,Normal
+Benue,3,dry,Southern Guinea Savanna,1.1,25.41,49.7,4.04,0.0,28.36,0.16,27.2,-1.25,Normal
+Benue,3,dry,Southern Guinea Savanna,4.04,30.06,64.1,4.04,28.7,134.24,-0.43,16.6,-1.24,Normal
+Benue,3,dry,Southern Guinea Savanna,1.46,29.11,55.61,4.04,14.82,41.93,0.07,25.8,-0.59,Normal
+Benue,4,wet,Southern Guinea Savanna,207.71,26.04,91.75,4.04,1429.71,6350.67,-3.98,0.0,-0.48,Flood Risk
+Benue,4,wet,Southern Guinea Savanna,127.35,31.87,99.0,4.04,926.85,3957.64,-4.57,0.0,0.2,Flood Risk
+Benue,4,wet,Southern Guinea Savanna,109.72,26.79,85.31,4.04,779.87,3446.9,-5.17,0.0,-0.52,Flood Risk
+Benue,4,wet,Southern Guinea Savanna,314.53,27.97,83.52,4.04,2230.98,9425.31,0.35,0.0,-1.41,Flood Risk
+Benue,4,wet,Southern Guinea Savanna,240.17,31.94,92.74,4.04,1679.95,7173.8,1.04,0.0,0.33,Flood Risk
+Benue,4,wet,Southern Guinea Savanna,181.58,23.65,83.01,4.04,1276.58,5500.4,-1.77,0.0,-1.15,Flood Risk
+Benue,4,wet,Southern Guinea Savanna,92.17,33.92,80.46,4.04,642.91,2766.9,-0.06,0.0,-0.4,Flood Risk
+Benue,4,wet,Southern Guinea Savanna,173.42,30.6,86.45,4.04,1205.96,5198.63,0.13,0.0,0.64,Flood Risk
+Benue,4,wet,Southern Guinea Savanna,30.18,23.48,80.14,4.04,213.82,910.36,-0.16,0.0,0.55,Flood Risk
+Benue,4,wet,Southern Guinea Savanna,4.94,22.46,43.64,4.04,15.79,72.29,2.53,22.8,0.97,Normal
+Benue,4,wet,Southern Guinea Savanna,48.46,29.76,73.8,4.04,348.51,1500.27,-1.54,0.0,-0.35,Normal
+Benue,4,wet,Southern Guinea Savanna,103.4,21.57,83.66,4.04,718.03,3084.62,0.58,0.0,1.25,Flood Risk
+Benue,4,wet,Southern Guinea Savanna,105.14,29.97,91.97,4.04,761.14,3098.68,1.86,0.0,0.46,Flood Risk
+Benue,4,wet,Southern Guinea Savanna,94.53,27.35,85.54,4.04,656.14,2834.12,0.06,0.0,-0.4,Flood Risk
+Benue,4,wet,Southern Guinea Savanna,184.43,30.2,83.4,4.04,1243.02,5493.31,1.32,0.0,0.01,Flood Risk
+Benue,4,wet,Southern Guinea Savanna,81.78,27.65,83.44,4.04,594.18,2464.32,-0.36,0.0,0.02,Flood Risk
+Benue,4,wet,Southern Guinea Savanna,99.57,25.49,71.46,4.04,663.32,2921.78,2.17,0.0,0.23,Normal
+Benue,4,wet,Southern Guinea Savanna,40.63,25.01,92.59,4.04,296.29,1267.38,-1.61,0.0,0.2,Flood Risk
+Benue,4,wet,Southern Guinea Savanna,122.92,28.78,90.58,4.04,826.6,3628.6,1.97,0.0,0.71,Flood Risk
+Benue,4,wet,Southern Guinea Savanna,72.18,23.89,84.28,4.04,493.87,2136.41,0.96,0.0,1.13,Flood Risk
+Benue,4,wet,Southern Guinea Savanna,58.15,36.12,78.14,4.04,432.43,1749.28,-0.16,0.0,-0.7,Normal
+Benue,4,wet,Southern Guinea Savanna,137.6,26.34,89.79,4.04,961.54,4090.12,1.26,0.0,-0.38,Flood Risk
+Benue,4,wet,Southern Guinea Savanna,166.64,31.65,73.99,4.04,1151.01,5019.15,-0.67,0.0,-1.25,Normal
+Benue,4,wet,Southern Guinea Savanna,145.88,34.05,92.77,4.04,1021.99,4496.33,-4.0,0.0,0.36,Flood Risk
+Benue,4,wet,Southern Guinea Savanna,156.0,28.79,80.71,4.04,1066.25,4703.77,-0.8,0.0,-0.68,Flood Risk
+Benue,4,wet,Southern Guinea Savanna,42.8,30.66,85.55,4.04,292.38,1207.33,2.55,0.0,-1.72,Flood Risk
+Benue,4,wet,Southern Guinea Savanna,204.17,27.78,78.76,4.04,1408.8,6062.7,2.08,0.0,1.04,Normal
+Benue,4,wet,Southern Guinea Savanna,123.62,28.03,89.97,4.04,861.82,3670.8,1.26,0.0,0.4,Flood Risk
+Benue,4,wet,Southern Guinea Savanna,123.2,27.98,76.36,4.04,850.63,3703.47,-0.25,0.0,2.15,Normal
+Benue,4,wet,Southern Guinea Savanna,23.57,27.29,69.36,4.04,181.58,597.29,3.66,0.0,-1.28,Normal
+Benue,4,wet,Southern Guinea Savanna,126.24,27.59,88.05,4.04,881.57,3812.53,-0.85,0.0,-0.22,Flood Risk
+Benue,4,wet,Southern Guinea Savanna,141.75,28.11,89.24,4.04,1038.53,4243.57,0.3,0.0,0.82,Flood Risk
+Benue,5,wet,Southern Guinea Savanna,233.72,27.5,75.74,4.04,1652.03,6953.25,1.94,0.0,-0.04,Normal
+Benue,5,wet,Southern Guinea Savanna,48.15,25.13,86.46,4.04,318.6,1431.29,0.44,0.0,-1.07,Flood Risk
+Benue,5,wet,Southern Guinea Savanna,122.15,26.32,70.95,4.04,852.09,3539.42,4.17,0.0,1.1,Normal
+Benue,5,wet,Southern Guinea Savanna,29.32,30.23,81.9,4.04,223.56,924.13,-1.48,0.0,-0.17,Flood Risk
+Benue,5,wet,Southern Guinea Savanna,139.08,28.85,83.71,4.04,966.82,4184.26,-0.39,0.0,1.06,Flood Risk
+Benue,5,wet,Southern Guinea Savanna,110.52,28.74,77.33,4.04,760.07,3277.49,1.27,0.0,-0.48,Normal
+Benue,5,wet,Southern Guinea Savanna,93.94,27.62,90.34,4.04,684.18,2856.85,-1.28,0.0,-0.04,Flood Risk
+Benue,5,wet,Southern Guinea Savanna,114.2,33.26,84.48,4.04,817.3,3462.67,-1.22,0.0,-0.42,Flood Risk
+Benue,5,wet,Southern Guinea Savanna,199.0,25.44,89.88,4.04,1449.55,6089.96,-4.0,0.0,-0.25,Flood Risk
+Benue,5,wet,Southern Guinea Savanna,94.69,25.63,81.73,4.04,632.13,2857.89,-0.57,0.0,1.34,Flood Risk
+Benue,5,wet,Southern Guinea Savanna,197.95,27.8,79.56,4.04,1367.08,5932.97,0.19,0.0,-0.38,Normal
+Benue,5,wet,Southern Guinea Savanna,93.49,23.21,78.4,4.04,639.37,2833.16,-0.95,0.0,-2.11,Normal
+Benue,5,wet,Southern Guinea Savanna,108.56,23.05,85.2,4.04,772.53,3205.38,1.72,0.0,0.98,Flood Risk
+Benue,5,wet,Southern Guinea Savanna,159.64,29.51,83.55,4.04,1099.82,4712.04,2.57,0.0,0.16,Flood Risk
+Benue,5,wet,Southern Guinea Savanna,68.0,29.17,87.34,4.04,490.79,2109.97,-2.34,0.0,0.06,Flood Risk
+Benue,5,wet,Southern Guinea Savanna,150.65,29.16,82.98,4.04,1078.88,4527.59,-0.27,0.0,0.79,Flood Risk
+Benue,5,wet,Southern Guinea Savanna,25.64,29.81,88.95,4.04,178.01,794.86,-0.86,0.0,-0.22,Flood Risk
+Benue,5,wet,Southern Guinea Savanna,111.02,25.97,89.4,4.04,786.66,3322.05,0.29,0.0,-0.24,Flood Risk
+Benue,5,wet,Southern Guinea Savanna,124.1,28.27,91.48,4.04,811.6,3717.19,0.2,0.0,0.79,Flood Risk
+Benue,5,wet,Southern Guinea Savanna,72.93,25.3,82.09,4.04,497.0,2246.37,-1.95,0.0,-1.69,Flood Risk
+Benue,5,wet,Southern Guinea Savanna,142.96,24.17,78.32,4.04,993.55,4199.65,2.97,0.0,0.87,Normal
+Benue,5,wet,Southern Guinea Savanna,176.12,25.41,89.34,4.04,1201.89,5343.03,-1.98,0.0,0.17,Flood Risk
+Benue,5,wet,Southern Guinea Savanna,65.81,27.34,85.57,4.04,449.98,1953.52,0.69,0.0,-0.9,Flood Risk
+Benue,5,wet,Southern Guinea Savanna,141.62,22.86,86.99,4.04,985.14,4340.85,-3.07,0.0,-0.59,Flood Risk
+Benue,5,wet,Southern Guinea Savanna,46.49,25.15,80.18,4.04,326.38,1416.51,-0.73,0.0,-0.73,Flood Risk
+Benue,5,wet,Southern Guinea Savanna,140.38,29.24,74.89,4.04,965.15,4231.39,-0.67,0.0,-0.22,Normal
+Benue,5,wet,Southern Guinea Savanna,169.4,25.74,81.6,4.04,1197.9,5128.54,-1.55,0.0,-0.05,Flood Risk
+Benue,5,wet,Southern Guinea Savanna,90.68,30.41,75.29,4.04,642.76,2667.39,1.77,0.0,-1.54,Normal
+Benue,5,wet,Southern Guinea Savanna,134.23,26.07,97.3,4.04,929.4,4102.19,-2.5,0.0,0.74,Flood Risk
+Benue,5,wet,Southern Guinea Savanna,88.68,26.05,85.35,4.04,616.45,2633.69,0.89,0.0,-0.11,Flood Risk
+Benue,5,wet,Southern Guinea Savanna,178.59,28.7,85.95,4.04,1256.86,5300.73,1.9,0.0,-0.26,Flood Risk
+Benue,6,wet,Southern Guinea Savanna,153.03,25.35,86.83,4.04,1068.03,4488.33,3.42,0.0,-0.36,Flood Risk
+Benue,6,wet,Southern Guinea Savanna,105.48,27.62,80.31,4.04,753.11,3161.54,0.1,0.0,1.75,Flood Risk
+Benue,6,wet,Southern Guinea Savanna,231.54,30.12,78.74,4.04,1648.83,6933.84,0.41,0.0,-0.34,Normal
+Benue,6,wet,Southern Guinea Savanna,107.34,24.98,75.23,4.04,740.74,3237.8,-0.59,0.0,-0.33,Normal
+Benue,6,wet,Southern Guinea Savanna,113.3,28.8,82.2,4.04,808.53,3439.7,-1.36,0.0,-0.39,Flood Risk
+Benue,6,wet,Southern Guinea Savanna,179.82,30.82,87.23,4.04,1237.04,5382.67,0.39,0.0,0.78,Flood Risk
+Benue,6,wet,Southern Guinea Savanna,121.73,30.16,78.92,4.04,858.3,3694.25,-1.41,0.0,-0.61,Normal
+Benue,6,wet,Southern Guinea Savanna,204.91,24.35,90.39,4.04,1446.94,6101.68,1.52,0.0,-0.29,Flood Risk
+Benue,6,wet,Southern Guinea Savanna,123.48,24.25,92.61,4.04,861.3,3796.94,-3.08,0.0,-0.54,Flood Risk
+Benue,6,wet,Southern Guinea Savanna,126.29,26.05,75.98,4.04,889.24,3716.77,2.4,0.0,-0.54,Normal
+Benue,6,wet,Southern Guinea Savanna,166.05,29.97,75.78,4.04,1146.96,4956.15,0.85,0.0,-2.27,Normal
+Benue,6,wet,Southern Guinea Savanna,162.65,26.1,84.55,4.04,1159.31,4865.48,0.47,0.0,-2.49,Flood Risk
+Benue,6,wet,Southern Guinea Savanna,32.6,31.09,88.55,4.04,220.55,1012.78,-1.16,0.0,-0.32,Flood Risk
+Benue,6,wet,Southern Guinea Savanna,125.75,29.73,89.75,4.04,887.37,3835.2,-2.09,0.0,1.08,Flood Risk
+Benue,6,wet,Southern Guinea Savanna,63.76,28.63,93.97,4.04,472.16,1796.3,3.89,0.0,0.01,Flood Risk
+Benue,6,wet,Southern Guinea Savanna,164.76,27.84,71.77,4.04,1194.24,4838.71,3.47,0.0,0.26,Normal
+Benue,6,wet,Southern Guinea Savanna,52.34,30.4,80.63,4.04,345.04,1591.77,-0.72,0.0,0.04,Flood Risk
+Benue,6,wet,Southern Guinea Savanna,134.45,31.4,83.91,4.04,922.92,4102.91,-2.32,0.0,-1.8,Flood Risk
+Benue,6,wet,Southern Guinea Savanna,188.16,30.91,84.99,4.04,1328.93,5628.08,0.56,0.0,-1.15,Flood Risk
+Benue,6,wet,Southern Guinea Savanna,116.06,37.24,87.7,4.04,818.01,3489.31,-0.25,0.0,0.91,Flood Risk
+Benue,6,wet,Southern Guinea Savanna,118.89,26.51,73.45,4.04,824.55,3535.96,1.02,0.0,1.47,Normal
+Benue,6,wet,Southern Guinea Savanna,51.71,27.4,85.61,4.04,338.87,1575.84,-0.82,0.0,-0.57,Flood Risk
+Benue,6,wet,Southern Guinea Savanna,153.4,27.39,77.24,4.04,1071.17,4709.32,-3.58,0.0,-0.24,Normal
+Benue,6,wet,Southern Guinea Savanna,114.92,30.37,75.57,4.04,786.63,3451.82,-0.14,0.0,0.75,Normal
+Benue,6,wet,Southern Guinea Savanna,294.3,27.87,87.61,4.04,2068.43,8830.12,-0.04,0.0,-2.14,Flood Risk
+Benue,7,wet,Southern Guinea Savanna,148.93,25.55,82.32,4.04,1044.24,4399.68,2.28,0.0,0.71,Flood Risk
+Benue,7,wet,Southern Guinea Savanna,25.77,26.08,79.05,4.04,158.92,715.07,1.93,0.0,-0.73,Normal
+Benue,7,wet,Southern Guinea Savanna,234.94,30.56,73.13,4.04,1669.06,7052.47,-0.15,0.0,1.26,Normal
+Benue,7,wet,Southern Guinea Savanna,125.08,25.27,85.66,4.04,882.99,3695.53,1.9,0.0,0.63,Flood Risk
+Benue,7,wet,Southern Guinea Savanna,80.38,27.5,77.3,4.04,561.05,2367.1,1.47,0.0,0.11,Normal
+Benue,7,wet,Southern Guinea Savanna,91.26,28.97,84.06,4.04,619.65,2659.83,2.6,0.0,-2.02,Flood Risk
+Benue,7,wet,Southern Guinea Savanna,18.55,34.06,84.53,4.04,98.8,601.02,-1.49,0.0,-0.37,Normal
+Benue,7,wet,Southern Guinea Savanna,94.26,27.25,93.84,4.04,648.93,2770.73,1.9,0.0,-0.18,Flood Risk
+Benue,7,wet,Southern Guinea Savanna,96.35,31.3,78.71,4.04,677.25,2899.48,-0.3,0.0,-0.65,Normal
+Benue,7,wet,Southern Guinea Savanna,208.06,30.33,81.67,4.04,1448.53,6159.3,2.75,0.0,-2.2,Flood Risk
+Benue,7,wet,Southern Guinea Savanna,138.56,30.5,91.71,4.04,965.43,4256.44,-3.33,0.0,-0.64,Flood Risk
+Benue,7,wet,Southern Guinea Savanna,81.02,26.0,83.74,4.04,586.11,2428.16,0.08,0.0,0.72,Flood Risk
+Benue,7,wet,Southern Guinea Savanna,87.97,29.85,87.01,4.04,596.84,2613.91,0.84,0.0,0.03,Flood Risk
+Benue,7,wet,Southern Guinea Savanna,118.02,27.85,82.23,4.04,823.49,3522.43,0.61,0.0,1.8,Flood Risk
+Benue,7,wet,Southern Guinea Savanna,124.86,25.65,87.4,4.04,862.61,3785.13,-1.32,0.0,0.19,Flood Risk
+Benue,7,wet,Southern Guinea Savanna,173.95,30.31,75.32,4.04,1219.23,5120.66,3.26,0.0,0.33,Normal
+Benue,7,wet,Southern Guinea Savanna,104.89,25.38,83.61,4.04,753.43,3118.42,0.95,0.0,-0.41,Flood Risk
+Benue,7,wet,Southern Guinea Savanna,0.0,26.53,41.11,4.04,22.8,0.0,0.0,30.0,-0.21,Drought Risk
+Benue,7,wet,Southern Guinea Savanna,95.25,24.45,84.16,4.04,666.54,2878.67,-0.7,0.0,0.87,Flood Risk
+Benue,7,wet,Southern Guinea Savanna,118.17,22.4,82.61,4.04,791.67,3548.96,-0.13,0.0,-0.33,Flood Risk
+Benue,8,wet,Southern Guinea Savanna,139.58,31.26,86.01,4.04,966.86,4152.35,1.17,0.0,-0.46,Flood Risk
+Benue,8,wet,Southern Guinea Savanna,139.85,27.78,77.88,4.04,969.77,4094.37,3.37,0.0,0.77,Normal
+Benue,8,wet,Southern Guinea Savanna,122.96,27.1,65.47,4.04,861.71,3700.78,-0.4,0.0,0.37,Normal
+Benue,8,wet,Southern Guinea Savanna,175.95,31.4,82.31,4.04,1225.15,5326.2,-1.59,0.0,-2.4,Flood Risk
+Benue,8,wet,Southern Guinea Savanna,88.54,31.86,89.53,4.04,632.87,2705.78,-1.65,0.0,-1.69,Flood Risk
+Benue,8,wet,Southern Guinea Savanna,70.8,27.74,84.55,4.04,495.72,2030.2,3.13,0.0,-0.97,Flood Risk
+Benue,8,wet,Southern Guinea Savanna,146.44,25.77,89.67,4.04,998.37,4427.31,-1.14,0.0,0.54,Flood Risk
+Benue,8,wet,Southern Guinea Savanna,254.85,27.16,93.88,4.04,1747.39,7574.92,2.35,0.0,0.32,Flood Risk
+Benue,8,wet,Southern Guinea Savanna,282.59,27.8,92.63,4.04,1993.55,8393.48,2.81,0.0,0.73,Flood Risk
+Benue,8,wet,Southern Guinea Savanna,188.08,29.9,95.55,4.04,1305.61,5595.4,1.57,0.0,-0.81,Flood Risk
+Benue,8,wet,Southern Guinea Savanna,57.03,27.46,90.4,4.04,398.79,1762.29,-1.72,0.0,-1.13,Flood Risk
+Benue,8,wet,Southern Guinea Savanna,177.39,29.71,76.36,4.04,1274.52,5405.6,-2.79,0.0,-0.89,Normal
+Benue,8,wet,Southern Guinea Savanna,98.04,30.6,84.69,4.04,655.81,2973.13,-1.07,0.0,1.1,Flood Risk
+Benue,8,wet,Southern Guinea Savanna,38.46,24.34,92.32,4.04,275.25,1196.78,-1.43,0.0,0.36,Flood Risk
+Benue,8,wet,Southern Guinea Savanna,237.97,27.91,73.38,4.04,1680.11,7153.81,-0.49,0.0,0.28,Normal
+Benue,8,wet,Southern Guinea Savanna,42.92,30.95,74.26,4.04,295.71,1346.48,-1.96,0.0,0.49,Normal
+Benue,8,wet,Southern Guinea Savanna,193.01,28.13,80.89,4.04,1362.66,5869.06,-2.62,0.0,-1.11,Flood Risk
+Benue,8,wet,Southern Guinea Savanna,192.91,25.58,90.63,4.04,1400.3,5736.19,1.7,0.0,0.96,Flood Risk
+Benue,8,wet,Southern Guinea Savanna,107.73,28.2,88.64,4.04,757.0,3265.17,-1.11,0.0,-0.25,Flood Risk
+Benue,8,wet,Southern Guinea Savanna,123.52,26.53,83.57,4.04,865.82,3848.56,-4.76,0.0,0.82,Flood Risk
+Benue,8,wet,Southern Guinea Savanna,128.35,24.54,78.3,4.04,872.06,3915.57,-2.17,0.0,0.41,Normal
+Benue,8,wet,Southern Guinea Savanna,108.81,23.58,80.83,4.04,791.91,3328.77,-2.15,0.0,-0.22,Flood Risk
+Benue,8,wet,Southern Guinea Savanna,184.06,30.3,91.89,4.04,1308.0,5494.34,0.91,0.0,0.17,Flood Risk
+Benue,8,wet,Southern Guinea Savanna,240.75,26.31,85.27,4.04,1681.11,7217.85,0.16,0.0,1.13,Flood Risk
+Benue,8,wet,Southern Guinea Savanna,79.54,29.52,85.93,4.04,584.25,2374.85,0.38,0.0,1.54,Flood Risk
+Benue,8,wet,Southern Guinea Savanna,155.83,30.22,85.5,4.04,1052.34,4664.01,0.37,0.0,0.76,Flood Risk
+Benue,8,wet,Southern Guinea Savanna,40.23,31.24,87.11,4.04,287.43,1146.62,2.01,0.0,1.55,Flood Risk
+Benue,8,wet,Southern Guinea Savanna,117.63,26.32,87.2,4.04,828.85,3438.06,3.03,0.0,0.54,Flood Risk
+Benue,9,wet,Southern Guinea Savanna,37.02,30.45,94.69,4.04,242.32,1248.86,-4.61,0.0,-1.46,Flood Risk
+Benue,9,wet,Southern Guinea Savanna,247.88,28.77,90.15,4.04,1718.55,7442.41,-0.2,0.0,0.15,Flood Risk
+Benue,9,wet,Southern Guinea Savanna,243.91,33.48,82.26,4.04,1680.75,7298.33,0.63,0.0,-1.57,Flood Risk
+Benue,9,wet,Southern Guinea Savanna,19.43,32.31,83.28,4.04,122.97,600.04,-0.57,0.0,0.56,Normal
+Benue,9,wet,Southern Guinea Savanna,125.72,24.54,79.93,4.04,895.6,3630.65,4.7,0.0,1.17,Normal
+Benue,9,wet,Southern Guinea Savanna,141.28,31.37,89.54,4.04,981.39,4266.46,-0.94,0.0,-0.0,Flood Risk
+Benue,9,wet,Southern Guinea Savanna,173.99,25.27,92.19,4.04,1194.66,5303.3,-2.78,0.0,-0.55,Flood Risk
+Benue,9,wet,Southern Guinea Savanna,161.62,28.4,86.95,4.04,1147.97,4821.58,0.9,0.0,0.7,Flood Risk
+Benue,9,wet,Southern Guinea Savanna,198.62,33.07,87.0,4.04,1401.61,5844.86,3.8,0.0,1.6,Flood Risk
+Benue,9,wet,Southern Guinea Savanna,163.42,32.34,90.18,4.04,1164.72,4898.4,0.14,0.0,1.01,Flood Risk
+Benue,9,wet,Southern Guinea Savanna,162.27,24.81,78.95,4.04,1108.98,4978.84,-3.69,0.0,1.08,Normal
+Benue,9,wet,Southern Guinea Savanna,42.89,31.49,87.79,4.04,304.7,1361.13,-2.48,0.0,-1.62,Flood Risk
+Benue,9,wet,Southern Guinea Savanna,84.46,28.08,84.3,4.04,603.07,2499.44,1.14,0.0,0.34,Flood Risk
+Benue,9,wet,Southern Guinea Savanna,82.66,25.84,91.25,4.04,607.34,2497.2,-0.58,0.0,-1.48,Flood Risk
+Benue,9,wet,Southern Guinea Savanna,110.97,27.82,72.67,4.04,769.26,3412.45,-2.78,0.0,-1.16,Normal
+Benue,9,wet,Southern Guinea Savanna,116.72,29.57,85.15,4.04,840.09,3488.71,0.43,0.0,-0.7,Flood Risk
+Benue,9,wet,Southern Guinea Savanna,135.45,27.47,97.07,4.04,955.64,4103.75,-1.34,0.0,-1.73,Flood Risk
+Benue,9,wet,Southern Guinea Savanna,256.45,27.06,80.08,4.04,1770.7,7708.46,-0.5,0.0,0.04,Flood Risk
+Benue,9,wet,Southern Guinea Savanna,75.96,26.25,92.78,4.04,549.44,2315.51,-1.23,0.0,-1.71,Flood Risk
+Benue,10,wet,Southern Guinea Savanna,62.31,26.89,85.07,4.04,439.7,1884.14,-0.5,0.0,1.68,Flood Risk
+Benue,10,wet,Southern Guinea Savanna,200.23,29.29,88.19,4.04,1417.79,6019.79,-0.43,0.0,-1.09,Flood Risk
+Benue,10,wet,Southern Guinea Savanna,115.17,27.27,98.14,4.04,775.11,3434.26,0.69,0.0,0.37,Flood Risk
+Benue,10,wet,Southern Guinea Savanna,173.59,25.87,83.59,4.04,1260.18,5292.18,-2.82,0.0,-1.13,Flood Risk
+Benue,10,wet,Southern Guinea Savanna,50.65,30.38,77.32,4.04,361.09,1588.86,-2.31,0.0,-0.41,Normal
+Benue,10,wet,Southern Guinea Savanna,72.44,29.83,87.56,4.04,502.45,2192.57,-0.65,0.0,-0.69,Flood Risk
+Benue,10,wet,Southern Guinea Savanna,37.1,31.72,92.82,4.04,261.06,1113.89,-0.03,0.0,-2.42,Flood Risk
+Benue,10,wet,Southern Guinea Savanna,65.53,23.92,77.22,4.04,472.81,2128.74,-5.43,0.0,0.1,Normal
+Benue,10,wet,Southern Guinea Savanna,249.44,23.09,74.35,4.04,1763.24,7478.99,0.14,0.0,0.79,Normal
+Benue,10,wet,Southern Guinea Savanna,131.35,27.0,90.89,4.04,931.8,3937.21,0.11,0.0,-0.8,Flood Risk
+Benue,10,wet,Southern Guinea Savanna,73.29,33.38,91.51,4.04,547.29,2207.48,-0.29,0.0,1.63,Flood Risk
+Benue,10,wet,Southern Guinea Savanna,202.95,26.39,91.56,4.04,1394.7,6221.93,-4.44,0.0,1.64,Flood Risk
+Benue,10,wet,Southern Guinea Savanna,247.21,33.27,83.73,4.04,1726.85,7365.36,1.7,0.0,-0.43,Flood Risk
+Benue,10,wet,Southern Guinea Savanna,177.08,27.85,78.09,4.04,1243.22,5244.24,2.27,0.0,1.29,Normal
+Benue,10,wet,Southern Guinea Savanna,169.66,31.5,84.37,4.04,1214.17,5123.04,-1.11,0.0,0.14,Flood Risk
+Benue,10,wet,Southern Guinea Savanna,144.04,26.82,88.38,4.04,1018.62,4280.89,1.35,0.0,0.69,Flood Risk
+Benue,10,wet,Southern Guinea Savanna,227.01,28.66,87.3,4.04,1536.67,6677.32,4.43,0.0,-0.11,Flood Risk
+Benue,10,wet,Southern Guinea Savanna,24.78,31.94,79.54,4.04,164.68,797.68,-1.81,0.0,-0.27,Normal
+Benue,10,wet,Southern Guinea Savanna,155.04,27.97,90.38,4.04,1125.07,4604.92,1.54,0.0,-0.09,Flood Risk
+Benue,10,wet,Southern Guinea Savanna,84.7,31.51,82.69,4.04,582.94,2540.64,0.01,0.0,0.04,Flood Risk
+Benue,10,wet,Southern Guinea Savanna,162.32,29.91,76.0,4.04,1129.26,4875.15,-0.19,0.0,-0.89,Normal
+Benue,10,wet,Southern Guinea Savanna,218.91,30.47,84.55,4.04,1527.53,6563.63,0.12,0.0,0.11,Flood Risk
+Benue,10,wet,Southern Guinea Savanna,180.47,29.02,87.69,4.04,1256.13,5392.26,0.73,0.0,-0.59,Flood Risk
+Benue,10,wet,Southern Guinea Savanna,110.89,26.49,76.05,4.04,781.55,3310.75,0.53,0.0,-0.16,Normal
+Benue,10,wet,Southern Guinea Savanna,168.87,22.91,90.99,4.04,1198.82,5134.62,-2.28,0.0,-0.27,Flood Risk
+Benue,10,wet,Southern Guinea Savanna,0.0,28.05,40.49,4.04,0.88,0.0,0.0,30.0,-0.77,Drought Risk
+Benue,10,wet,Southern Guinea Savanna,63.87,27.77,80.6,4.04,501.64,1871.97,1.47,0.0,1.1,Flood Risk
+Benue,11,dry,Southern Guinea Savanna,3.24,29.1,53.69,4.04,19.54,86.44,0.36,21.4,0.77,Normal
+Benue,11,dry,Southern Guinea Savanna,1.32,29.55,34.69,4.04,5.69,35.24,0.14,26.5,0.02,Normal
+Benue,11,dry,Southern Guinea Savanna,1.62,30.49,42.34,4.04,5.75,43.54,0.16,25.6,0.14,Normal
+Benue,11,dry,Southern Guinea Savanna,3.27,29.49,40.83,4.04,25.47,113.14,-0.5,18.7,-0.35,Normal
+Benue,11,dry,Southern Guinea Savanna,3.77,31.22,38.86,4.04,20.2,120.7,-0.25,17.9,-1.0,Normal
+Benue,11,dry,Southern Guinea Savanna,2.01,27.78,46.28,4.04,6.95,62.84,-0.09,23.7,0.93,Normal
+Benue,11,dry,Southern Guinea Savanna,0.83,30.6,31.08,4.04,7.96,15.7,0.31,28.4,-1.13,Drought Risk
+Benue,11,dry,Southern Guinea Savanna,2.0,29.37,43.81,4.04,11.73,58.06,0.06,24.2,-0.38,Normal
+Benue,11,dry,Southern Guinea Savanna,1.51,33.4,49.63,4.04,14.7,53.01,-0.25,24.7,2.05,Normal
+Benue,11,dry,Southern Guinea Savanna,2.11,32.18,28.33,4.04,9.96,58.84,0.15,24.1,0.32,Normal
+Benue,11,dry,Southern Guinea Savanna,0.0,25.37,38.16,4.04,0.0,0.0,0.0,30.0,1.04,Drought Risk
+Benue,11,dry,Southern Guinea Savanna,3.21,27.32,38.32,4.04,27.81,92.12,0.14,20.8,0.63,Normal
+Benue,11,dry,Southern Guinea Savanna,3.98,26.54,50.43,4.04,23.58,116.7,0.09,18.3,-0.25,Normal
+Benue,11,dry,Southern Guinea Savanna,5.08,26.38,48.21,4.04,32.8,152.41,0.0,14.8,0.21,Normal
+Benue,11,dry,Southern Guinea Savanna,2.41,30.27,46.06,4.04,22.99,85.41,-0.43,21.5,2.19,Normal
+Benue,11,dry,Southern Guinea Savanna,2.24,28.85,39.19,4.04,6.28,32.78,1.14,26.7,-1.47,Normal
+Benue,11,dry,Southern Guinea Savanna,2.64,33.01,44.07,4.04,26.8,83.2,-0.13,21.7,0.61,Normal
+Benue,11,dry,Southern Guinea Savanna,2.74,32.45,43.45,4.04,17.51,73.98,0.28,22.6,-1.23,Normal
+Benue,11,dry,Southern Guinea Savanna,3.08,27.09,54.18,4.04,13.24,89.01,0.11,21.1,-0.17,Normal
+Benue,11,dry,Southern Guinea Savanna,1.24,31.18,34.57,4.04,14.55,37.39,-0.0,26.3,0.63,Normal
+Benue,11,dry,Southern Guinea Savanna,0.0,33.47,31.85,4.04,6.97,0.0,0.0,30.0,-1.28,Drought Risk
+Benue,11,dry,Southern Guinea Savanna,2.86,34.78,43.04,4.04,25.35,58.2,0.92,24.2,0.57,Normal
+Benue,11,dry,Southern Guinea Savanna,5.5,31.66,65.3,4.04,40.26,188.0,-0.77,11.2,-0.75,Normal
+Benue,11,dry,Southern Guinea Savanna,0.46,33.15,39.6,4.04,5.83,26.91,-0.44,27.3,-2.47,Normal
+Benue,11,dry,Southern Guinea Savanna,0.35,29.87,30.59,4.04,0.0,13.48,-0.1,28.7,0.1,Drought Risk
+Benue,11,dry,Southern Guinea Savanna,2.71,26.77,39.8,4.04,21.14,72.7,0.29,22.7,0.29,Normal
+Benue,11,dry,Southern Guinea Savanna,3.04,27.58,55.78,4.04,16.51,102.93,-0.39,19.7,-0.67,Normal
+Benue,11,dry,Southern Guinea Savanna,1.42,27.74,36.17,4.04,10.08,49.74,-0.24,25.0,1.29,Normal
+Benue,11,dry,Southern Guinea Savanna,2.57,30.47,42.46,4.04,19.97,68.86,0.28,23.1,-0.14,Normal
+Benue,11,dry,Southern Guinea Savanna,0.0,25.09,34.74,4.04,0.0,0.0,0.0,30.0,-1.07,Drought Risk
+Benue,11,dry,Southern Guinea Savanna,2.07,29.75,53.17,4.04,14.24,82.76,-0.69,21.7,2.56,Normal
+Benue,11,dry,Southern Guinea Savanna,0.55,23.17,26.24,4.04,9.31,18.67,-0.07,28.1,0.56,Drought Risk
+Benue,11,dry,Southern Guinea Savanna,3.47,25.66,55.7,4.04,30.06,107.71,-0.12,19.2,-1.31,Normal
+Benue,12,dry,Southern Guinea Savanna,2.64,32.82,54.51,4.04,21.69,87.15,-0.27,21.3,1.4,Normal
+Benue,12,dry,Southern Guinea Savanna,0.86,28.42,34.96,4.04,2.59,44.94,-0.64,25.5,0.13,Normal
+Benue,12,dry,Southern Guinea Savanna,3.59,32.41,43.11,4.04,22.2,95.89,0.4,20.4,-0.66,Normal
+Benue,12,dry,Southern Guinea Savanna,3.02,29.79,63.59,4.04,27.68,86.61,0.14,21.3,-0.04,Normal
+Benue,12,dry,Southern Guinea Savanna,3.3,30.55,58.3,4.04,19.09,109.68,-0.35,19.0,1.79,Normal
+Benue,12,dry,Southern Guinea Savanna,1.3,25.6,38.76,4.04,16.54,50.17,-0.38,25.0,-0.38,Normal
+Benue,12,dry,Southern Guinea Savanna,2.75,30.6,55.57,4.04,18.37,91.07,-0.29,20.9,0.1,Normal
+Benue,12,dry,Southern Guinea Savanna,1.75,31.32,44.63,4.04,5.44,51.21,0.05,24.9,-0.58,Normal
+Benue,12,dry,Southern Guinea Savanna,2.62,28.57,40.65,4.04,18.55,51.95,0.89,24.8,-0.51,Normal
+Benue,12,dry,Southern Guinea Savanna,2.41,28.34,47.08,4.04,13.58,73.51,-0.04,22.6,0.18,Normal
+Benue,12,dry,Southern Guinea Savanna,2.02,28.1,38.15,4.04,15.33,42.87,0.59,25.7,-0.36,Normal
+Benue,12,dry,Southern Guinea Savanna,3.0,30.27,56.04,4.04,12.2,108.8,-0.63,19.1,-0.39,Normal
+Benue,12,dry,Southern Guinea Savanna,2.53,27.46,41.74,4.04,21.64,74.22,0.06,22.6,-0.82,Normal
+Benue,12,dry,Southern Guinea Savanna,1.59,32.74,38.89,4.04,17.57,58.15,-0.35,24.2,-0.15,Normal
+Benue,12,dry,Southern Guinea Savanna,1.66,29.27,49.18,4.04,8.93,57.56,-0.26,24.2,0.45,Normal
+Benue,12,dry,Southern Guinea Savanna,0.23,33.23,44.74,4.04,2.14,0.0,0.23,30.0,0.45,Drought Risk
+Benue,12,dry,Southern Guinea Savanna,0.51,27.6,38.42,4.04,9.1,0.0,0.51,30.0,0.52,Drought Risk
+Benue,12,dry,Southern Guinea Savanna,3.44,27.23,56.89,4.04,21.59,113.56,-0.35,18.6,-0.29,Normal
+Benue,12,dry,Southern Guinea Savanna,0.0,30.35,29.78,4.04,0.0,7.81,-0.26,29.2,-0.94,Drought Risk
+Benue,12,dry,Southern Guinea Savanna,2.1,33.08,41.83,4.04,9.39,85.55,-0.76,21.4,-1.49,Normal
+Benue,12,dry,Southern Guinea Savanna,1.01,31.77,44.17,4.04,11.18,32.39,-0.07,26.8,-0.72,Normal
+Benue,12,dry,Southern Guinea Savanna,2.34,22.55,47.91,4.04,17.71,94.47,-0.81,20.6,-0.12,Normal
+Benue,12,dry,Southern Guinea Savanna,1.43,29.89,46.02,4.04,16.88,50.95,-0.27,24.9,1.12,Normal
+Benue,12,dry,Southern Guinea Savanna,0.95,32.01,42.09,4.04,6.02,42.11,-0.45,25.8,-1.16,Normal
+Benue,12,dry,Southern Guinea Savanna,0.53,31.43,25.45,4.04,0.39,13.98,0.07,28.6,-0.58,Drought Risk
+Benue,12,dry,Southern Guinea Savanna,1.08,33.16,36.37,4.04,2.02,44.02,-0.39,25.6,-0.74,Normal
+Benue,12,dry,Southern Guinea Savanna,3.47,32.51,38.36,4.04,25.14,121.29,-0.57,17.9,1.17,Normal
+Benue,12,dry,Southern Guinea Savanna,0.17,25.15,30.41,4.04,0.0,0.0,0.17,30.0,-1.24,Drought Risk
+Benue,12,dry,Southern Guinea Savanna,3.42,27.09,40.16,4.04,20.83,103.26,-0.03,19.7,-0.22,Normal
+Benue,12,dry,Southern Guinea Savanna,0.31,28.71,35.9,4.04,1.05,0.0,0.31,30.0,-0.26,Drought Risk
+Benue,12,dry,Southern Guinea Savanna,2.9,29.76,38.46,4.04,16.91,93.0,-0.2,20.7,1.68,Normal
+Kaduna,1,dry,Northern Guinea Savanna,1.13,27.48,40.1,4.04,3.08,24.17,0.32,27.6,-1.24,Drought Risk
+Kaduna,1,dry,Northern Guinea Savanna,0.85,27.28,37.61,4.04,3.13,28.63,-0.1,27.1,-1.7,Normal
+Kaduna,1,dry,Northern Guinea Savanna,2.35,25.26,39.63,4.04,23.48,82.0,-0.39,21.8,-1.28,Normal
+Kaduna,1,dry,Northern Guinea Savanna,0.73,26.36,41.09,4.04,10.71,20.62,0.04,27.9,0.03,Drought Risk
+Kaduna,1,dry,Northern Guinea Savanna,1.8,23.33,30.73,4.04,12.43,50.98,0.1,24.9,-0.64,Normal
+Kaduna,1,dry,Northern Guinea Savanna,3.2,30.13,34.99,4.04,20.77,90.43,0.19,21.0,1.24,Normal
+Kaduna,1,dry,Northern Guinea Savanna,1.43,26.23,37.15,4.04,9.95,41.04,0.06,25.9,-0.74,Normal
+Kaduna,1,dry,Northern Guinea Savanna,1.42,29.03,30.6,4.04,7.73,34.3,0.27,26.6,1.99,Normal
+Kaduna,1,dry,Northern Guinea Savanna,2.04,29.39,51.03,4.04,22.2,71.79,-0.35,22.8,0.3,Normal
+Kaduna,1,dry,Northern Guinea Savanna,0.86,30.11,35.89,4.04,9.22,18.0,0.26,28.2,1.2,Drought Risk
+Kaduna,1,dry,Northern Guinea Savanna,1.69,31.5,54.66,4.04,5.44,54.25,-0.12,24.6,-1.68,Normal
+Kaduna,1,dry,Northern Guinea Savanna,0.63,23.87,34.44,4.04,4.13,28.98,-0.34,27.1,-0.41,Normal
+Kaduna,1,dry,Northern Guinea Savanna,1.01,25.82,43.82,4.04,1.95,18.28,0.4,28.2,-1.71,Drought Risk
+Kaduna,1,dry,Northern Guinea Savanna,0.0,29.69,47.19,4.04,1.33,25.34,-0.84,27.5,-0.1,Normal
+Kaduna,1,dry,Northern Guinea Savanna,1.21,26.92,32.15,4.04,0.0,36.67,-0.01,26.3,1.16,Normal
+Kaduna,1,dry,Northern Guinea Savanna,0.8,21.07,41.02,4.04,5.26,46.13,-0.74,25.4,0.85,Normal
+Kaduna,1,dry,Northern Guinea Savanna,0.99,27.54,45.28,4.04,11.01,51.56,-0.72,24.8,-0.99,Normal
+Kaduna,1,dry,Northern Guinea Savanna,0.93,29.69,41.62,4.04,10.09,32.41,-0.15,26.8,0.54,Normal
+Kaduna,1,dry,Northern Guinea Savanna,2.4,26.86,37.53,4.04,15.99,63.17,0.3,23.7,0.26,Normal
+Kaduna,1,dry,Northern Guinea Savanna,1.35,22.14,37.29,4.04,8.88,64.26,-0.79,23.6,0.71,Normal
+Kaduna,1,dry,Northern Guinea Savanna,1.19,27.62,37.66,4.04,16.17,25.7,0.33,27.4,0.02,Normal
+Kaduna,1,dry,Northern Guinea Savanna,1.88,32.02,40.68,4.04,10.41,51.15,0.17,24.9,-0.61,Normal
+Kaduna,1,dry,Northern Guinea Savanna,1.08,32.27,38.44,4.04,8.12,42.98,-0.36,25.7,-1.22,Normal
+Kaduna,1,dry,Northern Guinea Savanna,2.92,26.85,47.31,4.04,18.42,87.25,0.01,21.3,-1.07,Normal
+Kaduna,1,dry,Northern Guinea Savanna,1.56,31.82,38.0,4.04,7.25,46.66,0.0,25.3,-0.31,Normal
+Kaduna,1,dry,Northern Guinea Savanna,1.71,25.84,32.28,4.04,21.92,56.9,-0.19,24.3,-0.1,Normal
+Kaduna,1,dry,Northern Guinea Savanna,1.64,27.33,29.93,4.04,9.18,51.36,-0.07,24.9,0.33,Normal
+Kaduna,1,dry,Northern Guinea Savanna,0.6,27.09,24.29,4.04,1.32,27.26,-0.31,27.3,-0.56,Normal
+Kaduna,1,dry,Northern Guinea Savanna,1.09,29.32,44.42,4.04,2.49,25.2,0.25,27.5,0.86,Normal
+Kaduna,1,dry,Northern Guinea Savanna,0.04,30.78,33.09,4.04,0.0,8.71,-0.25,29.1,0.29,Drought Risk
+Kaduna,1,dry,Northern Guinea Savanna,1.81,23.11,34.05,4.04,10.44,69.2,-0.5,23.1,-1.06,Normal
+Kaduna,2,dry,Northern Guinea Savanna,1.36,26.64,43.5,4.04,15.72,48.86,-0.26,25.1,-0.84,Normal
+Kaduna,2,dry,Northern Guinea Savanna,0.84,30.68,35.06,4.04,0.0,20.59,0.15,27.9,1.31,Drought Risk
+Kaduna,2,dry,Northern Guinea Savanna,0.87,26.64,29.78,4.04,12.14,5.49,0.69,29.5,1.28,Drought Risk
+Kaduna,2,dry,Northern Guinea Savanna,0.35,31.27,37.67,4.04,7.8,0.0,0.35,30.0,0.86,Drought Risk
+Kaduna,2,dry,Northern Guinea Savanna,0.0,22.96,38.38,4.04,5.77,4.67,-0.16,29.5,-0.27,Drought Risk
+Kaduna,2,dry,Northern Guinea Savanna,0.87,30.48,39.54,4.04,2.87,26.11,0.0,27.4,-1.06,Normal
+Kaduna,2,dry,Northern Guinea Savanna,1.89,25.89,42.24,4.04,12.2,50.45,0.21,25.0,-0.68,Normal
+Kaduna,2,dry,Northern Guinea Savanna,0.0,31.69,20.18,4.04,0.0,9.8,-0.33,29.0,0.37,Drought Risk
+Kaduna,2,dry,Northern Guinea Savanna,2.38,27.6,45.0,4.04,23.21,79.22,-0.26,22.1,0.46,Normal
+Kaduna,2,dry,Northern Guinea Savanna,1.21,20.57,28.61,4.04,6.31,31.65,0.16,26.8,-0.28,Normal
+Kaduna,2,dry,Northern Guinea Savanna,1.27,28.58,39.14,4.04,7.94,26.83,0.38,27.3,1.76,Normal
+Kaduna,2,dry,Northern Guinea Savanna,1.13,27.08,40.48,4.04,3.12,39.03,-0.17,26.1,2.31,Normal
+Kaduna,2,dry,Northern Guinea Savanna,2.74,28.77,49.7,4.04,20.35,84.73,-0.08,21.5,-1.12,Normal
+Kaduna,2,dry,Northern Guinea Savanna,1.59,23.76,31.68,4.04,18.82,36.92,0.36,26.3,0.01,Normal
+Kaduna,2,dry,Northern Guinea Savanna,2.21,24.28,50.03,4.04,9.42,78.12,-0.39,22.2,0.58,Normal
+Kaduna,2,dry,Northern Guinea Savanna,0.23,33.6,40.23,4.04,3.84,0.0,0.23,30.0,-0.73,Drought Risk
+Kaduna,2,dry,Northern Guinea Savanna,0.66,26.46,44.91,4.04,0.0,34.31,-0.48,26.6,0.74,Normal
+Kaduna,2,dry,Northern Guinea Savanna,0.65,28.22,26.08,4.04,0.0,0.0,0.65,30.0,-1.71,Drought Risk
+Kaduna,2,dry,Northern Guinea Savanna,2.33,26.02,47.57,4.04,12.08,79.61,-0.32,22.0,-0.94,Normal
+Kaduna,3,dry,Northern Guinea Savanna,2.12,30.73,29.77,4.04,10.4,66.07,-0.08,23.4,2.23,Normal
+Kaduna,3,dry,Northern Guinea Savanna,2.71,30.94,32.95,4.04,15.77,68.1,0.44,23.2,-0.6,Normal
+Kaduna,3,dry,Northern Guinea Savanna,2.26,27.04,36.46,4.04,21.82,84.01,-0.54,21.6,1.57,Normal
+Kaduna,3,dry,Northern Guinea Savanna,2.42,26.58,45.02,4.04,15.28,84.95,-0.41,21.5,-0.82,Normal
+Kaduna,3,dry,Northern Guinea Savanna,2.11,27.8,54.16,4.04,17.3,99.45,-1.2,20.1,0.11,Normal
+Kaduna,3,dry,Northern Guinea Savanna,0.0,31.31,32.69,4.04,4.98,6.34,-0.21,29.4,-1.17,Drought Risk
+Kaduna,3,dry,Northern Guinea Savanna,1.2,30.48,20.5,4.04,10.57,42.62,-0.22,25.7,-0.03,Normal
+Kaduna,3,dry,Northern Guinea Savanna,1.02,24.92,25.62,4.04,5.12,18.61,0.4,28.1,1.1,Drought Risk
+Kaduna,3,dry,Northern Guinea Savanna,1.9,32.61,36.4,4.04,21.11,60.59,-0.12,23.9,0.19,Normal
+Kaduna,3,dry,Northern Guinea Savanna,0.0,25.25,31.43,4.04,0.0,16.92,-0.56,28.3,-0.64,Drought Risk
+Kaduna,3,dry,Northern Guinea Savanna,0.25,25.36,36.8,4.04,0.0,8.49,-0.03,29.2,0.96,Drought Risk
+Kaduna,3,dry,Northern Guinea Savanna,0.0,26.64,28.51,4.04,0.0,19.5,-0.65,28.0,-0.17,Drought Risk
+Kaduna,3,dry,Northern Guinea Savanna,1.37,24.44,24.25,4.04,18.54,11.34,0.99,28.9,-0.65,Drought Risk
+Kaduna,3,dry,Northern Guinea Savanna,0.71,27.61,31.63,4.04,4.47,19.47,0.06,28.1,-1.19,Drought Risk
+Kaduna,3,dry,Northern Guinea Savanna,0.91,29.37,33.91,4.04,3.06,14.09,0.44,28.6,-2.38,Drought Risk
+Kaduna,3,dry,Northern Guinea Savanna,0.64,32.31,42.45,4.04,1.77,29.53,-0.35,27.0,-0.73,Normal
+Kaduna,3,dry,Northern Guinea Savanna,1.07,27.65,34.88,4.04,0.0,24.08,0.27,27.6,0.48,Drought Risk
+Kaduna,3,dry,Northern Guinea Savanna,1.54,30.03,31.31,4.04,5.21,33.07,0.44,26.7,-0.02,Normal
+Kaduna,3,dry,Northern Guinea Savanna,0.59,24.85,31.52,4.04,3.87,1.39,0.54,29.9,0.77,Drought Risk
+Kaduna,3,dry,Northern Guinea Savanna,0.5,31.95,25.29,4.04,7.05,0.0,0.5,30.0,-0.08,Drought Risk
+Kaduna,3,dry,Northern Guinea Savanna,1.95,21.6,36.25,4.04,10.28,66.74,-0.28,23.3,0.29,Normal
+Kaduna,3,dry,Northern Guinea Savanna,1.79,27.66,28.7,4.04,22.62,46.98,0.22,25.3,-0.57,Normal
+Kaduna,3,dry,Northern Guinea Savanna,1.64,27.62,34.23,4.04,11.75,53.79,-0.15,24.6,0.67,Normal
+Kaduna,3,dry,Northern Guinea Savanna,1.25,27.05,36.33,4.04,14.5,32.91,0.15,26.7,-0.09,Normal
+Kaduna,3,dry,Northern Guinea Savanna,0.54,28.95,24.65,4.04,13.09,25.26,-0.3,27.5,-1.47,Normal
+Kaduna,3,dry,Northern Guinea Savanna,0.91,23.21,29.92,4.04,2.1,20.09,0.24,28.0,1.85,Drought Risk
+Kaduna,3,dry,Northern Guinea Savanna,0.05,32.45,26.58,4.04,0.0,21.95,-0.68,27.8,-1.85,Drought Risk
+Kaduna,3,dry,Northern Guinea Savanna,0.99,25.24,39.53,4.04,0.71,36.8,-0.23,26.3,1.5,Normal
+Kaduna,3,dry,Northern Guinea Savanna,2.53,28.95,55.71,4.04,16.26,89.13,-0.44,21.1,0.99,Normal
+Kaduna,3,dry,Northern Guinea Savanna,2.2,31.77,49.28,4.04,13.53,84.05,-0.61,21.6,0.35,Normal
+Kaduna,4,wet,Northern Guinea Savanna,49.96,30.2,77.77,4.04,356.72,1518.6,-0.66,0.0,-0.25,Normal
+Kaduna,4,wet,Northern Guinea Savanna,34.71,26.79,80.91,4.04,235.2,1133.01,-3.05,0.0,-1.61,Flood Risk
+Kaduna,4,wet,Northern Guinea Savanna,56.81,26.46,83.26,4.04,429.71,1792.58,-2.94,0.0,1.47,Flood Risk
+Kaduna,4,wet,Northern Guinea Savanna,99.63,24.99,79.43,4.04,705.08,2987.69,0.04,0.0,0.97,Normal
+Kaduna,4,wet,Northern Guinea Savanna,143.56,25.86,84.96,4.04,1000.59,4253.41,1.78,0.0,0.34,Flood Risk
+Kaduna,4,wet,Northern Guinea Savanna,106.84,26.75,94.99,4.04,764.53,3219.64,-0.48,0.0,-1.03,Flood Risk
+Kaduna,4,wet,Northern Guinea Savanna,98.92,23.56,87.38,4.04,688.6,2959.11,0.29,0.0,0.6,Flood Risk
+Kaduna,4,wet,Northern Guinea Savanna,80.0,22.75,73.71,4.04,532.05,2390.88,0.31,0.0,-0.72,Normal
+Kaduna,4,wet,Northern Guinea Savanna,0.0,26.09,29.1,4.04,0.0,7.42,-0.25,29.3,-0.16,Drought Risk
+Kaduna,4,wet,Northern Guinea Savanna,70.8,23.09,86.66,4.04,504.76,2258.19,-4.47,0.0,0.32,Flood Risk
+Kaduna,4,wet,Northern Guinea Savanna,40.11,26.7,96.23,4.04,256.6,1256.77,-1.79,0.0,1.12,Flood Risk
+Kaduna,4,wet,Northern Guinea Savanna,135.24,26.32,73.84,4.04,959.37,4100.59,-1.45,0.0,0.74,Normal
+Kaduna,4,wet,Northern Guinea Savanna,111.83,30.63,75.75,4.04,792.42,3231.39,4.11,0.0,-0.03,Normal
+Kaduna,4,wet,Northern Guinea Savanna,60.82,29.04,87.43,4.04,398.61,1811.69,0.43,0.0,-1.12,Flood Risk
+Kaduna,4,wet,Northern Guinea Savanna,35.24,26.65,86.59,4.04,226.87,1061.4,-0.14,0.0,-0.1,Flood Risk
+Kaduna,4,wet,Northern Guinea Savanna,0.0,24.65,57.22,4.04,0.0,103.14,-3.44,19.7,-0.59,Normal
+Kaduna,4,wet,Northern Guinea Savanna,93.34,31.44,78.82,4.04,629.83,2797.34,0.09,0.0,-0.41,Normal
+Kaduna,4,wet,Northern Guinea Savanna,44.54,31.17,84.39,4.04,341.2,1379.36,-1.44,0.0,-1.03,Flood Risk
+Kaduna,4,wet,Northern Guinea Savanna,8.26,27.98,88.79,4.04,85.52,384.29,-4.55,0.0,-0.1,Normal
+Kaduna,4,wet,Northern Guinea Savanna,133.69,29.08,84.12,4.04,928.2,4098.91,-2.94,0.0,-2.36,Flood Risk
+Kaduna,4,wet,Northern Guinea Savanna,117.79,26.07,87.38,4.04,822.15,3369.65,5.47,0.0,-2.05,Flood Risk
+Kaduna,5,wet,Northern Guinea Savanna,19.17,32.26,76.14,4.04,137.95,584.52,-0.31,0.0,0.48,Normal
+Kaduna,5,wet,Northern Guinea Savanna,117.91,29.56,76.02,4.04,823.04,3588.75,-1.71,0.0,0.23,Normal
+Kaduna,5,wet,Northern Guinea Savanna,136.76,26.31,87.65,4.04,949.2,4103.08,-0.01,0.0,-0.1,Flood Risk
+Kaduna,5,wet,Northern Guinea Savanna,64.27,31.38,84.72,4.04,451.6,1871.22,1.9,0.0,-0.47,Flood Risk
+Kaduna,5,wet,Northern Guinea Savanna,18.86,26.4,89.0,4.04,141.76,626.74,-2.03,0.0,1.27,Normal
+Kaduna,5,wet,Northern Guinea Savanna,63.74,21.47,91.29,4.04,460.93,1933.14,-0.7,0.0,-0.8,Flood Risk
+Kaduna,5,wet,Northern Guinea Savanna,93.28,28.09,83.9,4.04,617.19,2781.96,0.55,0.0,0.26,Flood Risk
+Kaduna,5,wet,Northern Guinea Savanna,60.61,24.03,87.68,4.04,405.4,1851.52,-1.11,0.0,0.56,Flood Risk
+Kaduna,5,wet,Northern Guinea Savanna,112.61,24.63,74.86,4.04,771.3,3410.66,-1.08,0.0,-0.19,Normal
+Kaduna,5,wet,Northern Guinea Savanna,105.7,27.64,82.33,4.04,721.36,3122.39,1.62,0.0,-0.73,Flood Risk
+Kaduna,5,wet,Northern Guinea Savanna,108.59,23.54,85.54,4.04,762.55,3240.56,0.58,0.0,0.17,Flood Risk
+Kaduna,5,wet,Northern Guinea Savanna,30.11,34.02,84.93,4.04,183.96,818.18,2.84,0.0,-0.92,Flood Risk
+Kaduna,5,wet,Northern Guinea Savanna,82.82,24.04,93.64,4.04,595.8,2440.73,1.46,0.0,-0.37,Flood Risk
+Kaduna,5,wet,Northern Guinea Savanna,108.13,30.97,88.75,4.04,744.16,3214.6,0.98,0.0,0.13,Flood Risk
+Kaduna,5,wet,Northern Guinea Savanna,114.58,28.14,89.3,4.04,800.36,3365.45,2.4,0.0,-0.62,Flood Risk
+Kaduna,5,wet,Northern Guinea Savanna,148.86,25.52,83.01,4.04,1029.72,4564.9,-3.3,0.0,1.22,Flood Risk
+Kaduna,5,wet,Northern Guinea Savanna,42.25,25.11,91.19,4.04,289.0,1279.97,-0.42,0.0,-0.08,Flood Risk
+Kaduna,5,wet,Northern Guinea Savanna,90.66,31.16,87.19,4.04,643.7,2786.23,-2.21,0.0,-0.78,Flood Risk
+Kaduna,5,wet,Northern Guinea Savanna,90.88,26.46,73.73,4.04,649.02,2755.34,-0.96,0.0,1.96,Normal
+Kaduna,5,wet,Northern Guinea Savanna,77.04,25.39,87.79,4.04,528.54,2175.11,4.54,0.0,0.87,Flood Risk
+Kaduna,5,wet,Northern Guinea Savanna,108.89,29.24,85.42,4.04,761.62,3198.58,2.27,0.0,1.73,Flood Risk
+Kaduna,5,wet,Northern Guinea Savanna,54.59,28.81,94.73,4.04,362.54,1642.0,-0.14,0.0,-1.52,Flood Risk
+Kaduna,5,wet,Northern Guinea Savanna,97.14,28.1,81.38,4.04,680.91,2824.1,3.0,0.0,-1.55,Flood Risk
+Kaduna,5,wet,Northern Guinea Savanna,158.36,29.02,91.58,4.04,1117.94,4824.37,-2.46,0.0,-0.11,Flood Risk
+Kaduna,5,wet,Northern Guinea Savanna,99.75,31.28,78.84,4.04,696.7,3040.57,-1.6,0.0,-1.17,Normal
+Kaduna,6,wet,Northern Guinea Savanna,113.95,33.21,74.39,4.04,794.54,3442.02,-0.78,0.0,-0.48,Normal
+Kaduna,6,wet,Northern Guinea Savanna,83.62,30.01,91.08,4.04,552.65,2403.19,3.52,0.0,0.84,Flood Risk
+Kaduna,6,wet,Northern Guinea Savanna,10.82,24.01,82.19,4.04,86.32,275.02,1.65,2.5,-1.02,Normal
+Kaduna,6,wet,Northern Guinea Savanna,107.55,28.38,82.95,4.04,758.18,3207.65,0.63,0.0,0.76,Flood Risk
+Kaduna,6,wet,Northern Guinea Savanna,62.96,28.15,86.77,4.04,462.46,1947.82,-1.97,0.0,1.02,Flood Risk
+Kaduna,6,wet,Northern Guinea Savanna,62.72,30.15,95.54,4.04,452.23,1786.99,3.15,0.0,-0.02,Flood Risk
+Kaduna,6,wet,Northern Guinea Savanna,78.28,24.56,83.12,4.04,530.45,2370.84,-0.75,0.0,1.37,Flood Risk
+Kaduna,6,wet,Northern Guinea Savanna,19.33,30.58,99.0,4.04,133.3,614.46,-1.15,0.0,0.35,Normal
+Kaduna,6,wet,Northern Guinea Savanna,41.25,28.99,80.29,4.04,283.02,1265.5,-0.94,0.0,0.09,Flood Risk
+Kaduna,6,wet,Northern Guinea Savanna,38.92,26.32,89.13,4.04,278.35,1211.42,-1.46,0.0,0.07,Flood Risk
+Kaduna,6,wet,Northern Guinea Savanna,105.48,28.14,86.65,4.04,737.68,3179.43,-0.5,0.0,1.96,Flood Risk
+Kaduna,6,wet,Northern Guinea Savanna,112.47,26.35,79.87,4.04,786.53,3312.01,2.07,0.0,1.23,Normal
+Kaduna,6,wet,Northern Guinea Savanna,70.89,29.38,73.55,4.04,535.83,2135.52,-0.3,0.0,0.44,Normal
+Kaduna,6,wet,Northern Guinea Savanna,46.72,25.6,83.25,4.04,353.6,1377.18,0.81,0.0,-1.41,Flood Risk
+Kaduna,6,wet,Northern Guinea Savanna,100.25,31.99,82.04,4.04,667.76,3052.11,-1.49,0.0,0.05,Flood Risk
+Kaduna,6,wet,Northern Guinea Savanna,68.89,26.58,77.76,4.04,492.65,2050.0,0.55,0.0,-0.94,Normal
+Kaduna,6,wet,Northern Guinea Savanna,84.73,29.96,81.55,4.04,577.49,2429.24,3.76,0.0,-0.37,Flood Risk
+Kaduna,6,wet,Northern Guinea Savanna,100.25,31.0,93.46,4.04,717.54,2987.98,0.65,0.0,0.14,Flood Risk
+Kaduna,6,wet,Northern Guinea Savanna,125.95,31.27,85.42,4.04,902.99,3747.12,1.05,0.0,1.94,Flood Risk
+Kaduna,6,wet,Northern Guinea Savanna,151.75,29.62,81.07,4.04,1068.5,4454.61,3.27,0.0,0.63,Flood Risk
+Kaduna,6,wet,Northern Guinea Savanna,107.58,27.1,84.91,4.04,734.24,3270.36,-1.44,0.0,-1.69,Flood Risk
+Kaduna,6,wet,Northern Guinea Savanna,94.14,32.03,88.96,4.04,653.59,2783.92,1.34,0.0,-0.09,Flood Risk
+Kaduna,6,wet,Northern Guinea Savanna,150.44,26.77,81.54,4.04,1037.04,4513.61,-0.02,0.0,0.99,Flood Risk
+Kaduna,6,wet,Northern Guinea Savanna,49.87,27.56,85.69,4.04,347.79,1518.45,-0.75,0.0,-1.2,Flood Risk
+Kaduna,6,wet,Northern Guinea Savanna,94.92,28.94,95.66,4.04,682.53,2885.58,-1.27,0.0,0.4,Flood Risk
+Kaduna,6,wet,Northern Guinea Savanna,141.24,24.08,90.72,4.04,983.75,4285.77,-1.61,0.0,-0.73,Flood Risk
+Kaduna,6,wet,Northern Guinea Savanna,111.21,27.88,89.64,4.04,809.0,3413.58,-2.58,0.0,-1.68,Flood Risk
+Kaduna,6,wet,Northern Guinea Savanna,117.2,22.47,94.1,4.04,841.56,3524.21,-0.27,0.0,2.5,Flood Risk
+Kaduna,6,wet,Northern Guinea Savanna,92.14,28.71,87.69,4.04,647.07,2827.76,-2.12,0.0,-2.14,Flood Risk
+Kaduna,7,wet,Northern Guinea Savanna,2.4,30.16,50.7,4.04,0.0,58.82,0.44,24.1,-0.24,Normal
+Kaduna,7,wet,Northern Guinea Savanna,145.09,31.41,79.02,4.04,1012.59,4309.72,1.43,0.0,2.18,Normal
+Kaduna,7,wet,Northern Guinea Savanna,47.42,26.55,81.31,4.04,337.64,1404.28,0.61,0.0,0.36,Flood Risk
+Kaduna,7,wet,Northern Guinea Savanna,110.02,27.58,73.55,4.04,755.24,3270.07,1.02,0.0,-0.19,Normal
+Kaduna,7,wet,Northern Guinea Savanna,75.74,27.92,75.46,4.04,544.92,2257.96,0.48,0.0,-0.18,Normal
+Kaduna,7,wet,Northern Guinea Savanna,103.71,35.86,79.79,4.04,707.94,3057.53,1.8,0.0,-1.32,Normal
+Kaduna,7,wet,Northern Guinea Savanna,108.91,33.04,75.88,4.04,784.93,3230.69,1.22,0.0,0.51,Normal
+Kaduna,7,wet,Northern Guinea Savanna,134.3,34.51,86.02,4.04,931.04,3936.75,3.08,0.0,-0.99,Flood Risk
+Kaduna,7,wet,Northern Guinea Savanna,32.44,27.99,77.03,4.04,232.88,918.36,1.82,0.0,-0.43,Normal
+Kaduna,7,wet,Northern Guinea Savanna,144.24,29.81,87.89,4.04,1032.26,4354.1,-0.9,0.0,1.88,Flood Risk
+Kaduna,7,wet,Northern Guinea Savanna,63.85,28.35,91.07,4.04,423.02,1894.9,0.68,0.0,-1.45,Flood Risk
+Kaduna,7,wet,Northern Guinea Savanna,80.31,27.03,86.07,4.04,520.97,2386.57,0.76,0.0,1.3,Flood Risk
+Kaduna,7,wet,Northern Guinea Savanna,158.71,31.6,69.23,4.04,1107.98,4652.04,3.64,0.0,-0.84,Normal
+Kaduna,7,wet,Northern Guinea Savanna,66.83,22.86,76.9,4.04,461.81,2039.93,-1.17,0.0,-0.26,Normal
+Kaduna,7,wet,Northern Guinea Savanna,122.45,24.47,91.65,4.04,808.33,3684.65,-0.37,0.0,0.2,Flood Risk
+Kaduna,7,wet,Northern Guinea Savanna,174.14,29.05,93.16,4.04,1185.13,5212.78,0.38,0.0,-0.36,Flood Risk
+Kaduna,7,wet,Northern Guinea Savanna,91.35,28.61,80.1,4.04,661.73,2744.05,-0.12,0.0,1.2,Flood Risk
+Kaduna,7,wet,Northern Guinea Savanna,117.52,31.74,81.96,4.04,791.24,3702.45,-5.89,0.0,1.27,Flood Risk
+Kaduna,8,wet,Northern Guinea Savanna,122.93,27.8,82.23,4.04,849.42,3693.29,-0.18,0.0,0.15,Flood Risk
+Kaduna,8,wet,Northern Guinea Savanna,101.84,25.31,72.16,4.04,692.87,3034.12,0.7,0.0,0.61,Normal
+Kaduna,8,wet,Northern Guinea Savanna,34.07,27.9,74.14,4.04,244.59,952.9,2.3,0.0,1.86,Normal
+Kaduna,8,wet,Northern Guinea Savanna,96.67,32.16,80.89,4.04,689.76,2876.98,0.77,0.0,-1.16,Flood Risk
+Kaduna,8,wet,Northern Guinea Savanna,44.62,29.45,80.4,4.04,335.9,1387.07,-1.61,0.0,0.63,Flood Risk
+Kaduna,8,wet,Northern Guinea Savanna,113.3,25.63,74.64,4.04,757.83,3314.95,2.8,0.0,-1.8,Normal
+Kaduna,8,wet,Northern Guinea Savanna,30.99,29.31,88.6,4.04,269.69,988.8,-1.97,0.0,0.25,Flood Risk
+Kaduna,8,wet,Northern Guinea Savanna,41.65,25.5,74.66,4.04,310.05,1249.86,-0.02,0.0,-1.17,Normal
+Kaduna,8,wet,Northern Guinea Savanna,40.71,29.48,77.81,4.04,252.67,1199.02,0.74,0.0,-1.33,Normal
+Kaduna,8,wet,Northern Guinea Savanna,140.51,33.87,81.52,4.04,972.69,4106.71,3.62,0.0,1.25,Flood Risk
+Kaduna,8,wet,Northern Guinea Savanna,108.52,27.97,77.07,4.04,734.54,3257.46,-0.06,0.0,1.98,Normal
+Kaduna,8,wet,Northern Guinea Savanna,0.0,32.73,55.28,4.04,0.0,117.26,-3.91,18.3,0.58,Normal
+Kaduna,8,wet,Northern Guinea Savanna,150.8,32.14,89.7,4.04,1054.81,4592.07,-2.27,0.0,-0.82,Flood Risk
+Kaduna,8,wet,Northern Guinea Savanna,93.0,31.14,97.94,4.04,651.07,2871.12,-2.7,0.0,-0.73,Flood Risk
+Kaduna,8,wet,Northern Guinea Savanna,55.34,30.98,85.91,4.04,445.37,1616.19,1.47,0.0,-1.15,Flood Risk
+Kaduna,8,wet,Northern Guinea Savanna,98.7,29.6,88.35,4.04,707.76,2946.46,0.49,0.0,0.18,Flood Risk
+Kaduna,8,wet,Northern Guinea Savanna,60.57,26.67,80.02,4.04,436.92,1815.68,0.05,0.0,0.03,Flood Risk
+Kaduna,8,wet,Northern Guinea Savanna,53.1,27.3,71.01,4.04,390.17,1653.93,-2.03,0.0,-1.31,Normal
+Kaduna,8,wet,Northern Guinea Savanna,77.99,22.74,94.52,4.04,540.97,2451.29,-3.72,0.0,-1.11,Flood Risk
+Kaduna,8,wet,Northern Guinea Savanna,24.85,28.75,76.77,4.04,148.02,732.9,0.42,0.0,-1.92,Normal
+Kaduna,8,wet,Northern Guinea Savanna,41.08,28.68,73.01,4.04,314.44,1266.67,-1.14,0.0,0.78,Normal
+Kaduna,8,wet,Northern Guinea Savanna,59.66,28.34,89.72,4.04,381.73,1831.09,-1.38,0.0,1.92,Flood Risk
+Kaduna,8,wet,Northern Guinea Savanna,0.0,25.29,18.57,4.04,1.21,1.75,-0.06,29.8,-1.29,Drought Risk
+Kaduna,8,wet,Northern Guinea Savanna,104.47,27.68,86.86,4.04,754.36,3114.28,0.66,0.0,-1.3,Flood Risk
+Kaduna,8,wet,Northern Guinea Savanna,78.89,29.06,84.13,4.04,567.18,2468.54,-3.39,0.0,-0.11,Flood Risk
+Kaduna,8,wet,Northern Guinea Savanna,141.39,27.88,80.66,4.04,984.25,4275.27,-1.11,0.0,-0.83,Flood Risk
+Kaduna,8,wet,Northern Guinea Savanna,106.07,24.1,94.51,4.04,778.81,3158.01,0.8,0.0,0.12,Flood Risk
+Kaduna,8,wet,Northern Guinea Savanna,30.56,30.3,75.72,4.04,202.1,1034.93,-3.94,0.0,0.5,Normal
+Kaduna,9,wet,Northern Guinea Savanna,142.11,31.5,75.56,4.04,1008.26,4273.22,-0.33,0.0,-0.51,Normal
+Kaduna,9,wet,Northern Guinea Savanna,102.04,30.67,82.4,4.04,715.37,3025.37,1.2,0.0,0.2,Flood Risk
+Kaduna,9,wet,Northern Guinea Savanna,51.55,25.89,89.85,4.04,359.91,1559.06,-0.42,0.0,0.96,Flood Risk
+Kaduna,9,wet,Northern Guinea Savanna,144.78,29.78,85.32,4.04,1020.83,4356.53,-0.44,0.0,-1.04,Flood Risk
+Kaduna,9,wet,Northern Guinea Savanna,44.1,30.07,76.57,4.04,292.4,1325.38,-0.08,0.0,-0.23,Normal
+Kaduna,9,wet,Northern Guinea Savanna,33.91,29.68,76.03,4.04,211.05,1035.48,-0.61,0.0,-1.88,Normal
+Kaduna,9,wet,Northern Guinea Savanna,134.37,32.17,86.41,4.04,922.66,3968.59,2.08,0.0,-1.28,Flood Risk
+Kaduna,9,wet,Northern Guinea Savanna,92.74,27.23,93.37,4.04,613.57,2677.9,3.48,0.0,-0.13,Flood Risk
+Kaduna,9,wet,Northern Guinea Savanna,68.97,28.48,83.4,4.04,490.46,2060.3,0.29,0.0,2.28,Flood Risk
+Kaduna,9,wet,Northern Guinea Savanna,81.76,31.36,73.94,4.04,613.86,2471.57,-0.63,0.0,0.33,Normal
+Kaduna,9,wet,Northern Guinea Savanna,112.35,29.79,85.11,4.04,759.37,3344.81,0.86,0.0,-0.34,Flood Risk
+Kaduna,9,wet,Northern Guinea Savanna,126.16,26.87,84.11,4.04,823.11,3752.02,1.09,0.0,0.39,Flood Risk
+Kaduna,9,wet,Northern Guinea Savanna,153.14,25.22,83.29,4.04,1030.93,4630.02,-1.19,0.0,0.16,Flood Risk
+Kaduna,9,wet,Northern Guinea Savanna,150.78,30.91,73.46,4.04,1090.55,4474.62,1.63,0.0,0.09,Normal
+Kaduna,9,wet,Northern Guinea Savanna,90.11,25.1,83.27,4.04,653.02,2796.48,-3.1,0.0,-0.44,Flood Risk
+Kaduna,9,wet,Northern Guinea Savanna,71.45,31.73,99.0,4.04,493.44,2090.29,1.77,0.0,-0.93,Flood Risk
+Kaduna,9,wet,Northern Guinea Savanna,54.91,27.94,91.73,4.04,368.63,1719.25,-2.4,0.0,0.76,Flood Risk
+Kaduna,9,wet,Northern Guinea Savanna,52.91,28.51,90.32,4.04,345.62,1472.55,3.82,0.0,-0.3,Flood Risk
+Kaduna,9,wet,Northern Guinea Savanna,134.01,29.69,73.65,4.04,910.0,4049.35,-0.96,0.0,0.1,Normal
+Kaduna,9,wet,Northern Guinea Savanna,90.18,27.63,85.55,4.04,652.06,2722.91,-0.59,0.0,0.3,Flood Risk
+Kaduna,9,wet,Northern Guinea Savanna,87.54,28.67,92.94,4.04,633.32,2657.4,-1.04,0.0,-1.15,Flood Risk
+Kaduna,9,wet,Northern Guinea Savanna,80.74,26.75,83.72,4.04,559.97,2247.1,5.83,0.0,-0.62,Flood Risk
+Kaduna,9,wet,Northern Guinea Savanna,72.18,31.27,91.36,4.04,507.52,2204.55,-1.3,0.0,0.38,Flood Risk
+Kaduna,9,wet,Northern Guinea Savanna,79.87,27.72,73.06,4.04,550.33,2526.37,-4.35,0.0,-2.06,Normal
+Kaduna,9,wet,Northern Guinea Savanna,76.26,30.45,93.11,4.04,489.75,2233.56,1.81,0.0,-0.48,Flood Risk
+Kaduna,9,wet,Northern Guinea Savanna,117.23,34.2,92.93,4.04,824.14,3441.66,2.51,0.0,-0.4,Flood Risk
+Kaduna,9,wet,Northern Guinea Savanna,70.65,27.1,88.12,4.04,461.0,2098.01,0.72,0.0,-0.22,Flood Risk
+Kaduna,9,wet,Northern Guinea Savanna,119.6,27.75,87.58,4.04,869.76,3593.25,-0.18,0.0,-0.51,Flood Risk
+Kaduna,9,wet,Northern Guinea Savanna,39.52,28.15,92.78,4.04,290.18,1212.96,-0.91,0.0,-0.13,Flood Risk
+Kaduna,9,wet,Northern Guinea Savanna,120.83,33.18,94.08,4.04,860.43,3742.94,-3.93,0.0,-0.84,Flood Risk
+Kaduna,10,wet,Northern Guinea Savanna,145.93,35.29,79.08,4.04,1014.31,4288.12,2.99,0.0,2.64,Normal
+Kaduna,10,wet,Northern Guinea Savanna,142.66,29.79,91.03,4.04,997.22,4323.11,-1.45,0.0,0.08,Flood Risk
+Kaduna,10,wet,Northern Guinea Savanna,116.3,30.9,78.63,4.04,781.75,3467.65,0.71,0.0,0.28,Normal
+Kaduna,10,wet,Northern Guinea Savanna,162.58,32.05,80.65,4.04,1116.57,4963.25,-2.87,0.0,-0.19,Flood Risk
+Kaduna,10,wet,Northern Guinea Savanna,148.57,30.33,86.46,4.04,1021.6,4404.58,1.75,0.0,0.64,Flood Risk
+Kaduna,10,wet,Northern Guinea Savanna,134.53,25.57,88.59,4.04,912.88,4153.82,-3.93,0.0,-0.89,Flood Risk
+Kaduna,10,wet,Northern Guinea Savanna,103.23,28.25,89.1,4.04,740.86,3104.52,-0.25,0.0,0.33,Flood Risk
+Kaduna,10,wet,Northern Guinea Savanna,39.89,35.98,81.55,4.04,281.05,1287.21,-3.02,0.0,2.02,Flood Risk
+Kaduna,10,wet,Northern Guinea Savanna,108.29,27.12,75.15,4.04,758.01,3307.27,-1.96,0.0,-1.24,Normal
+Kaduna,10,wet,Northern Guinea Savanna,105.66,25.87,82.02,4.04,718.68,3359.5,-6.32,0.0,-1.84,Flood Risk
+Kaduna,10,wet,Northern Guinea Savanna,101.31,26.28,93.47,4.04,686.16,3164.63,-4.18,0.0,0.05,Flood Risk
+Kaduna,10,wet,Northern Guinea Savanna,140.44,27.3,79.46,4.04,960.45,4234.3,-0.71,0.0,-0.77,Normal
+Kaduna,10,wet,Northern Guinea Savanna,75.87,25.74,87.89,4.04,483.29,2323.61,-1.58,0.0,-0.17,Flood Risk
+Kaduna,10,wet,Northern Guinea Savanna,128.94,29.15,78.62,4.04,874.49,3870.44,-0.07,0.0,0.06,Normal
+Kaduna,10,wet,Northern Guinea Savanna,79.51,33.99,76.83,4.04,552.19,2340.87,1.48,0.0,0.21,Normal
+Kaduna,10,wet,Northern Guinea Savanna,105.55,27.06,80.09,4.04,743.9,3309.14,-4.75,0.0,0.57,Flood Risk
+Kaduna,10,wet,Northern Guinea Savanna,41.74,30.75,79.95,4.04,266.5,1220.1,1.07,0.0,-0.49,Normal
+Kaduna,10,wet,Northern Guinea Savanna,132.08,30.54,77.81,4.04,922.71,3974.54,-0.41,0.0,-1.47,Normal
+Kaduna,10,wet,Northern Guinea Savanna,66.47,32.34,83.69,4.04,487.61,1897.0,3.24,0.0,1.13,Flood Risk
+Kaduna,10,wet,Northern Guinea Savanna,124.16,28.48,93.25,4.04,876.13,3788.34,-2.12,0.0,0.56,Flood Risk
+Kaduna,10,wet,Northern Guinea Savanna,0.0,26.6,30.01,4.04,0.0,0.0,0.0,30.0,-0.8,Drought Risk
+Kaduna,10,wet,Northern Guinea Savanna,23.06,26.85,75.6,4.04,161.37,695.44,-0.12,0.0,-0.85,Normal
+Kaduna,10,wet,Northern Guinea Savanna,80.81,21.48,75.95,4.04,541.44,2399.35,0.83,0.0,-0.06,Normal
+Kaduna,10,wet,Northern Guinea Savanna,167.86,28.71,83.61,4.04,1207.45,5076.74,-1.36,0.0,1.05,Flood Risk
+Kaduna,10,wet,Northern Guinea Savanna,149.1,26.77,85.69,4.04,1015.96,4414.97,1.93,0.0,-1.02,Flood Risk
+Kaduna,10,wet,Northern Guinea Savanna,79.36,29.23,96.57,4.04,572.5,2408.42,-0.92,0.0,0.33,Flood Risk
+Kaduna,10,wet,Northern Guinea Savanna,60.68,32.25,83.29,4.04,435.81,1791.72,0.95,0.0,3.04,Flood Risk
+Kaduna,10,wet,Northern Guinea Savanna,160.79,32.19,93.23,4.04,1140.27,4890.88,-2.24,0.0,-1.9,Flood Risk
+Kaduna,10,wet,Northern Guinea Savanna,103.38,29.91,89.57,4.04,708.8,3156.24,-1.82,0.0,0.56,Flood Risk
+Kaduna,10,wet,Northern Guinea Savanna,80.15,33.05,84.2,4.04,569.47,2406.95,-0.09,0.0,-1.17,Flood Risk
+Kaduna,11,dry,Northern Guinea Savanna,0.59,35.17,43.46,4.04,1.17,30.42,-0.43,27.0,-1.8,Normal
+Kaduna,11,dry,Northern Guinea Savanna,0.47,29.17,31.75,4.04,3.54,0.0,0.47,30.0,-0.14,Drought Risk
+Kaduna,11,dry,Northern Guinea Savanna,2.2,29.76,37.88,4.04,16.46,45.09,0.69,25.5,1.62,Normal
+Kaduna,11,dry,Northern Guinea Savanna,2.49,34.21,36.83,4.04,14.71,61.21,0.44,23.9,2.23,Normal
+Kaduna,11,dry,Northern Guinea Savanna,0.01,28.74,22.88,4.04,0.0,0.0,0.01,30.0,1.05,Drought Risk
+Kaduna,11,dry,Northern Guinea Savanna,1.59,27.0,50.8,4.04,10.63,48.56,-0.03,25.1,0.11,Normal
+Kaduna,11,dry,Northern Guinea Savanna,0.74,36.41,34.9,4.04,4.64,35.64,-0.45,26.4,-1.39,Normal
+Kaduna,11,dry,Northern Guinea Savanna,1.83,30.64,44.27,4.04,20.32,70.57,-0.52,22.9,1.09,Normal
+Kaduna,11,dry,Northern Guinea Savanna,1.27,26.03,47.12,4.04,9.84,58.82,-0.69,24.1,1.4,Normal
+Kaduna,11,dry,Northern Guinea Savanna,0.88,22.83,37.63,4.04,10.04,14.83,0.38,28.5,1.2,Drought Risk
+Kaduna,11,dry,Northern Guinea Savanna,0.81,29.49,34.51,4.04,7.95,10.47,0.46,29.0,0.12,Drought Risk
+Kaduna,11,dry,Northern Guinea Savanna,1.14,28.06,27.45,4.04,5.61,19.62,0.49,28.0,0.02,Drought Risk
+Kaduna,11,dry,Northern Guinea Savanna,0.63,27.9,38.75,4.04,0.0,13.19,0.19,28.7,-1.06,Drought Risk
+Kaduna,11,dry,Northern Guinea Savanna,0.42,24.3,33.44,4.04,1.37,18.01,-0.18,28.2,0.59,Drought Risk
+Kaduna,11,dry,Northern Guinea Savanna,1.06,26.67,40.88,4.04,16.05,31.63,0.01,26.8,-1.11,Normal
+Kaduna,11,dry,Northern Guinea Savanna,1.17,30.13,44.88,4.04,10.19,47.86,-0.42,25.2,0.32,Normal
+Kaduna,11,dry,Northern Guinea Savanna,0.0,26.93,26.51,4.04,0.0,4.88,-0.16,29.5,1.02,Drought Risk
+Kaduna,11,dry,Northern Guinea Savanna,0.32,22.78,24.7,4.04,7.27,10.55,-0.03,28.9,-0.7,Drought Risk
+Kaduna,11,dry,Northern Guinea Savanna,0.0,33.67,15.09,4.04,0.0,5.19,-0.17,29.5,0.37,Drought Risk
+Kaduna,11,dry,Northern Guinea Savanna,0.33,33.32,29.6,4.04,1.65,6.74,0.1,29.3,-0.54,Drought Risk
+Kaduna,11,dry,Northern Guinea Savanna,0.46,22.43,26.63,4.04,0.0,17.39,-0.12,28.3,-0.69,Drought Risk
+Kaduna,11,dry,Northern Guinea Savanna,0.63,29.76,35.5,4.04,0.0,16.74,0.07,28.3,-0.15,Drought Risk
+Kaduna,12,dry,Northern Guinea Savanna,1.93,34.89,56.0,4.04,14.41,50.94,0.23,24.9,0.26,Normal
+Kaduna,12,dry,Northern Guinea Savanna,1.2,33.47,44.02,4.04,8.77,44.64,-0.28,25.5,-1.32,Normal
+Kaduna,12,dry,Northern Guinea Savanna,0.0,27.05,28.7,4.04,5.4,0.0,0.0,30.0,0.29,Drought Risk
+Kaduna,12,dry,Northern Guinea Savanna,1.62,34.63,39.8,4.04,22.51,42.39,0.21,25.8,0.04,Normal
+Kaduna,12,dry,Northern Guinea Savanna,0.27,27.9,34.66,4.04,0.0,0.0,0.27,30.0,0.76,Drought Risk
+Kaduna,12,dry,Northern Guinea Savanna,2.49,25.54,42.22,4.04,21.5,58.39,0.54,24.2,-0.2,Normal
+Kaduna,12,dry,Northern Guinea Savanna,1.95,30.52,47.96,4.04,17.78,71.73,-0.44,22.8,0.01,Normal
+Kaduna,12,dry,Northern Guinea Savanna,1.47,27.92,44.62,4.04,5.24,56.73,-0.42,24.3,0.16,Normal
+Kaduna,12,dry,Northern Guinea Savanna,1.38,24.7,29.91,4.04,18.03,56.96,-0.52,24.3,0.17,Normal
+Kaduna,12,dry,Northern Guinea Savanna,0.18,27.43,26.68,4.04,0.73,0.0,0.18,30.0,0.6,Drought Risk
+Kaduna,12,dry,Northern Guinea Savanna,1.58,30.8,28.17,4.04,14.39,20.77,0.89,27.9,-0.46,Drought Risk
+Kaduna,12,dry,Northern Guinea Savanna,1.9,28.26,38.13,4.04,15.45,55.98,0.04,24.4,1.32,Normal
+Kaduna,12,dry,Northern Guinea Savanna,0.74,30.96,33.82,4.04,7.2,38.84,-0.56,26.1,-2.12,Normal
+Kaduna,12,dry,Northern Guinea Savanna,2.12,34.3,31.18,4.04,13.72,38.37,0.85,26.2,0.41,Normal
+Kaduna,12,dry,Northern Guinea Savanna,0.09,29.88,37.95,4.04,0.0,34.1,-1.04,26.6,-1.04,Normal
+Kaduna,12,dry,Northern Guinea Savanna,0.77,30.87,15.75,4.04,2.22,14.75,0.27,28.5,-1.87,Drought Risk
+Kaduna,12,dry,Northern Guinea Savanna,1.41,32.9,26.04,4.04,10.12,44.38,-0.07,25.6,-0.76,Normal
+Kaduna,12,dry,Northern Guinea Savanna,0.16,27.98,28.62,4.04,5.68,35.99,-1.04,26.4,-0.05,Normal
+Kaduna,12,dry,Northern Guinea Savanna,1.44,27.59,37.88,4.04,6.26,43.72,-0.01,25.6,1.7,Normal
+Kaduna,12,dry,Northern Guinea Savanna,0.58,27.97,43.92,4.04,4.81,3.97,0.45,29.6,0.79,Drought Risk
+Kaduna,12,dry,Northern Guinea Savanna,0.0,28.74,39.39,4.04,3.0,14.52,-0.48,28.5,0.87,Drought Risk
+Kaduna,12,dry,Northern Guinea Savanna,1.57,24.93,54.55,4.04,15.99,42.58,0.15,25.7,0.94,Normal
+Kaduna,12,dry,Northern Guinea Savanna,0.42,27.45,37.6,4.04,3.32,1.84,0.36,29.8,0.4,Drought Risk
+Kaduna,12,dry,Northern Guinea Savanna,1.53,30.71,36.29,4.04,15.16,41.61,0.15,25.8,1.26,Normal
+Kaduna,12,dry,Northern Guinea Savanna,1.1,29.53,46.37,4.04,7.4,18.85,0.47,28.1,0.65,Normal
+Kano,1,dry,Sudan Savanna,1.1,31.97,36.55,4.04,0.0,47.44,-0.48,25.3,-1.07,Normal
+Kano,1,dry,Sudan Savanna,0.0,26.74,27.3,4.04,1.89,6.88,-0.23,29.3,-2.21,Drought Risk
+Kano,1,dry,Sudan Savanna,0.58,25.81,41.79,4.04,6.13,44.97,-0.92,25.5,-1.05,Normal
+Kano,1,dry,Sudan Savanna,0.0,24.64,34.23,4.04,1.67,22.01,-0.73,27.8,0.16,Drought Risk
+Kano,1,dry,Sudan Savanna,0.39,21.33,29.3,4.04,10.58,13.32,-0.05,28.7,0.68,Drought Risk
+Kano,1,dry,Sudan Savanna,1.54,26.59,44.1,4.04,10.98,34.93,0.37,26.5,0.98,Normal
+Kano,1,dry,Sudan Savanna,1.64,20.03,16.94,4.04,13.74,23.62,0.85,27.6,0.44,Drought Risk
+Kano,1,dry,Sudan Savanna,0.82,20.38,37.4,4.04,0.0,17.99,0.22,28.2,-0.99,Drought Risk
+Kano,1,dry,Sudan Savanna,0.8,30.01,34.03,4.04,1.87,27.04,-0.1,27.3,1.27,Normal
+Kano,1,dry,Sudan Savanna,0.44,31.19,31.61,4.04,15.69,13.09,0.01,28.7,0.87,Drought Risk
+Kano,1,dry,Sudan Savanna,0.63,22.93,37.7,4.04,3.61,18.34,0.01,28.2,-0.13,Drought Risk
+Kano,1,dry,Sudan Savanna,1.54,25.95,45.58,4.04,14.6,39.14,0.23,26.1,-0.92,Normal
+Kano,1,dry,Sudan Savanna,0.7,22.59,23.56,4.04,13.8,33.22,-0.41,26.7,0.98,Normal
+Kano,1,dry,Sudan Savanna,0.58,27.09,33.99,4.04,4.18,8.87,0.29,29.1,0.43,Drought Risk
+Kano,1,dry,Sudan Savanna,0.0,33.73,22.41,4.04,0.0,0.0,0.0,30.0,0.95,Drought Risk
+Kano,1,dry,Sudan Savanna,0.62,22.61,23.57,4.04,0.0,5.6,0.43,29.4,-0.44,Drought Risk
+Kano,1,dry,Sudan Savanna,2.34,24.61,42.06,4.04,13.28,58.65,0.39,24.1,0.26,Normal
+Kano,1,dry,Sudan Savanna,0.0,24.95,43.16,4.04,12.09,6.14,-0.2,29.4,2.92,Drought Risk
+Kano,1,dry,Sudan Savanna,0.57,24.9,35.98,4.04,11.08,12.92,0.14,28.7,0.24,Drought Risk
+Kano,2,dry,Sudan Savanna,0.24,25.88,36.91,4.04,2.66,7.5,-0.01,29.2,-1.33,Drought Risk
+Kano,2,dry,Sudan Savanna,0.0,25.74,15.0,4.04,1.03,0.0,0.0,30.0,1.7,Drought Risk
+Kano,2,dry,Sudan Savanna,0.71,29.25,39.29,4.04,0.0,23.73,-0.08,27.6,-2.34,Drought Risk
+Kano,2,dry,Sudan Savanna,0.86,23.03,31.59,4.04,0.0,34.91,-0.3,26.5,0.46,Normal
+Kano,2,dry,Sudan Savanna,1.15,23.74,33.16,4.04,12.08,51.44,-0.57,24.9,-0.04,Normal
+Kano,2,dry,Sudan Savanna,0.66,20.5,39.69,4.04,11.89,27.75,-0.26,27.2,-0.17,Normal
+Kano,2,dry,Sudan Savanna,0.54,25.14,23.37,4.04,14.5,34.49,-0.61,26.6,-0.69,Normal
+Kano,2,dry,Sudan Savanna,1.13,28.44,29.68,4.04,10.87,22.89,0.37,27.7,1.03,Drought Risk
+Kano,2,dry,Sudan Savanna,0.24,23.52,29.44,4.04,0.0,7.43,-0.0,29.3,0.32,Drought Risk
+Kano,2,dry,Sudan Savanna,1.48,22.86,38.85,4.04,14.92,43.61,0.03,25.6,0.16,Normal
+Kano,2,dry,Sudan Savanna,0.65,28.53,34.54,4.04,4.13,18.27,0.04,28.2,-0.07,Drought Risk
+Kano,2,dry,Sudan Savanna,0.43,28.03,48.09,4.04,10.51,29.52,-0.56,27.0,-1.77,Normal
+Kano,2,dry,Sudan Savanna,1.44,23.94,45.2,4.04,12.43,48.39,-0.17,25.2,-1.11,Normal
+Kano,2,dry,Sudan Savanna,0.54,25.96,33.92,4.04,6.07,20.18,-0.14,28.0,-0.96,Drought Risk
+Kano,2,dry,Sudan Savanna,1.04,28.79,33.24,4.04,11.76,41.06,-0.32,25.9,1.45,Normal
+Kano,2,dry,Sudan Savanna,1.1,30.79,43.72,4.04,8.97,13.74,0.64,28.6,0.76,Drought Risk
+Kano,2,dry,Sudan Savanna,0.21,30.33,23.68,4.04,5.23,16.96,-0.36,28.3,-0.69,Drought Risk
+Kano,2,dry,Sudan Savanna,1.01,26.94,31.04,4.04,7.95,5.27,0.83,29.5,0.1,Drought Risk
+Kano,2,dry,Sudan Savanna,1.62,25.37,42.24,4.04,14.92,58.71,-0.34,24.1,-0.99,Normal
+Kano,2,dry,Sudan Savanna,0.28,27.83,31.18,4.04,7.78,15.66,-0.25,28.4,-1.13,Drought Risk
+Kano,2,dry,Sudan Savanna,1.1,26.42,20.61,4.04,8.96,2.07,1.03,29.8,0.01,Drought Risk
+Kano,2,dry,Sudan Savanna,1.14,24.88,36.27,4.04,6.44,51.54,-0.58,24.8,1.85,Normal
+Kano,2,dry,Sudan Savanna,0.9,27.56,32.47,4.04,8.15,30.82,-0.12,26.9,0.54,Normal
+Kano,2,dry,Sudan Savanna,0.69,22.39,30.52,4.04,3.42,5.64,0.5,29.4,0.21,Drought Risk
+Kano,2,dry,Sudan Savanna,0.0,26.06,31.15,4.04,6.35,0.0,0.0,30.0,0.05,Drought Risk
+Kano,2,dry,Sudan Savanna,1.7,29.19,33.39,4.04,14.08,33.64,0.58,26.6,-0.14,Normal
+Kano,3,dry,Sudan Savanna,1.01,31.11,34.61,4.04,7.25,22.14,0.27,27.8,0.24,Drought Risk
+Kano,3,dry,Sudan Savanna,1.21,22.66,52.0,4.04,8.25,40.64,-0.14,25.9,1.83,Normal
+Kano,3,dry,Sudan Savanna,1.81,30.23,39.32,4.04,12.63,54.92,-0.02,24.5,-0.22,Normal
+Kano,3,dry,Sudan Savanna,0.84,28.96,40.01,4.04,18.55,23.02,0.08,27.7,0.14,Drought Risk
+Kano,3,dry,Sudan Savanna,0.35,25.97,21.63,4.04,2.29,9.8,0.02,29.0,-0.46,Drought Risk
+Kano,3,dry,Sudan Savanna,0.78,24.09,26.53,4.04,13.67,19.99,0.11,28.0,-1.04,Drought Risk
+Kano,3,dry,Sudan Savanna,0.88,29.39,21.76,4.04,4.4,38.14,-0.39,26.2,1.07,Normal
+Kano,3,dry,Sudan Savanna,1.08,24.65,38.01,4.04,1.62,41.74,-0.31,25.8,-0.9,Normal
+Kano,3,dry,Sudan Savanna,0.24,26.1,20.31,4.04,1.15,35.32,-0.93,26.5,-0.7,Normal
+Kano,3,dry,Sudan Savanna,1.39,26.73,31.37,4.04,4.74,14.7,0.9,28.5,-1.1,Drought Risk
+Kano,3,dry,Sudan Savanna,1.49,24.7,36.48,4.04,13.29,41.15,0.12,25.9,0.9,Normal
+Kano,3,dry,Sudan Savanna,0.42,26.29,42.43,4.04,8.25,36.04,-0.78,26.4,0.69,Normal
+Kano,3,dry,Sudan Savanna,1.43,27.32,36.0,4.04,9.86,37.54,0.18,26.2,0.28,Normal
+Kano,3,dry,Sudan Savanna,0.16,26.81,40.56,4.04,1.52,13.71,-0.29,28.6,1.51,Drought Risk
+Kano,3,dry,Sudan Savanna,0.24,26.14,26.84,4.04,4.46,30.37,-0.77,27.0,-0.48,Normal
+Kano,3,dry,Sudan Savanna,0.23,23.18,26.0,4.04,0.0,7.29,-0.01,29.3,-0.0,Drought Risk
+Kano,3,dry,Sudan Savanna,0.0,29.1,33.69,4.04,0.02,4.07,-0.14,29.6,0.27,Drought Risk
+Kano,3,dry,Sudan Savanna,0.47,23.52,35.97,4.04,1.16,17.66,-0.12,28.2,-1.4,Drought Risk
+Kano,3,dry,Sudan Savanna,1.75,29.6,56.12,4.04,15.41,48.16,0.14,25.2,-1.04,Normal
+Kano,3,dry,Sudan Savanna,0.74,26.87,26.81,4.04,2.33,17.7,0.15,28.2,-1.65,Drought Risk
+Kano,3,dry,Sudan Savanna,0.24,27.82,34.21,4.04,0.0,19.44,-0.41,28.1,0.86,Drought Risk
+Kano,3,dry,Sudan Savanna,0.44,23.89,22.47,4.04,7.75,12.42,0.03,28.8,0.34,Drought Risk
+Kano,3,dry,Sudan Savanna,0.58,27.74,28.0,4.04,6.81,13.77,0.12,28.6,0.06,Drought Risk
+Kano,3,dry,Sudan Savanna,0.87,30.9,38.64,4.04,0.0,33.6,-0.25,26.6,0.85,Normal
+Kano,4,wet,Sudan Savanna,35.04,23.44,83.63,4.04,246.99,1076.98,-0.86,0.0,-1.63,Flood Risk
+Kano,4,wet,Sudan Savanna,89.58,26.67,78.23,4.04,642.87,2604.34,2.77,0.0,-0.55,Normal
+Kano,4,wet,Sudan Savanna,53.22,23.15,90.59,4.04,357.15,1664.22,-2.25,0.0,-1.61,Flood Risk
+Kano,4,wet,Sudan Savanna,61.21,27.28,77.26,4.04,448.02,1837.8,-0.05,0.0,0.23,Normal
+Kano,4,wet,Sudan Savanna,102.93,23.49,85.53,4.04,694.12,3074.97,0.43,0.0,0.74,Flood Risk
+Kano,4,wet,Sudan Savanna,185.85,29.79,70.57,4.04,1314.77,5639.62,-2.14,0.0,-1.38,Normal
+Kano,4,wet,Sudan Savanna,74.47,27.24,82.05,4.04,510.03,2257.05,-0.76,0.0,0.05,Flood Risk
+Kano,4,wet,Sudan Savanna,95.13,26.94,80.52,4.04,648.27,2914.63,-2.02,0.0,-1.73,Flood Risk
+Kano,4,wet,Sudan Savanna,33.45,19.6,93.31,4.04,252.76,993.2,0.35,0.0,0.18,Flood Risk
+Kano,4,wet,Sudan Savanna,110.71,26.4,95.09,4.04,769.39,3341.88,-0.69,0.0,-1.02,Flood Risk
+Kano,4,wet,Sudan Savanna,157.9,23.23,81.94,4.04,1106.23,4678.6,1.94,0.0,-0.16,Flood Risk
+Kano,4,wet,Sudan Savanna,151.48,28.07,77.97,4.04,1060.78,4535.64,0.29,0.0,0.9,Normal
+Kano,4,wet,Sudan Savanna,29.57,24.81,72.68,4.04,205.22,882.9,0.14,0.0,0.76,Normal
+Kano,4,wet,Sudan Savanna,56.8,27.14,93.1,4.04,393.51,1709.84,-0.2,0.0,1.58,Flood Risk
+Kano,4,wet,Sudan Savanna,13.81,28.73,88.78,4.04,85.9,470.3,-1.87,0.0,-0.74,Normal
+Kano,4,wet,Sudan Savanna,61.25,32.0,85.21,4.04,453.41,1774.11,2.12,0.0,0.6,Flood Risk
+Kano,4,wet,Sudan Savanna,103.94,27.58,97.19,4.04,726.81,3041.39,2.56,0.0,2.73,Flood Risk
+Kano,4,wet,Sudan Savanna,52.47,23.91,91.39,4.04,355.68,1643.41,-2.31,0.0,-0.28,Flood Risk
+Kano,4,wet,Sudan Savanna,70.77,33.42,89.23,4.04,477.3,2073.39,1.65,0.0,1.05,Flood Risk
+Kano,4,wet,Sudan Savanna,87.67,28.21,87.24,4.04,627.41,2606.96,0.77,0.0,-1.38,Flood Risk
+Kano,4,wet,Sudan Savanna,115.93,27.09,77.65,4.04,800.64,3483.2,-0.18,0.0,0.38,Normal
+Kano,4,wet,Sudan Savanna,58.3,30.44,91.2,4.04,409.21,1747.57,0.05,0.0,-1.13,Flood Risk
+Kano,4,wet,Sudan Savanna,154.81,24.97,88.04,4.04,1068.38,4755.66,-3.71,0.0,-0.03,Flood Risk
+Kano,4,wet,Sudan Savanna,81.94,27.76,75.92,4.04,582.23,2465.44,-0.24,0.0,0.51,Normal
+Kano,4,wet,Sudan Savanna,84.91,23.71,78.96,4.04,623.78,2584.05,-1.22,0.0,1.62,Normal
+Kano,4,wet,Sudan Savanna,44.05,25.87,99.0,4.04,295.99,1398.49,-2.57,0.0,1.02,Flood Risk
+Kano,4,wet,Sudan Savanna,48.05,29.7,99.0,4.04,322.95,1421.99,0.65,0.0,-1.17,Flood Risk
+Kano,5,wet,Sudan Savanna,22.56,32.57,78.39,4.04,195.46,606.36,2.34,0.0,0.3,Normal
+Kano,5,wet,Sudan Savanna,66.41,27.89,78.8,4.04,444.76,1992.77,-0.02,0.0,-1.72,Normal
+Kano,5,wet,Sudan Savanna,85.05,26.19,85.79,4.04,585.79,2594.39,-1.43,0.0,-0.1,Flood Risk
+Kano,5,wet,Sudan Savanna,31.43,31.03,74.01,4.04,248.8,1046.07,-3.44,0.0,0.97,Normal
+Kano,5,wet,Sudan Savanna,50.84,26.13,76.19,4.04,354.23,1514.79,0.34,0.0,-0.96,Normal
+Kano,5,wet,Sudan Savanna,34.77,34.09,70.45,4.04,252.92,993.44,1.66,0.0,1.55,Normal
+Kano,5,wet,Sudan Savanna,11.65,27.09,79.55,4.04,69.18,299.78,1.66,0.0,-1.27,Normal
+Kano,5,wet,Sudan Savanna,45.34,27.41,88.0,4.04,326.11,1306.94,1.78,0.0,-1.48,Flood Risk
+Kano,5,wet,Sudan Savanna,67.03,29.36,70.15,4.04,435.46,2040.81,-0.99,0.0,1.59,Normal
+Kano,5,wet,Sudan Savanna,120.2,31.7,79.76,4.04,861.98,3555.42,1.69,0.0,0.81,Normal
+Kano,5,wet,Sudan Savanna,35.14,25.97,86.43,4.04,268.61,1083.8,-0.99,0.0,0.16,Flood Risk
+Kano,5,wet,Sudan Savanna,55.21,23.46,62.96,4.04,375.7,1647.28,0.3,0.0,-1.05,Normal
+Kano,5,wet,Sudan Savanna,142.66,24.77,85.08,4.04,970.41,4378.59,-3.29,0.0,0.38,Flood Risk
+Kano,5,wet,Sudan Savanna,55.6,26.23,85.02,4.04,403.86,1694.64,-0.89,0.0,-0.46,Flood Risk
+Kano,5,wet,Sudan Savanna,59.22,28.88,91.45,4.04,378.62,1738.17,1.28,0.0,-1.9,Flood Risk
+Kano,5,wet,Sudan Savanna,127.75,25.77,96.68,4.04,866.89,3915.24,-2.76,0.0,1.54,Flood Risk
+Kano,5,wet,Sudan Savanna,24.6,27.66,93.48,4.04,126.46,725.88,0.4,0.0,-0.58,Normal
+Kano,5,wet,Sudan Savanna,63.94,29.14,74.38,4.04,447.29,1927.84,-0.33,0.0,0.53,Normal
+Kano,5,wet,Sudan Savanna,91.1,30.98,99.0,4.04,635.2,2551.44,6.05,0.0,-0.28,Flood Risk
+Kano,5,wet,Sudan Savanna,77.25,26.42,90.74,4.04,535.6,2228.24,2.97,0.0,-0.72,Flood Risk
+Kano,6,wet,Sudan Savanna,116.1,22.05,91.64,4.04,803.82,3456.97,0.87,0.0,-1.59,Flood Risk
+Kano,6,wet,Sudan Savanna,11.37,30.22,84.25,4.04,89.38,369.98,-0.96,0.0,-0.28,Normal
+Kano,6,wet,Sudan Savanna,46.79,28.39,89.78,4.04,362.19,1321.56,2.73,0.0,0.1,Flood Risk
+Kano,6,wet,Sudan Savanna,93.77,31.08,86.2,4.04,635.68,2806.3,0.22,0.0,-1.95,Flood Risk
+Kano,6,wet,Sudan Savanna,106.18,31.91,88.87,4.04,749.0,3188.93,-0.12,0.0,-0.06,Flood Risk
+Kano,6,wet,Sudan Savanna,41.76,25.91,81.71,4.04,280.82,1214.66,1.27,0.0,0.35,Flood Risk
+Kano,6,wet,Sudan Savanna,32.84,23.87,73.5,4.04,242.11,1027.19,-1.4,0.0,1.52,Normal
+Kano,6,wet,Sudan Savanna,43.24,27.41,86.84,4.04,316.39,1175.0,4.08,0.0,0.3,Flood Risk
+Kano,6,wet,Sudan Savanna,84.39,29.27,87.33,4.04,602.12,2483.8,1.6,0.0,0.88,Flood Risk
+Kano,6,wet,Sudan Savanna,67.27,23.89,84.68,4.04,452.93,2111.13,-3.11,0.0,0.52,Flood Risk
+Kano,6,wet,Sudan Savanna,80.04,26.19,93.5,4.04,570.08,2341.54,1.99,0.0,0.09,Flood Risk
+Kano,6,wet,Sudan Savanna,68.49,25.16,77.15,4.04,488.66,1976.02,2.62,0.0,0.1,Normal
+Kano,6,wet,Sudan Savanna,146.43,32.0,81.26,4.04,994.41,4424.22,-1.04,0.0,0.08,Flood Risk
+Kano,6,wet,Sudan Savanna,50.61,29.77,75.86,4.04,381.78,1502.4,0.53,0.0,-0.18,Normal
+Kano,6,wet,Sudan Savanna,146.52,30.56,99.0,4.04,1024.58,4352.25,1.45,0.0,0.79,Flood Risk
+Kano,6,wet,Sudan Savanna,98.95,29.49,67.58,4.04,701.56,3020.89,-1.74,0.0,0.84,Normal
+Kano,6,wet,Sudan Savanna,5.29,26.77,60.5,4.04,76.19,190.32,-1.05,11.0,0.64,Normal
+Kano,6,wet,Sudan Savanna,81.3,28.51,90.51,4.04,547.14,2435.36,0.12,0.0,-0.8,Flood Risk
+Kano,6,wet,Sudan Savanna,57.37,27.0,89.39,4.04,390.72,1754.84,-1.13,0.0,-0.08,Flood Risk
+Kano,6,wet,Sudan Savanna,93.93,31.15,85.16,4.04,613.77,2706.62,3.71,0.0,-1.15,Flood Risk
+Kano,6,wet,Sudan Savanna,73.33,33.0,81.78,4.04,495.76,2124.98,2.49,0.0,1.96,Flood Risk
+Kano,6,wet,Sudan Savanna,26.76,28.34,81.08,4.04,183.66,853.67,-1.7,0.0,-1.21,Flood Risk
+Kano,6,wet,Sudan Savanna,111.88,27.28,75.99,4.04,776.97,3285.1,2.37,0.0,-0.93,Normal
+Kano,6,wet,Sudan Savanna,77.81,27.68,91.06,4.04,555.67,2377.77,-1.45,0.0,0.59,Flood Risk
+Kano,6,wet,Sudan Savanna,100.54,32.73,88.31,4.04,678.54,3028.71,-0.42,0.0,-1.41,Flood Risk
+Kano,6,wet,Sudan Savanna,82.41,30.62,88.8,4.04,558.01,2619.59,-4.91,0.0,-0.66,Flood Risk
+Kano,6,wet,Sudan Savanna,40.56,27.22,79.16,4.04,267.2,1273.09,-1.88,0.0,-1.2,Normal
+Kano,6,wet,Sudan Savanna,112.67,25.49,84.5,4.04,787.16,3441.5,-2.05,0.0,-0.78,Flood Risk
+Kano,6,wet,Sudan Savanna,37.32,26.1,82.24,4.04,272.84,1060.51,1.97,0.0,-0.94,Flood Risk
+Kano,6,wet,Sudan Savanna,68.74,28.85,81.2,4.04,512.52,2110.08,-1.6,0.0,-0.44,Flood Risk
+Kano,7,wet,Sudan Savanna,75.43,29.8,73.89,4.04,528.46,2349.95,-2.9,0.0,0.05,Normal
+Kano,7,wet,Sudan Savanna,88.87,27.64,90.24,4.04,616.51,2558.01,3.6,0.0,2.67,Flood Risk
+Kano,7,wet,Sudan Savanna,87.29,23.81,79.84,4.04,605.45,2644.73,-0.87,0.0,0.02,Normal
+Kano,7,wet,Sudan Savanna,109.83,27.05,78.31,4.04,739.96,3235.04,1.99,0.0,-0.72,Normal
+Kano,7,wet,Sudan Savanna,59.64,24.65,78.12,4.04,442.82,1715.98,2.44,0.0,0.76,Normal
+Kano,7,wet,Sudan Savanna,47.07,27.48,86.41,4.04,341.13,1466.78,-1.82,0.0,1.28,Flood Risk
+Kano,7,wet,Sudan Savanna,200.32,28.53,85.77,4.04,1391.89,6079.55,-2.33,0.0,-2.03,Flood Risk
+Kano,7,wet,Sudan Savanna,0.0,24.12,58.85,4.04,14.66,51.63,-1.72,24.8,0.07,Normal
+Kano,7,wet,Sudan Savanna,99.79,27.57,83.05,4.04,688.36,3012.63,-0.63,0.0,-0.31,Flood Risk
+Kano,7,wet,Sudan Savanna,115.2,26.38,86.55,4.04,787.67,3480.02,-0.8,0.0,-0.34,Flood Risk
+Kano,7,wet,Sudan Savanna,139.54,29.27,78.6,4.04,1009.41,4282.48,-3.21,0.0,-1.14,Normal
+Kano,7,wet,Sudan Savanna,88.32,29.92,89.33,4.04,624.68,2646.5,0.1,0.0,0.96,Flood Risk
+Kano,7,wet,Sudan Savanna,68.38,30.06,90.49,4.04,493.52,2006.99,1.48,0.0,-1.14,Flood Risk
+Kano,7,wet,Sudan Savanna,91.32,31.42,98.45,4.04,617.23,2706.13,1.12,0.0,-1.07,Flood Risk
+Kano,7,wet,Sudan Savanna,72.96,31.76,92.48,4.04,488.44,2123.28,2.18,0.0,-0.23,Flood Risk
+Kano,7,wet,Sudan Savanna,69.28,30.81,79.05,4.04,484.51,2097.02,-0.62,0.0,0.19,Normal
+Kano,7,wet,Sudan Savanna,59.54,26.07,88.4,4.04,424.71,1790.59,-0.15,0.0,-0.62,Flood Risk
+Kano,8,wet,Sudan Savanna,30.54,24.93,86.32,4.04,223.65,912.99,0.11,0.0,1.1,Flood Risk
+Kano,8,wet,Sudan Savanna,78.42,28.25,95.62,4.04,554.05,2339.97,0.42,0.0,0.09,Flood Risk
+Kano,8,wet,Sudan Savanna,85.49,27.17,79.97,4.04,597.73,2505.52,1.97,0.0,0.65,Normal
+Kano,8,wet,Sudan Savanna,92.23,23.24,90.62,4.04,651.14,2684.32,2.75,0.0,-0.9,Flood Risk
+Kano,8,wet,Sudan Savanna,91.63,32.55,93.61,4.04,631.91,2733.82,0.5,0.0,-0.29,Flood Risk
+Kano,8,wet,Sudan Savanna,56.15,33.1,85.46,4.04,379.04,1761.05,-2.55,0.0,-1.1,Flood Risk
+Kano,8,wet,Sudan Savanna,106.96,29.59,81.82,4.04,751.91,3224.05,-0.51,0.0,0.03,Flood Risk
+Kano,8,wet,Sudan Savanna,134.5,31.63,94.38,4.04,944.11,4114.66,-2.65,0.0,-0.16,Flood Risk
+Kano,8,wet,Sudan Savanna,31.4,27.18,88.41,4.04,203.61,890.3,1.73,0.0,-0.47,Flood Risk
+Kano,8,wet,Sudan Savanna,81.08,32.44,73.55,4.04,571.28,2550.1,-3.92,0.0,0.45,Normal
+Kano,8,wet,Sudan Savanna,0.0,30.63,39.8,4.04,0.0,46.21,-1.54,25.4,0.35,Normal
+Kano,8,wet,Sudan Savanna,59.19,28.72,78.3,4.04,374.18,1791.03,-0.51,0.0,0.99,Normal
+Kano,8,wet,Sudan Savanna,22.52,24.3,70.64,4.04,153.0,680.63,-0.16,0.0,-0.48,Normal
+Kano,8,wet,Sudan Savanna,104.43,31.49,86.14,4.04,736.4,3142.83,-0.33,0.0,1.2,Flood Risk
+Kano,8,wet,Sudan Savanna,0.0,32.24,27.27,4.04,0.0,0.0,0.0,30.0,0.56,Drought Risk
+Kano,8,wet,Sudan Savanna,146.27,29.97,83.95,4.04,996.83,4454.55,-2.22,0.0,0.3,Flood Risk
+Kano,8,wet,Sudan Savanna,110.04,32.6,90.47,4.04,789.8,3304.12,-0.1,0.0,-0.59,Flood Risk
+Kano,8,wet,Sudan Savanna,110.67,27.22,83.44,4.04,790.2,3279.23,1.36,0.0,-0.95,Flood Risk
+Kano,8,wet,Sudan Savanna,53.41,27.33,83.05,4.04,394.04,1542.49,1.99,0.0,1.38,Flood Risk
+Kano,8,wet,Sudan Savanna,45.27,30.61,75.43,4.04,324.39,1539.23,-6.03,0.0,0.35,Normal
+Kano,8,wet,Sudan Savanna,74.9,33.37,81.82,4.04,526.85,2222.66,0.82,0.0,0.15,Flood Risk
+Kano,8,wet,Sudan Savanna,96.17,29.65,78.07,4.04,621.57,2879.75,0.18,0.0,0.66,Normal
+Kano,8,wet,Sudan Savanna,71.8,29.17,94.44,4.04,499.32,2041.52,3.75,0.0,1.11,Flood Risk
+Kano,9,wet,Sudan Savanna,100.63,24.64,76.7,4.04,743.75,3034.09,-0.51,0.0,1.01,Normal
+Kano,9,wet,Sudan Savanna,35.74,18.82,82.21,4.04,238.55,1053.52,0.63,0.0,-0.67,Flood Risk
+Kano,9,wet,Sudan Savanna,73.91,28.8,89.34,4.04,526.76,2253.42,-1.21,0.0,0.87,Flood Risk
+Kano,9,wet,Sudan Savanna,66.9,27.36,99.0,4.04,463.05,2040.91,-1.13,0.0,1.92,Flood Risk
+Kano,9,wet,Sudan Savanna,70.14,27.61,87.07,4.04,539.72,2077.65,0.88,0.0,-0.06,Flood Risk
+Kano,9,wet,Sudan Savanna,14.46,29.27,80.81,4.04,121.04,422.42,0.38,0.0,1.35,Normal
+Kano,9,wet,Sudan Savanna,115.36,32.31,91.37,4.04,801.43,3452.16,0.29,0.0,0.05,Flood Risk
+Kano,9,wet,Sudan Savanna,126.05,25.48,95.32,4.04,881.87,3755.44,0.87,0.0,1.24,Flood Risk
+Kano,9,wet,Sudan Savanna,79.13,27.55,71.53,4.04,534.75,2365.07,0.29,0.0,-1.2,Normal
+Kano,9,wet,Sudan Savanna,76.92,28.62,80.92,4.04,484.36,2386.42,-2.63,0.0,0.63,Flood Risk
+Kano,9,wet,Sudan Savanna,83.81,27.62,81.15,4.04,600.02,2400.16,3.8,0.0,0.7,Flood Risk
+Kano,9,wet,Sudan Savanna,75.17,28.89,88.12,4.04,539.1,2262.7,-0.25,0.0,-0.32,Flood Risk
+Kano,9,wet,Sudan Savanna,99.14,28.12,72.77,4.04,688.61,2984.06,-0.33,0.0,-0.2,Normal
+Kano,9,wet,Sudan Savanna,32.14,30.36,87.48,4.04,240.52,965.1,-0.03,0.0,1.29,Flood Risk
+Kano,9,wet,Sudan Savanna,66.24,28.44,77.65,4.04,499.39,1971.12,0.54,0.0,-1.15,Normal
+Kano,9,wet,Sudan Savanna,53.0,28.86,88.39,4.04,365.54,1643.38,-1.78,0.0,-0.64,Flood Risk
+Kano,9,wet,Sudan Savanna,54.69,28.2,84.76,4.04,371.74,1618.04,0.75,0.0,-1.8,Flood Risk
+Kano,9,wet,Sudan Savanna,100.0,29.02,88.6,4.04,704.8,2971.6,0.95,0.0,1.45,Flood Risk
+Kano,9,wet,Sudan Savanna,66.84,29.08,83.18,4.04,435.11,1963.59,1.38,0.0,-1.13,Flood Risk
+Kano,9,wet,Sudan Savanna,10.04,23.73,68.5,4.04,61.03,272.8,0.95,2.7,-0.3,Normal
+Kano,9,wet,Sudan Savanna,156.84,26.69,80.49,4.04,1094.2,4739.39,-1.14,0.0,-0.25,Flood Risk
+Kano,9,wet,Sudan Savanna,64.53,26.69,85.49,4.04,474.14,1923.91,0.39,0.0,1.93,Flood Risk
+Kano,9,wet,Sudan Savanna,85.64,30.31,81.33,4.04,605.53,2535.52,1.12,0.0,0.29,Flood Risk
+Kano,9,wet,Sudan Savanna,110.47,27.01,93.02,4.04,763.24,3393.79,-2.65,0.0,-0.3,Flood Risk
+Kano,9,wet,Sudan Savanna,61.41,29.3,90.78,4.04,444.72,1791.11,1.7,0.0,-0.83,Flood Risk
+Kano,10,wet,Sudan Savanna,69.26,28.3,90.13,4.04,453.59,2188.39,-3.69,0.0,1.3,Flood Risk
+Kano,10,wet,Sudan Savanna,102.05,30.06,87.22,4.04,729.54,3005.42,1.87,0.0,0.58,Flood Risk
+Kano,10,wet,Sudan Savanna,90.13,28.32,87.7,4.04,627.22,2611.77,3.07,0.0,0.05,Flood Risk
+Kano,10,wet,Sudan Savanna,52.82,32.85,98.54,4.04,413.11,1679.32,-3.16,0.0,-0.32,Flood Risk
+Kano,10,wet,Sudan Savanna,87.08,33.48,84.16,4.04,566.14,2580.26,1.07,0.0,0.8,Flood Risk
+Kano,10,wet,Sudan Savanna,40.82,30.04,92.13,4.04,297.34,1173.47,1.71,0.0,0.95,Flood Risk
+Kano,10,wet,Sudan Savanna,42.27,29.45,98.72,4.04,270.04,1170.06,3.27,0.0,-0.29,Flood Risk
+Kano,10,wet,Sudan Savanna,55.3,28.96,96.5,4.04,371.28,1655.38,0.13,0.0,0.82,Flood Risk
+Kano,10,wet,Sudan Savanna,132.03,27.76,96.07,4.04,956.26,4032.27,-2.38,0.0,-1.01,Flood Risk
+Kano,10,wet,Sudan Savanna,90.02,32.4,82.97,4.04,608.65,2823.83,-4.11,0.0,-1.54,Flood Risk
+Kano,10,wet,Sudan Savanna,0.0,32.16,36.86,4.04,0.0,0.0,0.0,30.0,-0.47,Drought Risk
+Kano,10,wet,Sudan Savanna,0.0,27.59,36.48,4.04,9.55,0.0,0.0,30.0,-0.83,Drought Risk
+Kano,10,wet,Sudan Savanna,101.45,29.52,97.66,4.04,694.09,2988.62,1.83,0.0,-1.48,Flood Risk
+Kano,10,wet,Sudan Savanna,115.6,26.32,85.15,4.04,839.15,3499.76,-1.06,0.0,0.09,Flood Risk
+Kano,10,wet,Sudan Savanna,84.83,31.72,76.6,4.04,547.89,2547.38,-0.08,0.0,-0.38,Normal
+Kano,10,wet,Sudan Savanna,103.68,28.02,96.01,4.04,739.14,3041.3,2.3,0.0,-1.42,Flood Risk
+Kano,11,dry,Sudan Savanna,0.57,32.46,48.31,4.04,0.0,43.71,-0.89,25.6,-1.67,Normal
+Kano,11,dry,Sudan Savanna,0.0,31.46,22.28,4.04,2.54,8.48,-0.28,29.2,-1.24,Drought Risk
+Kano,11,dry,Sudan Savanna,0.0,31.2,37.96,4.04,0.0,30.23,-1.01,27.0,-1.08,Normal
+Kano,11,dry,Sudan Savanna,0.0,23.33,23.98,4.04,2.21,0.0,0.0,30.0,-0.63,Drought Risk
+Kano,11,dry,Sudan Savanna,0.78,31.04,38.68,4.04,10.44,42.56,-0.63,25.7,0.95,Normal
+Kano,11,dry,Sudan Savanna,0.64,29.5,30.2,4.04,6.89,19.66,-0.01,28.0,0.46,Drought Risk
+Kano,11,dry,Sudan Savanna,0.57,26.89,49.23,4.04,5.01,14.46,0.09,28.6,-0.09,Normal
+Kano,11,dry,Sudan Savanna,1.5,30.53,45.08,4.04,3.08,38.78,0.2,26.1,-0.24,Normal
+Kano,11,dry,Sudan Savanna,0.0,27.57,30.58,4.04,0.0,0.0,0.0,30.0,0.14,Drought Risk
+Kano,11,dry,Sudan Savanna,0.0,28.7,23.8,4.04,0.0,6.95,-0.23,29.3,1.72,Drought Risk
+Kano,11,dry,Sudan Savanna,0.23,34.35,28.26,4.04,0.0,5.86,0.04,29.4,-0.23,Drought Risk
+Kano,11,dry,Sudan Savanna,0.0,27.16,22.78,4.04,1.47,0.79,-0.03,29.9,0.25,Drought Risk
+Kano,11,dry,Sudan Savanna,0.52,31.35,31.15,4.04,7.66,17.75,-0.07,28.2,0.63,Drought Risk
+Kano,11,dry,Sudan Savanna,0.63,31.86,32.57,4.04,0.0,35.17,-0.55,26.5,-0.67,Normal
+Kano,11,dry,Sudan Savanna,0.64,28.58,20.89,4.04,8.61,29.14,-0.33,27.1,-0.14,Normal
+Kano,11,dry,Sudan Savanna,0.68,28.32,32.26,4.04,11.44,7.95,0.41,29.2,-0.25,Drought Risk
+Kano,11,dry,Sudan Savanna,0.41,32.72,25.22,4.04,5.66,0.0,0.41,30.0,1.13,Drought Risk
+Kano,11,dry,Sudan Savanna,1.19,26.89,41.91,4.04,11.48,35.14,0.01,26.5,-0.04,Normal
+Kano,11,dry,Sudan Savanna,0.72,26.2,21.21,4.04,0.0,27.45,-0.19,27.3,0.2,Normal
+Kano,11,dry,Sudan Savanna,0.58,24.19,23.16,4.04,4.26,16.25,0.04,28.4,0.59,Drought Risk
+Kano,11,dry,Sudan Savanna,1.25,29.92,25.98,4.04,11.96,17.1,0.68,28.3,1.53,Drought Risk
+Kano,11,dry,Sudan Savanna,1.02,28.7,43.11,4.04,6.12,23.35,0.25,27.7,-0.42,Drought Risk
+Kano,11,dry,Sudan Savanna,1.33,33.83,34.72,4.04,5.79,22.97,0.56,27.7,0.72,Drought Risk
+Kano,11,dry,Sudan Savanna,0.75,27.5,22.07,4.04,4.76,6.4,0.53,29.4,0.74,Drought Risk
+Kano,11,dry,Sudan Savanna,0.28,28.59,23.3,4.04,11.74,0.0,0.28,30.0,-0.41,Drought Risk
+Kano,11,dry,Sudan Savanna,1.15,30.19,36.76,4.04,12.42,19.81,0.49,28.0,0.87,Drought Risk
+Kano,11,dry,Sudan Savanna,0.96,27.32,40.91,4.04,15.38,35.45,-0.22,26.5,-0.75,Normal
+Kano,11,dry,Sudan Savanna,1.42,32.29,32.96,4.04,7.0,69.75,-0.9,23.0,1.43,Normal
+Kano,11,dry,Sudan Savanna,1.75,28.34,29.79,4.04,10.78,69.22,-0.55,23.1,0.99,Normal
+Kano,11,dry,Sudan Savanna,0.77,28.49,40.28,4.04,12.48,20.92,0.07,27.9,0.29,Drought Risk
+Kano,12,dry,Sudan Savanna,0.51,32.52,30.31,4.04,0.0,11.38,0.13,28.9,-1.29,Drought Risk
+Kano,12,dry,Sudan Savanna,0.44,30.16,44.23,4.04,4.18,8.72,0.15,29.1,0.14,Drought Risk
+Kano,12,dry,Sudan Savanna,0.52,26.12,27.38,4.04,3.33,15.26,0.01,28.5,0.38,Drought Risk
+Kano,12,dry,Sudan Savanna,1.03,32.46,45.19,4.04,1.98,42.58,-0.39,25.7,0.2,Normal
+Kano,12,dry,Sudan Savanna,0.8,27.98,33.28,4.04,1.91,38.4,-0.48,26.2,-0.34,Normal
+Kano,12,dry,Sudan Savanna,0.96,32.24,35.12,4.04,0.0,15.06,0.46,28.5,-0.75,Drought Risk
+Kano,12,dry,Sudan Savanna,0.94,28.96,15.4,4.04,15.24,10.79,0.58,28.9,-0.74,Drought Risk
+Kano,12,dry,Sudan Savanna,0.0,26.29,26.51,4.04,2.22,0.0,0.0,30.0,0.56,Drought Risk
+Kano,12,dry,Sudan Savanna,1.97,30.91,37.36,4.04,7.99,60.65,-0.05,23.9,0.32,Normal
+Kano,12,dry,Sudan Savanna,0.97,35.25,42.62,4.04,9.23,32.94,-0.12,26.7,1.1,Normal
+Kano,12,dry,Sudan Savanna,0.0,31.32,35.51,4.04,3.13,0.0,0.0,30.0,1.79,Drought Risk
+Kano,12,dry,Sudan Savanna,0.43,29.09,30.19,4.04,8.05,20.21,-0.25,28.0,1.8,Drought Risk
+Kano,12,dry,Sudan Savanna,1.23,30.52,24.2,4.04,13.11,0.95,1.2,29.9,0.81,Drought Risk
+Kano,12,dry,Sudan Savanna,0.06,22.96,21.95,4.04,2.72,0.0,0.06,30.0,0.92,Drought Risk
+Kano,12,dry,Sudan Savanna,0.83,29.05,36.81,4.04,11.71,13.71,0.37,28.6,-1.61,Drought Risk
+Kano,12,dry,Sudan Savanna,0.58,30.28,39.26,4.04,1.42,14.89,0.08,28.5,0.67,Drought Risk
+Kano,12,dry,Sudan Savanna,0.0,26.15,30.99,4.04,11.34,0.0,0.0,30.0,-1.74,Drought Risk
+Kano,12,dry,Sudan Savanna,0.21,36.52,27.42,4.04,7.68,0.16,0.21,30.0,-0.99,Drought Risk
+Kano,12,dry,Sudan Savanna,1.14,28.68,32.69,4.04,14.83,42.31,-0.27,25.8,-0.34,Normal
+Kano,12,dry,Sudan Savanna,0.37,33.65,25.08,4.04,0.0,24.28,-0.44,27.6,0.51,Drought Risk
+Kano,12,dry,Sudan Savanna,0.0,27.72,35.57,4.04,0.0,0.0,0.0,30.0,1.42,Drought Risk
+Kano,12,dry,Sudan Savanna,1.41,29.02,46.7,4.04,13.81,64.79,-0.75,23.5,-0.53,Normal
+Kano,12,dry,Sudan Savanna,0.51,35.11,40.94,4.04,3.01,4.19,0.37,29.6,0.31,Drought Risk
+Kano,12,dry,Sudan Savanna,0.0,28.17,33.03,4.04,0.0,0.0,0.0,30.0,0.39,Drought Risk
+Niger,1,dry,Northern Guinea Savanna,0.85,32.26,36.4,4.04,7.85,17.79,0.26,28.2,-0.51,Drought Risk
+Niger,1,dry,Northern Guinea Savanna,0.2,27.1,20.16,4.04,0.0,0.0,0.2,30.0,0.08,Drought Risk
+Niger,1,dry,Northern Guinea Savanna,0.94,25.97,32.84,4.04,10.4,20.4,0.26,28.0,-0.8,Drought Risk
+Niger,1,dry,Northern Guinea Savanna,0.0,26.18,41.03,4.04,0.0,0.0,0.0,30.0,-1.01,Drought Risk
+Niger,1,dry,Northern Guinea Savanna,0.93,24.72,31.29,4.04,11.38,25.64,0.08,27.4,0.11,Normal
+Niger,1,dry,Northern Guinea Savanna,1.41,23.21,35.44,4.04,3.54,50.86,-0.28,24.9,0.72,Normal
+Niger,1,dry,Northern Guinea Savanna,1.45,23.81,31.75,4.04,9.69,35.64,0.26,26.4,-1.21,Normal
+Niger,1,dry,Northern Guinea Savanna,0.32,32.4,31.08,4.04,2.49,3.82,0.19,29.6,1.16,Drought Risk
+Niger,1,dry,Northern Guinea Savanna,0.74,28.0,31.53,4.04,15.37,5.42,0.56,29.5,-0.52,Drought Risk
+Niger,1,dry,Northern Guinea Savanna,1.26,27.35,35.62,4.04,7.23,32.79,0.17,26.7,2.44,Normal
+Niger,1,dry,Northern Guinea Savanna,0.0,24.49,23.1,4.04,0.0,0.0,0.0,30.0,-1.05,Drought Risk
+Niger,1,dry,Northern Guinea Savanna,0.38,27.73,27.87,4.04,4.98,0.0,0.38,30.0,-0.65,Drought Risk
+Niger,1,dry,Northern Guinea Savanna,0.61,29.95,35.79,4.04,4.72,35.88,-0.58,26.4,-0.17,Normal
+Niger,1,dry,Northern Guinea Savanna,0.45,28.14,21.75,4.04,3.82,0.0,0.45,30.0,-0.1,Drought Risk
+Niger,2,dry,Northern Guinea Savanna,2.8,21.29,49.09,4.04,20.11,92.86,-0.29,20.7,0.61,Normal
+Niger,2,dry,Northern Guinea Savanna,1.2,27.81,45.41,4.04,0.78,47.73,-0.39,25.2,0.17,Normal
+Niger,2,dry,Northern Guinea Savanna,0.83,27.83,44.88,4.04,10.97,26.63,-0.06,27.3,-1.51,Normal
+Niger,2,dry,Northern Guinea Savanna,1.8,21.37,32.3,4.04,15.67,62.39,-0.28,23.8,0.32,Normal
+Niger,2,dry,Northern Guinea Savanna,0.92,25.1,36.01,4.04,6.98,18.58,0.3,28.1,-2.39,Drought Risk
+Niger,2,dry,Northern Guinea Savanna,0.97,29.24,35.86,4.04,9.72,41.54,-0.42,25.8,-1.06,Normal
+Niger,2,dry,Northern Guinea Savanna,1.06,28.93,39.05,4.04,18.22,53.61,-0.73,24.6,-0.71,Normal
+Niger,2,dry,Northern Guinea Savanna,1.69,28.18,40.38,4.04,7.58,54.44,-0.12,24.6,-0.04,Normal
+Niger,2,dry,Northern Guinea Savanna,0.63,19.83,37.4,4.04,4.38,28.58,-0.32,27.1,-0.71,Normal
+Niger,2,dry,Northern Guinea Savanna,0.36,23.79,27.28,4.04,7.12,30.86,-0.67,26.9,0.9,Normal
+Niger,2,dry,Northern Guinea Savanna,1.58,32.48,43.27,4.04,11.9,60.52,-0.43,23.9,0.34,Normal
+Niger,2,dry,Northern Guinea Savanna,1.35,27.22,32.76,4.04,6.41,40.55,-0.01,25.9,-1.09,Normal
+Niger,2,dry,Northern Guinea Savanna,1.95,26.61,38.71,4.04,17.64,54.76,0.13,24.5,-0.22,Normal
+Niger,2,dry,Northern Guinea Savanna,0.75,21.75,34.15,4.04,12.06,31.27,-0.29,26.9,-0.05,Normal
+Niger,2,dry,Northern Guinea Savanna,0.71,30.46,38.49,4.04,1.85,17.49,0.12,28.3,0.77,Drought Risk
+Niger,2,dry,Northern Guinea Savanna,0.26,24.21,30.04,4.04,2.19,7.59,0.01,29.2,2.58,Drought Risk
+Niger,2,dry,Northern Guinea Savanna,0.43,26.41,44.85,4.04,4.32,14.33,-0.04,28.6,-0.93,Drought Risk
+Niger,2,dry,Northern Guinea Savanna,1.88,28.76,32.54,4.04,18.53,52.46,0.13,24.8,-0.39,Normal
+Niger,2,dry,Northern Guinea Savanna,0.99,20.95,50.27,4.04,3.08,29.88,-0.0,27.0,0.79,Normal
+Niger,2,dry,Northern Guinea Savanna,1.96,22.48,43.31,4.04,19.76,85.93,-0.9,21.4,-0.22,Normal
+Niger,2,dry,Northern Guinea Savanna,0.0,26.92,28.43,4.04,0.0,7.78,-0.26,29.2,-1.55,Drought Risk
+Niger,2,dry,Northern Guinea Savanna,1.08,28.1,38.0,4.04,10.42,15.46,0.56,28.5,0.34,Drought Risk
+Niger,2,dry,Northern Guinea Savanna,1.2,28.05,32.51,4.04,7.32,31.6,0.15,26.8,-0.18,Normal
+Niger,2,dry,Northern Guinea Savanna,0.71,29.25,36.56,4.04,11.94,45.39,-0.8,25.5,0.58,Normal
+Niger,2,dry,Northern Guinea Savanna,2.49,25.53,38.92,4.04,28.08,88.07,-0.44,21.2,-0.41,Normal
+Niger,2,dry,Northern Guinea Savanna,0.36,28.87,31.96,4.04,1.1,14.84,-0.13,28.5,-0.33,Drought Risk
+Niger,3,dry,Northern Guinea Savanna,2.14,29.99,43.04,4.04,9.36,55.78,0.29,24.4,-0.67,Normal
+Niger,3,dry,Northern Guinea Savanna,0.2,25.7,26.61,4.04,0.0,0.0,0.2,30.0,0.52,Drought Risk
+Niger,3,dry,Northern Guinea Savanna,0.59,27.71,53.14,4.04,5.38,40.32,-0.76,26.0,-0.83,Normal
+Niger,3,dry,Northern Guinea Savanna,0.38,25.84,15.0,4.04,5.49,4.07,0.24,29.6,-0.13,Drought Risk
+Niger,3,dry,Northern Guinea Savanna,0.0,25.63,27.05,4.04,0.0,14.73,-0.49,28.5,-1.15,Drought Risk
+Niger,3,dry,Northern Guinea Savanna,1.82,19.38,44.83,4.04,6.8,32.4,0.74,26.8,0.42,Normal
+Niger,3,dry,Northern Guinea Savanna,0.64,26.22,51.05,4.04,0.0,29.8,-0.36,27.0,1.8,Normal
+Niger,3,dry,Northern Guinea Savanna,1.1,27.62,17.09,4.04,3.58,22.62,0.34,27.7,-0.46,Drought Risk
+Niger,3,dry,Northern Guinea Savanna,0.88,29.89,23.56,4.04,4.78,11.09,0.51,28.9,-0.7,Drought Risk
+Niger,3,dry,Northern Guinea Savanna,0.74,25.43,36.28,4.04,0.63,34.43,-0.41,26.6,-1.1,Normal
+Niger,3,dry,Northern Guinea Savanna,1.15,21.8,39.4,4.04,11.51,37.96,-0.12,26.2,-0.2,Normal
+Niger,3,dry,Northern Guinea Savanna,2.19,29.39,45.29,4.04,21.99,53.74,0.4,24.6,-0.08,Normal
+Niger,3,dry,Northern Guinea Savanna,0.0,29.03,21.36,4.04,0.0,0.0,0.0,30.0,0.2,Drought Risk
+Niger,3,dry,Northern Guinea Savanna,1.82,29.51,46.88,4.04,17.19,53.02,0.05,24.7,0.46,Normal
+Niger,3,dry,Northern Guinea Savanna,0.0,25.73,21.33,4.04,0.0,0.0,0.0,30.0,0.26,Drought Risk
+Niger,3,dry,Northern Guinea Savanna,1.12,20.1,37.59,4.04,1.65,22.88,0.36,27.7,1.63,Drought Risk
+Niger,3,dry,Northern Guinea Savanna,0.0,29.45,33.58,4.04,0.0,0.0,0.0,30.0,0.11,Drought Risk
+Niger,3,dry,Northern Guinea Savanna,2.02,24.21,36.65,4.04,16.05,57.66,0.1,24.2,0.48,Normal
+Niger,3,dry,Northern Guinea Savanna,1.74,24.19,30.42,4.04,21.59,45.19,0.23,25.5,-0.27,Normal
+Niger,3,dry,Northern Guinea Savanna,2.73,25.44,43.66,4.04,21.1,72.14,0.33,22.8,-0.65,Normal
+Niger,3,dry,Northern Guinea Savanna,0.44,22.14,25.09,4.04,5.04,15.76,-0.09,28.4,1.31,Drought Risk
+Niger,3,dry,Northern Guinea Savanna,2.22,23.2,44.04,4.04,15.98,79.68,-0.43,22.0,-0.93,Normal
+Niger,3,dry,Northern Guinea Savanna,0.15,27.03,25.92,4.04,2.53,0.0,0.15,30.0,-0.51,Drought Risk
+Niger,3,dry,Northern Guinea Savanna,1.63,25.15,30.9,4.04,15.68,29.54,0.64,27.0,-1.8,Normal
+Niger,3,dry,Northern Guinea Savanna,0.84,26.59,30.49,4.04,7.29,33.34,-0.27,26.7,2.15,Normal
+Niger,3,dry,Northern Guinea Savanna,2.0,29.66,49.25,4.04,10.03,70.58,-0.35,22.9,0.32,Normal
+Niger,3,dry,Northern Guinea Savanna,0.6,25.6,35.23,4.04,7.06,6.15,0.39,29.4,0.27,Drought Risk
+Niger,3,dry,Northern Guinea Savanna,3.23,32.94,53.71,4.04,27.16,96.62,0.01,20.3,-1.43,Normal
+Niger,3,dry,Northern Guinea Savanna,0.74,28.11,26.95,4.04,14.38,2.9,0.64,29.7,0.28,Drought Risk
+Niger,3,dry,Northern Guinea Savanna,0.35,24.01,36.33,4.04,6.0,9.89,0.02,29.0,-0.65,Drought Risk
+Niger,3,dry,Northern Guinea Savanna,1.16,26.69,38.11,4.04,6.06,18.02,0.56,28.2,0.1,Drought Risk
+Niger,3,dry,Northern Guinea Savanna,1.54,30.89,38.71,4.04,17.18,51.6,-0.18,24.8,0.13,Normal
+Niger,3,dry,Northern Guinea Savanna,0.91,27.46,39.4,4.04,5.88,22.83,0.15,27.7,-2.32,Drought Risk
+Niger,3,dry,Northern Guinea Savanna,0.23,30.25,44.41,4.04,0.0,24.0,-0.57,27.6,1.08,Drought Risk
+Niger,4,wet,Northern Guinea Savanna,33.17,24.17,74.79,4.04,240.26,1029.81,-1.15,0.0,0.5,Normal
+Niger,4,wet,Northern Guinea Savanna,3.69,28.42,63.59,4.04,17.21,166.36,-1.85,13.4,-1.38,Normal
+Niger,4,wet,Northern Guinea Savanna,89.13,33.08,92.72,4.04,616.96,2705.04,-1.04,0.0,0.62,Flood Risk
+Niger,4,wet,Northern Guinea Savanna,156.58,28.49,79.05,4.04,1052.38,4645.68,1.72,0.0,-0.52,Normal
+Niger,4,wet,Northern Guinea Savanna,144.1,28.06,89.98,4.04,1001.79,4277.37,1.53,0.0,1.34,Flood Risk
+Niger,4,wet,Northern Guinea Savanna,24.15,24.18,75.27,4.04,190.34,779.69,-1.84,0.0,1.91,Normal
+Niger,4,wet,Northern Guinea Savanna,75.5,28.94,75.23,4.04,558.31,2305.33,-1.35,0.0,-0.66,Normal
+Niger,4,wet,Northern Guinea Savanna,107.1,33.23,84.04,4.04,750.41,3296.78,-2.79,0.0,-0.59,Flood Risk
+Niger,4,wet,Northern Guinea Savanna,34.98,23.26,82.24,4.04,238.59,1151.82,-3.41,0.0,-2.11,Flood Risk
+Niger,4,wet,Northern Guinea Savanna,41.7,26.46,87.66,4.04,296.05,1261.56,-0.35,0.0,-1.07,Flood Risk
+Niger,4,wet,Northern Guinea Savanna,92.45,20.72,81.88,4.04,622.18,2665.61,3.6,0.0,-0.03,Flood Risk
+Niger,4,wet,Northern Guinea Savanna,143.36,24.21,82.16,4.04,1007.68,4258.91,1.4,0.0,0.22,Flood Risk
+Niger,4,wet,Northern Guinea Savanna,119.52,26.41,87.75,4.04,839.34,3580.0,0.19,0.0,0.77,Flood Risk
+Niger,4,wet,Northern Guinea Savanna,86.63,29.62,83.64,4.04,613.33,2652.6,-1.79,0.0,-0.48,Flood Risk
+Niger,4,wet,Northern Guinea Savanna,55.93,31.25,80.14,4.04,374.91,1687.65,-0.33,0.0,0.86,Flood Risk
+Niger,4,wet,Northern Guinea Savanna,19.97,29.97,93.87,4.04,187.39,643.9,-1.49,0.0,-1.7,Flood Risk
+Niger,4,wet,Northern Guinea Savanna,72.5,30.66,86.78,4.04,505.84,2041.35,4.46,0.0,-0.18,Flood Risk
+Niger,4,wet,Northern Guinea Savanna,131.13,33.94,85.34,4.04,926.69,3890.78,1.43,0.0,-0.1,Flood Risk
+Niger,4,wet,Northern Guinea Savanna,78.92,32.64,80.06,4.04,586.25,2418.98,-1.71,0.0,1.15,Flood Risk
+Niger,4,wet,Northern Guinea Savanna,108.99,29.24,77.21,4.04,735.3,3310.43,-1.36,0.0,0.68,Normal
+Niger,4,wet,Northern Guinea Savanna,96.89,27.18,87.82,4.04,666.44,2857.71,1.63,0.0,0.28,Flood Risk
+Niger,4,wet,Northern Guinea Savanna,76.16,33.48,87.93,4.04,538.56,2211.81,2.43,0.0,0.01,Flood Risk
+Niger,4,wet,Northern Guinea Savanna,33.3,27.06,78.35,4.04,270.49,952.62,1.55,0.0,1.54,Normal
+Niger,4,wet,Northern Guinea Savanna,46.02,28.0,79.74,4.04,291.73,1377.71,0.09,0.0,0.68,Normal
+Niger,4,wet,Northern Guinea Savanna,114.64,29.63,88.6,4.04,806.32,3418.89,0.67,0.0,-1.3,Flood Risk
+Niger,4,wet,Northern Guinea Savanna,167.1,24.82,71.02,4.04,1180.9,5016.25,-0.11,0.0,0.4,Normal
+Niger,4,wet,Northern Guinea Savanna,146.25,26.34,86.26,4.04,1033.55,4367.03,0.68,0.0,-0.62,Flood Risk
+Niger,4,wet,Northern Guinea Savanna,114.56,28.18,93.05,4.04,806.42,3490.86,-1.81,0.0,-0.21,Flood Risk
+Niger,5,wet,Northern Guinea Savanna,141.54,29.25,74.74,4.04,1000.96,4338.21,-3.06,0.0,-0.33,Normal
+Niger,5,wet,Northern Guinea Savanna,196.48,31.11,89.37,4.04,1368.4,5951.31,-1.89,0.0,-0.88,Flood Risk
+Niger,5,wet,Northern Guinea Savanna,113.43,32.49,88.86,4.04,802.73,3394.22,0.29,0.0,0.1,Flood Risk
+Niger,5,wet,Northern Guinea Savanna,134.73,31.18,98.17,4.04,956.56,4029.12,0.43,0.0,-1.91,Flood Risk
+Niger,5,wet,Northern Guinea Savanna,124.36,27.76,77.03,4.04,872.8,3653.33,2.58,0.0,-0.28,Normal
+Niger,5,wet,Northern Guinea Savanna,107.13,29.78,82.76,4.04,749.08,3281.04,-2.24,0.0,-0.75,Flood Risk
+Niger,5,wet,Northern Guinea Savanna,80.51,26.48,75.53,4.04,570.65,2340.87,2.48,0.0,-1.31,Normal
+Niger,5,wet,Northern Guinea Savanna,127.67,29.78,88.68,4.04,906.66,3790.81,1.31,0.0,1.52,Flood Risk
+Niger,5,wet,Northern Guinea Savanna,38.93,28.99,86.69,4.04,267.23,1100.71,2.24,0.0,0.51,Flood Risk
+Niger,5,wet,Northern Guinea Savanna,31.87,25.89,78.17,4.04,231.84,1015.44,-1.97,0.0,-0.0,Normal
+Niger,5,wet,Northern Guinea Savanna,82.79,27.55,99.0,4.04,517.56,2436.26,1.58,0.0,1.38,Flood Risk
+Niger,5,wet,Northern Guinea Savanna,23.71,25.21,86.37,4.04,179.46,614.92,3.21,0.0,-0.14,Flood Risk
+Niger,5,wet,Northern Guinea Savanna,26.85,25.45,85.18,4.04,234.84,922.0,-3.88,0.0,0.6,Flood Risk
+Niger,5,wet,Northern Guinea Savanna,41.17,21.49,99.0,4.04,287.51,1252.98,-0.6,0.0,-1.5,Flood Risk
+Niger,5,wet,Northern Guinea Savanna,96.22,31.11,80.46,4.04,656.23,2863.31,0.78,0.0,0.28,Flood Risk
+Niger,5,wet,Northern Guinea Savanna,89.53,32.84,97.72,4.04,650.55,2637.59,1.61,0.0,0.05,Flood Risk
+Niger,5,wet,Northern Guinea Savanna,150.69,35.55,90.19,4.04,1050.02,4502.51,0.6,0.0,-1.86,Flood Risk
+Niger,5,wet,Northern Guinea Savanna,196.98,24.61,97.09,4.04,1373.03,5980.26,-2.36,0.0,0.76,Flood Risk
+Niger,5,wet,Northern Guinea Savanna,17.81,26.96,89.85,4.04,115.63,590.43,-1.87,0.0,0.52,Normal
+Niger,5,wet,Northern Guinea Savanna,121.45,33.98,82.77,4.04,843.1,3556.83,2.89,0.0,-0.47,Flood Risk
+Niger,5,wet,Northern Guinea Savanna,66.25,27.93,73.09,4.04,473.57,1986.27,0.04,0.0,0.69,Normal
+Niger,5,wet,Northern Guinea Savanna,47.21,25.45,97.74,4.04,341.5,1501.47,-2.84,0.0,0.67,Flood Risk
+Niger,5,wet,Northern Guinea Savanna,57.91,27.24,91.28,4.04,410.46,1793.18,-1.86,0.0,-0.43,Flood Risk
+Niger,5,wet,Northern Guinea Savanna,59.23,33.64,88.15,4.04,426.1,1861.82,-2.83,0.0,-0.18,Flood Risk
+Niger,5,wet,Northern Guinea Savanna,121.27,26.42,88.11,4.04,853.14,3668.41,-1.01,0.0,-0.53,Flood Risk
+Niger,6,wet,Northern Guinea Savanna,105.64,25.63,78.17,4.04,734.16,3171.18,-0.07,0.0,-2.75,Normal
+Niger,6,wet,Northern Guinea Savanna,44.46,26.32,89.02,4.04,285.02,1315.36,0.61,0.0,-1.34,Flood Risk
+Niger,6,wet,Northern Guinea Savanna,87.54,25.11,81.06,4.04,595.12,2561.41,2.16,0.0,-2.99,Flood Risk
+Niger,6,wet,Northern Guinea Savanna,116.66,27.36,93.24,4.04,779.44,3488.93,0.36,0.0,-0.12,Flood Risk
+Niger,6,wet,Northern Guinea Savanna,42.89,29.86,93.85,4.04,268.47,1300.51,-0.46,0.0,0.15,Flood Risk
+Niger,6,wet,Northern Guinea Savanna,44.41,27.6,78.58,4.04,325.66,1349.35,-0.57,0.0,-0.03,Normal
+Niger,6,wet,Northern Guinea Savanna,20.71,19.74,81.94,4.04,140.91,637.14,-0.53,0.0,0.31,Normal
+Niger,6,wet,Northern Guinea Savanna,65.23,32.68,83.4,4.04,462.96,2016.55,-1.99,0.0,0.46,Flood Risk
+Niger,6,wet,Northern Guinea Savanna,161.23,28.95,91.03,4.04,1134.19,4742.86,3.13,0.0,-1.0,Flood Risk
+Niger,6,wet,Northern Guinea Savanna,96.42,24.74,81.32,4.04,640.29,2890.32,0.08,0.0,0.4,Flood Risk
+Niger,6,wet,Northern Guinea Savanna,114.97,30.68,90.63,4.04,757.61,3428.69,0.68,0.0,0.36,Flood Risk
+Niger,6,wet,Northern Guinea Savanna,83.44,29.55,88.09,4.04,594.06,2592.51,-2.98,0.0,1.41,Flood Risk
+Niger,6,wet,Northern Guinea Savanna,7.06,25.51,51.51,4.04,39.63,160.11,1.72,14.0,-0.06,Normal
+Niger,6,wet,Northern Guinea Savanna,110.3,30.2,95.44,4.04,789.32,3347.21,-1.27,0.0,1.17,Flood Risk
+Niger,6,wet,Northern Guinea Savanna,170.79,26.13,95.51,4.04,1181.0,5031.53,3.07,0.0,-1.08,Flood Risk
+Niger,6,wet,Northern Guinea Savanna,73.76,25.39,77.78,4.04,524.11,2160.46,1.74,0.0,0.32,Normal
+Niger,6,wet,Northern Guinea Savanna,84.15,26.31,70.09,4.04,577.61,2502.32,0.74,0.0,0.86,Normal
+Niger,6,wet,Northern Guinea Savanna,13.49,26.03,81.35,4.04,86.82,395.29,0.31,0.0,-0.06,Normal
+Niger,6,wet,Northern Guinea Savanna,125.04,31.08,61.66,4.04,882.92,3811.04,-1.99,0.0,-0.34,Normal
+Niger,6,wet,Northern Guinea Savanna,54.02,30.75,88.8,4.04,359.58,1629.98,-0.31,0.0,-0.9,Flood Risk
+Niger,6,wet,Northern Guinea Savanna,112.0,30.18,86.8,4.04,799.02,3375.39,-0.51,0.0,-0.79,Flood Risk
+Niger,6,wet,Northern Guinea Savanna,22.01,28.95,78.97,4.04,140.89,693.26,-1.1,0.0,-0.55,Normal
+Niger,6,wet,Northern Guinea Savanna,77.13,28.5,82.5,4.04,551.97,2306.6,0.24,0.0,0.73,Flood Risk
+Niger,6,wet,Northern Guinea Savanna,93.77,30.85,91.86,4.04,667.15,2704.5,3.62,0.0,0.56,Flood Risk
+Niger,6,wet,Northern Guinea Savanna,160.6,26.51,73.13,4.04,1128.73,4812.91,0.17,0.0,0.51,Normal
+Niger,6,wet,Northern Guinea Savanna,43.8,25.94,95.65,4.04,293.09,1192.5,4.05,0.0,1.15,Flood Risk
+Niger,6,wet,Northern Guinea Savanna,7.11,33.32,54.54,4.04,38.62,212.79,0.02,8.7,-1.2,Normal
+Niger,6,wet,Northern Guinea Savanna,89.35,26.03,98.08,4.04,600.9,2693.55,-0.44,0.0,-0.95,Flood Risk
+Niger,7,wet,Northern Guinea Savanna,58.63,26.76,94.74,4.04,432.29,1768.34,-0.31,0.0,0.43,Flood Risk
+Niger,7,wet,Northern Guinea Savanna,38.96,31.64,84.96,4.04,269.99,1193.57,-0.83,0.0,-0.11,Flood Risk
+Niger,7,wet,Northern Guinea Savanna,173.87,34.07,75.92,4.04,1187.36,5170.15,1.53,0.0,0.01,Normal
+Niger,7,wet,Northern Guinea Savanna,128.15,26.7,82.98,4.04,905.37,3818.37,0.87,0.0,0.71,Flood Risk
+Niger,7,wet,Northern Guinea Savanna,20.27,28.26,87.38,4.04,151.57,594.76,0.45,0.0,0.53,Flood Risk
+Niger,7,wet,Northern Guinea Savanna,23.91,33.97,72.0,4.04,182.04,753.23,-1.2,0.0,-0.34,Normal
+Niger,7,wet,Northern Guinea Savanna,35.9,26.92,89.87,4.04,305.33,1061.51,0.52,0.0,-0.08,Flood Risk
+Niger,7,wet,Northern Guinea Savanna,62.95,32.63,81.29,4.04,427.32,1880.02,0.28,0.0,1.47,Flood Risk
+Niger,7,wet,Northern Guinea Savanna,79.47,28.48,92.42,4.04,588.96,2338.78,1.51,0.0,-0.46,Flood Risk
+Niger,7,wet,Northern Guinea Savanna,36.7,29.22,76.97,4.04,255.27,1047.59,1.78,0.0,-1.03,Normal
+Niger,7,wet,Northern Guinea Savanna,139.9,30.94,74.47,4.04,958.17,4183.07,0.46,0.0,0.63,Normal
+Niger,7,wet,Northern Guinea Savanna,183.35,27.87,82.86,4.04,1252.37,5475.87,0.82,0.0,-0.27,Flood Risk
+Niger,7,wet,Northern Guinea Savanna,56.41,29.48,77.64,4.04,387.68,1491.35,6.69,0.0,-0.27,Normal
+Niger,7,wet,Northern Guinea Savanna,174.89,20.47,89.04,4.04,1230.79,5231.89,0.49,0.0,0.11,Flood Risk
+Niger,7,wet,Northern Guinea Savanna,89.49,27.27,80.64,4.04,634.77,2620.69,2.13,0.0,0.98,Flood Risk
+Niger,7,wet,Northern Guinea Savanna,129.79,27.06,68.22,4.04,898.8,3899.93,-0.21,0.0,-0.3,Normal
+Niger,7,wet,Northern Guinea Savanna,114.27,27.85,83.77,4.04,730.22,3448.87,-0.7,0.0,1.54,Flood Risk
+Niger,7,wet,Northern Guinea Savanna,15.44,30.6,74.59,4.04,60.5,560.29,-3.23,0.0,2.51,Normal
+Niger,7,wet,Northern Guinea Savanna,100.03,26.48,79.42,4.04,695.35,2975.21,0.86,0.0,-1.05,Normal
+Niger,7,wet,Northern Guinea Savanna,130.93,32.67,80.37,4.04,920.98,3816.6,3.71,0.0,-0.8,Flood Risk
+Niger,7,wet,Northern Guinea Savanna,127.97,28.32,94.19,4.04,907.33,3911.46,-2.42,0.0,0.08,Flood Risk
+Niger,7,wet,Northern Guinea Savanna,105.98,31.42,83.77,4.04,761.52,3189.11,-0.32,0.0,0.04,Flood Risk
+Niger,7,wet,Northern Guinea Savanna,179.08,26.78,87.36,4.04,1221.89,5343.04,0.98,0.0,-1.97,Flood Risk
+Niger,7,wet,Northern Guinea Savanna,0.0,29.91,33.87,4.04,17.66,0.0,0.0,30.0,-1.05,Drought Risk
+Niger,7,wet,Northern Guinea Savanna,83.38,32.66,85.08,4.04,556.48,2443.86,1.92,0.0,0.01,Flood Risk
+Niger,7,wet,Northern Guinea Savanna,180.53,28.62,89.14,4.04,1274.8,5397.73,0.61,0.0,1.9,Flood Risk
+Niger,7,wet,Northern Guinea Savanna,146.61,29.42,84.31,4.04,1029.0,4518.45,-4.0,0.0,0.46,Flood Risk
+Niger,7,wet,Northern Guinea Savanna,132.96,22.46,83.05,4.04,949.34,4006.81,-0.6,0.0,1.04,Flood Risk
+Niger,7,wet,Northern Guinea Savanna,152.12,28.19,82.62,4.04,1028.83,4488.85,2.49,0.0,1.3,Flood Risk
+Niger,8,wet,Northern Guinea Savanna,179.28,25.01,91.4,4.04,1254.57,5376.26,0.07,0.0,1.36,Flood Risk
+Niger,8,wet,Northern Guinea Savanna,72.56,29.53,80.12,4.04,519.57,2207.57,-1.03,0.0,-1.19,Flood Risk
+Niger,8,wet,Northern Guinea Savanna,40.24,26.95,93.66,4.04,302.47,1151.82,1.85,0.0,-0.25,Flood Risk
+Niger,8,wet,Northern Guinea Savanna,108.85,26.45,90.46,4.04,760.6,3259.56,0.19,0.0,0.63,Flood Risk
+Niger,8,wet,Northern Guinea Savanna,74.27,28.35,98.3,4.04,515.54,2192.02,1.2,0.0,2.04,Flood Risk
+Niger,8,wet,Northern Guinea Savanna,0.0,31.79,52.52,4.04,11.8,152.58,-5.09,14.7,-1.28,Normal
+Niger,8,wet,Northern Guinea Savanna,57.96,27.42,71.45,4.04,406.58,1749.59,-0.36,0.0,2.13,Normal
+Niger,8,wet,Northern Guinea Savanna,133.98,24.94,90.32,4.04,886.71,4041.91,-0.75,0.0,2.02,Flood Risk
+Niger,8,wet,Northern Guinea Savanna,52.76,26.1,80.46,4.04,380.69,1481.48,3.38,0.0,-0.16,Flood Risk
+Niger,8,wet,Northern Guinea Savanna,65.59,22.62,84.35,4.04,439.52,1995.04,-0.91,0.0,-0.02,Flood Risk
+Niger,8,wet,Northern Guinea Savanna,70.23,28.8,88.9,4.04,454.63,2078.95,0.93,0.0,-1.61,Flood Risk
+Niger,8,wet,Northern Guinea Savanna,97.78,28.66,74.96,4.04,690.89,2963.09,-0.99,0.0,-0.78,Normal
+Niger,8,wet,Northern Guinea Savanna,145.08,25.86,97.16,4.04,1009.66,4217.35,4.5,0.0,1.09,Flood Risk
+Niger,8,wet,Northern Guinea Savanna,35.71,30.84,83.13,4.04,242.39,1124.85,-1.79,0.0,-2.08,Flood Risk
+Niger,8,wet,Northern Guinea Savanna,31.2,27.95,92.36,4.04,209.56,895.15,1.36,0.0,0.03,Flood Risk
+Niger,8,wet,Northern Guinea Savanna,106.5,36.94,83.16,4.04,748.54,3283.26,-2.94,0.0,1.06,Flood Risk
+Niger,9,wet,Northern Guinea Savanna,106.24,32.07,85.57,4.04,758.8,3175.25,0.4,0.0,0.05,Flood Risk
+Niger,9,wet,Northern Guinea Savanna,126.84,29.71,86.16,4.04,870.64,3883.77,-2.61,0.0,-0.3,Flood Risk
+Niger,9,wet,Northern Guinea Savanna,98.23,29.28,84.2,4.04,666.36,2841.1,3.53,0.0,-0.87,Flood Risk
+Niger,9,wet,Northern Guinea Savanna,64.14,29.31,86.8,4.04,462.02,2102.75,-5.95,0.0,0.22,Flood Risk
+Niger,9,wet,Northern Guinea Savanna,155.29,30.36,97.23,4.04,1075.71,4604.12,1.82,0.0,-0.76,Flood Risk
+Niger,9,wet,Northern Guinea Savanna,120.77,29.33,71.82,4.04,900.8,3615.1,0.26,0.0,-0.46,Normal
+Niger,9,wet,Northern Guinea Savanna,103.87,34.23,94.69,4.04,721.43,3141.67,-0.86,0.0,2.17,Flood Risk
+Niger,9,wet,Northern Guinea Savanna,131.55,27.19,89.14,4.04,890.92,3966.19,-0.66,0.0,-1.5,Flood Risk
+Niger,9,wet,Northern Guinea Savanna,70.06,33.97,85.7,4.04,490.17,2173.98,-2.4,0.0,0.21,Flood Risk
+Niger,9,wet,Northern Guinea Savanna,113.67,30.22,73.95,4.04,850.81,3476.78,-2.22,0.0,0.1,Normal
+Niger,9,wet,Northern Guinea Savanna,116.1,32.82,96.02,4.04,827.25,3476.88,0.21,0.0,0.91,Flood Risk
+Niger,9,wet,Northern Guinea Savanna,203.15,32.41,95.52,4.04,1388.64,6060.05,1.15,0.0,-0.3,Flood Risk
+Niger,9,wet,Northern Guinea Savanna,173.82,33.77,87.11,4.04,1224.16,5159.46,1.84,0.0,0.7,Flood Risk
+Niger,9,wet,Northern Guinea Savanna,6.88,24.43,82.4,4.04,36.33,211.34,-0.16,8.9,-0.73,Normal
+Niger,9,wet,Northern Guinea Savanna,73.81,31.65,80.04,4.04,522.62,2149.6,2.15,0.0,0.7,Flood Risk
+Niger,9,wet,Northern Guinea Savanna,148.61,25.48,83.98,4.04,1032.86,4443.6,0.49,0.0,1.01,Flood Risk
+Niger,9,wet,Northern Guinea Savanna,92.47,23.14,76.44,4.04,657.07,2769.58,0.15,0.0,-1.11,Normal
+Niger,9,wet,Northern Guinea Savanna,48.49,31.87,86.51,4.04,340.55,1468.95,-0.48,0.0,0.75,Flood Risk
+Niger,9,wet,Northern Guinea Savanna,70.6,28.79,88.8,4.04,508.26,2042.72,2.51,0.0,0.33,Flood Risk
+Niger,9,wet,Northern Guinea Savanna,97.37,27.14,82.83,4.04,654.6,3017.48,-3.21,0.0,0.06,Flood Risk
+Niger,9,wet,Northern Guinea Savanna,37.05,27.73,75.33,4.04,275.01,1044.09,2.25,0.0,0.21,Normal
+Niger,9,wet,Northern Guinea Savanna,107.69,27.59,91.2,4.04,741.99,3150.64,2.67,0.0,-0.46,Flood Risk
+Niger,9,wet,Northern Guinea Savanna,133.21,27.9,86.86,4.04,960.8,3881.98,3.81,0.0,-1.43,Flood Risk
+Niger,9,wet,Northern Guinea Savanna,77.07,31.53,85.15,4.04,579.71,2318.15,-0.2,0.0,1.3,Flood Risk
+Niger,9,wet,Northern Guinea Savanna,71.43,28.46,82.68,4.04,532.67,2219.66,-2.56,0.0,-1.13,Flood Risk
+Niger,9,wet,Northern Guinea Savanna,61.63,27.65,88.23,4.04,401.07,1863.45,-0.49,0.0,-0.1,Flood Risk
+Niger,9,wet,Northern Guinea Savanna,116.46,28.54,97.5,4.04,797.11,3524.21,-1.01,0.0,2.01,Flood Risk
+Niger,9,wet,Northern Guinea Savanna,108.87,24.93,80.7,4.04,751.9,3242.49,0.79,0.0,-0.9,Flood Risk
+Niger,9,wet,Northern Guinea Savanna,19.0,28.02,75.32,4.04,128.69,589.94,-0.67,0.0,1.02,Normal
+Niger,10,wet,Northern Guinea Savanna,71.76,30.57,89.33,4.04,479.63,2181.24,-0.94,0.0,-0.07,Flood Risk
+Niger,10,wet,Northern Guinea Savanna,102.03,35.62,73.01,4.04,703.5,3081.49,-0.69,0.0,-1.13,Normal
+Niger,10,wet,Northern Guinea Savanna,45.55,31.42,84.37,4.04,322.55,1291.13,2.51,0.0,-2.03,Flood Risk
+Niger,10,wet,Northern Guinea Savanna,130.04,29.11,91.35,4.04,913.31,3978.48,-2.58,0.0,0.08,Flood Risk
+Niger,10,wet,Northern Guinea Savanna,115.41,27.97,83.9,4.04,776.49,3475.9,-0.45,0.0,-0.67,Flood Risk
+Niger,10,wet,Northern Guinea Savanna,105.08,28.07,89.65,4.04,760.62,3118.38,1.13,0.0,1.07,Flood Risk
+Niger,10,wet,Northern Guinea Savanna,70.0,27.92,95.74,4.04,487.03,2007.71,3.07,0.0,-0.28,Flood Risk
+Niger,10,wet,Northern Guinea Savanna,83.16,28.96,87.55,4.04,607.6,2506.31,-0.39,0.0,-0.35,Flood Risk
+Niger,10,wet,Northern Guinea Savanna,132.07,25.35,85.51,4.04,922.92,4012.24,-1.68,0.0,-2.32,Flood Risk
+Niger,10,wet,Northern Guinea Savanna,64.39,23.99,83.99,4.04,434.57,1856.73,2.5,0.0,-0.69,Flood Risk
+Niger,10,wet,Northern Guinea Savanna,26.38,27.65,80.66,4.04,214.72,822.41,-1.04,0.0,-0.77,Flood Risk
+Niger,10,wet,Northern Guinea Savanna,88.92,31.18,89.01,4.04,612.73,2723.18,-1.85,0.0,-0.56,Flood Risk
+Niger,10,wet,Northern Guinea Savanna,23.89,29.44,88.16,4.04,117.29,817.48,-3.36,0.0,0.49,Normal
+Niger,10,wet,Northern Guinea Savanna,57.6,29.51,79.7,4.04,404.61,1676.59,1.71,0.0,-1.01,Normal
+Niger,10,wet,Northern Guinea Savanna,47.52,26.73,91.7,4.04,320.7,1457.87,-1.07,0.0,0.14,Flood Risk
+Niger,10,wet,Northern Guinea Savanna,128.08,29.05,80.06,4.04,906.77,3844.57,-0.07,0.0,-0.83,Flood Risk
+Niger,10,wet,Northern Guinea Savanna,126.87,34.23,74.93,4.04,873.87,3855.28,-1.64,0.0,-0.17,Normal
+Niger,10,wet,Northern Guinea Savanna,33.7,32.55,88.37,4.04,237.15,975.56,1.18,0.0,-1.74,Flood Risk
+Niger,10,wet,Northern Guinea Savanna,88.2,31.71,72.29,4.04,625.67,2596.24,1.66,0.0,0.18,Normal
+Niger,10,wet,Northern Guinea Savanna,31.31,26.92,80.5,4.04,229.5,1062.92,-4.12,0.0,0.77,Flood Risk
+Niger,10,wet,Northern Guinea Savanna,38.82,32.3,97.62,4.04,292.46,1213.83,-1.64,0.0,0.53,Flood Risk
+Niger,10,wet,Northern Guinea Savanna,165.94,34.5,88.58,4.04,1167.37,4898.67,2.65,0.0,-0.39,Flood Risk
+Niger,10,wet,Northern Guinea Savanna,51.25,32.13,83.49,4.04,377.61,1591.2,-1.79,0.0,1.21,Flood Risk
+Niger,10,wet,Northern Guinea Savanna,99.87,29.35,85.63,4.04,688.96,2980.35,0.52,0.0,-0.78,Flood Risk
+Niger,10,wet,Northern Guinea Savanna,85.62,30.67,81.01,4.04,593.71,2513.32,1.84,0.0,-0.59,Flood Risk
+Niger,11,dry,Northern Guinea Savanna,2.57,27.48,41.0,4.04,20.38,81.53,-0.15,21.8,0.82,Normal
+Niger,11,dry,Northern Guinea Savanna,0.37,31.08,35.78,4.04,0.0,11.67,-0.02,28.8,0.75,Drought Risk
+Niger,11,dry,Northern Guinea Savanna,1.98,28.77,35.18,4.04,27.03,66.61,-0.24,23.3,0.03,Normal
+Niger,11,dry,Northern Guinea Savanna,0.0,28.14,34.93,4.04,0.0,6.61,-0.22,29.3,0.09,Drought Risk
+Niger,11,dry,Northern Guinea Savanna,0.43,27.99,25.89,4.04,0.14,3.21,0.32,29.7,-0.24,Drought Risk
+Niger,11,dry,Northern Guinea Savanna,1.13,31.07,40.93,4.04,10.9,11.24,0.76,28.9,-1.11,Drought Risk
+Niger,11,dry,Northern Guinea Savanna,0.8,33.98,34.73,4.04,4.65,17.92,0.21,28.2,-1.26,Drought Risk
+Niger,11,dry,Northern Guinea Savanna,1.01,30.61,35.69,4.04,0.0,39.92,-0.32,26.0,0.18,Normal
+Niger,11,dry,Northern Guinea Savanna,0.0,29.06,27.57,4.04,2.36,6.11,-0.2,29.4,-2.39,Drought Risk
+Niger,11,dry,Northern Guinea Savanna,0.73,32.05,38.65,4.04,0.44,46.32,-0.82,25.4,1.03,Normal
+Niger,11,dry,Northern Guinea Savanna,0.69,24.11,33.32,4.04,6.26,19.64,0.03,28.0,-1.25,Drought Risk
+Niger,11,dry,Northern Guinea Savanna,1.25,30.54,45.13,4.04,9.12,34.49,0.1,26.6,0.5,Normal
+Niger,11,dry,Northern Guinea Savanna,0.44,28.53,26.57,4.04,0.45,24.48,-0.38,27.6,0.49,Drought Risk
+Niger,11,dry,Northern Guinea Savanna,0.39,32.06,33.77,4.04,1.89,8.65,0.1,29.1,-2.88,Drought Risk
+Niger,11,dry,Northern Guinea Savanna,0.13,31.55,43.79,4.04,0.45,5.27,-0.05,29.5,0.21,Drought Risk
+Niger,11,dry,Northern Guinea Savanna,1.07,29.09,31.44,4.04,5.67,25.73,0.21,27.4,0.08,Normal
+Niger,11,dry,Northern Guinea Savanna,1.37,24.79,42.32,4.04,8.08,57.18,-0.54,24.3,0.66,Normal
+Niger,11,dry,Northern Guinea Savanna,0.84,32.35,29.96,4.04,11.88,24.13,0.03,27.6,-0.53,Drought Risk
+Niger,11,dry,Northern Guinea Savanna,1.81,29.69,48.48,4.04,13.49,53.88,0.01,24.6,-0.53,Normal
+Niger,11,dry,Northern Guinea Savanna,0.27,26.52,37.34,4.04,10.3,1.31,0.22,29.9,2.54,Drought Risk
+Niger,11,dry,Northern Guinea Savanna,0.94,30.76,45.25,4.04,5.25,29.36,-0.04,27.1,-0.66,Normal
+Niger,11,dry,Northern Guinea Savanna,0.65,24.12,33.68,4.04,11.7,17.5,0.07,28.3,-1.08,Drought Risk
+Niger,11,dry,Northern Guinea Savanna,1.44,27.18,33.93,4.04,2.51,44.15,-0.03,25.6,-1.54,Normal
+Niger,11,dry,Northern Guinea Savanna,1.64,33.38,55.84,4.04,14.76,42.64,0.22,25.7,0.59,Normal
+Niger,11,dry,Northern Guinea Savanna,0.77,26.98,24.55,4.04,5.66,9.78,0.44,29.0,-0.06,Drought Risk
+Niger,11,dry,Northern Guinea Savanna,0.09,30.53,32.15,4.04,0.0,11.5,-0.29,28.9,0.73,Drought Risk
+Niger,11,dry,Northern Guinea Savanna,0.0,35.03,32.39,4.04,2.74,8.7,-0.29,29.1,0.89,Drought Risk
+Niger,11,dry,Northern Guinea Savanna,1.55,23.46,43.86,4.04,15.34,55.35,-0.29,24.5,0.39,Normal
+Niger,11,dry,Northern Guinea Savanna,0.72,28.09,34.54,4.04,6.56,36.84,-0.51,26.3,1.78,Normal
+Niger,11,dry,Northern Guinea Savanna,1.05,26.29,29.51,4.04,8.3,17.76,0.46,28.2,-0.94,Drought Risk
+Niger,12,dry,Northern Guinea Savanna,1.14,32.18,29.74,4.04,5.08,8.82,0.85,29.1,0.13,Drought Risk
+Niger,12,dry,Northern Guinea Savanna,2.5,27.51,37.61,4.04,19.57,64.85,0.34,23.5,-1.05,Normal
+Niger,12,dry,Northern Guinea Savanna,1.82,29.2,40.07,4.04,23.62,69.47,-0.5,23.1,-1.27,Normal
+Niger,12,dry,Northern Guinea Savanna,1.13,29.31,39.65,4.04,15.51,43.14,-0.31,25.7,-1.27,Normal
+Niger,12,dry,Northern Guinea Savanna,2.51,27.74,41.21,4.04,19.31,72.38,0.1,22.8,1.04,Normal
+Niger,12,dry,Northern Guinea Savanna,1.47,23.17,52.13,4.04,0.0,68.66,-0.82,23.1,-0.1,Normal
+Niger,12,dry,Northern Guinea Savanna,0.67,31.35,26.73,4.04,0.0,11.09,0.3,28.9,-1.19,Drought Risk
+Niger,12,dry,Northern Guinea Savanna,1.2,29.88,37.23,4.04,15.78,43.97,-0.27,25.6,-0.58,Normal
+Niger,12,dry,Northern Guinea Savanna,1.68,32.81,33.84,4.04,9.11,38.82,0.38,26.1,0.37,Normal
+Niger,12,dry,Northern Guinea Savanna,0.35,31.37,34.96,4.04,6.17,13.09,-0.08,28.7,1.83,Drought Risk
+Niger,12,dry,Northern Guinea Savanna,0.39,32.83,39.49,4.04,16.06,0.0,0.39,30.0,0.93,Drought Risk
+Niger,12,dry,Northern Guinea Savanna,0.12,31.44,35.26,4.04,1.06,0.0,0.12,30.0,-0.22,Drought Risk
+Niger,12,dry,Northern Guinea Savanna,0.74,30.53,39.54,4.04,0.22,20.31,0.06,28.0,-0.17,Drought Risk
+Niger,12,dry,Northern Guinea Savanna,1.64,35.22,51.44,4.04,13.7,14.21,1.16,28.6,0.8,Normal
+Niger,12,dry,Northern Guinea Savanna,0.0,32.88,28.81,4.04,2.32,8.79,-0.29,29.1,0.29,Drought Risk
+Niger,12,dry,Northern Guinea Savanna,2.48,26.75,48.95,4.04,11.13,68.37,0.2,23.2,0.56,Normal
+Niger,12,dry,Northern Guinea Savanna,0.9,29.59,38.04,4.04,6.16,17.22,0.33,28.3,-1.28,Drought Risk
+Niger,12,dry,Northern Guinea Savanna,0.85,25.65,39.68,4.04,2.86,16.44,0.3,28.4,-1.46,Drought Risk
+Niger,12,dry,Northern Guinea Savanna,1.41,32.04,40.45,4.04,10.76,63.39,-0.71,23.7,2.48,Normal
+Niger,12,dry,Northern Guinea Savanna,1.49,29.36,44.55,4.04,9.03,58.13,-0.45,24.2,0.15,Normal
+Niger,12,dry,Northern Guinea Savanna,1.99,26.68,36.5,4.04,14.11,49.58,0.34,25.0,0.12,Normal
+Niger,12,dry,Northern Guinea Savanna,2.09,33.17,38.16,4.04,14.76,58.04,0.16,24.2,-0.2,Normal
+Niger,12,dry,Northern Guinea Savanna,0.52,30.65,33.33,4.04,7.87,28.68,-0.44,27.1,-1.03,Normal
+Niger,12,dry,Northern Guinea Savanna,1.55,34.28,40.95,4.04,7.95,52.39,-0.19,24.8,-0.82,Normal
+Niger,12,dry,Northern Guinea Savanna,1.44,28.36,49.72,4.04,13.6,62.97,-0.66,23.7,-0.14,Normal
+Niger,12,dry,Northern Guinea Savanna,0.0,26.91,34.54,4.04,2.55,0.0,0.0,30.0,0.85,Drought Risk
+Niger,12,dry,Northern Guinea Savanna,1.05,30.67,32.55,4.04,8.85,21.06,0.35,27.9,-0.94,Drought Risk
+Niger,12,dry,Northern Guinea Savanna,0.79,23.88,46.18,4.04,11.69,7.08,0.56,29.3,-0.9,Normal
+Niger,12,dry,Northern Guinea Savanna,0.0,32.19,25.21,4.04,0.0,0.0,0.0,30.0,-0.33,Drought Risk
+Niger,12,dry,Northern Guinea Savanna,0.93,27.54,28.86,4.04,15.16,19.76,0.27,28.0,-0.64,Drought Risk
+Niger,12,dry,Northern Guinea Savanna,0.0,27.49,27.37,4.04,5.49,0.0,0.0,30.0,0.47,Drought Risk
+Niger,12,dry,Northern Guinea Savanna,1.34,28.46,36.38,4.04,0.0,47.04,-0.23,25.3,-0.58,Normal
+Niger,12,dry,Northern Guinea Savanna,1.53,25.31,32.78,4.04,2.85,43.4,0.09,25.7,0.36,Normal
+Plateau,1,dry,Jos Plateau Highland,2.75,24.38,55.89,4.04,27.2,92.65,-0.34,20.7,1.03,Normal
+Plateau,1,dry,Jos Plateau Highland,1.25,30.1,35.27,4.04,2.99,29.38,0.27,27.1,-0.91,Normal
+Plateau,1,dry,Jos Plateau Highland,3.88,26.04,39.29,4.04,36.28,103.83,0.42,19.6,0.54,Normal
+Plateau,1,dry,Jos Plateau Highland,3.13,20.82,49.28,4.04,23.33,90.24,0.12,21.0,0.6,Normal
+Plateau,1,dry,Jos Plateau Highland,2.46,31.01,48.6,4.04,18.02,84.28,-0.35,21.6,2.03,Normal
+Plateau,1,dry,Jos Plateau Highland,1.01,29.25,47.55,4.04,10.29,46.7,-0.54,25.3,0.63,Normal
+Plateau,1,dry,Jos Plateau Highland,1.88,18.67,31.51,4.04,15.46,48.7,0.26,25.1,-0.32,Normal
+Plateau,1,dry,Jos Plateau Highland,0.72,22.15,38.42,4.04,7.45,21.27,0.01,27.9,-0.58,Drought Risk
+Plateau,1,dry,Jos Plateau Highland,2.67,31.9,39.39,4.04,22.8,54.14,0.87,24.6,-1.19,Normal
+Plateau,1,dry,Jos Plateau Highland,1.58,29.64,48.52,4.04,9.51,56.81,-0.31,24.3,0.75,Normal
+Plateau,1,dry,Jos Plateau Highland,2.95,30.72,42.03,4.04,18.72,87.3,0.04,21.3,1.87,Normal
+Plateau,1,dry,Jos Plateau Highland,1.8,22.54,31.36,4.04,16.35,48.65,0.18,25.1,0.16,Normal
+Plateau,1,dry,Jos Plateau Highland,0.86,27.79,32.63,4.04,8.28,28.29,-0.08,27.2,-0.05,Normal
+Plateau,1,dry,Jos Plateau Highland,1.59,24.22,41.58,4.04,14.38,49.16,-0.05,25.1,0.32,Normal
+Plateau,1,dry,Jos Plateau Highland,2.61,28.33,49.45,4.04,14.35,88.35,-0.34,21.2,1.43,Normal
+Plateau,1,dry,Jos Plateau Highland,3.45,20.35,36.32,4.04,15.4,98.6,0.17,20.1,0.46,Normal
+Plateau,1,dry,Jos Plateau Highland,2.33,26.68,45.0,4.04,12.5,74.57,-0.16,22.5,-0.65,Normal
+Plateau,2,dry,Jos Plateau Highland,4.29,19.93,50.55,4.04,25.47,115.66,0.43,18.4,2.31,Normal
+Plateau,2,dry,Jos Plateau Highland,1.69,24.67,42.73,4.04,16.27,41.51,0.31,25.8,-1.59,Normal
+Plateau,2,dry,Jos Plateau Highland,2.99,22.0,45.61,4.04,18.71,96.0,-0.21,20.4,-0.72,Normal
+Plateau,2,dry,Jos Plateau Highland,0.06,22.18,31.79,4.04,0.0,7.11,-0.17,29.3,-0.16,Drought Risk
+Plateau,2,dry,Jos Plateau Highland,1.54,24.43,43.26,4.04,3.06,57.12,-0.37,24.3,0.12,Normal
+Plateau,2,dry,Jos Plateau Highland,0.34,28.56,52.94,4.04,0.0,20.47,-0.35,28.0,-0.67,Normal
+Plateau,2,dry,Jos Plateau Highland,2.32,24.12,38.94,4.04,17.91,70.89,-0.04,22.9,1.38,Normal
+Plateau,2,dry,Jos Plateau Highland,0.57,25.83,30.9,4.04,0.0,25.57,-0.28,27.4,-1.02,Normal
+Plateau,2,dry,Jos Plateau Highland,1.93,25.4,39.54,4.04,17.84,60.56,-0.09,23.9,-0.16,Normal
+Plateau,2,dry,Jos Plateau Highland,1.6,28.82,37.46,4.04,6.94,49.12,-0.04,25.1,0.27,Normal
+Plateau,2,dry,Jos Plateau Highland,1.62,30.44,29.61,4.04,17.81,59.79,-0.37,24.0,0.73,Normal
+Plateau,2,dry,Jos Plateau Highland,3.51,27.54,46.72,4.04,31.07,108.84,-0.12,19.1,-0.29,Normal
+Plateau,2,dry,Jos Plateau Highland,1.06,21.77,22.24,4.04,9.91,15.92,0.53,28.4,1.29,Drought Risk
+Plateau,2,dry,Jos Plateau Highland,1.94,25.99,47.74,4.04,6.23,53.69,0.15,24.6,0.68,Normal
+Plateau,2,dry,Jos Plateau Highland,1.35,22.15,31.61,4.04,8.76,40.65,-0.01,25.9,-0.2,Normal
+Plateau,2,dry,Jos Plateau Highland,0.31,25.35,36.87,4.04,2.2,28.16,-0.63,27.2,-0.41,Normal
+Plateau,2,dry,Jos Plateau Highland,0.0,23.84,23.1,4.04,5.5,0.0,0.0,30.0,0.63,Drought Risk
+Plateau,2,dry,Jos Plateau Highland,1.95,28.43,37.28,4.04,5.72,32.28,0.87,26.8,-0.37,Normal
+Plateau,2,dry,Jos Plateau Highland,1.54,22.87,26.1,4.04,2.55,29.44,0.56,27.1,0.14,Normal
+Plateau,2,dry,Jos Plateau Highland,0.0,21.4,29.53,4.04,0.0,0.0,0.0,30.0,0.35,Drought Risk
+Plateau,2,dry,Jos Plateau Highland,2.51,27.56,44.54,4.04,14.35,60.92,0.48,23.9,-0.01,Normal
+Plateau,2,dry,Jos Plateau Highland,2.47,22.86,45.99,4.04,19.79,89.89,-0.53,21.0,-0.32,Normal
+Plateau,2,dry,Jos Plateau Highland,2.07,28.47,44.43,4.04,20.47,86.2,-0.81,21.4,-2.08,Normal
+Plateau,2,dry,Jos Plateau Highland,1.78,26.45,36.93,4.04,13.9,61.68,-0.27,23.8,0.33,Normal
+Plateau,2,dry,Jos Plateau Highland,3.6,21.67,56.64,4.04,23.33,115.48,-0.25,18.5,0.16,Normal
+Plateau,2,dry,Jos Plateau Highland,1.66,28.15,37.2,4.04,13.85,36.58,0.44,26.3,-0.99,Normal
+Plateau,2,dry,Jos Plateau Highland,2.18,25.35,53.75,4.04,19.85,70.06,-0.15,23.0,1.69,Normal
+Plateau,2,dry,Jos Plateau Highland,4.97,24.85,41.79,4.04,44.57,141.16,0.27,15.9,0.01,Normal
+Plateau,2,dry,Jos Plateau Highland,3.55,24.62,54.71,4.04,32.06,95.48,0.37,20.5,-0.31,Normal
+Plateau,2,dry,Jos Plateau Highland,1.82,20.92,34.75,4.04,5.73,41.78,0.43,25.8,0.45,Normal
+Plateau,2,dry,Jos Plateau Highland,2.02,27.83,46.21,4.04,14.33,58.13,0.08,24.2,2.63,Normal
+Plateau,2,dry,Jos Plateau Highland,0.9,26.16,48.64,4.04,0.0,50.68,-0.78,24.9,0.13,Normal
+Plateau,3,dry,Jos Plateau Highland,1.76,25.92,44.36,4.04,18.01,73.04,-0.67,22.7,0.0,Normal
+Plateau,3,dry,Jos Plateau Highland,1.2,32.13,40.63,4.04,5.26,17.0,0.63,28.3,-0.06,Drought Risk
+Plateau,3,dry,Jos Plateau Highland,0.0,26.25,26.18,4.04,0.0,0.0,0.0,30.0,-0.06,Drought Risk
+Plateau,3,dry,Jos Plateau Highland,1.77,25.29,51.01,4.04,21.16,31.68,0.71,26.8,0.28,Normal
+Plateau,3,dry,Jos Plateau Highland,2.58,20.51,26.89,4.04,18.18,64.45,0.44,23.6,0.81,Normal
+Plateau,3,dry,Jos Plateau Highland,3.06,28.4,35.48,4.04,23.11,77.19,0.48,22.3,1.63,Normal
+Plateau,3,dry,Jos Plateau Highland,2.4,28.54,49.45,4.04,9.64,90.05,-0.6,21.0,-1.28,Normal
+Plateau,3,dry,Jos Plateau Highland,1.93,23.73,40.89,4.04,16.67,42.88,0.5,25.7,0.4,Normal
+Plateau,3,dry,Jos Plateau Highland,2.54,28.33,48.65,4.04,28.25,80.22,-0.14,22.0,-0.69,Normal
+Plateau,3,dry,Jos Plateau Highland,1.31,26.73,43.88,4.04,12.98,14.81,0.82,28.5,-0.22,Drought Risk
+Plateau,3,dry,Jos Plateau Highland,1.64,27.25,50.24,4.04,15.37,47.57,0.05,25.2,-0.06,Normal
+Plateau,3,dry,Jos Plateau Highland,1.72,29.64,51.42,4.04,6.82,65.1,-0.45,23.5,0.5,Normal
+Plateau,3,dry,Jos Plateau Highland,0.64,27.91,43.27,4.04,6.52,39.61,-0.68,26.0,-0.42,Normal
+Plateau,3,dry,Jos Plateau Highland,0.93,26.79,31.78,4.04,6.32,12.45,0.52,28.8,-0.52,Drought Risk
+Plateau,4,wet,Jos Plateau Highland,93.42,29.29,77.18,4.04,650.11,2816.48,-0.46,0.0,-0.25,Normal
+Plateau,4,wet,Jos Plateau Highland,56.11,30.25,84.19,4.04,383.77,1624.75,1.95,0.0,-2.28,Flood Risk
+Plateau,4,wet,Jos Plateau Highland,25.35,29.29,79.01,4.04,190.01,801.35,-1.36,0.0,0.91,Normal
+Plateau,4,wet,Jos Plateau Highland,66.64,29.08,87.62,4.04,463.87,2038.56,-1.31,0.0,1.07,Flood Risk
+Plateau,4,wet,Jos Plateau Highland,83.45,25.23,79.21,4.04,593.43,2504.02,-0.02,0.0,-0.57,Normal
+Plateau,4,wet,Jos Plateau Highland,137.6,25.55,76.26,4.04,967.92,4139.49,-0.38,0.0,0.27,Normal
+Plateau,4,wet,Jos Plateau Highland,112.17,24.2,81.72,4.04,761.33,3412.06,-1.57,0.0,0.33,Flood Risk
+Plateau,4,wet,Jos Plateau Highland,104.04,26.1,87.66,4.04,719.41,3147.48,-0.88,0.0,0.97,Flood Risk
+Plateau,4,wet,Jos Plateau Highland,52.25,26.77,83.01,4.04,380.57,1586.42,-0.63,0.0,-0.36,Flood Risk
+Plateau,4,wet,Jos Plateau Highland,35.19,31.06,84.6,4.04,267.24,937.09,3.95,0.0,-0.7,Flood Risk
+Plateau,4,wet,Jos Plateau Highland,88.64,22.64,91.51,4.04,597.93,2606.87,1.74,0.0,-0.54,Flood Risk
+Plateau,4,wet,Jos Plateau Highland,75.4,25.25,99.0,4.04,516.74,2250.29,0.4,0.0,-0.12,Flood Risk
+Plateau,4,wet,Jos Plateau Highland,29.76,29.06,74.27,4.04,195.6,861.53,1.05,0.0,-1.5,Normal
+Plateau,4,wet,Jos Plateau Highland,52.44,26.22,86.88,4.04,336.47,1604.1,-1.03,0.0,1.76,Flood Risk
+Plateau,4,wet,Jos Plateau Highland,118.58,26.73,95.3,4.04,825.22,3585.21,-0.93,0.0,-0.23,Flood Risk
+Plateau,4,wet,Jos Plateau Highland,105.91,26.86,88.24,4.04,763.23,3190.84,-0.46,0.0,0.28,Flood Risk
+Plateau,4,wet,Jos Plateau Highland,91.91,28.99,81.19,4.04,643.78,2750.14,0.24,0.0,-0.33,Flood Risk
+Plateau,4,wet,Jos Plateau Highland,124.43,26.98,94.81,4.04,871.68,3820.69,-2.92,0.0,-0.18,Flood Risk
+Plateau,4,wet,Jos Plateau Highland,60.91,25.55,81.38,4.04,433.6,1793.94,1.12,0.0,-2.66,Flood Risk
+Plateau,4,wet,Jos Plateau Highland,175.98,32.63,81.52,4.04,1249.6,5239.58,1.33,0.0,0.28,Flood Risk
+Plateau,4,wet,Jos Plateau Highland,25.02,26.27,87.69,4.04,211.8,815.64,-2.17,0.0,0.78,Flood Risk
+Plateau,4,wet,Jos Plateau Highland,8.64,28.63,68.54,4.04,55.09,222.6,1.22,7.7,0.23,Normal
+Plateau,4,wet,Jos Plateau Highland,129.3,29.44,90.02,4.04,912.32,3975.51,-3.21,0.0,-0.23,Flood Risk
+Plateau,5,wet,Jos Plateau Highland,72.56,27.77,76.1,4.04,511.04,2193.6,-0.56,0.0,-0.15,Normal
+Plateau,5,wet,Jos Plateau Highland,98.85,26.4,96.47,4.04,673.52,2957.06,0.28,0.0,-0.91,Flood Risk
+Plateau,5,wet,Jos Plateau Highland,44.23,30.09,74.26,4.04,343.47,1293.4,1.12,0.0,1.36,Normal
+Plateau,5,wet,Jos Plateau Highland,102.32,31.86,75.61,4.04,764.5,3017.55,1.74,0.0,1.79,Normal
+Plateau,5,wet,Jos Plateau Highland,94.56,24.47,83.04,4.04,637.34,2728.93,3.59,0.0,-1.06,Flood Risk
+Plateau,5,wet,Jos Plateau Highland,106.37,29.04,80.17,4.04,737.62,3251.1,-2.0,0.0,1.63,Flood Risk
+Plateau,5,wet,Jos Plateau Highland,149.45,27.63,91.79,4.04,1063.38,4386.76,3.23,0.0,0.66,Flood Risk
+Plateau,5,wet,Jos Plateau Highland,82.43,30.46,77.93,4.04,575.86,2499.28,-0.88,0.0,-0.8,Normal
+Plateau,5,wet,Jos Plateau Highland,107.59,27.6,69.77,4.04,736.67,3291.38,-2.12,0.0,1.01,Normal
+Plateau,5,wet,Jos Plateau Highland,107.43,24.47,75.8,4.04,740.65,3262.19,-1.31,0.0,-2.18,Normal
+Plateau,5,wet,Jos Plateau Highland,121.17,26.94,79.42,4.04,859.92,3560.59,2.49,0.0,-0.84,Normal
+Plateau,5,wet,Jos Plateau Highland,98.25,33.33,90.28,4.04,672.5,2910.61,1.23,0.0,-0.61,Flood Risk
+Plateau,5,wet,Jos Plateau Highland,30.5,26.8,85.19,4.04,200.13,897.13,0.6,0.0,0.27,Flood Risk
+Plateau,5,wet,Jos Plateau Highland,104.73,28.25,86.76,4.04,721.34,3208.52,-2.22,0.0,0.57,Flood Risk
+Plateau,5,wet,Jos Plateau Highland,79.92,25.27,83.68,4.04,577.59,2372.28,0.85,0.0,-0.14,Flood Risk
+Plateau,5,wet,Jos Plateau Highland,90.44,21.09,88.16,4.04,620.01,2709.24,0.14,0.0,1.87,Flood Risk
+Plateau,5,wet,Jos Plateau Highland,123.29,27.35,87.38,4.04,869.13,3590.7,3.6,0.0,0.41,Flood Risk
+Plateau,5,wet,Jos Plateau Highland,113.08,27.26,87.31,4.04,805.8,3397.8,-0.18,0.0,-1.4,Flood Risk
+Plateau,5,wet,Jos Plateau Highland,106.92,27.28,90.97,4.04,778.94,3067.27,4.68,0.0,-0.42,Flood Risk
+Plateau,5,wet,Jos Plateau Highland,108.3,26.78,91.52,4.04,728.64,3243.39,0.19,0.0,-0.43,Flood Risk
+Plateau,5,wet,Jos Plateau Highland,106.48,27.76,75.8,4.04,762.73,3198.57,-0.14,0.0,-1.06,Normal
+Plateau,5,wet,Jos Plateau Highland,81.94,22.39,87.54,4.04,581.64,2509.52,-1.71,0.0,0.93,Flood Risk
+Plateau,6,wet,Jos Plateau Highland,149.64,25.35,86.67,4.04,1026.99,4487.8,0.04,0.0,0.59,Flood Risk
+Plateau,6,wet,Jos Plateau Highland,0.0,23.98,39.43,4.04,0.0,58.86,-1.96,24.1,1.44,Normal
+Plateau,6,wet,Jos Plateau Highland,64.52,27.29,81.58,4.04,452.78,1822.58,3.76,0.0,1.04,Flood Risk
+Plateau,6,wet,Jos Plateau Highland,92.57,28.8,92.46,4.04,684.68,2801.68,-0.82,0.0,2.41,Flood Risk
+Plateau,6,wet,Jos Plateau Highland,125.98,30.01,85.73,4.04,899.92,3683.88,3.18,0.0,-0.67,Flood Risk
+Plateau,6,wet,Jos Plateau Highland,47.68,30.81,79.96,4.04,351.64,1363.47,2.23,0.0,-0.77,Normal
+Plateau,6,wet,Jos Plateau Highland,155.92,27.92,77.49,4.04,1066.83,4600.61,2.56,0.0,-1.49,Normal
+Plateau,6,wet,Jos Plateau Highland,81.88,25.06,79.58,4.04,592.3,2557.34,-3.36,0.0,1.21,Normal
+Plateau,6,wet,Jos Plateau Highland,138.07,20.92,82.81,4.04,984.72,4066.07,2.53,0.0,0.88,Flood Risk
+Plateau,6,wet,Jos Plateau Highland,121.97,22.03,89.16,4.04,875.32,3655.75,0.12,0.0,-1.36,Flood Risk
+Plateau,6,wet,Jos Plateau Highland,158.09,27.94,89.67,4.04,1082.37,4771.79,-0.97,0.0,-1.32,Flood Risk
+Plateau,6,wet,Jos Plateau Highland,64.97,22.2,83.49,4.04,421.95,2014.32,-2.17,0.0,-0.03,Flood Risk
+Plateau,6,wet,Jos Plateau Highland,43.94,30.36,81.63,4.04,325.19,1390.12,-2.4,0.0,0.28,Flood Risk
+Plateau,6,wet,Jos Plateau Highland,71.82,27.66,99.0,4.04,494.01,2170.68,-0.54,0.0,-0.66,Flood Risk
+Plateau,6,wet,Jos Plateau Highland,155.13,31.71,92.01,4.04,1087.21,4747.98,-3.13,0.0,-0.27,Flood Risk
+Plateau,6,wet,Jos Plateau Highland,60.73,25.46,82.68,4.04,444.44,1768.29,1.79,0.0,-0.12,Flood Risk
+Plateau,6,wet,Jos Plateau Highland,154.29,30.42,80.55,4.04,1095.4,4685.75,-1.9,0.0,-0.78,Flood Risk
+Plateau,6,wet,Jos Plateau Highland,127.31,26.89,80.17,4.04,887.99,3872.03,-1.76,0.0,0.02,Flood Risk
+Plateau,6,wet,Jos Plateau Highland,108.74,31.16,75.96,4.04,723.08,3257.0,0.17,0.0,-0.44,Normal
+Plateau,6,wet,Jos Plateau Highland,84.63,35.21,81.78,4.04,624.36,2507.17,1.05,0.0,0.04,Flood Risk
+Plateau,6,wet,Jos Plateau Highland,108.46,28.62,89.3,4.04,752.47,3130.88,4.1,0.0,0.33,Flood Risk
+Plateau,6,wet,Jos Plateau Highland,104.32,25.14,87.64,4.04,738.56,3082.65,1.57,0.0,1.12,Flood Risk
+Plateau,6,wet,Jos Plateau Highland,126.6,35.51,94.29,4.04,886.21,3742.48,1.85,0.0,0.06,Flood Risk
+Plateau,6,wet,Jos Plateau Highland,36.69,27.49,80.35,4.04,259.87,995.1,3.52,0.0,0.06,Flood Risk
+Plateau,6,wet,Jos Plateau Highland,84.87,24.12,97.87,4.04,596.44,2546.18,0.0,0.0,-0.04,Flood Risk
+Plateau,6,wet,Jos Plateau Highland,92.95,29.33,81.34,4.04,638.67,2709.59,2.63,0.0,-1.07,Flood Risk
+Plateau,6,wet,Jos Plateau Highland,78.57,26.76,87.37,4.04,544.8,2433.04,-2.53,0.0,0.97,Flood Risk
+Plateau,6,wet,Jos Plateau Highland,12.52,30.91,76.15,4.04,86.81,359.86,0.52,0.0,0.33,Normal
+Plateau,6,wet,Jos Plateau Highland,77.22,23.83,93.31,4.04,539.58,2290.36,0.87,0.0,-0.43,Flood Risk
+Plateau,6,wet,Jos Plateau Highland,25.53,24.31,76.24,4.04,175.03,825.41,-1.98,0.0,-0.79,Normal
+Plateau,7,wet,Jos Plateau Highland,135.45,30.4,96.33,4.04,973.11,4133.24,-2.33,0.0,-1.05,Flood Risk
+Plateau,7,wet,Jos Plateau Highland,82.58,21.85,75.62,4.04,576.74,2520.27,-1.43,0.0,0.4,Normal
+Plateau,7,wet,Jos Plateau Highland,132.04,31.21,72.37,4.04,949.36,4052.84,-3.05,0.0,-1.09,Normal
+Plateau,7,wet,Jos Plateau Highland,153.43,26.48,85.45,4.04,1088.23,4677.28,-2.48,0.0,0.12,Flood Risk
+Plateau,7,wet,Jos Plateau Highland,160.55,28.4,93.81,4.04,1133.19,4853.55,-1.24,0.0,-1.0,Flood Risk
+Plateau,7,wet,Jos Plateau Highland,108.48,28.82,89.2,4.04,753.53,3204.19,1.67,0.0,0.71,Flood Risk
+Plateau,7,wet,Jos Plateau Highland,186.12,20.37,85.16,4.04,1339.49,5532.28,1.71,0.0,0.15,Flood Risk
+Plateau,7,wet,Jos Plateau Highland,92.66,30.15,85.49,4.04,624.2,2894.59,-3.83,0.0,0.67,Flood Risk
+Plateau,7,wet,Jos Plateau Highland,155.37,25.54,90.53,4.04,1084.08,4630.01,1.04,0.0,-2.93,Flood Risk
+Plateau,7,wet,Jos Plateau Highland,84.76,26.72,79.07,4.04,643.52,2461.4,2.71,0.0,1.62,Normal
+Plateau,7,wet,Jos Plateau Highland,62.97,32.13,99.0,4.04,447.26,1882.09,0.24,0.0,-0.33,Flood Risk
+Plateau,7,wet,Jos Plateau Highland,67.77,28.0,85.81,4.04,453.1,1974.11,1.96,0.0,-0.81,Flood Risk
+Plateau,7,wet,Jos Plateau Highland,81.05,28.83,80.37,4.04,575.5,2441.79,-0.34,0.0,-0.04,Flood Risk
+Plateau,7,wet,Jos Plateau Highland,62.15,27.29,87.1,4.04,473.78,1825.18,1.31,0.0,-0.89,Flood Risk
+Plateau,7,wet,Jos Plateau Highland,59.75,29.83,82.45,4.04,405.77,1719.11,2.45,0.0,-2.0,Flood Risk
+Plateau,7,wet,Jos Plateau Highland,46.9,24.73,79.44,4.04,372.56,1436.48,-0.98,0.0,0.07,Normal
+Plateau,7,wet,Jos Plateau Highland,89.61,22.13,97.35,4.04,649.79,2670.98,0.57,0.0,0.89,Flood Risk
+Plateau,7,wet,Jos Plateau Highland,81.62,28.49,86.11,4.04,575.76,2545.51,-3.23,0.0,0.68,Flood Risk
+Plateau,7,wet,Jos Plateau Highland,108.37,31.19,83.15,4.04,775.21,3276.94,-0.86,0.0,-0.73,Flood Risk
+Plateau,7,wet,Jos Plateau Highland,110.39,25.41,82.05,4.04,762.32,3408.55,-3.22,0.0,0.83,Flood Risk
+Plateau,7,wet,Jos Plateau Highland,81.5,26.06,90.7,4.04,589.37,2469.36,-0.81,0.0,-0.43,Flood Risk
+Plateau,8,wet,Jos Plateau Highland,0.0,30.41,24.68,4.04,1.97,21.87,-0.73,27.8,0.13,Drought Risk
+Plateau,8,wet,Jos Plateau Highland,100.42,25.46,75.97,4.04,691.76,3009.35,0.1,0.0,-0.17,Normal
+Plateau,8,wet,Jos Plateau Highland,79.8,28.47,91.21,4.04,562.7,2473.64,-2.65,0.0,-1.75,Flood Risk
+Plateau,8,wet,Jos Plateau Highland,52.97,30.4,82.49,4.04,381.53,1531.73,1.91,0.0,0.75,Flood Risk
+Plateau,8,wet,Jos Plateau Highland,37.94,28.68,86.54,4.04,247.37,1122.97,0.51,0.0,0.64,Flood Risk
+Plateau,8,wet,Jos Plateau Highland,120.85,23.99,91.1,4.04,847.54,3620.85,0.16,0.0,0.57,Flood Risk
+Plateau,8,wet,Jos Plateau Highland,108.28,36.38,82.29,4.04,749.39,3285.54,-1.24,0.0,-0.1,Flood Risk
+Plateau,8,wet,Jos Plateau Highland,40.24,30.25,99.0,4.04,289.37,1131.32,2.53,0.0,-0.03,Flood Risk
+Plateau,8,wet,Jos Plateau Highland,81.92,28.44,80.2,4.04,574.16,2525.74,-2.28,0.0,1.49,Flood Risk
+Plateau,8,wet,Jos Plateau Highland,99.85,27.33,89.37,4.04,655.6,3026.22,-1.02,0.0,-0.09,Flood Risk
+Plateau,8,wet,Jos Plateau Highland,112.54,31.37,95.31,4.04,814.12,3384.95,-0.29,0.0,0.52,Flood Risk
+Plateau,8,wet,Jos Plateau Highland,45.77,32.19,80.31,4.04,315.51,1372.13,0.03,0.0,1.47,Flood Risk
+Plateau,8,wet,Jos Plateau Highland,161.31,30.34,81.26,4.04,1149.33,4878.98,-1.32,0.0,-0.22,Flood Risk
+Plateau,8,wet,Jos Plateau Highland,29.09,24.6,85.0,4.04,193.16,921.15,-1.62,0.0,-1.54,Flood Risk
+Plateau,8,wet,Jos Plateau Highland,95.81,26.5,77.36,4.04,642.32,3001.62,-4.24,0.0,1.24,Normal
+Plateau,8,wet,Jos Plateau Highland,36.77,28.96,90.7,4.04,242.43,1048.78,1.81,0.0,-0.99,Flood Risk
+Plateau,8,wet,Jos Plateau Highland,43.25,27.87,80.46,4.04,284.32,1435.54,-4.6,0.0,-1.94,Flood Risk
+Plateau,8,wet,Jos Plateau Highland,92.92,32.23,92.0,4.04,664.12,2741.27,1.55,0.0,-0.4,Flood Risk
+Plateau,8,wet,Jos Plateau Highland,120.91,28.76,81.74,4.04,814.92,3720.26,-3.1,0.0,0.08,Flood Risk
+Plateau,8,wet,Jos Plateau Highland,77.84,24.02,84.87,4.04,563.12,2284.01,1.71,0.0,-0.56,Flood Risk
+Plateau,8,wet,Jos Plateau Highland,71.65,33.76,96.67,4.04,478.82,2095.24,1.81,0.0,-0.33,Flood Risk
+Plateau,8,wet,Jos Plateau Highland,55.69,24.78,86.4,4.04,425.96,1748.47,-2.59,0.0,-0.25,Flood Risk
+Plateau,8,wet,Jos Plateau Highland,41.9,27.78,71.43,4.04,285.5,1211.95,1.5,0.0,-1.27,Normal
+Plateau,9,wet,Jos Plateau Highland,55.67,28.45,82.07,4.04,385.0,1633.71,1.21,0.0,-0.69,Flood Risk
+Plateau,9,wet,Jos Plateau Highland,0.0,25.95,48.82,4.04,0.0,11.25,-0.37,28.9,-0.9,Normal
+Plateau,9,wet,Jos Plateau Highland,73.26,29.14,88.92,4.04,539.47,2194.36,0.12,0.0,-1.32,Flood Risk
+Plateau,9,wet,Jos Plateau Highland,39.27,32.16,70.49,4.04,273.74,1124.51,1.79,0.0,-1.7,Normal
+Plateau,9,wet,Jos Plateau Highland,127.02,27.29,74.25,4.04,857.13,3914.63,-3.46,0.0,0.39,Normal
+Plateau,9,wet,Jos Plateau Highland,202.94,28.18,97.14,4.04,1410.64,6187.3,-3.3,0.0,0.79,Flood Risk
+Plateau,9,wet,Jos Plateau Highland,120.24,30.62,85.45,4.04,831.92,3624.61,-0.58,0.0,0.3,Flood Risk
+Plateau,9,wet,Jos Plateau Highland,47.97,28.9,84.9,4.04,346.86,1440.03,-0.03,0.0,1.04,Flood Risk
+Plateau,9,wet,Jos Plateau Highland,48.37,27.17,86.23,4.04,347.57,1386.69,2.15,0.0,-0.38,Flood Risk
+Plateau,9,wet,Jos Plateau Highland,42.2,29.34,81.55,4.04,292.03,1237.93,0.93,0.0,-0.93,Flood Risk
+Plateau,9,wet,Jos Plateau Highland,114.86,30.8,90.72,4.04,796.84,3505.59,-1.99,0.0,-0.01,Flood Risk
+Plateau,9,wet,Jos Plateau Highland,85.74,21.57,84.33,4.04,558.53,2503.32,2.3,0.0,0.25,Flood Risk
+Plateau,9,wet,Jos Plateau Highland,66.12,32.86,71.2,4.04,472.88,2043.86,-2.0,0.0,-1.2,Normal
+Plateau,9,wet,Jos Plateau Highland,107.68,25.52,84.94,4.04,767.65,3236.27,-0.19,0.0,-0.15,Flood Risk
+Plateau,9,wet,Jos Plateau Highland,85.56,22.43,81.63,4.04,612.89,2554.47,0.41,0.0,0.41,Flood Risk
+Plateau,9,wet,Jos Plateau Highland,68.64,29.07,70.22,4.04,520.1,1998.32,2.03,0.0,-0.77,Normal
+Plateau,9,wet,Jos Plateau Highland,36.76,30.53,88.77,4.04,277.95,1044.57,1.94,0.0,2.3,Flood Risk
+Plateau,9,wet,Jos Plateau Highland,82.48,27.71,82.25,4.04,581.77,2467.9,0.21,0.0,0.36,Flood Risk
+Plateau,9,wet,Jos Plateau Highland,122.11,21.43,97.7,4.04,840.66,3706.84,-1.46,0.0,-0.16,Flood Risk
+Plateau,9,wet,Jos Plateau Highland,122.96,28.6,80.32,4.04,879.62,3701.12,-0.41,0.0,0.53,Flood Risk
+Plateau,9,wet,Jos Plateau Highland,109.05,27.64,87.12,4.04,766.8,3311.72,-1.34,0.0,0.63,Flood Risk
+Plateau,9,wet,Jos Plateau Highland,76.12,34.58,78.61,4.04,510.45,2241.75,1.4,0.0,0.21,Normal
+Plateau,9,wet,Jos Plateau Highland,24.7,31.11,84.12,4.04,180.37,664.07,2.56,0.0,-0.58,Flood Risk
+Plateau,9,wet,Jos Plateau Highland,96.6,30.06,83.14,4.04,687.6,2872.99,0.83,0.0,0.34,Flood Risk
+Plateau,10,wet,Jos Plateau Highland,80.83,28.68,87.57,4.04,544.49,2406.43,0.62,0.0,-1.13,Flood Risk
+Plateau,10,wet,Jos Plateau Highland,65.13,25.92,69.82,4.04,426.38,1969.64,-0.53,0.0,1.35,Normal
+Plateau,10,wet,Jos Plateau Highland,55.13,25.55,92.5,4.04,380.13,1616.87,1.24,0.0,-2.15,Flood Risk
+Plateau,10,wet,Jos Plateau Highland,151.31,30.61,72.49,4.04,1068.96,4435.38,3.46,0.0,0.35,Normal
+Plateau,10,wet,Jos Plateau Highland,56.04,32.24,67.8,4.04,394.29,1646.53,1.16,0.0,-2.11,Normal
+Plateau,10,wet,Jos Plateau Highland,26.58,28.22,85.49,4.04,159.26,813.44,-0.54,0.0,-0.4,Flood Risk
+Plateau,10,wet,Jos Plateau Highland,49.59,34.41,98.73,4.04,327.12,1469.73,0.6,0.0,-1.28,Flood Risk
+Plateau,10,wet,Jos Plateau Highland,107.83,26.44,76.34,4.04,775.77,3246.71,-0.39,0.0,-0.38,Normal
+Plateau,10,wet,Jos Plateau Highland,18.56,33.04,87.48,4.04,99.09,504.73,1.74,0.0,-0.46,Normal
+Plateau,10,wet,Jos Plateau Highland,0.42,30.99,35.73,4.04,0.0,25.1,-0.41,27.5,-0.57,Normal
+Plateau,10,wet,Jos Plateau Highland,142.05,26.8,86.67,4.04,974.59,4223.96,1.25,0.0,0.9,Flood Risk
+Plateau,10,wet,Jos Plateau Highland,128.8,29.45,91.22,4.04,876.99,3791.45,2.42,0.0,-0.81,Flood Risk
+Plateau,10,wet,Jos Plateau Highland,81.77,37.56,89.59,4.04,592.84,2424.24,0.96,0.0,1.12,Flood Risk
+Plateau,10,wet,Jos Plateau Highland,72.7,31.15,84.03,4.04,492.1,2133.79,1.57,0.0,-1.14,Flood Risk
+Plateau,10,wet,Jos Plateau Highland,100.07,27.15,82.69,4.04,669.69,3025.89,-0.79,0.0,-1.5,Flood Risk
+Plateau,10,wet,Jos Plateau Highland,75.38,24.16,79.55,4.04,566.39,2199.13,2.07,0.0,-1.78,Normal
+Plateau,11,dry,Jos Plateau Highland,1.61,31.69,43.84,4.04,8.85,41.43,0.23,25.9,-0.71,Normal
+Plateau,11,dry,Jos Plateau Highland,0.0,32.21,28.47,4.04,11.67,8.31,-0.28,29.2,0.11,Drought Risk
+Plateau,11,dry,Jos Plateau Highland,1.41,26.55,23.91,4.04,11.1,43.54,-0.04,25.6,-0.43,Normal
+Plateau,11,dry,Jos Plateau Highland,1.37,34.03,39.3,4.04,4.91,32.68,0.28,26.7,0.57,Normal
+Plateau,11,dry,Jos Plateau Highland,0.64,31.72,22.98,4.04,3.92,19.05,0.01,28.1,0.34,Drought Risk
+Plateau,11,dry,Jos Plateau Highland,1.31,32.13,31.37,4.04,13.97,32.65,0.22,26.7,-0.78,Normal
+Plateau,11,dry,Jos Plateau Highland,1.01,29.52,36.84,4.04,4.46,27.75,0.08,27.2,1.13,Normal
+Plateau,11,dry,Jos Plateau Highland,0.21,32.49,24.6,4.04,1.02,14.67,-0.28,28.5,-0.58,Drought Risk
+Plateau,11,dry,Jos Plateau Highland,2.65,25.21,37.6,4.04,15.9,70.81,0.29,22.9,0.48,Normal
+Plateau,11,dry,Jos Plateau Highland,2.43,29.56,35.51,4.04,12.97,59.41,0.45,24.1,1.22,Normal
+Plateau,11,dry,Jos Plateau Highland,0.76,30.0,26.36,4.04,10.88,22.59,0.01,27.7,0.39,Drought Risk
+Plateau,11,dry,Jos Plateau Highland,0.45,25.54,24.71,4.04,1.74,20.3,-0.23,28.0,-0.32,Drought Risk
+Plateau,11,dry,Jos Plateau Highland,0.0,30.6,33.39,4.04,1.54,0.86,-0.03,29.9,-1.55,Drought Risk
+Plateau,11,dry,Jos Plateau Highland,1.77,30.48,53.53,4.04,11.04,61.77,-0.29,23.8,1.02,Normal
+Plateau,11,dry,Jos Plateau Highland,0.41,26.86,32.38,4.04,1.52,17.35,-0.17,28.3,-0.15,Drought Risk
+Plateau,11,dry,Jos Plateau Highland,3.04,29.16,52.32,4.04,18.12,106.51,-0.51,19.3,2.08,Normal
+Plateau,11,dry,Jos Plateau Highland,2.06,31.33,39.37,4.04,10.87,74.1,-0.41,22.6,-0.67,Normal
+Plateau,11,dry,Jos Plateau Highland,2.88,29.63,52.5,4.04,11.07,77.04,0.31,22.3,-0.57,Normal
+Plateau,11,dry,Jos Plateau Highland,2.4,27.11,39.67,4.04,19.21,62.75,0.31,23.7,-2.29,Normal
+Plateau,11,dry,Jos Plateau Highland,2.58,34.24,41.32,4.04,21.32,77.5,-0.0,22.2,0.65,Normal
+Plateau,11,dry,Jos Plateau Highland,1.8,27.51,57.88,4.04,21.14,71.45,-0.58,22.9,-0.73,Normal
+Plateau,11,dry,Jos Plateau Highland,2.86,27.93,41.75,4.04,28.29,73.79,0.4,22.6,0.78,Normal
+Plateau,11,dry,Jos Plateau Highland,1.31,28.22,31.64,4.04,0.79,46.7,-0.25,25.3,0.27,Normal
+Plateau,12,dry,Jos Plateau Highland,2.73,29.9,37.26,4.04,30.81,68.14,0.46,23.2,-0.97,Normal
+Plateau,12,dry,Jos Plateau Highland,2.09,31.84,32.91,4.04,14.45,56.35,0.21,24.4,-1.11,Normal
+Plateau,12,dry,Jos Plateau Highland,0.37,25.06,24.73,4.04,0.0,14.47,-0.12,28.6,1.59,Drought Risk
+Plateau,12,dry,Jos Plateau Highland,2.38,29.24,28.54,4.04,17.17,58.94,0.41,24.1,0.35,Normal
+Plateau,12,dry,Jos Plateau Highland,0.98,28.22,32.9,4.04,9.03,12.44,0.56,28.8,-0.6,Drought Risk
+Plateau,12,dry,Jos Plateau Highland,2.83,31.49,40.62,4.04,13.05,72.4,0.41,22.8,0.81,Normal
+Plateau,12,dry,Jos Plateau Highland,1.12,32.31,42.81,4.04,10.76,35.03,-0.05,26.5,-0.07,Normal
+Plateau,12,dry,Jos Plateau Highland,0.0,27.97,30.6,4.04,0.0,0.63,-0.02,29.9,-1.58,Drought Risk
+Plateau,12,dry,Jos Plateau Highland,0.29,32.17,33.18,4.04,5.12,20.07,-0.38,28.0,0.38,Drought Risk
+Plateau,12,dry,Jos Plateau Highland,1.65,25.6,30.7,4.04,7.96,53.73,-0.14,24.6,0.88,Normal
+Plateau,12,dry,Jos Plateau Highland,0.91,31.69,33.42,4.04,0.0,16.73,0.36,28.3,-1.38,Drought Risk
+Plateau,12,dry,Jos Plateau Highland,0.19,30.06,29.28,4.04,0.0,4.79,0.03,29.5,-0.48,Drought Risk
+Plateau,12,dry,Jos Plateau Highland,2.9,34.54,48.97,4.04,16.78,97.85,-0.36,20.2,-0.31,Normal
+Plateau,12,dry,Jos Plateau Highland,0.68,32.96,42.81,4.04,4.01,20.11,0.01,28.0,-0.82,Drought Risk
+Plateau,12,dry,Jos Plateau Highland,2.12,29.83,34.19,4.04,16.73,58.17,0.19,24.2,0.98,Normal
+Plateau,12,dry,Jos Plateau Highland,0.95,37.64,46.97,4.04,10.36,49.2,-0.69,25.1,0.65,Normal
+Plateau,12,dry,Jos Plateau Highland,3.4,24.77,50.21,4.04,26.64,106.59,-0.15,19.3,-0.6,Normal
+Plateau,12,dry,Jos Plateau Highland,2.51,31.56,50.74,4.04,27.58,83.69,-0.28,21.6,0.96,Normal
+Plateau,12,dry,Jos Plateau Highland,0.0,27.86,36.07,4.04,0.0,0.0,0.0,30.0,-0.31,Drought Risk
+Plateau,12,dry,Jos Plateau Highland,0.0,29.78,24.05,4.04,0.0,0.0,0.0,30.0,-0.29,Drought Risk
+Plateau,12,dry,Jos Plateau Highland,1.18,31.02,37.06,4.04,7.52,12.57,0.76,28.7,0.6,Drought Risk
+
