@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ModelStats } from "@/components/ModelStats";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -273,6 +274,9 @@ const Index = () => {
           <span className="w-px h-6 bg-white/30" />
         </div>
       </section>
+
+      {/* Live model performance stats */}
+      <ModelStats />
 
       {/* Anatomy of CliNode — visual storytelling */}
       <section className="py-24 bg-gradient-to-b from-background via-emerald-50/30 to-background dark:via-emerald-950/10 relative overflow-hidden">
