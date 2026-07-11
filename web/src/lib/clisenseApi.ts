@@ -68,3 +68,52 @@ export async function fetchStates(): Promise<string[]> {
     return DEFAULT_STATES;
   }
 }
+
+// ---- Data Explorer ----
+
+export interface MonthlyPoint {
+  state: string;
+  month: number;
+  rainfall_mm: number;
+  temp_c: number;
+  humidity_pct: number;
+}
+
+export interface ExploreData {
+  states: string[];
+  monthly: MonthlyPoint[];
+  threat_by_month: Array<{ month: number } & Record<string, number>>;
+  class_distribution: Record<string, number>;
+}
+
+export async function fetchExplore(): Promise<ExploreData> {
+  const res = await fetch(`${API_BASE_URL}/explore`);
+  if (!res.ok) throw new Error(`Explore data failed (HTTP ${res.status})`);
+  return res.json();
+}
+
+// ---- Model info ----
+
+export interface FeatureImportance {
+  feature: string;
+  importance: number;
+}
+
+export interface ModelInfo {
+  algorithm: string;
+  accuracy: number;
+  weighted_f1: number;
+  n_samples: number;
+  n_train: number;
+  n_test: number;
+  classes: string[];
+  class_distribution: Record<string, number>;
+  feature_importances: FeatureImportance[];
+  confusion_matrix: number[][];
+}
+
+export async function fetchModelInfo(): Promise<ModelInfo> {
+  const res = await fetch(`${API_BASE_URL}/model-info`);
+  if (!res.ok) throw new Error(`Model info failed (HTTP ${res.status})`);
+  return res.json();
+}

@@ -6,6 +6,7 @@ and prediction logic lives in model_core so the API and the Streamlit
 dashboard can never drift apart again (see BUGFIX_REPORT.md).
 """
 import sys
+import json
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -71,6 +72,96 @@ def health():
 @app.get("/states")
 def get_states():
     return {"states": mc.STATES}
+
+
+_explore_cache = None
+_model_info_cache = None
+
+
+def _compute_explore():
+    df = mc.generate_synthetic_dataset()
+    g = (
+        df.groupby(["state", "month"])
+        .agg(
+            rainfall_mm=("rainfall_mm", "mean"),
+            temp_c=("temp_c", "mean"),
+            humidity_pct=("humidity_pct", "mean"),
+        )
+        .reset_index()
+    )
+    monthly = [
+        {
+            "state": r.state,
+            "month": int(r.month),
+            "rainfall_mm": round(float(r.rainfall_mm), 1),
+            "temp_c": round(float(r.temp_c), 1),
+            "humidity_pct": round(float(r.humidity_pct), 1),
+        }
+        for r in g.itertuples()
+    ]
+    tbm = df.groupby(["month", "threat_label"]).size().unstack(fill_value=0)
+    threat_by_month = []
+    for m in range(1, 13):
+        row = {"month": m}
+        for cls in mc.LABEL_CLASSES:
+            row[cls] = int(tbm.loc[m, cls]) if (m in tbm.index and cls in tbm.columns) else 0
+        threat_by_month.append(row)
+    class_distribution = {
+        k: int(v) for k, v in df["threat_label"].value_counts().to_dict().items()
+    }
+    return {
+        "states": mc.STATES,
+        "monthly": monthly,
+        "threat_by_month": threat_by_month,
+        "class_distribution": class_distribution,
+    }
+
+
+@app.get("/explore")
+def explore():
+    global _explore_cache
+    if _explore_cache is None:
+        _explore_cache = _compute_explore()
+    return _explore_cache
+
+
+def _compute_model_info():
+    metrics = None
+    meta_path = Path(mc.MODELS_DIR) / "model_metadata.json"
+    if meta_path.exists():
+        try:
+            metrics = json.loads(meta_path.read_text())
+        except Exception:
+            metrics = None
+    if metrics is None or "feature_importances" not in metrics:
+        _, metrics, _ = mc.train(run_cv=False)
+
+    fi = metrics.get("feature_importances", {})
+    fi_sorted = sorted(
+        [{"feature": k, "importance": round(float(v), 4)} for k, v in fi.items()],
+        key=lambda x: x["importance"],
+        reverse=True,
+    )
+    return {
+        "algorithm": metrics.get("algorithm", "XGBoost"),
+        "accuracy": round(float(metrics.get("accuracy", 0)), 4),
+        "weighted_f1": round(float(metrics.get("weighted_f1", 0)), 4),
+        "n_samples": metrics.get("n_samples"),
+        "n_train": metrics.get("n_train"),
+        "n_test": metrics.get("n_test"),
+        "classes": mc.LABEL_CLASSES,
+        "class_distribution": metrics.get("class_distribution", {}),
+        "feature_importances": fi_sorted,
+        "confusion_matrix": metrics.get("confusion_matrix", []),
+    }
+
+
+@app.get("/model-info")
+def model_info():
+    global _model_info_cache
+    if _model_info_cache is None:
+        _model_info_cache = _compute_model_info()
+    return _model_info_cache
 
 
 @app.post("/predict")
