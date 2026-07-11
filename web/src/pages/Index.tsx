@@ -225,7 +225,7 @@ const Index = () => {
                 <Button
                   size="lg"
                   className="bg-white text-emerald-900 hover:bg-emerald-50 font-semibold shadow-xl shadow-emerald-500/20 h-12"
-                  onClick={() => document.getElementById("auth")?.scrollIntoView({ behavior: "smooth" })}
+                  onClick={() => navigate('/predict')}
                 >
                   Get Started
                   <ArrowRight className="w-4 h-4 ml-1" />
