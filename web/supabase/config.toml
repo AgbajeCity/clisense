@@ -1,0 +1,4 @@
+project_id = "qtreepwpemfcikylmfwi"
+
+[functions.ingest-reading]
+verify_jwt = false
