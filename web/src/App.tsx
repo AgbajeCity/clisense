@@ -31,6 +31,7 @@ import { Contact } from "./pages/Contact";
 import CliNodeDevice from "./pages/CliNodeDevice";
 import SetupWizard from "./pages/SetupWizard";
 import FirmwareDemo from "./pages/FirmwareDemo";
+import LivePredict from "./pages/LivePredict";
 
 const queryClient = new QueryClient();
 
@@ -63,6 +64,7 @@ const AnimatedRoutes = () => {
         <Route path="/clinode" element={<PageTransition><CliNodeDevice /></PageTransition>} />
         <Route path="/setup-wizard" element={<PageTransition><SetupWizard /></PageTransition>} />
         <Route path="/firmware-demo" element={<PageTransition><FirmwareDemo /></PageTransition>} />
+        <Route path="/predict" element={<PageTransition><ErrorBoundary><LivePredict /></ErrorBoundary></PageTransition>} />
         <Route path="/index" element={<PageTransition><Index /></PageTransition>} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
