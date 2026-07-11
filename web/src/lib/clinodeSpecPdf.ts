@@ -77,7 +77,7 @@ export const downloadCliNodeSpecPdf = (specs: SpecRow[]) => {
   doc.setFontSize(9);
   doc.setTextColor(120, 120, 120);
   doc.text(
-    `© Clisense · Generated ${new Date().toLocaleDateString()} · clisense.Clisense.app`,
+    `© Clisense · Generated ${new Date().toLocaleDateString()} · clisense.vercel.app`,
     margin,
     820
   );
