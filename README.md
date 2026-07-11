@@ -25,6 +25,7 @@ This repository is a **monorepo** containing two parts of the same product:
 
 ## Live Demo
 
+- **Web App (React frontend)**: https://clisense.vercel.app  ·  Live predictor: https://clisense.vercel.app/predict
 - **Streamlit Dashboard**: https://agbajecity-clisense.streamlit.app
 - **FastAPI Backend**: https://clisense-production.up.railway.app
 - **API Docs (Swagger)**: https://clisense-production.up.railway.app/docs
