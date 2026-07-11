@@ -161,6 +161,7 @@ const Index = () => {
               <button onClick={() => scrollToSection('features')} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Features</button>
               <button onClick={() => scrollToSection('products')} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Products</button>
               <button onClick={() => scrollToSection('impact')} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Impact</button>
+              <button onClick={() => navigate('/predict')} className="text-sm font-semibold text-emerald-600 hover:text-emerald-500 transition-colors">Live Predict</button>
               <button onClick={() => scrollToSection('auth')} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Login</button>
             </div>
 
@@ -181,6 +182,7 @@ const Index = () => {
                 <button onClick={() => { scrollToSection('features'); setMobileMenuOpen(false); }} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors text-left">Features</button>
                 <button onClick={() => { scrollToSection('products'); setMobileMenuOpen(false); }} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors text-left">Products</button>
                 <button onClick={() => { scrollToSection('impact'); setMobileMenuOpen(false); }} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors text-left">Impact</button>
+                <button onClick={() => { navigate('/predict'); setMobileMenuOpen(false); }} className="text-sm font-semibold text-emerald-600 hover:text-emerald-500 transition-colors text-left">Live Predict</button>
                 <button onClick={() => { scrollToSection('auth'); setMobileMenuOpen(false); }} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors text-left">Login</button>
               </div>
             </div>

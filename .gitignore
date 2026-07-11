@@ -19,7 +19,10 @@ build/
 *.ipynb_metadata
 
 # Models (large binary files - regenerated on first run)
-# models/*.pkl
+# Generated model artifacts (train-on-startup design — see models/README.md)
+models/*.pkl
+models/features.json
+models/model_metadata.json
 
 # Data
 # data/*.csv

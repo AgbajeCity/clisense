@@ -1,4 +1,4 @@
-import { Home, Leaf, Bell, User } from "lucide-react";
+import { Home, Leaf, CloudRain, Bell, User } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
 
@@ -9,6 +9,7 @@ export const NavBar = () => {
   const navItems = [
     { icon: Home, path: "/dashboard", label: "Home" },
     { icon: Leaf, path: "/advice", label: "Advice" },
+    { icon: CloudRain, path: "/predict", label: "Predict" },
     { icon: Bell, path: "/alerts", label: "Alerts" },
     { icon: User, path: "/profile", label: "Profile" },
   ];
