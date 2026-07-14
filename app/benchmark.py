@@ -215,6 +215,19 @@ def make_figures(df, rf_flood, y_true, y_pred, metrics):
     ax.set_title("Flood Classification - Four-Model Benchmark")
     fig.tight_layout(); fig.savefig(os.path.join(ASSETS_DIR, "fig_model_comparison.png"), dpi=150); plt.close(fig)
 
+    # Temperature comparison bar (within +/-2 C)
+    tr = metrics["temperature"]
+    tacc = [tr[n]["acc_within_2c"] for n in names]
+    fig, ax = plt.subplots(figsize=(7.6, 4.2))
+    bars = ax.bar(range(len(names)), tacc, color=[GREEN, BLUE, AMBER, "#8b5cf6", GREY])
+    for b, v in zip(bars, tacc):
+        ax.text(b.get_x() + b.get_width() / 2, v + 0.15, f"{v:.1f}", ha="center", fontsize=9)
+    ax.set_xticks(range(len(names)))
+    ax.set_xticklabels(["Random\nForest", "XGBoost", "Decision\nTree", "MLP", "Persistence"], fontsize=9)
+    ax.set_ylabel("Temperature accuracy within +/-2 C (%)"); ax.set_ylim(80, 95)
+    ax.set_title("Temperature Forecasting - Four-Model Benchmark")
+    fig.tight_layout(); fig.savefig(os.path.join(ASSETS_DIR, "fig_temp_comparison.png"), dpi=150); plt.close(fig)
+
 
 if __name__ == "__main__":
     m = run()
