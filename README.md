@@ -65,6 +65,33 @@ uvicorn app.api:app --reload     # serve API + interface at http://localhost:800
 pytest tests/                    # unit tests
 ```
 
+## Deployment
+
+The live service runs on Render's free tier as a single FastAPI web service that
+serves both the REST API and the browser interface from one origin.
+
+- Live URL: https://clisense.onrender.com
+- Build command: `pip install -r requirements.txt`
+- Start command: `uvicorn app.api:app --host 0.0.0.0 --port $PORT`
+- Config: `render.yaml` (checked into the repo)
+
+The free instance spins down after inactivity, so the first request after an idle
+period takes ~50 seconds to wake; subsequent requests are immediate.
+
+### Redeploy
+
+1. Push changes to `main` on GitHub.
+2. In the Render dashboard, open the `clisense` service and click **Manual Deploy ->
+   Deploy latest commit** (the service was created from the public repo URL, so it
+   does not auto-deploy on push).
+3. Watch the deploy logs until you see `Your service is live`, then confirm
+   `https://clisense.onrender.com/health` returns `{"status":"healthy", ...}`.
+
+To recreate the service from scratch: Render dashboard -> **New -> Web Service ->
+Public Git Repository**, paste `https://github.com/AgbajeCity/clisense`, pick the
+**Free** instance, and keep the build/start commands above (Render also reads them
+from `render.yaml`).
+
 ## Repository layout
 
 ```
