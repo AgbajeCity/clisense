@@ -5,9 +5,9 @@ farmers in **Osogbo, Osun State, Nigeria**, in the Osun River flood corridor.
 The system benchmarks four machine-learning architectures on two tasks and
 serves the champion through a REST API and a browser-based forecast interface.
 
-- **Forecast interface + API**: https://clisense-production.up.railway.app
-- **API docs (Swagger)**: https://clisense-production.up.railway.app/docs
-- **Health check**: https://clisense-production.up.railway.app/health
+- **Forecast interface + API**: https://clisense.onrender.com
+- **API docs (Swagger)**: https://clisense.onrender.com/docs
+- **Health check**: https://clisense.onrender.com/health
 - **Repository**: https://github.com/AgbajeCity/clisense
 
 ## What it does
