@@ -84,8 +84,9 @@
   <div class="foot" id="foot">API: connecting...</div>
 </div>
 <script>
-const API_BASE = (location.hostname.includes("railway") || location.hostname === "localhost"
-                  || location.hostname === "127.0.0.1") ? "" : "https://clisense-production.up.railway.app";
+// The interface is served by the same FastAPI app that provides the API, so
+// same-origin relative requests work in local dev and on the deployed host.
+const API_BASE = "";
 const $ = (id) => document.getElementById(id);
 document.getElementById("foot").textContent = "API: " + (API_BASE || location.origin);
 
