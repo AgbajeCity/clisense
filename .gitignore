@@ -21,6 +21,7 @@ build/
 # Models (large binary files - regenerated on first run)
 # Generated model artifacts (train-on-startup design — see models/README.md)
 models/*.pkl
+models/*.joblib
 models/features.json
 models/model_metadata.json
 

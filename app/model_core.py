@@ -1,334 +1,245 @@
 """
-Clisense -- Shared ML core.
+model_core.py - Clisense (Osun River Corridor Pilot: Osogbo, Osun State)
 
-Single source of truth for feature engineering, synthetic data generation,
-and model training/loading, used by both the Streamlit dashboard
-(app/streamlit_app.py) and the FastAPI backend (app/api.py).
+Single source of truth for the capstone pipeline:
+  * synthetic dataset generation for the Osogbo / Osun River flood corridor
+  * feature engineering (river-discharge lags, rolling rainfall, coupled soil
+    moisture and vegetation index, autocorrelated land-surface temperature)
+  * the champion Random Forest models (flood classification + 72-hour temperature)
+  * a single-record prediction used by the FastAPI service and the browser interface
 
-Centralising this logic here fixes a real bug found during testing: the
-Streamlit app and the API each used to keep their own copy of the feature
-pipeline and had drifted apart (different dataset sizes, different feature
-counts, different label encodings). See BUGFIX_REPORT.md for the incident
-this module was built to permanently resolve.
-
-Performance note (found during live deployment testing, see README
-'Testing' / 'Analysis' sections): running a full 5-fold StratifiedKFold
-cross_val_score on top of the main train/test fit means 6 total XGBoost
-fits per cold start. On a full workstation or Colab this is fine (~15-20s
-total), but on Streamlit Community Cloud's constrained free-tier CPU it
-pushed a single cold start past 3-4 minutes, which is an unacceptable
-user-facing wait. train() therefore takes a run_cv flag: the deployed apps
-call train(run_cv=False) for a fast single-fit cold start, while the
-notebook calls train(run_cv=True) to reproduce the full cross-validated
-evaluation reported in the README and models/README.md.
+DISCLOSED SYNTHETIC DATA. Live CHIRPS, MODIS, NIHSA and CliNode feeds were not
+accessible in the development environment, so a daily dataset was generated
+programmatically to reflect the corridor's published hydrology and climatology
+(wet-season discharge peak of ~150 m3/s in Aug-Sep at the Osogbo gauge;
+Ogundolie et al., 2024). Every figure here is generated, not measured.
 """
-
 from __future__ import annotations
-
-import json
-from pathlib import Path
-from dataclasses import dataclass, field
 
 import numpy as np
 import pandas as pd
-from sklearn.preprocessing import LabelEncoder, StandardScaler
-from sklearn.model_selection import train_test_split, cross_val_score, StratifiedKFold
-from sklearn.metrics import (
-    accuracy_score, f1_score, recall_score, precision_score,
-    confusion_matrix, classification_report,
-)
+from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 
-try:
-    from xgboost import XGBClassifier
-    _HAS_XGBOOST = True
-except ImportError:  # pragma: no cover - xgboost is declared in requirements.txt
-    from sklearn.ensemble import GradientBoostingClassifier
-    _HAS_XGBOOST = False
+SEED = 42
+COMMUNITY = "Osogbo"
+STATE = "Osun"
+START_DATE = "2016-01-01"
+END_DATE = "2024-12-31"
 
-import joblib
-
-BASE = Path(__file__).resolve().parent.parent
-MODELS_DIR = BASE / "models"
-
-STATES = ["Kano", "Kaduna", "Benue", "Niger", "Plateau"]
-ZONE_MAP = {
-    "Kano": "Sudan Savanna",
-    "Kaduna": "Northern Guinea Savanna",
-    "Benue": "Southern Guinea Savanna",
-    "Niger": "Northern Guinea Savanna",
-    "Plateau": "Jos Plateau Highland",
+MONTH_NAMES = {
+    1: "Jan", 2: "Feb", 3: "Mar", 4: "Apr", 5: "May", 6: "Jun",
+    7: "Jul", 8: "Aug", 9: "Sep", 10: "Oct", 11: "Nov", 12: "Dec",
 }
 
-LABEL_CLASSES = ["Normal", "Drought Risk", "Flood Risk"]
-LABEL_TO_IDX = {name: i for i, name in enumerate(LABEL_CLASSES)}
-
-FEATURE_NAMES = [
-    "rainfall_mm", "temp_c", "humidity_pct", "wind_speed_kmh",
-    "rain_7d", "rain_30d", "rain_anomaly", "dry_spell_days",
-    "temp_anomaly", "sin_month", "cos_month", "sin_doy", "cos_doy",
-    "state_enc", "season_enc", "zone_enc",
+# Features consumed by the flood classifier
+FLOOD_FEATURES = [
+    "month_sin", "month_cos", "rainfall_mm", "rain_7d", "rain_30d",
+    "discharge_m3s", "discharge_lag1", "discharge_lag3",
+    "soil_moisture", "veg_index",
 ]
-N_FEATURES = len(FEATURE_NAMES)
 
-DRY_BASE = {"Kano": 0.6, "Kaduna": 1.2, "Benue": 2.0, "Niger": 1.0, "Plateau": 1.5}
-WET_BASE = {"Kano": 80.0, "Kaduna": 90.0, "Benue": 120.0, "Niger": 90.0, "Plateau": 85.0}
+# Features consumed by the 72-hour temperature regressor
+TEMP_FEATURES = [
+    "month_sin", "month_cos", "lst_c", "lst_lag1",
+    "rainfall_mm", "rain_7d", "discharge_m3s", "soil_moisture",
+]
 
-
-def _season(month) -> str:
-    return "wet" if 4 <= month <= 10 else "dry"
-
-
-def _label_for(rainfall, rain_7d, rain_30d, humidity) -> str:
-    if rain_7d > 150 and humidity > 80:
-        return "Flood Risk"
-    if rainfall < 3 and rain_30d < 25 and humidity < 45:
-        return "Drought Risk"
-    return "Normal"
+FLOOD_CLASSES = ["Normal", "Flood Risk"]
 
 
-def generate_synthetic_dataset(n: int = 18530, seed: int = 42) -> pd.DataFrame:
+def generate_dataset(seed: int = SEED) -> pd.DataFrame:
+    """Generate the disclosed synthetic daily dataset for the Osogbo corridor.
+
+    2016-01-01 to 2024-12-31, one row per day. The seasonal structure is anchored
+    to late-August rainfall and an Aug-Sep discharge peak of ~150 m3/s.
+    """
     rng = np.random.default_rng(seed)
-    states = rng.choice(STATES, n)
-    months = rng.integers(1, 13, n)
-    is_wet = (months >= 4) & (months <= 10)
+    dates = pd.date_range(START_DATE, END_DATE, freq="D")
+    n = len(dates)
+    doy = dates.dayofyear.to_numpy()
+    month = dates.month.to_numpy()
 
-    dry_base = np.array([DRY_BASE[s] for s in states])
-    wet_base = np.array([WET_BASE[s] for s in states])
-    base_rain = np.where(is_wet, wet_base, dry_base)
+    # Seasonal wet-season envelope, peaking in late August (day-of-year ~240).
+    rain_season = np.exp(-0.5 * ((doy - 240) / 45.0) ** 2)
 
-    rainfall = np.clip(rng.normal(base_rain, base_rain * 0.5 + 0.3), 0, None)
-    temp = rng.normal(28 + (months - 6) * 0.3, 3)
-    rain_7d = np.clip(rainfall * 7 + rng.normal(0, np.where(is_wet, 20, 5)), 0, None)
-    rain_30d = np.clip(rainfall * 30 + rng.normal(0, np.where(is_wet, 60, 12)), 0, None)
-    humidity = np.clip(
-        30 + np.minimum(rain_30d, 300) / 300 * 55 + rng.normal(0, 7, n), 15, 99
-    )
-    wind = np.clip(rng.normal(8, 3), 0, None)
-    dry_spell = np.clip(30 - rain_30d / 10, 0, 30)
-    temp_anomaly = rng.normal(0, 1.0, n)
+    # Same-day rainfall (mm): near zero in the dry season, heavy and skewed in
+    # the wet season. Gamma keeps it non-negative and right-skewed like real rain.
+    rain_mean = 0.4 + 15.0 * rain_season
+    rainfall = rng.gamma(shape=0.65, scale=rain_mean / 0.65)
+    rainfall = np.round(np.clip(rainfall, 0.0, None), 2)
 
-    zones = np.array([ZONE_MAP[s] for s in states])
-    seasons = np.array([_season(m) for m in months])
-    labels = [
-        _label_for(r, r7, r30, h)
-        for r, r7, r30, h in zip(rainfall, rain_7d, rain_30d, humidity)
-    ]
+    rs = pd.Series(rainfall)
+    rain_7d = rs.rolling(7, min_periods=1).sum().to_numpy()
+    rain_30d = rs.rolling(30, min_periods=1).sum().to_numpy()
+
+    # River discharge (m3/s): autocorrelated day to day, seasonal peak ~150 in
+    # early September (doy ~250), lifted further by recent cumulative rainfall.
+    disch_season = 8.0 + 142.0 * np.exp(-0.5 * ((doy - 250) / 38.0) ** 2)
+    discharge = np.empty(n)
+    discharge[0] = disch_season[0]
+    phi_q = 0.85  # persistence
+    for i in range(1, n):
+        target = disch_season[i] + 0.12 * rain_30d[i]
+        discharge[i] = phi_q * discharge[i - 1] + (1 - phi_q) * target + rng.normal(0, 4.0)
+    discharge = np.round(np.clip(discharge, 2.0, None), 2)
+    discharge_lag1 = pd.Series(discharge).shift(1).to_numpy()
+    discharge_lag3 = pd.Series(discharge).shift(3).to_numpy()
+
+    # Land surface temperature (C): autocorrelated around a seasonal mean. The
+    # dry season runs warmer (~28-30 C); the cloudy wet season runs cooler.
+    lst_season = 28.0 - 2.5 * rain_season + 1.2 * np.cos(2 * np.pi * (doy - 30) / 365.0)
+    lst = np.empty(n)
+    lst[0] = lst_season[0]
+    phi_t = 0.75
+    for i in range(1, n):
+        lst[i] = phi_t * lst[i - 1] + (1 - phi_t) * lst_season[i] + rng.normal(0, 0.8)
+    lst = np.round(lst, 2)
+    lst_lag1 = pd.Series(lst).shift(1).to_numpy()
+
+    # Soil moisture and vegetation index proxy, both coupled to 30-day rainfall.
+    soil_moisture = np.clip(0.15 + 0.00090 * rain_30d + rng.normal(0, 0.02, n), 0, 1)
+    veg_index = np.clip(0.25 + 0.00060 * rain_30d + rng.normal(0, 0.03, n), 0, 1)
+
+    month_sin = np.sin(2 * np.pi * month / 12.0)
+    month_cos = np.cos(2 * np.pi * month / 12.0)
 
     df = pd.DataFrame({
-        "state": states, "month": months, "season": seasons, "zone": zones,
-        "rainfall_mm": rainfall.round(2), "temp_c": temp.round(2),
-        "humidity_pct": humidity.round(2), "wind_speed_kmh": wind.round(2),
-        "rain_7d": rain_7d.round(2), "rain_30d": rain_30d.round(2),
-        "rain_anomaly": (rainfall - rain_30d / 30).round(2),
-        "dry_spell_days": dry_spell.round(1),
-        "temp_anomaly": temp_anomaly.round(2),
-        "threat_label": labels,
+        "date": dates, "month": month, "doy": doy,
+        "month_sin": month_sin, "month_cos": month_cos,
+        "rainfall_mm": rainfall, "rain_7d": np.round(rain_7d, 2), "rain_30d": np.round(rain_30d, 2),
+        "discharge_m3s": discharge, "discharge_lag1": discharge_lag1, "discharge_lag3": discharge_lag3,
+        "lst_c": lst, "lst_lag1": lst_lag1,
+        "soil_moisture": np.round(soil_moisture, 4), "veg_index": np.round(veg_index, 4),
     })
+
+    # 72-hour temperature target: the land surface temperature three days ahead.
+    df["temp_72h"] = pd.Series(lst).shift(-3).to_numpy()
+
+    # Flood label as a discrete event driven by discharge and recent rainfall,
+    # with noise so even peak-season days are only intermittently at risk. The
+    # intercept is calibrated to a realistic corridor flood rate (~26%).
+    risk = ((discharge - 88.0) / 24.0) + ((rain_7d - 120.0) / 60.0) + rng.normal(0, 0.55, n)
+    prob = 1.0 / (1.0 + np.exp(-risk))
+    df["flood"] = (rng.random(n) < prob).astype(int)
+
+    # Drop rows without full lag/target context (first 3 and last 3 days).
+    df = df.dropna().reset_index(drop=True)
     return df
 
 
-@dataclass
-class ModelBundle:
-    model: object
-    scaler: StandardScaler
-    le_state: LabelEncoder
-    le_season: LabelEncoder
-    le_zone: LabelEncoder
-    algorithm: str = "XGBoost"
+def chronological_split(df: pd.DataFrame):
+    """Split by calendar year to prevent temporal leakage (proposal 70/15/15).
+
+    Train: 2016-2021, Validation: 2022-2023, Test (held out): 2024.
+    """
+    year = pd.to_datetime(df["date"]).dt.year
+    train = df[year <= 2021].reset_index(drop=True)
+    val = df[(year >= 2022) & (year <= 2023)].reset_index(drop=True)
+    test = df[year >= 2024].reset_index(drop=True)
+    return train, val, test
 
 
-def engineer_features(df: pd.DataFrame, le_state, le_season, le_zone) -> np.ndarray:
-    doy = df["month"] * 30
-    return np.column_stack([
-        df["rainfall_mm"], df["temp_c"], df["humidity_pct"], df["wind_speed_kmh"],
-        df["rain_7d"], df["rain_30d"], df["rain_anomaly"], df["dry_spell_days"],
-        df["temp_anomaly"],
-        np.sin(2 * np.pi * df["month"] / 12), np.cos(2 * np.pi * df["month"] / 12),
-        np.sin(2 * np.pi * doy / 365), np.cos(2 * np.pi * doy / 365),
-        le_state.transform(df["state"]), le_season.transform(df["season"]),
-        le_zone.transform(df["zone"]),
-    ])
+def Xy_flood(df: pd.DataFrame):
+    return df[FLOOD_FEATURES].to_numpy(), df["flood"].to_numpy()
 
 
-def engineer_single(state, month, rainfall_mm, temp_c, humidity_pct, rain_7d,
-                     rain_30d, le_state, le_season, le_zone,
-                     wind_speed_kmh=8.0, dry_spell_days=None, temp_anomaly=0.0):
-    season = _season(month)
-    zone = ZONE_MAP.get(state, "Northern Guinea Savanna")
-    doy = month * 30
-    rain_anomaly = rainfall_mm - rain_30d / 30
-    if dry_spell_days is None:
-        dry_spell_days = max(0.0, min(30.0, 30 - rain_30d / 10))
-
-    def _safe(encoder, value, fallback=0):
-        try:
-            return encoder.transform([value])[0]
-        except ValueError:
-            return fallback
-
-    feat = np.array([[
-        rainfall_mm, temp_c, humidity_pct, wind_speed_kmh,
-        rain_7d, rain_30d, rain_anomaly, dry_spell_days, temp_anomaly,
-        np.sin(2 * np.pi * month / 12), np.cos(2 * np.pi * month / 12),
-        np.sin(2 * np.pi * doy / 365), np.cos(2 * np.pi * doy / 365),
-        _safe(le_state, state), _safe(le_season, season), _safe(le_zone, zone),
-    ]])
-    return feat
+def Xy_temp(df: pd.DataFrame):
+    return df[TEMP_FEATURES].to_numpy(), df["temp_72h"].to_numpy()
 
 
-def _make_model(seed: int):
-    if _HAS_XGBOOST:
-        model = XGBClassifier(
-            n_estimators=400, max_depth=6, learning_rate=0.05,
-            subsample=0.9, colsample_bytree=0.9,
-            reg_alpha=0.1, reg_lambda=1.0,
-            objective="multi:softprob", num_class=3,
-            eval_metric="mlogloss", random_state=seed,
-        )
-        algo_name = "XGBoost"
-    else:  # pragma: no cover
-        model = GradientBoostingClassifier(n_estimators=400, max_depth=3, random_state=seed)
-        algo_name = "GradientBoostingClassifier (XGBoost unavailable in this environment)"
-    return model, algo_name
+# Champion hyperparameters (selected by GridSearchCV in benchmark.py and pinned
+# here so the deployed service trains deterministically without a runtime search).
+FLOOD_RF_PARAMS = dict(n_estimators=400, max_depth=8, min_samples_leaf=2,
+                       n_jobs=-1, random_state=SEED)
+TEMP_RF_PARAMS = dict(n_estimators=300, max_depth=14, min_samples_leaf=2,
+                      n_jobs=-1, random_state=SEED)
 
 
-def train(df: "pd.DataFrame | None" = None, seed: int = 42, run_cv: bool = True):
-    """Train the model on the full dataset.
+def train_champion(df: pd.DataFrame | None = None):
+    """Train both champion Random Forest models on the train+validation span.
 
-    run_cv=True (used by the notebook) additionally runs a 5-fold
-    StratifiedKFold cross_val_score for a more rigorous, publishable
-    accuracy estimate. run_cv=False (used by load_or_train() for both
-    live deployments) skips this and only fits once, which is what makes
-    a Streamlit Community Cloud / Railway cold start take ~15-30s instead
-    of several minutes -- see module docstring.
+    Returns a bundle dict consumed by predict_one() and the API.
     """
     if df is None:
-        df = generate_synthetic_dataset(seed=seed)
+        df = generate_dataset()
+    train, val, test = chronological_split(df)
+    fit_df = pd.concat([train, val], ignore_index=True)
 
-    le_state = LabelEncoder().fit(STATES)
-    le_season = LabelEncoder().fit(["dry", "wet"])
-    le_zone = LabelEncoder().fit(sorted(set(ZONE_MAP.values())))
+    Xf, yf = Xy_flood(fit_df)
+    flood_model = RandomForestClassifier(**FLOOD_RF_PARAMS).fit(Xf, yf)
 
-    X = engineer_features(df, le_state, le_season, le_zone)
-    y = df["threat_label"].map(LABEL_TO_IDX).values
+    Xt, yt = Xy_temp(fit_df)
+    temp_model = RandomForestRegressor(**TEMP_RF_PARAMS).fit(Xt, yt)
 
-    scaler = StandardScaler().fit(X)
-    X_s = scaler.transform(X)
-
-    X_train, X_test, y_train, y_test = train_test_split(
-        X_s, y, test_size=0.2, random_state=seed, stratify=y
-    )
-
-    model, algo_name = _make_model(seed)
-    model.fit(X_train, y_train)
-    y_pred = model.predict(X_test)
-
-    if run_cv:
-        cv_scores = cross_val_score(
-            model, X_s, y, cv=StratifiedKFold(5, shuffle=True, random_state=seed),
-            scoring="f1_weighted",
-        )
-        cv_f1_mean = float(cv_scores.mean())
-        cv_f1_std = float(cv_scores.std())
-    else:
-        cv_f1_mean = None
-        cv_f1_std = None
-
-    cm = confusion_matrix(y_test, y_pred)
-    report = classification_report(y_test, y_pred, target_names=LABEL_CLASSES, output_dict=True)
-
-    try:
-        importances = model.feature_importances_.tolist()
-    except AttributeError:
-        importances = [0.0] * N_FEATURES
-
-    metrics = {
-        "algorithm": algo_name,
-        "n_samples": int(len(df)),
-        "n_train": int(len(X_train)),
-        "n_test": int(len(X_test)),
-        "accuracy": float(accuracy_score(y_test, y_pred)),
-        "weighted_f1": float(f1_score(y_test, y_pred, average="weighted")),
-        "weighted_recall": float(recall_score(y_test, y_pred, average="weighted")),
-        "weighted_precision": float(precision_score(y_test, y_pred, average="weighted")),
-        "cv_f1_mean": cv_f1_mean,
-        "cv_f1_std": cv_f1_std,
-        "confusion_matrix": cm.tolist(),
-        "classification_report": report,
-        "feature_importances": dict(zip(FEATURE_NAMES, importances)),
-        "class_distribution": df["threat_label"].value_counts().to_dict(),
-    }
-
-    bundle = ModelBundle(model, scaler, le_state, le_season, le_zone, algo_name)
-    return bundle, metrics, df
+    return {"flood_model": flood_model, "temp_model": temp_model,
+            "flood_rate": float(df["flood"].mean()), "n_records": int(len(df))}
 
 
-def save_bundle(bundle: ModelBundle, metrics: dict) -> None:
-    MODELS_DIR.mkdir(parents=True, exist_ok=True)
-    joblib.dump(bundle.model, MODELS_DIR / "clisense_xgb_model.pkl")
-    joblib.dump(bundle.scaler, MODELS_DIR / "clisense_scaler.pkl")
-    joblib.dump(bundle.le_state, MODELS_DIR / "clisense_le_state.pkl")
-    joblib.dump(bundle.le_season, MODELS_DIR / "clisense_le_season.pkl")
-    joblib.dump(bundle.le_zone, MODELS_DIR / "clisense_le_zone.pkl")
-    features_meta = {
-        "features": FEATURE_NAMES,
-        "classes": {str(i): name for i, name in enumerate(LABEL_CLASSES)},
-        "states": STATES,
-        "algorithm": bundle.algorithm,
-        "metrics": {k: v for k, v in metrics.items()
-                    if k not in ("confusion_matrix", "classification_report", "feature_importances")},
-    }
-    with open(MODELS_DIR / "features.json", "w") as f:
-        json.dump(features_meta, f, indent=2)
-    with open(MODELS_DIR / "model_metadata.json", "w") as f:
-        json.dump(metrics, f, indent=2)
+def _seasonal_lst(month: int) -> float:
+    """Climatological land-surface temperature for the middle of a given month,
+    using the same seasonal shape as the generator. Used to fill the temperature
+    model's context when only summary inputs are supplied at prediction time."""
+    doy = int((month - 0.5) * 30.4)
+    rain_season = float(np.exp(-0.5 * ((doy - 240) / 45.0) ** 2))
+    return 28.0 - 2.5 * rain_season + 1.2 * float(np.cos(2 * np.pi * (doy - 30) / 365.0))
 
 
-def load_bundle() -> "ModelBundle | None":
-    try:
-        model = joblib.load(MODELS_DIR / "clisense_xgb_model.pkl")
-        scaler = joblib.load(MODELS_DIR / "clisense_scaler.pkl")
-        le_state = joblib.load(MODELS_DIR / "clisense_le_state.pkl")
-        le_season = joblib.load(MODELS_DIR / "clisense_le_season.pkl")
-        le_zone = joblib.load(MODELS_DIR / "clisense_le_zone.pkl")
-        with open(MODELS_DIR / "features.json") as f:
-            meta = json.load(f)
-        return ModelBundle(model, scaler, le_state, le_season, le_zone, meta.get("algorithm", "XGBoost"))
-    except Exception:
-        return None
+def build_features(month: int, rainfall_mm: float, rain_30d: float,
+                   discharge_m3s: float, rain_7d: float | None = None,
+                   discharge_lag1: float | None = None,
+                   discharge_lag3: float | None = None):
+    """Turn the interface's summary inputs into the full model feature vectors.
+
+    Derived quantities (disclosed): 7-day rainfall defaults to a share of the
+    30-day total but never less than same-day rainfall; discharge lags default
+    to the current discharge (a steady-state assumption); soil moisture and the
+    vegetation index reuse the generator's rainfall coupling; temperature context
+    comes from the monthly climatology above.
+    """
+    if rain_7d is None:
+        rain_7d = max(rainfall_mm, 0.35 * rain_30d)
+    if discharge_lag1 is None:
+        discharge_lag1 = discharge_m3s
+    if discharge_lag3 is None:
+        discharge_lag3 = discharge_m3s
+    soil_moisture = float(np.clip(0.15 + 0.00090 * rain_30d, 0, 1))
+    veg_index = float(np.clip(0.25 + 0.00060 * rain_30d, 0, 1))
+    lst_c = _seasonal_lst(month)
+    month_sin = float(np.sin(2 * np.pi * month / 12.0))
+    month_cos = float(np.cos(2 * np.pi * month / 12.0))
+
+    flood_vec = [[month_sin, month_cos, rainfall_mm, rain_7d, rain_30d,
+                  discharge_m3s, discharge_lag1, discharge_lag3, soil_moisture, veg_index]]
+    temp_vec = [[month_sin, month_cos, lst_c, lst_c, rainfall_mm, rain_7d,
+                 discharge_m3s, soil_moisture]]
+    return flood_vec, temp_vec
 
 
-def load_or_train() -> ModelBundle:
-    """Fast path used by both live deployments: single fit, no
-    cross-validation (see train() docstring for why)."""
-    bundle = load_bundle()
-    if bundle is not None:
-        return bundle
-    bundle, metrics, _ = train(run_cv=False)
-    save_bundle(bundle, metrics)
-    return bundle
+def _recommendation(flood: bool) -> str:
+    if flood:
+        return ("High flood risk in the Osun River corridor. Move stored harvest to higher "
+                "ground, hold off planting in low-lying plots, and clear field drainage.")
+    return ("Conditions normal. Continue standard practices and monitor river levels through "
+            "the Aug-Sep peak.")
 
 
-def predict_one(bundle: ModelBundle, state, month, rainfall_mm, temp_c,
-                 humidity_pct, rain_7d, rain_30d):
-    feat = engineer_single(
-        state, month, rainfall_mm, temp_c, humidity_pct, rain_7d, rain_30d,
-        bundle.le_state, bundle.le_season, bundle.le_zone,
-    )
-    feat_s = bundle.scaler.transform(feat)
-    pred_idx = int(bundle.model.predict(feat_s)[0])
-    proba = bundle.model.predict_proba(feat_s)[0]
-    label = LABEL_CLASSES[pred_idx]
-    confidence = float(proba[pred_idx])
-    probabilities = {cls: float(p) for cls, p in zip(LABEL_CLASSES, proba)}
-    recommendations = {
-        "Flood Risk": "High flood risk. Avoid low-lying farmland, delay planting, prepare drainage.",
-        "Drought Risk": "Drought risk. Conserve water, consider drought-tolerant crops, irrigate if possible.",
-        "Normal": "Normal conditions. Standard agricultural practices apply.",
-    }
-    sms = f"CLISENSE [{state}]: {label.upper()} - {recommendations[label]}"
+def predict_one(bundle, month: int, rainfall_mm: float, rain_30d: float,
+                discharge_m3s: float, rain_7d: float | None = None,
+                discharge_lag1: float | None = None,
+                discharge_lag3: float | None = None) -> dict:
+    """Return a flood classification, flood probability and 72-hour temperature."""
+    flood_vec, temp_vec = build_features(month, rainfall_mm, rain_30d, discharge_m3s,
+                                         rain_7d, discharge_lag1, discharge_lag3)
+    prob = float(bundle["flood_model"].predict_proba(flood_vec)[0][1])
+    is_flood = prob >= 0.5
+    temp_72h = float(bundle["temp_model"].predict(temp_vec)[0])
     return {
-        "state": state, "month": month, "prediction": label,
-        "confidence": round(confidence, 4), "probabilities": probabilities,
-        "recommendation": recommendations[label], "sms": sms,
+        "community": COMMUNITY,
+        "state": STATE,
+        "month": int(month),
+        "month_name": MONTH_NAMES.get(int(month), str(month)),
+        "flood_class": "Flood Risk" if is_flood else "Normal",
+        "flood_probability": round(prob, 4),
+        "temperature_72h_c": round(temp_72h, 2),
+        "recommendation": _recommendation(is_flood),
     }

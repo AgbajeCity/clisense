@@ -1,176 +1,101 @@
 """
-Clisense FastAPI Backend - ALU Mission Capstone 2026
+api.py - FastAPI inference service for the Osogbo / Osun River corridor pilot.
 
-Thin HTTP layer over app/model_core.py. All feature engineering, training,
-and prediction logic lives in model_core so the API and the Streamlit
-dashboard can never drift apart again (see BUGFIX_REPORT.md).
+Endpoints:
+  GET  /health     - service and model readiness
+  POST /predict    - flood classification + probability + 72-hour temperature
+  GET  /benchmark  - the four-model benchmark table (for the interface)
+  GET  /           - the browser-based forecast interface (static HTML/JS)
+
+The champion Random Forest artefacts are loaded from models/ if present, or
+trained once on startup (deterministic, seed-fixed) and cached.
 """
-import sys
+from __future__ import annotations
+
 import json
-from pathlib import Path
+import os
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-
+import joblib
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
-import model_core as mc
+from app import model_core as mc
 
-app = FastAPI(title="Clisense API", version="2.0.0")
-
-# Allow the web frontend (and any browser client) to call this API.
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=False,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+MODELS_DIR = os.path.join(ROOT, "models")
+WEB_DIR = os.path.join(ROOT, "web")
 
 _bundle = None
 
 
 def get_bundle():
     global _bundle
-    if _bundle is None:
-        _bundle = mc.load_or_train()
+    if _bundle is not None:
+        return _bundle
+    fp = os.path.join(MODELS_DIR, "flood_rf.joblib")
+    tp = os.path.join(MODELS_DIR, "temp_rf.joblib")
+    if os.path.exists(fp) and os.path.exists(tp):
+        _bundle = {"flood_model": joblib.load(fp), "temp_model": joblib.load(tp)}
+    else:
+        os.makedirs(MODELS_DIR, exist_ok=True)
+        _bundle = mc.train_champion()
+        joblib.dump(_bundle["flood_model"], fp)
+        joblib.dump(_bundle["temp_model"], tp)
     return _bundle
 
 
-# Warm the model at startup so the first real request isn't the one that
-# pays the (one-off) training cost.
-get_bundle()
+app = FastAPI(title="Clisense - Osun River Corridor Forecast API", version="2.0.0",
+              description="Flood classification and 72-hour temperature forecasting "
+                          "for smallholder farmers in Osogbo, Osun State, Nigeria.")
+app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=True,
+                   allow_methods=["*"], allow_headers=["*"])
 
 
 class PredictionRequest(BaseModel):
-    state: str = Field(..., example="Kano")
-    month: int = Field(..., ge=1, le=12, example=6)
-    rainfall_mm: float = Field(..., ge=0, example=0.3)
-    temp_c: float = Field(..., example=32.5)
-    humidity_pct: float = Field(..., ge=0, le=100, example=32.0)
-    rain_7d: float = Field(..., ge=0, example=2.1)
-    rain_30d: float = Field(..., ge=0, example=12.0)
-
-
-@app.get("/")
-def root():
-    return {"name": "Clisense API", "version": "2.0.0", "docs": "/docs"}
+    community: str = Field("Osogbo", examples=["Osogbo"])
+    month: int = Field(..., ge=1, le=12, examples=[8])
+    rainfall_mm: float = Field(..., ge=0, description="Same-day rainfall (mm)", examples=[45.0])
+    rain_30d: float = Field(..., ge=0, description="30-day cumulative rainfall (mm)", examples=[620.0])
+    discharge_m3s: float = Field(..., ge=0, description="Osun River discharge (m3/s)", examples=[142.0])
 
 
 @app.get("/health")
 def health():
-    bundle = get_bundle()
+    b = get_bundle()
     return {
         "status": "healthy",
-        "model_loaded": bundle is not None,
-        "algorithm": bundle.algorithm if bundle else None,
-        "feature_count": mc.N_FEATURES,
+        "model": "Random Forest (champion)",
+        "community": mc.COMMUNITY,
+        "state": mc.STATE,
+        "tasks": ["flood_classification", "temperature_72h"],
+        "flood_features": len(mc.FLOOD_FEATURES),
+        "loaded": b is not None,
     }
-
-
-@app.get("/states")
-def get_states():
-    return {"states": mc.STATES}
-
-
-_explore_cache = None
-_model_info_cache = None
-
-
-def _compute_explore():
-    df = mc.generate_synthetic_dataset()
-    g = (
-        df.groupby(["state", "month"])
-        .agg(
-            rainfall_mm=("rainfall_mm", "mean"),
-            temp_c=("temp_c", "mean"),
-            humidity_pct=("humidity_pct", "mean"),
-        )
-        .reset_index()
-    )
-    monthly = [
-        {
-            "state": r.state,
-            "month": int(r.month),
-            "rainfall_mm": round(float(r.rainfall_mm), 1),
-            "temp_c": round(float(r.temp_c), 1),
-            "humidity_pct": round(float(r.humidity_pct), 1),
-        }
-        for r in g.itertuples()
-    ]
-    tbm = df.groupby(["month", "threat_label"]).size().unstack(fill_value=0)
-    threat_by_month = []
-    for m in range(1, 13):
-        row = {"month": m}
-        for cls in mc.LABEL_CLASSES:
-            row[cls] = int(tbm.loc[m, cls]) if (m in tbm.index and cls in tbm.columns) else 0
-        threat_by_month.append(row)
-    class_distribution = {
-        k: int(v) for k, v in df["threat_label"].value_counts().to_dict().items()
-    }
-    return {
-        "states": mc.STATES,
-        "monthly": monthly,
-        "threat_by_month": threat_by_month,
-        "class_distribution": class_distribution,
-    }
-
-
-@app.get("/explore")
-def explore():
-    global _explore_cache
-    if _explore_cache is None:
-        _explore_cache = _compute_explore()
-    return _explore_cache
-
-
-def _compute_model_info():
-    metrics = None
-    meta_path = Path(mc.MODELS_DIR) / "model_metadata.json"
-    if meta_path.exists():
-        try:
-            metrics = json.loads(meta_path.read_text())
-        except Exception:
-            metrics = None
-    if metrics is None or "feature_importances" not in metrics:
-        _, metrics, _ = mc.train(run_cv=False)
-
-    fi = metrics.get("feature_importances", {})
-    fi_sorted = sorted(
-        [{"feature": k, "importance": round(float(v), 4)} for k, v in fi.items()],
-        key=lambda x: x["importance"],
-        reverse=True,
-    )
-    return {
-        "algorithm": metrics.get("algorithm", "XGBoost"),
-        "accuracy": round(float(metrics.get("accuracy", 0)), 4),
-        "weighted_f1": round(float(metrics.get("weighted_f1", 0)), 4),
-        "n_samples": metrics.get("n_samples"),
-        "n_train": metrics.get("n_train"),
-        "n_test": metrics.get("n_test"),
-        "classes": mc.LABEL_CLASSES,
-        "class_distribution": metrics.get("class_distribution", {}),
-        "feature_importances": fi_sorted,
-        "confusion_matrix": metrics.get("confusion_matrix", []),
-    }
-
-
-@app.get("/model-info")
-def model_info():
-    global _model_info_cache
-    if _model_info_cache is None:
-        _model_info_cache = _compute_model_info()
-    return _model_info_cache
 
 
 @app.post("/predict")
 def predict(req: PredictionRequest):
-    if req.state not in mc.STATES:
-        raise HTTPException(400, detail=f"State must be one of {mc.STATES}")
-    bundle = get_bundle()
-    result = mc.predict_one(
-        bundle, req.state, req.month, req.rainfall_mm, req.temp_c,
-        req.humidity_pct, req.rain_7d, req.rain_30d,
-    )
-    return result
+    if req.community.strip().lower() != "osogbo":
+        raise HTTPException(status_code=400,
+                            detail="This pilot covers Osogbo, Osun State only.")
+    b = get_bundle()
+    return mc.predict_one(b, req.month, req.rainfall_mm, req.rain_30d, req.discharge_m3s)
+
+
+@app.get("/benchmark")
+def benchmark():
+    path = os.path.join(MODELS_DIR, "benchmark_metrics.json")
+    if os.path.exists(path):
+        with open(path) as fh:
+            return json.load(fh)
+    raise HTTPException(status_code=404,
+                        detail="Benchmark metrics not found. Run: python -m app.benchmark")
+
+
+if os.path.isdir(WEB_DIR):
+    @app.get("/")
+    def index():
+        return FileResponse(os.path.join(WEB_DIR, "index.html"))

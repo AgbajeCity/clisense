@@ -1,31 +1,152 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Clisense - Climate-Smart Agriculture Platform</title>
-    <meta name="description" content="Get climate-smart insights, weather forecasts, and crop advice for sustainable farming" />
-    <meta name="author" content="Clisense" />
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Clisense - Osun River Corridor Forecast (Osogbo)</title>
+<style>
+  :root { --panel:#14432f; --panel2:#0d3826; --line:#1f6f4a; --text:#eafaf1;
+          --muted:#8fd3ad; --blue:#2563eb; --amber:#f59e0b; --green:#16a34a; --accent:#34d399; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+         background:linear-gradient(160deg,#0b241b,#0f2e22 55%,#0b241b); color:var(--text);
+         min-height:100vh; padding:28px 16px 60px; }
+  .wrap { max-width:940px; margin:0 auto; }
+  h1 { font-size:29px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 22px; font-size:15px; line-height:1.4; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:20px; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  label { display:block; font-size:13px; color:var(--muted); margin:0 0 6px; }
+  select, input { width:100%; padding:11px 12px; border-radius:10px; border:1px solid var(--line);
+          background:var(--panel2); color:var(--text); font-size:15px; }
+  .rowfull { grid-column:1 / -1; }
+  button { width:100%; margin-top:10px; padding:14px; border:0; border-radius:12px;
+           background:var(--accent); color:#062a1c; font-weight:700; font-size:16px; cursor:pointer; }
+  button:disabled { opacity:.6; cursor:default; }
+  .result { margin-top:18px; border-radius:14px; overflow:hidden; border:1px solid var(--line); display:none; }
+  .result .banner { padding:18px 20px; }
+  .result h2 { margin:0; font-size:24px; }
+  .result .meta { opacity:.92; font-size:14px; margin-top:2px; }
+  .result .body { background:var(--panel2); padding:16px 20px; }
+  .stat { display:flex; justify-content:space-between; padding:7px 0; border-bottom:1px dashed rgba(255,255,255,.08); }
+  .stat b { font-weight:700; }
+  .flood { background:var(--blue); } .normal { background:var(--green); }
+  table { width:100%; border-collapse:collapse; font-size:13.5px; margin-top:4px; }
+  th, td { padding:8px 10px; text-align:right; border-bottom:1px solid rgba(255,255,255,.08); }
+  th:first-child, td:first-child { text-align:left; }
+  tr.champ td { background:rgba(52,211,153,.16); font-weight:600; }
+  caption { text-align:left; color:var(--muted); font-size:13px; padding:10px 0 4px; }
+  .section-title { margin:26px 0 6px; font-size:18px; }
+  .foot { color:var(--muted); font-size:12.5px; margin-top:26px; font-family:ui-monospace,Menlo,monospace; }
+  .err { color:#fca5a5; margin-top:10px; font-size:14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>&#127786;&#65039; Clisense &mdash; Osun River Corridor Forecast</h1>
+  <p class="sub">Flood risk and 72-hour temperature for smallholder farmers in <b>Osogbo, Osun State</b>. Random Forest champion, served by the FastAPI benchmark service.</p>
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" type="image/png" sizes="256x256" href="/favicon.png" />
-    <link rel="apple-touch-icon" href="/favicon.png" />
+  <div class="card">
+    <div class="grid">
+      <div><label>Community</label><input id="community" value="Osogbo" readonly /></div>
+      <div><label>Month</label>
+        <select id="month">
+          <option value="1">January</option><option value="2">February</option>
+          <option value="3">March</option><option value="4">April</option>
+          <option value="5">May</option><option value="6">June</option>
+          <option value="7">July</option><option value="8" selected>August</option>
+          <option value="9">September</option><option value="10">October</option>
+          <option value="11">November</option><option value="12">December</option>
+        </select>
+      </div>
+      <div><label>Same-day rainfall (mm)</label><input id="rainfall_mm" type="number" step="0.1" value="45" /></div>
+      <div><label>30-day rainfall (mm)</label><input id="rain_30d" type="number" step="1" value="620" /></div>
+      <div class="rowfull"><label>Osun River discharge (m&sup3;/s)</label><input id="discharge_m3s" type="number" step="1" value="142" /></div>
+    </div>
+    <button id="go">Run Forecast</button>
+    <div id="err" class="err"></div>
+    <div id="result" class="result">
+      <div id="banner" class="banner"><h2 id="cls"></h2><div id="meta" class="meta"></div></div>
+      <div class="body">
+        <div class="stat"><span>Flood probability</span><b id="prob"></b></div>
+        <div class="stat"><span>72-hour temperature forecast</span><b id="temp"></b></div>
+        <div class="stat" style="border:0"><span>Recommended action</span><b id="rec" style="max-width:60%;text-align:right;font-weight:500"></b></div>
+      </div>
+    </div>
+  </div>
 
-    <meta property="og:title" content="Clisense - Climate-Smart Agriculture Platform" />
-    <meta property="og:description" content="Get climate-smart insights, weather forecasts, and crop advice for sustainable farming" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://clisense.vercel.app" />
+  <h3 class="section-title">Four-model benchmark (2024 held-out test)</h3>
+  <div class="card">
+    <table id="floodTable"><caption>Flood classification</caption></table>
+    <table id="tempTable" style="margin-top:18px"><caption>72-hour temperature forecasting</caption></table>
+  </div>
 
-    <meta property="og:image" content="https://clisense.vercel.app/og-image.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+  <div class="foot" id="foot">API: connecting...</div>
+</div>
+<script>
+const API_BASE = (location.hostname.includes("railway") || location.hostname === "localhost"
+                  || location.hostname === "127.0.0.1") ? "" : "https://clisense-production.up.railway.app";
+const $ = (id) => document.getElementById(id);
+document.getElementById("foot").textContent = "API: " + (API_BASE || location.origin);
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://clisense.vercel.app/og-image.png" />
-  </head>
+async function runForecast() {
+  $("err").textContent = ""; $("go").disabled = true; $("go").textContent = "Running...";
+  try {
+    const payload = {
+      community: "Osogbo",
+      month: parseInt($("month").value, 10),
+      rainfall_mm: parseFloat($("rainfall_mm").value),
+      rain_30d: parseFloat($("rain_30d").value),
+      discharge_m3s: parseFloat($("discharge_m3s").value),
+    };
+    const res = await fetch(API_BASE + "/predict", {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload),
+    });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const d = await res.json();
+    const isFlood = d.flood_class === "Flood Risk";
+    $("banner").className = "banner " + (isFlood ? "flood" : "normal");
+    $("cls").textContent = (isFlood ? "🌊 " : "🌱 ") + d.flood_class;
+    $("meta").textContent = "Confidence " + (d.flood_probability * 100).toFixed(1) + "% · "
+                          + d.community + ", " + d.month_name;
+    $("prob").textContent = (d.flood_probability * 100).toFixed(1) + "%";
+    $("temp").textContent = d.temperature_72h_c.toFixed(2) + " °C";
+    $("rec").textContent = d.recommendation;
+    $("result").style.display = "block";
+  } catch (e) {
+    $("err").textContent = "Could not reach the forecast service (" + e.message + ").";
+  } finally { $("go").disabled = false; $("go").textContent = "Run Forecast"; }
+}
+$("go").addEventListener("click", runForecast);
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+async function loadBenchmark() {
+  try {
+    const m = await (await fetch(API_BASE + "/benchmark")).json();
+    const fh = ["Model", "Accuracy", "Precision", "Recall", "F1"];
+    const forder = ["Random Forest", "XGBoost", "Decision Tree", "MLP Neural Network", "Persistence baseline"];
+    let t = "<caption>Flood classification (champion: " + m.flood_champion + ")</caption><tr>"
+          + fh.map(h => "<th>" + h + "</th>").join("") + "</tr>";
+    forder.forEach(name => {
+      const r = m.flood[name]; if (!r) return;
+      const champ = name === m.flood_champion ? " class='champ'" : "";
+      t += "<tr" + champ + "><td>" + name + "</td><td>" + r.accuracy + "%</td><td>" + r.precision
+         + "%</td><td>" + r.recall + "%</td><td>" + r.f1 + "%</td></tr>";
+    });
+    $("floodTable").innerHTML = t;
+    const th = ["Model", "RMSE (°C)", "MAE (°C)", "R²", "Within ±2°C"];
+    let tt = "<caption>72-hour temperature forecasting (champion: " + m.temp_champion + ")</caption><tr>"
+           + th.map(h => "<th>" + h + "</th>").join("") + "</tr>";
+    forder.forEach(name => {
+      const r = m.temperature[name]; if (!r) return;
+      const champ = name === m.temp_champion ? " class='champ'" : "";
+      tt += "<tr" + champ + "><td>" + name + "</td><td>" + r.rmse + "</td><td>" + r.mae
+          + "</td><td>" + r.r2 + "</td><td>" + r.acc_within_2c + "%</td></tr>";
+    });
+    $("tempTable").innerHTML = tt;
+  } catch (e) { /* benchmark table optional */ }
+}
+loadBenchmark();
+runForecast();
+</script>
+</body>
 </html>
