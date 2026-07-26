@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import json
 import os
+import threading
 
 import joblib
 from fastapi import FastAPI, HTTPException
@@ -29,29 +30,43 @@ MODELS_DIR = os.path.join(ROOT, "models")
 WEB_DIR = os.path.join(ROOT, "web")
 
 _bundle = None
+_bundle_lock = threading.Lock()
 
 
 def get_bundle():
+    """Return the cached model bundle, loading or training it on first call.
+
+    Guarded by a lock so concurrent requests during a cold start (the common
+    case right after a Render free-tier instance wakes up) can't each observe
+    `_bundle is None` and kick off a redundant, several-second training run.
+    """
     global _bundle
     if _bundle is not None:
         return _bundle
-    fp = os.path.join(MODELS_DIR, "flood_rf.joblib")
-    tp = os.path.join(MODELS_DIR, "temp_rf.joblib")
-    if os.path.exists(fp) and os.path.exists(tp):
-        _bundle = {"flood_model": joblib.load(fp), "temp_model": joblib.load(tp)}
-    else:
-        os.makedirs(MODELS_DIR, exist_ok=True)
-        _bundle = mc.train_champion()
-        joblib.dump(_bundle["flood_model"], fp)
-        joblib.dump(_bundle["temp_model"], tp)
+    with _bundle_lock:
+        if _bundle is not None:  # re-check: another thread may have finished while we waited
+            return _bundle
+        fp = os.path.join(MODELS_DIR, "flood_rf.joblib")
+        tp = os.path.join(MODELS_DIR, "temp_rf.joblib")
+        if os.path.exists(fp) and os.path.exists(tp):
+            _bundle = {"flood_model": joblib.load(fp), "temp_model": joblib.load(tp)}
+        else:
+            os.makedirs(MODELS_DIR, exist_ok=True)
+            _bundle = mc.train_champion()
+            joblib.dump(_bundle["flood_model"], fp)
+            joblib.dump(_bundle["temp_model"], tp)
     return _bundle
 
 
 app = FastAPI(title="Clisense - Osun River Corridor Forecast API", version="2.0.0",
               description="Flood classification and 72-hour temperature forecasting "
                           "for smallholder farmers in Osogbo, Osun State, Nigeria.")
-app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=True,
-                   allow_methods=["*"], allow_headers=["*"])
+# Public, read-only demo API: no cookies or auth headers are used, so a wildcard
+# origin is safe. allow_credentials must stay False here - browsers reject the
+# allow_origins="*" + allow_credentials=True combination outright, which would
+# silently break cross-origin requests from anything but the same-origin dashboard.
+app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=False,
+                   allow_methods=["GET", "POST"], allow_headers=["*"])
 
 
 class PredictionRequest(BaseModel):

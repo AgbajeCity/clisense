@@ -130,7 +130,23 @@ def run():
     flood_champ = max(flood_results, key=lambda m: flood_results[m]["f1"])
     temp_champ = max(temp_results, key=lambda m: temp_results[m]["acc_within_2c"])
 
-    # Persist champion artefacts for the API (Random Forest on both tasks).
+    # The API always serves Random Forest (models/flood_rf.joblib, temp_rf.joblib -
+    # see app/api.py) rather than dynamically deploying whichever model the argmax
+    # above picks. That used to be silent: the artefacts written to disk did not
+    # necessarily match the "champion" name recorded in benchmark_metrics.json,
+    # which every downstream consumer (README, web UI, API /health) reports as the
+    # served model. Fail loudly instead of drifting quietly if that ever stops
+    # being true - e.g. after a change to the dataset, features, or grid search.
+    if flood_champ != "Random Forest" or temp_champ != "Random Forest":
+        raise RuntimeError(
+            f"Random Forest is no longer the top scorer (flood={flood_champ!r}, "
+            f"temp={temp_champ!r}) but app/api.py always serves the RF artefacts. "
+            "Update app/api.py (and the README/UI 'champion' copy) to deploy the "
+            "actual winning model before persisting these metrics."
+        )
+
+    # Persist champion artefacts for the API (Random Forest on both tasks -
+    # verified above to be the actual winner on this run).
     joblib.dump(rf_flood, os.path.join(MODELS_DIR, "flood_rf.joblib"))
     joblib.dump(rf_temp, os.path.join(MODELS_DIR, "temp_rf.joblib"))
 

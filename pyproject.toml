@@ -1,0 +1,7 @@
+[tool.pytest.ini_options]
+# Fixes `pytest tests/` failing with `ModuleNotFoundError: No module named 'app'`
+# on a fresh clone. Without this, only `python -m pytest tests/` worked (the `-m`
+# flag adds the current directory to sys.path; a bare `pytest` invocation does not).
+# The README documents `pytest tests/` as the run command, so this must work as-is.
+pythonpath = ["."]
+testpaths = ["tests"]
