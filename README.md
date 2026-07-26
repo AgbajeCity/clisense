@@ -18,51 +18,63 @@ Two prediction tasks for the Osogbo gauge / Osun River corridor:
 2. **72-hour temperature forecasting** - land-surface temperature three days out.
 
 Four architectures are benchmarked against a naive persistence baseline:
-**Random Forest**, **XGBoost**, **Decision Tree**, and a **Multi-Layer Perceptron**.
-Random Forest is the champion on both tasks.
+**Random Forest**, **XGBoost**, **Decision Tree**, and a **Multi-Layer Perceptron**,
+on real historical rainfall and temperature (see Dataset below). Champion
+selection runs independently per task: **MLP Neural Network** wins flood
+classification (highest F1), **XGBoost** wins temperature forecasting
+(highest accuracy within +/-2 C).
 
 ## Results (2024 held-out test set, 363 records)
 
 | Model | Flood accuracy | Flood F1 | Temp within +/-2 C |
 |-------|---------------:|---------:|-------------------:|
-| **Random Forest (champion)** | **93.4%** | **87.4%** | **91.5%** |
-| XGBoost | 91.7% | 83.9% | 90.9% |
-| Decision Tree | 92.6% | 85.7% | 86.5% |
-| MLP Neural Network | 93.1% | 86.0% | 86.5% |
-| Persistence baseline | 90.1% | 80.4% | 86.0% |
+| Random Forest | 91.7% | 82.8% | 97.5% |
+| XGBoost | 90.1% | 79.3% | **98.4% (champion)** |
+| Decision Tree | 86.8% | 73.3% | 92.6% |
+| **MLP Neural Network (champion)** | **91.7%** | **83.9%** | 96.4% |
+| Persistence baseline | 89.5% | 79.1% | 97.0% |
 
-Discharge features (current discharge and its 1- and 3-day lags) account for
-~59% of the flood model's importance. Full metrics are in
-`models/benchmark_metrics.json`; figures are in `assets/`.
+Random Forest and MLP tie on flood accuracy (91.7%); champion selection uses
+F1, where MLP leads. Discharge features (current discharge and its 1- and
+3-day lags) account for ~71% of the flood champion's importance (permutation
+importance, since MLP has no native `feature_importances_`). Full metrics are
+in `models/benchmark_metrics.json`; figures are in `assets/`.
 
 ## Architecture
 
-`app/model_core.py` is the single source of truth: it generates the disclosed
-synthetic dataset, engineers the features, and trains the champion Random Forest
-models. `app/benchmark.py` runs the four-model comparison with GridSearchCV
-(TimeSeriesSplit) on Random Forest and XGBoost and writes the metrics and figures.
+`app/model_core.py` is the single source of truth: it assembles the dataset,
+engineers the features, and trains the champion model per task (whichever
+architecture the benchmark found best - see `CHAMPION_FLOOD_MODEL` /
+`CHAMPION_TEMP_MODEL`). `app/benchmark.py` runs the four-model comparison with
+GridSearchCV (TimeSeriesSplit) on Random Forest and XGBoost and writes the
+metrics and figures.
 `app/api.py` is a FastAPI service that loads (or trains once, deterministically)
 the champion artefacts and exposes `/predict`, `/health`, and `/benchmark`. The
 browser interface in `web/index.html` is plain HTML and JavaScript that calls the
 API and renders the live benchmark table.
 
-## Dataset (disclosed synthetic)
+## Dataset (real rainfall/temperature, derived discharge)
 
-Live CHIRPS, MODIS, NIHSA and CliNode feeds were not accessible in the development
-environment, so a daily dataset (2016-2024, ~3,282 records) was generated to
-reflect the corridor's published hydrology: a wet-season discharge peak of
-~150 m3/s in August-September at the Osogbo gauge (Ogundolie et al., 2024), a
-skewed rainfall curve peaking in late August, autocorrelated land-surface
-temperature, and soil moisture and a vegetation index coupled to rolling rainfall.
-The overall flood rate is ~25%. Every value is generated, not measured.
+Same-day rainfall and temperature are real historical daily values for the
+Osogbo corridor (7.7667N, 4.5667E), 2016-2024, pulled from NASA POWER
+(MERRA-2 reanalysis) - see `data/fetch_real_climate.py`. Direct NIHSA
+river-gauge and CliNode field-sensor feeds were not accessible in the
+development environment, so river discharge is derived from that real
+rainfall via a rainfall-runoff transfer function calibrated to the corridor's
+published Aug-Sep discharge peak of ~150 m3/s (Ogundolie et al., 2024); soil
+moisture and a vegetation index are similarly derived, coupled to real 30-day
+rainfall. ~3,282 daily records after dropping rows without full lag/target
+context, overall flood rate ~25%. Full provenance disclosure in
+`data/README.md` and the `app/model_core.py` module docstring.
 
 ## Run locally
 
 ```bash
 pip install -r requirements.txt
-python -m app.benchmark          # train, benchmark, write metrics + figures
-uvicorn app.api:app --reload     # serve API + interface at http://localhost:8000
-pytest tests/                    # unit tests
+python -m data.fetch_real_climate  # pull real NASA POWER rainfall/temperature (one-time)
+python -m app.benchmark            # train, benchmark, write metrics + figures
+uvicorn app.api:app --reload       # serve API + interface at http://localhost:8000
+pytest tests/                      # unit tests
 ```
 
 ## Deployment

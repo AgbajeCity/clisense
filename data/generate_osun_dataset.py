@@ -1,4 +1,9 @@
-"""Export the disclosed synthetic Osun River corridor dataset to CSV.
+"""Export the Osun River corridor dataset to CSV (real rainfall/temperature
+from NASA POWER, with derived discharge/soil-moisture/vegetation-index -
+see app/model_core.py for the full provenance disclosure).
+
+Requires data/real_climate_osogbo_2016_2024.csv - run
+`python -m data.fetch_real_climate` first if it isn't present.
 
 Usage:  python -m data.generate_osun_dataset
 """

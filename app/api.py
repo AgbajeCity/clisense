@@ -7,8 +7,10 @@ Endpoints:
   GET  /benchmark  - the four-model benchmark table (for the interface)
   GET  /           - the browser-based forecast interface (static HTML/JS)
 
-The champion Random Forest artefacts are loaded from models/ if present, or
-trained once on startup (deterministic, seed-fixed) and cached.
+The champion models (whichever architecture app/benchmark.py's four-way
+comparison found best for each task - see app/model_core.py's
+CHAMPION_FLOOD_MODEL / CHAMPION_TEMP_MODEL) are loaded from models/ if
+present, or trained once on startup (deterministic, seed-fixed) and cached.
 """
 from __future__ import annotations
 
@@ -46,11 +48,19 @@ def get_bundle():
     with _bundle_lock:
         if _bundle is not None:  # re-check: another thread may have finished while we waited
             return _bundle
-        fp = os.path.join(MODELS_DIR, "flood_rf.joblib")
-        tp = os.path.join(MODELS_DIR, "temp_rf.joblib")
+        fp = os.path.join(MODELS_DIR, "flood_champion.joblib")
+        tp = os.path.join(MODELS_DIR, "temp_champion.joblib")
         if os.path.exists(fp) and os.path.exists(tp):
-            _bundle = {"flood_model": joblib.load(fp), "temp_model": joblib.load(tp)}
+            # A cached artefact on disk is only ever written by app/benchmark.py
+            # after its guardrail confirms the winner matches these constants,
+            # so it's safe to label the loaded model with them.
+            _bundle = {"flood_model": joblib.load(fp), "temp_model": joblib.load(tp),
+                      "flood_model_name": mc.CHAMPION_FLOOD_MODEL,
+                      "temp_model_name": mc.CHAMPION_TEMP_MODEL}
         else:
+            # Cold start with no cached artefacts (e.g. Render free tier, where
+            # models/*.joblib is gitignored by design): retrain from scratch,
+            # deploying the same champion architectures pinned in model_core.py.
             os.makedirs(MODELS_DIR, exist_ok=True)
             _bundle = mc.train_champion()
             joblib.dump(_bundle["flood_model"], fp)
@@ -82,7 +92,8 @@ def health():
     b = get_bundle()
     return {
         "status": "healthy",
-        "model": "Random Forest (champion)",
+        "model": f"{b['flood_model_name']} (flood champion), "
+                f"{b['temp_model_name']} (temperature champion)",
         "community": mc.COMMUNITY,
         "state": mc.STATE,
         "tasks": ["flood_classification", "temperature_72h"],

@@ -28,6 +28,7 @@ from sklearn.model_selection import GridSearchCV, TimeSeriesSplit
 from sklearn.metrics import (accuracy_score, precision_score, recall_score,
                              f1_score, confusion_matrix, mean_squared_error,
                              mean_absolute_error, r2_score)
+from sklearn.inspection import permutation_importance
 from xgboost import XGBClassifier, XGBRegressor
 
 from app import model_core as mc
@@ -58,6 +59,22 @@ def temp_metrics(y_true, y_pred):
     }
 
 
+def _flood_feature_importance(name, model, Xf_te, yf_te):
+    """Feature importance for the champion flood model. Tree-based models expose
+    .feature_importances_ natively; MLP doesn't, so we fall back to permutation
+    importance on the held-out test set (a standard, model-agnostic sklearn
+    technique) rather than fabricating a number."""
+    if hasattr(model, "feature_importances_"):
+        vals = model.feature_importances_
+    else:
+        perm = permutation_importance(model, Xf_te, yf_te, n_repeats=10,
+                                      random_state=mc.SEED, scoring="f1")
+        raw = perm.importances_mean
+        total = raw.sum() if raw.sum() > 0 else 1.0
+        vals = raw / total
+    return {f: round(float(v), 4) for f, v in zip(mc.FLOOD_FEATURES, vals)}
+
+
 def run():
     df = mc.generate_dataset()
     train, val, test = mc.chronological_split(df)
@@ -70,6 +87,7 @@ def run():
     Xt_te, yt_te = mc.Xy_temp(test)
 
     flood_results, temp_results = {}, {}
+    flood_models, temp_models = {}, {}
 
     # ---- Flood classification -------------------------------------------------
     # Random Forest (GridSearchCV)
@@ -77,8 +95,8 @@ def run():
                "min_samples_leaf": [1, 2]}
     rf_gs = GridSearchCV(RandomForestClassifier(random_state=mc.SEED, n_jobs=-1),
                          rf_grid, cv=tscv, scoring="f1", n_jobs=-1).fit(Xf_fit, yf_fit)
-    rf_flood = rf_gs.best_estimator_
-    flood_results["Random Forest"] = flood_metrics(yf_te, rf_flood.predict(Xf_te))
+    flood_models["Random Forest"] = rf_gs.best_estimator_
+    flood_results["Random Forest"] = flood_metrics(yf_te, flood_models["Random Forest"].predict(Xf_te))
     rf_best = rf_gs.best_params_
 
     # XGBoost (GridSearchCV)
@@ -86,19 +104,18 @@ def run():
                 "subsample": [0.8, 1.0], "n_estimators": [300]}
     xgb_gs = GridSearchCV(XGBClassifier(random_state=mc.SEED, eval_metric="logloss",
                           n_jobs=-1), xgb_grid, cv=tscv, scoring="f1", n_jobs=-1).fit(Xf_fit, yf_fit)
-    xgb_flood = xgb_gs.best_estimator_
-    flood_results["XGBoost"] = flood_metrics(yf_te, xgb_flood.predict(Xf_te))
+    flood_models["XGBoost"] = xgb_gs.best_estimator_
+    flood_results["XGBoost"] = flood_metrics(yf_te, flood_models["XGBoost"].predict(Xf_te))
 
-    # Decision Tree
-    dt_flood = DecisionTreeClassifier(max_depth=10, min_samples_split=10,
-                                      random_state=mc.SEED).fit(Xf_fit, yf_fit)
-    flood_results["Decision Tree"] = flood_metrics(yf_te, dt_flood.predict(Xf_te))
+    # Decision Tree and MLP use the fixed hyperparameters pinned in
+    # app/model_core.py (FLOOD_MODEL_PARAMS), via the same factories the API
+    # uses to build a champion at cold start, so the benchmark and the
+    # deployed service can never train these two architectures differently.
+    flood_models["Decision Tree"] = mc._build_flood_model("Decision Tree").fit(Xf_fit, yf_fit)
+    flood_results["Decision Tree"] = flood_metrics(yf_te, flood_models["Decision Tree"].predict(Xf_te))
 
-    # MLP (3 hidden layers, ReLU, Adam, early stopping)
-    mlp_flood = MLPClassifier(hidden_layer_sizes=(64, 32, 16), activation="relu",
-                              solver="adam", early_stopping=True, max_iter=500,
-                              random_state=mc.SEED).fit(Xf_fit, yf_fit)
-    flood_results["MLP Neural Network"] = flood_metrics(yf_te, mlp_flood.predict(Xf_te))
+    flood_models["MLP Neural Network"] = mc._build_flood_model("MLP Neural Network").fit(Xf_fit, yf_fit)
+    flood_results["MLP Neural Network"] = flood_metrics(yf_te, flood_models["MLP Neural Network"].predict(Xf_te))
 
     # Naive persistence baseline: today's flood equals the previous day's flood.
     prev = df["flood"].shift(1).to_numpy()
@@ -107,51 +124,47 @@ def run():
     flood_results["Persistence baseline"] = flood_metrics(yf_te, persist_pred)
 
     # ---- 72-hour temperature regression --------------------------------------
-    rf_temp = RandomForestRegressor(**mc.TEMP_RF_PARAMS).fit(Xt_fit, yt_fit)
-    temp_results["Random Forest"] = temp_metrics(yt_te, rf_temp.predict(Xt_te))
-
-    xgb_temp = XGBRegressor(n_estimators=300, learning_rate=0.1, max_depth=6,
-                            subsample=0.9, random_state=mc.SEED, n_jobs=-1).fit(Xt_fit, yt_fit)
-    temp_results["XGBoost"] = temp_metrics(yt_te, xgb_temp.predict(Xt_te))
-
-    dt_temp = DecisionTreeRegressor(max_depth=10, min_samples_split=10,
-                                    random_state=mc.SEED).fit(Xt_fit, yt_fit)
-    temp_results["Decision Tree"] = temp_metrics(yt_te, dt_temp.predict(Xt_te))
-
-    mlp_temp = MLPRegressor(hidden_layer_sizes=(64, 32, 16), activation="relu",
-                            solver="adam", early_stopping=True, max_iter=500,
-                            random_state=mc.SEED).fit(Xt_fit, yt_fit)
-    temp_results["MLP Neural Network"] = temp_metrics(yt_te, mlp_temp.predict(Xt_te))
+    for name in ("Random Forest", "XGBoost", "Decision Tree", "MLP Neural Network"):
+        temp_models[name] = mc._build_temp_model(name).fit(Xt_fit, yt_fit)
+        temp_results[name] = temp_metrics(yt_te, temp_models[name].predict(Xt_te))
 
     # Temperature persistence: forecast the 72h temperature as today's temperature.
     temp_results["Persistence baseline"] = temp_metrics(yt_te, test["lst_c"].to_numpy())
 
     # ---- champion selection ---------------------------------------------------
-    flood_champ = max(flood_results, key=lambda m: flood_results[m]["f1"])
-    temp_champ = max(temp_results, key=lambda m: temp_results[m]["acc_within_2c"])
+    # Persistence is a sanity-check floor, not a deployable model - it has no
+    # fitted estimator object, so it's excluded from the candidate pool and can
+    # never be selected as champion even if it happened to score highest.
+    CANDIDATES = ["Random Forest", "XGBoost", "Decision Tree", "MLP Neural Network"]
+    flood_champ = max(CANDIDATES, key=lambda m: flood_results[m]["f1"])
+    temp_champ = max(CANDIDATES, key=lambda m: temp_results[m]["acc_within_2c"])
 
-    # The API always serves Random Forest (models/flood_rf.joblib, temp_rf.joblib -
-    # see app/api.py) rather than dynamically deploying whichever model the argmax
-    # above picks. That used to be silent: the artefacts written to disk did not
-    # necessarily match the "champion" name recorded in benchmark_metrics.json,
-    # which every downstream consumer (README, web UI, API /health) reports as the
-    # served model. Fail loudly instead of drifting quietly if that ever stops
-    # being true - e.g. after a change to the dataset, features, or grid search.
-    if flood_champ != "Random Forest" or temp_champ != "Random Forest":
+    # app/model_core.py's CHAMPION_FLOOD_MODEL / CHAMPION_TEMP_MODEL are what a
+    # cold-start API instance actually deploys (see train_champion()). They must
+    # match whatever this run just found to be the real winner - fail loudly
+    # instead of drifting quietly if they don't, e.g. after a dataset or feature
+    # change shifts which architecture wins.
+    if flood_champ != mc.CHAMPION_FLOOD_MODEL or temp_champ != mc.CHAMPION_TEMP_MODEL:
         raise RuntimeError(
-            f"Random Forest is no longer the top scorer (flood={flood_champ!r}, "
-            f"temp={temp_champ!r}) but app/api.py always serves the RF artefacts. "
-            "Update app/api.py (and the README/UI 'champion' copy) to deploy the "
-            "actual winning model before persisting these metrics."
+            f"Benchmark winner changed (flood={flood_champ!r}, temp={temp_champ!r}) "
+            f"but app/model_core.py still pins CHAMPION_FLOOD_MODEL="
+            f"{mc.CHAMPION_FLOOD_MODEL!r}, CHAMPION_TEMP_MODEL={mc.CHAMPION_TEMP_MODEL!r}. "
+            "Update those two constants in app/model_core.py to match before "
+            "persisting these metrics."
         )
 
-    # Persist champion artefacts for the API (Random Forest on both tasks -
-    # verified above to be the actual winner on this run).
-    joblib.dump(rf_flood, os.path.join(MODELS_DIR, "flood_rf.joblib"))
-    joblib.dump(rf_temp, os.path.join(MODELS_DIR, "temp_rf.joblib"))
+    flood_champ_model = flood_models[flood_champ]
+    temp_champ_model = temp_models[temp_champ]
+
+    # Persist the actual winning fitted models under generic, champion-agnostic
+    # filenames - app/api.py loads these on a warm start, or app/model_core.py's
+    # train_champion() rebuilds the same model type from these same two
+    # constants on a cold start with no cached artefacts.
+    joblib.dump(flood_champ_model, os.path.join(MODELS_DIR, "flood_champion.joblib"))
+    joblib.dump(temp_champ_model, os.path.join(MODELS_DIR, "temp_champion.joblib"))
 
     # Confusion matrix numbers for the champion flood model.
-    cm = confusion_matrix(yf_te, rf_flood.predict(Xf_te))
+    cm = confusion_matrix(yf_te, flood_champ_model.predict(Xf_te))
     tn, fp, fn, tp = int(cm[0, 0]), int(cm[0, 1]), int(cm[1, 0]), int(cm[1, 1])
 
     metrics = {
@@ -163,16 +176,15 @@ def run():
         "flood_champion": flood_champ, "temp_champion": temp_champ,
         "confusion": {"tn": tn, "fp": fp, "fn": fn, "tp": tp,
                       "correct": tn + tp, "total": int(cm.sum())},
-        "feature_importance": {f: round(float(v), 4) for f, v in
-                               zip(mc.FLOOD_FEATURES, rf_flood.feature_importances_)},
+        "feature_importance": _flood_feature_importance(flood_champ, flood_champ_model, Xf_te, yf_te),
     }
     with open(os.path.join(MODELS_DIR, "benchmark_metrics.json"), "w") as fh:
         json.dump(metrics, fh, indent=2)
-    make_figures(df, rf_flood, yf_te, rf_flood.predict(Xf_te), metrics)
+    make_figures(df, flood_champ_model, flood_champ, yf_te, flood_champ_model.predict(Xf_te), metrics)
     return metrics
 
 
-def make_figures(df, rf_flood, y_true, y_pred, metrics):
+def make_figures(df, champ_model, champ_name, y_true, y_pred, metrics):
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
@@ -201,12 +213,12 @@ def make_figures(df, rf_flood, y_true, y_pred, metrics):
     for i, v in enumerate(vals):
         ax.text(v + 0.3, i, f"{v:.1f}%", va="center", fontsize=9)
     ax.set_xlabel("Importance (%)")
-    ax.set_title("Random Forest Feature Importance - Flood Classification")
+    ax.set_title(f"{champ_name} Feature Importance - Flood Classification")
     fig.tight_layout(); fig.savefig(os.path.join(ASSETS_DIR, "fig_feature_importance.png"), dpi=150); plt.close(fig)
 
     # Fig 5.5 - learned seasonal flood risk
     Xall, _ = mc.Xy_flood(df)
-    df = df.copy(); df["p"] = rf_flood.predict_proba(Xall)[:, 1]
+    df = df.copy(); df["p"] = champ_model.predict_proba(Xall)[:, 1]
     monthly = df.groupby("month")["p"].mean() * 100
     fig, ax = plt.subplots(figsize=(7.2, 4.2))
     ax.plot(list(monthly.index), monthly.values, marker="o", color=BLUE, linewidth=2)

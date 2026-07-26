@@ -9,6 +9,7 @@ previously present anywhere in the repository as runnable tests.
 from fastapi.testclient import TestClient
 
 from app.api import app
+from app import model_core as mc
 
 client = TestClient(app)
 
@@ -29,13 +30,16 @@ def test_health_reports_ready_model():
 # ---- /predict: integration (happy path) --------------------------------------
 
 def test_predict_peak_season_returns_flood_risk():
+    """Values are grounded in the real Osogbo Aug/Sep flood-day distribution
+    (see tests/test_pipeline.py::test_predict_distinguishes_flood_from_normal
+    for how these were derived from the real dataset)."""
     r = client.post("/predict", json={
         "community": "Osogbo", "month": 8,
-        "rainfall_mm": 45, "rain_30d": 620, "discharge_m3s": 142,
+        "rainfall_mm": 15, "rain_30d": 280, "discharge_m3s": 170,
     })
     assert r.status_code == 200
     body = r.json()
-    assert body["flood_class"] in {"Normal", "Flood Risk"}
+    assert body["flood_class"] == "Flood Risk"
     assert 0.0 <= body["flood_probability"] <= 1.0
     assert isinstance(body["temperature_72h_c"], float)
     assert body["recommendation"]
@@ -45,7 +49,7 @@ def test_predict_peak_season_returns_flood_risk():
 def test_predict_dry_season_returns_normal():
     r = client.post("/predict", json={
         "community": "Osogbo", "month": 1,
-        "rainfall_mm": 0.4, "rain_30d": 8, "discharge_m3s": 19,
+        "rainfall_mm": 0, "rain_30d": 3, "discharge_m3s": 13,
     })
     assert r.status_code == 200
     assert r.json()["flood_class"] == "Normal"
@@ -120,8 +124,10 @@ def test_benchmark_exposes_all_four_models_and_baseline():
                 "MLP Neural Network", "Persistence baseline"}
     assert set(body["flood"].keys()) == expected
     assert set(body["temperature"].keys()) == expected
-    assert body["flood_champion"] == "Random Forest"
-    assert body["temp_champion"] == "Random Forest"
+    # Checked against the pinned constants, not a hardcoded name, since which
+    # architecture wins is a property of the (real) data, not a fixed assumption.
+    assert body["flood_champion"] == mc.CHAMPION_FLOOD_MODEL
+    assert body["temp_champion"] == mc.CHAMPION_TEMP_MODEL
 
 
 def test_benchmark_champion_matches_served_model():
