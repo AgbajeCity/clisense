@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Clisense - Model &amp; Ops Console</title>
+<style>
+  :root{
+    --bg:#0a0f1a; --bg-2:#0f1729; --panel:rgba(255,255,255,0.045); --panel-border:rgba(255,255,255,0.09);
+    --ink:#e7edf7; --ink-dim:#94a3bb; --ink-faint:#5f7092;
+    --cyan:#22d3ee; --cyan-dim:#0e7490; --green:#34d399; --amber:#fbbf24; --red:#f87171; --violet:#a78bfa;
+    --radius:16px; --mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:
+      radial-gradient(1100px 600px at 12% -10%, rgba(52,211,153,0.13), transparent 60%),
+      radial-gradient(900px 500px at 100% 0%, rgba(34,211,238,0.07), transparent 55%),
+      linear-gradient(180deg,var(--bg),var(--bg-2));
+    color:var(--ink); min-height:100vh; padding:28px 20px 60px;
+  }
+  .wrap{max-width:1180px; margin:0 auto;}
+  a{color:var(--green); text-decoration:none;}
+  .topbar{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px; margin-bottom:22px;}
+  .brand{display:flex; align-items:center; gap:11px;}
+  .brand .mark{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--green),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:18px;}
+  .brand .title{font-weight:700; font-size:17px; letter-spacing:.2px;}
+  .brand .sub{font-size:12px; color:var(--ink-dim); margin-top:1px;}
+  .navlink{font-size:13px; padding:8px 14px; border:1px solid var(--panel-border); border-radius:999px; background:var(--panel); color:var(--ink-dim);}
+  .navlink:hover{color:var(--green); border-color:rgba(52,211,153,.4);}
+
+  .status-strip{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:22px;}
+  .chip{display:flex; align-items:center; gap:8px; padding:9px 14px; border-radius:10px; background:var(--panel); border:1px solid var(--panel-border); font-size:12.5px; color:var(--ink-dim);}
+  .chip b{color:var(--ink); font-weight:600;}
+  .dot{width:7px;height:7px;border-radius:50%; background:var(--ink-faint); flex:none;}
+  .dot.ok{background:var(--green); box-shadow:0 0 8px rgba(52,211,153,.7);}
+  .dot.bad{background:var(--red); box-shadow:0 0 8px rgba(248,113,113,.7);}
+
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  @media (max-width:920px){ .grid2{grid-template-columns:1fr;} }
+
+  .card{background:var(--panel); border:1px solid var(--panel-border); border-radius:var(--radius); padding:22px; backdrop-filter:blur(14px); margin-bottom:18px;}
+  .card h3{margin:0 0 4px; font-size:14px; letter-spacing:.3px; text-transform:uppercase; color:var(--ink-dim); font-weight:700;}
+  .card .h-sub{font-size:12.5px; color:var(--ink-faint); margin-bottom:16px;}
+
+  .field{margin-bottom:13px;}
+  .field label{display:block; font-size:12px; color:var(--ink-dim); margin-bottom:6px;}
+  .field input, .field select{
+    width:100%; padding:10px 12px; border-radius:9px; border:1px solid var(--panel-border);
+    background:rgba(255,255,255,0.03); color:var(--ink); font-size:14px; font-family:var(--mono);
+  }
+  .field input:focus, .field select:focus{outline:none; border-color:rgba(52,211,153,.55);}
+  .row3{display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px;}
+  @media (max-width:520px){ .row3{grid-template-columns:1fr;} }
+
+  .runbtn{
+    width:100%; margin-top:4px; padding:12px; border:none; border-radius:10px; cursor:pointer;
+    background:linear-gradient(135deg,var(--green),#0e9f6e); color:#052e1f; font-weight:700; font-size:14px;
+  }
+  .runbtn:disabled{opacity:.6; cursor:default;}
+  .err{display:none; margin-top:10px; padding:10px 12px; border-radius:9px; background:rgba(248,113,113,.1); border:1px solid rgba(248,113,113,.3); color:#fca5a5; font-size:12.5px;}
+
+  .gauge-wrap{display:flex; align-items:center; gap:20px; margin-top:18px; padding-top:18px; border-top:1px solid var(--panel-border);}
+  .gauge{position:relative; width:120px; height:120px; flex:none;}
+  .gauge svg{transform:rotate(-90deg);}
+  .gauge .pct{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; flex-direction:column;}
+  .gauge .pct .num{font-family:var(--mono); font-size:22px; font-weight:700;}
+  .gauge .pct .lbl{font-size:9px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.5px;}
+  .gauge-result{flex:1;}
+  .gauge-result .cls{font-size:16px; font-weight:700; margin-bottom:4px;}
+  .gauge-result .cls.flood{color:var(--red);}
+  .gauge-result .cls.normal{color:var(--green);}
+  .gauge-result .rec{font-size:12.5px; color:var(--ink-dim); line-height:1.5;}
+
+  table{width:100%; border-collapse:collapse; font-size:12.5px;}
+  th{text-align:left; color:var(--ink-faint); font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:.3px; padding:0 8px 8px; border-bottom:1px solid var(--panel-border);}
+  td{padding:9px 8px; border-bottom:1px solid rgba(255,255,255,.04); vertical-align:middle;}
+  tr.champion td{background:rgba(52,211,153,.08);}
+  tr.champion td:first-child{border-left:2px solid var(--green); padding-left:6px;}
+  .modelname{display:flex; align-items:center; gap:6px; font-weight:600;}
+  .crown{font-size:11px;}
+  .bar-cell{display:flex; align-items:center; gap:8px;}
+  .bar-track{flex:1; height:6px; border-radius:4px; background:rgba(255,255,255,.06); overflow:hidden; min-width:50px;}
+  .bar-fill{height:100%; border-radius:4px; background:linear-gradient(90deg,var(--green),var(--cyan));}
+  .num-cell{font-family:var(--mono); color:var(--ink-dim); width:44px; text-align:right; flex:none;}
+
+  .fi-row{display:flex; align-items:center; gap:10px; margin-bottom:10px;}
+  .fi-label{width:150px; flex:none; font-size:12.5px; color:var(--ink-dim);}
+  .fi-track{flex:1; height:8px; border-radius:5px; background:rgba(255,255,255,.06); overflow:hidden;}
+  .fi-fill{height:100%; border-radius:5px; background:linear-gradient(90deg,var(--green),var(--cyan));}
+  .fi-val{width:44px; flex:none; text-align:right; font-family:var(--mono); font-size:11.5px; color:var(--ink-faint);}
+
+  .stat-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:12px;}
+  @media (max-width:640px){ .stat-grid{grid-template-columns:repeat(2,1fr);} }
+  .stat{padding:14px; border-radius:11px; background:rgba(255,255,255,.03); border:1px solid var(--panel-border);}
+  .stat .v{font-family:var(--mono); font-size:19px; font-weight:700;}
+  .stat .k{font-size:11px; color:var(--ink-faint); margin-top:2px;}
+
+  .confusion{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:4px;}
+  .cbox{padding:14px; border-radius:10px; text-align:center; border:1px solid var(--panel-border);}
+  .cbox .v{font-family:var(--mono); font-size:20px; font-weight:700;}
+  .cbox .k{font-size:10.5px; color:var(--ink-faint); margin-top:3px; text-transform:uppercase; letter-spacing:.3px;}
+  .cbox.tn{background:rgba(52,211,153,.07);}
+  .cbox.tp{background:rgba(52,211,153,.07);}
+  .cbox.fp{background:rgba(251,191,36,.07);}
+  .cbox.fn{background:rgba(248,113,113,.09);}
+
+  .foot{margin-top:20px; text-align:center; font-size:11.5px; color:var(--ink-faint);}
+  .skel{color:var(--ink-faint); font-size:12.5px; font-style:italic;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="brand">
+      <div class="mark">🛰️</div>
+      <div>
+        <div class="title">Clisense &middot; Model &amp; Ops Console</div>
+        <div class="sub">Osun River Corridor &middot; Osogbo</div>
+      </div>
+    </div>
+    <a class="navlink" href="/">&larr; Farmer view</a>
+  </div>
+
+  <div class="status-strip" id="statusStrip">
+    <div class="chip"><span class="dot" id="dotStatus"></span><span id="chipStatus">Checking status&hellip;</span></div>
+    <div class="chip">Model: <b id="chipModel">&mdash;</b></div>
+    <div class="chip">Task: <b id="chipTask">&mdash;</b></div>
+    <div class="chip">Features: <b id="chipFeatures">&mdash;</b></div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3>Run a precise forecast</h3>
+      <div class="h-sub">Exact inputs, direct model call &mdash; same engine as the farmer app.</div>
+
+      <div class="field">
+        <label>Month</label>
+        <select id="month">
+          <option value="1">1 &middot; January</option><option value="2">2 &middot; February</option>
+          <option value="3">3 &middot; March</option><option value="4">4 &middot; April</option>
+          <option value="5">5 &middot; May</option><option value="6">6 &middot; June</option>
+          <option value="7">7 &middot; July</option><option value="8" selected>8 &middot; August</option>
+          <option value="9">9 &middot; September</option><option value="10">10 &middot; October</option>
+          <option value="11">11 &middot; November</option><option value="12">12 &middot; December</option>
+        </select>
+      </div>
+      <div class="row3">
+        <div class="field"><label>Rainfall today (mm)</label><input id="rainfall_mm" type="number" step="0.1" value="10" /></div>
+        <div class="field"><label>30-day rainfall (mm)</label><input id="rain_30d" type="number" step="0.1" value="150" /></div>
+        <div class="field"><label>Discharge (m&sup3;/s)</label><input id="discharge_m3s" type="number" step="0.1" value="60" /></div>
+      </div>
+      <button class="runbtn" id="go" onclick="runForecast()">Run inference</button>
+      <div class="err" id="err"></div>
+
+      <div class="gauge-wrap" id="gaugeWrap">
+        <div class="gauge">
+          <svg width="120" height="120" viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="10"/>
+            <circle id="gaugeArc" cx="60" cy="60" r="52" fill="none" stroke="var(--green)" stroke-width="10"
+                    stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="326.7"
+                    style="transition:stroke-dashoffset 0.9s cubic-bezier(.4,0,.2,1), stroke 0.4s;"/>
+          </svg>
+          <div class="pct"><div class="num" id="gaugeNum">&mdash;</div><div class="lbl">probability</div></div>
+        </div>
+        <div class="gauge-result">
+          <div class="cls" id="gaugeCls">&mdash;</div>
+          <div class="rec" id="gaugeRec"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Model benchmark</h3>
+      <div class="h-sub">Chronological holdout &mdash; 2024 test set. Champion highlighted.</div>
+      <table>
+        <thead><tr><th>Model</th><th>Accuracy</th><th>F1</th><th>Precision</th><th>Recall</th></tr></thead>
+        <tbody id="benchTable"><tr><td colspan="5" class="skel">Loading benchmark&hellip;</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3>Feature importance</h3>
+      <div class="h-sub">Champion model &mdash; relative contribution per signal.</div>
+      <div id="fiList"><div class="skel">Loading&hellip;</div></div>
+    </div>
+
+    <div class="card">
+      <h3>Confusion matrix</h3>
+      <div class="h-sub">Held-out test set, 366 records.</div>
+      <div class="confusion" id="confGrid">
+        <div class="skel">Loading&hellip;</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Dataset</h3>
+    <div class="h-sub">Real NASA POWER rainfall, 2016&ndash;2024, chronological split.</div>
+    <div class="stat-grid" id="datasetStats">
+      <div class="stat"><div class="v skel">&mdash;</div><div class="k">Total records</div></div>
+      <div class="stat"><div class="v skel">&mdash;</div><div class="k">Train</div></div>
+      <div class="stat"><div class="v skel">&mdash;</div><div class="k">Validation</div></div>
+      <div class="stat"><div class="v skel">&mdash;</div><div class="k">Test</div></div>
+    </div>
+  </div>
+
+  <div class="foot">Clisense internal console &middot; for team &amp; stakeholder use</div>
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const API_BASE = "";
+
+const FEATURE_LABELS = {
+  discharge_lag1: "River discharge (yesterday)",
+  discharge_m3s: "River discharge (today)",
+  discharge_lag3: "River discharge (3 days ago)",
+  rain_30d: "30-day rainfall total",
+  rain_7d: "7-day rainfall total",
+  rainfall_mm: "Rainfall (today)",
+  seasonal: "Seasonal timing",
+  soil_moisture: "Soil moisture",
+  veg_index: "Vegetation index",
+};
+
+async function loadHealth() {
+  try {
+    const r = await fetch(API_BASE + "/health");
+    const d = await r.json();
+    const ok = d.status === "healthy" && d.loaded;
+    $("dotStatus").className = "dot " + (ok ? "ok" : "bad");
+    $("chipStatus").textContent = ok ? "Model loaded" : "Model not ready";
+    $("chipModel").textContent = d.model || "—";
+    $("chipTask").textContent = (d.tasks || []).join(", ") || "—";
+    $("chipFeatures").textContent = d.flood_features != null ? d.flood_features : "—";
+  } catch (e) {
+    $("dotStatus").className = "dot bad";
+    $("chipStatus").textContent = "Unreachable";
+  }
+}
+
+async function loadBenchmark() {
+  try {
+    const r = await fetch(API_BASE + "/benchmark");
+    const d = await r.json();
+
+    // benchmark table
+    const rows = Object.entries(d.flood).map(([name, m]) => {
+      const isChamp = name === d.flood_champion;
+      return `<tr class="${isChamp ? 'champion' : ''}">
+        <td class="modelname">${isChamp ? '<span class="crown">👑</span>' : ''}${name}</td>
+        <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:${m.accuracy}%"></div></div><div class="num-cell">${m.accuracy.toFixed(1)}%</div></div></td>
+        <td class="num-cell">${m.f1.toFixed(1)}</td>
+        <td class="num-cell">${m.precision.toFixed(1)}</td>
+        <td class="num-cell">${m.recall.toFixed(1)}</td>
+      </tr>`;
+    }).join("");
+    $("benchTable").innerHTML = rows;
+
+    // feature importance (merge month_sin+month_cos -> seasonal, sort by |value|, drop near-zero)
+    const fi = { ...d.feature_importance };
+    const seasonal = (fi.month_sin || 0) + (fi.month_cos || 0);
+    delete fi.month_sin; delete fi.month_cos;
+    fi.seasonal = seasonal;
+    const entries = Object.entries(fi)
+      .filter(([k, v]) => Math.abs(v) > 0.001)
+      .sort((a, b) => Math.abs(b[1]) - Math.abs(a[1]));
+    const maxAbs = Math.max(...entries.map(([, v]) => Math.abs(v)), 0.0001);
+    $("fiList").innerHTML = entries.map(([k, v]) => {
+      const label = FEATURE_LABELS[k] || k;
+      const pct = Math.max(2, (Math.abs(v) / maxAbs) * 100);
+      return `<div class="fi-row">
+        <div class="fi-label">${label}</div>
+        <div class="fi-track"><div class="fi-fill" style="width:${pct}%"></div></div>
+        <div class="fi-val">${(v * 100).toFixed(1)}%</div>
+      </div>`;
+    }).join("");
+
+    // confusion matrix
+    const c = d.confusion;
+    $("confGrid").innerHTML = `
+      <div class="cbox tn"><div class="v">${c.tn}</div><div class="k">True normal</div></div>
+      <div class="cbox tp"><div class="v">${c.tp}</div><div class="k">True flood</div></div>
+      <div class="cbox fp"><div class="v">${c.fp}</div><div class="k">False alarm</div></div>
+      <div class="cbox fn"><div class="v">${c.fn}</div><div class="k">Missed flood</div></div>
+    `;
+
+    // dataset stats
+    $("datasetStats").innerHTML = `
+      <div class="stat"><div class="v">${d.n_records.toLocaleString()}</div><div class="k">Total records</div></div>
+      <div class="stat"><div class="v">${d.n_train.toLocaleString()}</div><div class="k">Train</div></div>
+      <div class="stat"><div class="v">${d.n_val.toLocaleString()}</div><div class="k">Validation</div></div>
+      <div class="stat"><div class="v">${d.n_test.toLocaleString()}</div><div class="k">Test &middot; ${(d.flood_rate * 100).toFixed(1)}% flood rate</div></div>
+    `;
+  } catch (e) {
+    $("benchTable").innerHTML = '<tr><td colspan="5" class="skel">Could not load benchmark data.</td></tr>';
+  }
+}
+
+async function runForecast() {
+  const go = $("go");
+  $("err").style.display = "none";
+  go.disabled = true; go.textContent = "Running…";
+  try {
+    const payload = {
+      community: "Osogbo",
+      month: parseInt($("month").value, 10),
+      rainfall_mm: parseFloat($("rainfall_mm").value || 0),
+      rain_30d: parseFloat($("rain_30d").value || 0),
+      discharge_m3s: parseFloat($("discharge_m3s").value || 0),
+    };
+    const res = await fetch(API_BASE + "/predict", {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload),
+    });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const d = await res.json();
+    const isFlood = d.flood_class === "Flood Risk";
+    const pct = Math.round(d.flood_probability * 100);
+    const circumference = 326.7;
+    const offset = circumference * (1 - d.flood_probability);
+
+    const arc = $("gaugeArc");
+    arc.style.stroke = isFlood ? "#f87171" : "#34d399";
+    arc.setAttribute("stroke-dashoffset", String(offset));
+    arc.style.strokeDashoffset = String(offset);
+    $("gaugeNum").textContent = pct + "%";
+    $("gaugeCls").textContent = d.flood_class + " — " + d.month_name;
+    $("gaugeCls").className = "cls " + (isFlood ? "flood" : "normal");
+    $("gaugeRec").textContent = d.recommendation;
+  } catch (e) {
+    $("err").textContent = "Request failed: " + e.message;
+    $("err").style.display = "block";
+  } finally {
+    go.disabled = false; go.textContent = "Run inference";
+  }
+}
+
+loadHealth();
+loadBenchmark();
+</script>
+</body>
+</html>

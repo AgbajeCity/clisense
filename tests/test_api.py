@@ -143,3 +143,10 @@ def test_root_serves_the_dashboard_html():
     assert r.status_code == 200
     assert "text/html" in r.headers["content-type"]
     assert "Osun River Corridor" in r.text
+
+
+def test_admin_serves_the_ops_console_html():
+    r = client.get("/admin")
+    assert r.status_code == 200
+    assert "text/html" in r.headers["content-type"]
+    assert "Model &amp; Ops Console" in r.text or "Ops Console" in r.text

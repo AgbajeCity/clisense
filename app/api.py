@@ -118,6 +118,10 @@ def benchmark():
 
 
 if os.path.isdir(WEB_DIR):
+    @app.get("/admin")
+    def admin():
+        return FileResponse(os.path.join(WEB_DIR, "admin.html"))
+
     @app.get("/")
     def index():
         return FileResponse(os.path.join(WEB_DIR, "index.html"))
