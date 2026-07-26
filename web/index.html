@@ -108,6 +108,28 @@
 
   .foot { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; }
   .foot a { color:var(--muted); }
+  .foot .privacy-link { display:inline-block; margin-top:10px; color:var(--leaf-dark); font-weight:700;
+                         text-decoration:underline; font-size:13px; cursor:pointer; }
+
+  /* privacy view */
+  #privacyView { display:none; }
+  #privacyView.open { display:block; }
+  #appView.hidden { display:none; }
+  .p-back { display:inline-flex; align-items:center; gap:6px; padding:10px 16px; border-radius:14px;
+            border:1.5px solid var(--line); background:var(--bg-2); color:var(--ink); font-weight:700;
+            font-size:14px; cursor:pointer; margin-bottom:16px; }
+  .p-title { font-size:24px; font-weight:800; margin:0 0 4px; letter-spacing:-.3px; }
+  .p-sub { color:var(--muted); font-size:14px; margin:0 0 18px; }
+  .p-intro { background:var(--leaf-light); border:1px solid #cdeed7; border-radius:16px; padding:15px 16px;
+             font-size:14.5px; color:var(--ink); margin-bottom:18px; }
+  .p-clause { background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+              box-shadow:var(--shadow); padding:18px 18px; margin-bottom:14px; }
+  .p-clause-head { display:flex; align-items:center; gap:10px; font-weight:800; font-size:16.5px; margin-bottom:8px; }
+  .p-clause-icon { font-size:21px; line-height:1; }
+  .p-clause p { margin:0; font-size:14.5px; color:var(--ink); line-height:1.55; }
+  .p-clause p + p { margin-top:8px; }
+  .p-footer { text-align:center; color:var(--muted); font-size:11.5px; margin-top:22px; padding-top:16px;
+              border-top:1px solid var(--line); }
 
   @media (min-width:640px) {
     .wrap { padding-top:44px; }
@@ -117,6 +139,7 @@
 </head>
 <body>
 <div class="wrap">
+<div id="appView">
 
   <div class="topbar">
     <div class="logo"><svg viewBox="0 0 24 24" fill="none"><path d="M3 15c2-2 4-2 6 0s4 2 6 0 4-2 6 0" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="M3 19c2-2 4-2 6 0s4 2 6 0 4-2 6 0" stroke="#fff" stroke-opacity=".6" stroke-width="2" stroke-linecap="round"/><path d="M12 4v8" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="M8.5 8.5L12 12l3.5-3.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -197,7 +220,72 @@
     </div>
   </div>
 
-  <div class="foot">Powered by Clisense &middot; AI flood forecasting for smallholder farmers</div>
+  <div class="foot">
+    Powered by Clisense &middot; AI flood forecasting for smallholder farmers<br />
+    <span class="privacy-link" id="openPrivacy">🔒 Privacy &amp; Terms</span>
+  </div>
+
+</div>
+
+<div id="privacyView">
+  <div class="p-back" id="closePrivacy">← Back to forecast</div>
+
+  <h1 class="p-title">Privacy &amp; Your Rights</h1>
+  <p class="p-sub">End-User Licence Agreement &amp; Privacy Policy — Clisense</p>
+
+  <div class="p-intro">
+    This page explains, in plain language, what Clisense collects about you, how long we keep it, and how you
+    can ask us to delete it. If anything here is unclear, ask your cooperative lead or extension officer — they
+    can explain it to you in person, in Yoruba or English.
+  </div>
+
+  <div class="p-clause">
+    <div class="p-clause-head"><span class="p-clause-icon">📡</span> What we collect</div>
+    <p>We collect readings from CliNode sensors near your farm (like soil moisture and river conditions), the
+      answers you give in this app (like today's rainfall), and the phone or WhatsApp number we use to send you
+      alerts.</p>
+    <p>We do <strong>not</strong> collect your name. Each farmer is identified only by a site code (for example,
+      an Ikire or Osogbo code number), not by name.</p>
+  </div>
+
+  <div class="p-clause">
+    <div class="p-clause-head"><span class="p-clause-icon">⏳</span> How long we keep it</div>
+    <p>Data collected during the Clisense pilot is stored on an access-controlled Google Drive account and is
+      scheduled to be deleted three months after the project researcher graduates from ALU, in line with our
+      Research Ethics Committee approval.</p>
+    <p>Day-to-day forecast readings (like your last few risk checks) are kept only for as long as needed to give
+      you an accurate forecast, and no longer than that.</p>
+  </div>
+
+  <div class="p-clause">
+    <div class="p-clause-head"><span class="p-clause-icon">🗑️</span> Your right to delete your data</div>
+    <p>You can ask, at any time and for any reason, that your data be deleted. You do not need to explain why.
+      Ask directly, or through your cooperative lead or extension officer, and we will remove it.</p>
+    <p>This right comes from Nigeria's Data Protection Act (2023) and Rwanda's Law N° 058/2021 on data
+      protection, both of which apply to Clisense wherever you are.</p>
+  </div>
+
+  <div class="p-clause">
+    <div class="p-clause-head"><span class="p-clause-icon">⚠️</span> About this forecast</div>
+    <p>Clisense's flood forecast is currently correct about 87 out of 100 times. It is a helpful tool, not a
+      guarantee. Always use your own judgement and local knowledge alongside it, and talk to your cooperative
+      lead if a forecast seems wrong or confusing.</p>
+    <p>Clisense is provided free of charge during the pilot, as-is, with no liability for losses from a missed
+      or incorrect forecast.</p>
+  </div>
+
+  <div class="p-clause">
+    <div class="p-clause-head"><span class="p-clause-icon">🤝</span> Your consent</div>
+    <p>By using Clisense, you agree that we can collect and use your data as described above, only to give you
+      accurate flood forecasts and to improve the service. You were asked for your consent before joining the
+      pilot, and you can withdraw it at any time by asking your cooperative lead.</p>
+  </div>
+
+  <div class="p-footer">
+    Approved under ALU Research Ethics Committee, Approval Code M26-BSE-052 &middot; Last updated 26 July 2026
+  </div>
+</div>
+
 </div>
 
 <script>
@@ -265,6 +353,26 @@ async function runForecast() {
     go.disabled = false; go.classList.remove("loading"); $("goLabel").textContent = "Check My Risk";
   }
 }
+
+/* Privacy & Terms in-app navigation */
+function showPrivacy() {
+  $("appView").classList.add("hidden");
+  $("privacyView").classList.add("open");
+  window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+  if (location.hash !== "#privacy") history.pushState(null, "", "#privacy");
+}
+function showApp() {
+  $("privacyView").classList.remove("open");
+  $("appView").classList.remove("hidden");
+  window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+  if (location.hash) history.pushState(null, "", location.pathname);
+}
+$("openPrivacy").addEventListener("click", showPrivacy);
+$("closePrivacy").addEventListener("click", showApp);
+window.addEventListener("popstate", () => {
+  if (location.hash === "#privacy") showPrivacy(); else showApp();
+});
+if (location.hash === "#privacy") showPrivacy();
 </script>
 </body>
 </html>
