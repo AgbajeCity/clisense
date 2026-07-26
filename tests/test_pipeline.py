@@ -7,7 +7,7 @@ from app import model_core as mc
 def test_dataset_shape():
     df = mc.generate_dataset()
     assert 3200 <= len(df) <= 3300
-    for col in mc.FLOOD_FEATURES + ["flood", "temp_72h", "date", "lst_c"]:
+    for col in mc.FLOOD_FEATURES + ["flood", "date"]:
         assert col in df.columns
 
 
@@ -30,7 +30,7 @@ def test_chronological_split_holds_out_2024():
     assert pd.to_datetime(train["date"]).dt.year.max() <= 2021
     assert pd.to_datetime(val["date"]).dt.year.min() >= 2022
     assert pd.to_datetime(test["date"]).dt.year.min() >= 2024
-    assert len(test) == 363
+    assert len(test) == 366
 
 
 def test_predict_distinguishes_flood_from_normal():
@@ -45,7 +45,7 @@ def test_predict_distinguishes_flood_from_normal():
     assert flood["flood_class"] == "Flood Risk"
     assert dry["flood_class"] == "Normal"
     assert flood["flood_probability"] > dry["flood_probability"]
-    for key in ("flood_class", "flood_probability", "temperature_72h_c",
+    for key in ("flood_class", "flood_probability",
                 "recommendation", "community", "month_name"):
         assert key in flood
 
@@ -53,6 +53,4 @@ def test_predict_distinguishes_flood_from_normal():
 def test_champion_models_ready():
     bundle = mc.train_champion()
     assert hasattr(bundle["flood_model"], "predict_proba")
-    assert hasattr(bundle["temp_model"], "predict")
     assert bundle["flood_model"].n_features_in_ == len(mc.FLOOD_FEATURES)
-    assert 10 <= bundle["temp_model"].predict(mc.build_features(8, 15, 280, 170)[1])[0] <= 45

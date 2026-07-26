@@ -24,7 +24,7 @@ def test_health_reports_ready_model():
     assert body["loaded"] is True
     assert body["community"] == "Osogbo"
     assert body["state"] == "Osun"
-    assert set(body["tasks"]) == {"flood_classification", "temperature_72h"}
+    assert body["tasks"] == ["flood_classification"]
 
 
 # ---- /predict: integration (happy path) --------------------------------------
@@ -41,7 +41,6 @@ def test_predict_peak_season_returns_flood_risk():
     body = r.json()
     assert body["flood_class"] == "Flood Risk"
     assert 0.0 <= body["flood_probability"] <= 1.0
-    assert isinstance(body["temperature_72h_c"], float)
     assert body["recommendation"]
     assert body["month_name"] == "Aug"
 
@@ -123,11 +122,9 @@ def test_benchmark_exposes_all_four_models_and_baseline():
     expected = {"Random Forest", "XGBoost", "Decision Tree",
                 "MLP Neural Network", "Persistence baseline"}
     assert set(body["flood"].keys()) == expected
-    assert set(body["temperature"].keys()) == expected
-    # Checked against the pinned constants, not a hardcoded name, since which
+    # Checked against the pinned constant, not a hardcoded name, since which
     # architecture wins is a property of the (real) data, not a fixed assumption.
     assert body["flood_champion"] == mc.CHAMPION_FLOOD_MODEL
-    assert body["temp_champion"] == mc.CHAMPION_TEMP_MODEL
 
 
 def test_benchmark_champion_matches_served_model():

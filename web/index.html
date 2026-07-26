@@ -44,7 +44,7 @@
 <body>
 <div class="wrap">
   <h1>&#127786;&#65039; Clisense &mdash; Osun River Corridor Forecast</h1>
-  <p class="sub">Flood risk and 72-hour temperature for smallholder farmers in <b>Osogbo, Osun State</b>. Served by the champion model per task from a live four-way benchmark - see the table below.</p>
+  <p class="sub">Flood risk for smallholder farmers in <b>Osogbo, Osun State</b>. Served by the champion model from a live four-way benchmark - see the table below.</p>
 
   <div class="card">
     <div class="grid">
@@ -69,16 +69,14 @@
       <div id="banner" class="banner"><h2 id="cls"></h2><div id="meta" class="meta"></div></div>
       <div class="body">
         <div class="stat"><span>Flood probability</span><b id="prob"></b></div>
-        <div class="stat"><span>72-hour temperature forecast</span><b id="temp"></b></div>
         <div class="stat" style="border:0"><span>Recommended action</span><b id="rec" style="max-width:60%;text-align:right;font-weight:500"></b></div>
       </div>
     </div>
   </div>
 
-  <h3 class="section-title">Four-model benchmark (2024 held-out test)</h3>
+  <h3 class="section-title">Four-model benchmark - flood classification (2024 held-out test)</h3>
   <div class="card">
     <table id="floodTable"><caption>Flood classification</caption></table>
-    <table id="tempTable" style="margin-top:18px"><caption>72-hour temperature forecasting</caption></table>
   </div>
 
   <div class="foot" id="foot">API: connecting...</div>
@@ -111,7 +109,6 @@ async function runForecast() {
     $("meta").textContent = "Confidence " + (d.flood_probability * 100).toFixed(1) + "% · "
                           + d.community + ", " + d.month_name;
     $("prob").textContent = (d.flood_probability * 100).toFixed(1) + "%";
-    $("temp").textContent = d.temperature_72h_c.toFixed(2) + " °C";
     $("rec").textContent = d.recommendation;
     $("result").style.display = "block";
   } catch (e) {
@@ -134,16 +131,6 @@ async function loadBenchmark() {
          + "%</td><td>" + r.recall + "%</td><td>" + r.f1 + "%</td></tr>";
     });
     $("floodTable").innerHTML = t;
-    const th = ["Model", "RMSE (°C)", "MAE (°C)", "R²", "Within ±2°C"];
-    let tt = "<caption>72-hour temperature forecasting (champion: " + m.temp_champion + ")</caption><tr>"
-           + th.map(h => "<th>" + h + "</th>").join("") + "</tr>";
-    forder.forEach(name => {
-      const r = m.temperature[name]; if (!r) return;
-      const champ = name === m.temp_champion ? " class='champ'" : "";
-      tt += "<tr" + champ + "><td>" + name + "</td><td>" + r.rmse + "</td><td>" + r.mae
-          + "</td><td>" + r.r2 + "</td><td>" + r.acc_within_2c + "%</td></tr>";
-    });
-    $("tempTable").innerHTML = tt;
   } catch (e) { /* benchmark table optional */ }
 }
 loadBenchmark();

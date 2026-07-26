@@ -2,8 +2,9 @@
 
 ML-powered predictive climate intelligence and early warning for smallholder
 farmers in **Osogbo, Osun State, Nigeria**, in the Osun River flood corridor.
-The system benchmarks four machine-learning architectures on two tasks and
-serves the champion through a REST API and a browser-based forecast interface.
+The system benchmarks four machine-learning architectures on flood
+classification and serves the champion through a REST API and a browser-based
+forecast interface.
 
 - **Forecast interface + API**: https://clisense.onrender.com
 - **API docs (Swagger)**: https://clisense.onrender.com/docs
@@ -12,60 +13,58 @@ serves the champion through a REST API and a browser-based forecast interface.
 
 ## What it does
 
-Two prediction tasks for the Osogbo gauge / Osun River corridor:
+One prediction task for the Osogbo gauge / Osun River corridor:
 
 1. **Flood classification** - is a given day a flood-risk day? (binary)
-2. **72-hour temperature forecasting** - land-surface temperature three days out.
 
 Four architectures are benchmarked against a naive persistence baseline:
 **Random Forest**, **XGBoost**, **Decision Tree**, and a **Multi-Layer Perceptron**,
-on real historical rainfall and temperature (see Dataset below). Champion
-selection runs independently per task: **MLP Neural Network** wins flood
-classification (highest F1), **XGBoost** wins temperature forecasting
-(highest accuracy within +/-2 C).
+on real historical rainfall (see Dataset below). **MLP Neural Network** wins
+(highest F1) and is the deployed champion.
 
-## Results (2024 held-out test set, 363 records)
+## Results (2024 held-out test set, 366 records)
 
-| Model | Flood accuracy | Flood F1 | Temp within +/-2 C |
-|-------|---------------:|---------:|-------------------:|
-| Random Forest | 91.7% | 82.8% | 97.5% |
-| XGBoost | 90.1% | 79.3% | **98.4% (champion)** |
-| Decision Tree | 86.8% | 73.3% | 92.6% |
-| **MLP Neural Network (champion)** | **91.7%** | **83.9%** | 96.4% |
-| Persistence baseline | 89.5% | 79.1% | 97.0% |
+| Model | Flood accuracy | Flood F1 |
+|-------|---------------:|---------:|
+| Random Forest | 91.8% | 82.8% |
+| XGBoost | 90.2% | 79.3% |
+| Decision Tree | 86.9% | 73.3% |
+| **MLP Neural Network (champion)** | **91.8%** | **83.9%** |
+| Persistence baseline | 89.6% | 79.1% |
 
-Random Forest and MLP tie on flood accuracy (91.7%); champion selection uses
-F1, where MLP leads. Discharge features (current discharge and its 1- and
-3-day lags) account for ~71% of the flood champion's importance (permutation
-importance, since MLP has no native `feature_importances_`). Full metrics are
-in `models/benchmark_metrics.json`; figures are in `assets/`.
+Random Forest and MLP tie on accuracy (91.8%); champion selection uses F1,
+where MLP leads. Discharge features (current discharge and its 1- and 3-day
+lags) account for ~74% of the champion's importance (permutation importance,
+since MLP has no native `feature_importances_`). Full metrics are in
+`models/benchmark_metrics.json`; figures are in `assets/`.
 
 ## Architecture
 
 `app/model_core.py` is the single source of truth: it assembles the dataset,
-engineers the features, and trains the champion model per task (whichever
-architecture the benchmark found best - see `CHAMPION_FLOOD_MODEL` /
-`CHAMPION_TEMP_MODEL`). `app/benchmark.py` runs the four-model comparison with
-GridSearchCV (TimeSeriesSplit) on Random Forest and XGBoost and writes the
-metrics and figures.
+engineers the features, and trains the champion flood-classification model
+(whichever architecture the benchmark found best - see `CHAMPION_FLOOD_MODEL`).
+`app/benchmark.py` runs the four-model comparison with GridSearchCV
+(TimeSeriesSplit) on Random Forest and XGBoost and writes the metrics and
+figures.
 `app/api.py` is a FastAPI service that loads (or trains once, deterministically)
-the champion artefacts and exposes `/predict`, `/health`, and `/benchmark`. The
+the champion artefact and exposes `/predict`, `/health`, and `/benchmark`. The
 browser interface in `web/index.html` is plain HTML and JavaScript that calls the
 API and renders the live benchmark table.
 
-## Dataset (real rainfall/temperature, derived discharge)
+## Dataset (real rainfall, derived discharge)
 
-Same-day rainfall and temperature are real historical daily values for the
-Osogbo corridor (7.7667N, 4.5667E), 2016-2024, pulled from NASA POWER
-(MERRA-2 reanalysis) - see `data/fetch_real_climate.py`. Direct NIHSA
-river-gauge and CliNode field-sensor feeds were not accessible in the
-development environment, so river discharge is derived from that real
-rainfall via a rainfall-runoff transfer function calibrated to the corridor's
-published Aug-Sep discharge peak of ~150 m3/s (Ogundolie et al., 2024); soil
-moisture and a vegetation index are similarly derived, coupled to real 30-day
-rainfall. ~3,282 daily records after dropping rows without full lag/target
-context, overall flood rate ~25%. Full provenance disclosure in
-`data/README.md` and the `app/model_core.py` module docstring.
+Same-day rainfall is real historical daily data for the Osogbo corridor
+(7.7667N, 4.5667E), 2016-2024, pulled from NASA POWER (MERRA-2 reanalysis) -
+see `data/fetch_real_climate.py`. (NASA POWER also returns temperature in the
+same call; it is not used by the flood classifier.) Direct NIHSA river-gauge
+and CliNode field-sensor feeds were not accessible in the development
+environment, so river discharge is derived from that real rainfall via a
+rainfall-runoff transfer function calibrated to the corridor's published
+Aug-Sep discharge peak of ~150 m3/s (Ogundolie et al., 2024); soil moisture
+and a vegetation index are similarly derived, coupled to real 30-day
+rainfall. ~3,285 daily records after dropping rows without full lag context,
+overall flood rate ~25%. Full provenance disclosure in `data/README.md` and
+the `app/model_core.py` module docstring.
 
 ## Run locally
 
@@ -119,6 +118,10 @@ data/                 # dataset export helper
 
 ## Not in this phase (future work)
 
-Africa's Talking IVR/SMS delivery, the Yoruba voice layer, live CHIRPS/MODIS/NIHSA
-ingestion, and the CliNode sensor network remain designed but unbuilt, and are the
-recommendations in Chapter Six of the capstone report.
+72-hour temperature forecasting was benchmarked in an earlier iteration
+(XGBoost champion) but has been descoped from this phase to keep the
+capstone deliverable focused on the single, better-validated flood
+classification task. Africa's Talking IVR/SMS delivery, the Yoruba voice
+layer, live CHIRPS/MODIS/NIHSA ingestion, and the CliNode sensor network
+remain designed but unbuilt, and are the recommendations in Chapter Six of
+the capstone report.

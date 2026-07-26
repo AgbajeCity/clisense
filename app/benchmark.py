@@ -2,13 +2,12 @@
 benchmark.py - Four-architecture benchmark for the Osogbo / Osun River corridor.
 
 Trains and evaluates Random Forest, XGBoost, Decision Tree and a Multi-Layer
-Perceptron, against a naive persistence baseline, on two tasks:
-  1. flood classification (binary)
-  2. 72-hour land-surface-temperature forecasting (regression)
+Perceptron, against a naive persistence baseline, on flood classification
+(binary).
 
 Data is split chronologically (2016-2021 train, 2022-2023 validation, 2024 test)
 to prevent temporal leakage. GridSearchCV with a TimeSeriesSplit is applied to
-Random Forest and XGBoost. The champion artefacts and a metrics JSON are written
+Random Forest and XGBoost. The champion artefact and a metrics JSON are written
 to models/, and evaluation figures are written to assets/.
 
 Run:  python -m app.benchmark
@@ -21,15 +20,14 @@ import os
 import joblib
 import numpy as np
 import pandas as pd
-from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
-from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
-from sklearn.neural_network import MLPClassifier, MLPRegressor
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import GridSearchCV, TimeSeriesSplit
 from sklearn.metrics import (accuracy_score, precision_score, recall_score,
-                             f1_score, confusion_matrix, mean_squared_error,
-                             mean_absolute_error, r2_score)
+                             f1_score, confusion_matrix)
 from sklearn.inspection import permutation_importance
-from xgboost import XGBClassifier, XGBRegressor
+from xgboost import XGBClassifier
 
 from app import model_core as mc
 
@@ -46,16 +44,6 @@ def flood_metrics(y_true, y_pred):
         "precision": round(100 * precision_score(y_true, y_pred, zero_division=0), 2),
         "recall": round(100 * recall_score(y_true, y_pred, zero_division=0), 2),
         "f1": round(100 * f1_score(y_true, y_pred, zero_division=0), 2),
-    }
-
-
-def temp_metrics(y_true, y_pred):
-    err = np.abs(np.asarray(y_true) - np.asarray(y_pred))
-    return {
-        "rmse": round(float(np.sqrt(mean_squared_error(y_true, y_pred))), 3),
-        "mae": round(float(mean_absolute_error(y_true, y_pred)), 3),
-        "r2": round(float(r2_score(y_true, y_pred)), 3),
-        "acc_within_2c": round(100 * float(np.mean(err <= 2.0)), 2),
     }
 
 
@@ -83,11 +71,9 @@ def run():
 
     Xf_fit, yf_fit = mc.Xy_flood(fit)
     Xf_te, yf_te = mc.Xy_flood(test)
-    Xt_fit, yt_fit = mc.Xy_temp(fit)
-    Xt_te, yt_te = mc.Xy_temp(test)
 
-    flood_results, temp_results = {}, {}
-    flood_models, temp_models = {}, {}
+    flood_results = {}
+    flood_models = {}
 
     # ---- Flood classification -------------------------------------------------
     # Random Forest (GridSearchCV)
@@ -123,45 +109,33 @@ def run():
     persist_pred = np.nan_to_num(prev[test_idx], nan=0).astype(int)
     flood_results["Persistence baseline"] = flood_metrics(yf_te, persist_pred)
 
-    # ---- 72-hour temperature regression --------------------------------------
-    for name in ("Random Forest", "XGBoost", "Decision Tree", "MLP Neural Network"):
-        temp_models[name] = mc._build_temp_model(name).fit(Xt_fit, yt_fit)
-        temp_results[name] = temp_metrics(yt_te, temp_models[name].predict(Xt_te))
-
-    # Temperature persistence: forecast the 72h temperature as today's temperature.
-    temp_results["Persistence baseline"] = temp_metrics(yt_te, test["lst_c"].to_numpy())
-
     # ---- champion selection ---------------------------------------------------
     # Persistence is a sanity-check floor, not a deployable model - it has no
     # fitted estimator object, so it's excluded from the candidate pool and can
     # never be selected as champion even if it happened to score highest.
     CANDIDATES = ["Random Forest", "XGBoost", "Decision Tree", "MLP Neural Network"]
     flood_champ = max(CANDIDATES, key=lambda m: flood_results[m]["f1"])
-    temp_champ = max(CANDIDATES, key=lambda m: temp_results[m]["acc_within_2c"])
 
-    # app/model_core.py's CHAMPION_FLOOD_MODEL / CHAMPION_TEMP_MODEL are what a
-    # cold-start API instance actually deploys (see train_champion()). They must
-    # match whatever this run just found to be the real winner - fail loudly
-    # instead of drifting quietly if they don't, e.g. after a dataset or feature
-    # change shifts which architecture wins.
-    if flood_champ != mc.CHAMPION_FLOOD_MODEL or temp_champ != mc.CHAMPION_TEMP_MODEL:
+    # app/model_core.py's CHAMPION_FLOOD_MODEL is what a cold-start API instance
+    # actually deploys (see train_champion()). It must match whatever this run
+    # just found to be the real winner - fail loudly instead of drifting
+    # quietly if it doesn't, e.g. after a dataset or feature change shifts
+    # which architecture wins.
+    if flood_champ != mc.CHAMPION_FLOOD_MODEL:
         raise RuntimeError(
-            f"Benchmark winner changed (flood={flood_champ!r}, temp={temp_champ!r}) "
-            f"but app/model_core.py still pins CHAMPION_FLOOD_MODEL="
-            f"{mc.CHAMPION_FLOOD_MODEL!r}, CHAMPION_TEMP_MODEL={mc.CHAMPION_TEMP_MODEL!r}. "
-            "Update those two constants in app/model_core.py to match before "
-            "persisting these metrics."
+            f"Benchmark winner changed (flood={flood_champ!r}) but "
+            f"app/model_core.py still pins CHAMPION_FLOOD_MODEL="
+            f"{mc.CHAMPION_FLOOD_MODEL!r}. Update that constant in "
+            "app/model_core.py to match before persisting these metrics."
         )
 
     flood_champ_model = flood_models[flood_champ]
-    temp_champ_model = temp_models[temp_champ]
 
-    # Persist the actual winning fitted models under generic, champion-agnostic
-    # filenames - app/api.py loads these on a warm start, or app/model_core.py's
-    # train_champion() rebuilds the same model type from these same two
-    # constants on a cold start with no cached artefacts.
+    # Persist the actual winning fitted model under a generic, champion-agnostic
+    # filename - app/api.py loads this on a warm start, or app/model_core.py's
+    # train_champion() rebuilds the same model type from this same constant on
+    # a cold start with no cached artefact.
     joblib.dump(flood_champ_model, os.path.join(MODELS_DIR, "flood_champion.joblib"))
-    joblib.dump(temp_champ_model, os.path.join(MODELS_DIR, "temp_champion.joblib"))
 
     # Confusion matrix numbers for the champion flood model.
     cm = confusion_matrix(yf_te, flood_champ_model.predict(Xf_te))
@@ -172,8 +146,8 @@ def run():
         "n_train": int(len(train)), "n_val": int(len(val)), "n_test": int(len(test)),
         "flood_rate": round(float(df["flood"].mean()), 4),
         "rf_best_params": rf_best,
-        "flood": flood_results, "temperature": temp_results,
-        "flood_champion": flood_champ, "temp_champion": temp_champ,
+        "flood": flood_results,
+        "flood_champion": flood_champ,
         "confusion": {"tn": tn, "fp": fp, "fn": fn, "tp": tp,
                       "correct": tn + tp, "total": int(cm.sum())},
         "feature_importance": _flood_feature_importance(flood_champ, flood_champ_model, Xf_te, yf_te),
@@ -242,19 +216,6 @@ def make_figures(df, champ_model, champ_name, y_true, y_pred, metrics):
     ax.set_ylabel("Flood F1-score (%)"); ax.set_ylim(70, 100)
     ax.set_title("Flood Classification - Four-Model Benchmark")
     fig.tight_layout(); fig.savefig(os.path.join(ASSETS_DIR, "fig_model_comparison.png"), dpi=150); plt.close(fig)
-
-    # Temperature comparison bar (within +/-2 C)
-    tr = metrics["temperature"]
-    tacc = [tr[n]["acc_within_2c"] for n in names]
-    fig, ax = plt.subplots(figsize=(7.6, 4.2))
-    bars = ax.bar(range(len(names)), tacc, color=[GREEN, BLUE, AMBER, "#8b5cf6", GREY])
-    for b, v in zip(bars, tacc):
-        ax.text(b.get_x() + b.get_width() / 2, v + 0.15, f"{v:.1f}", ha="center", fontsize=9)
-    ax.set_xticks(range(len(names)))
-    ax.set_xticklabels(["Random\nForest", "XGBoost", "Decision\nTree", "MLP", "Persistence"], fontsize=9)
-    ax.set_ylabel("Temperature accuracy within +/-2 C (%)"); ax.set_ylim(80, 95)
-    ax.set_title("Temperature Forecasting - Four-Model Benchmark")
-    fig.tight_layout(); fig.savefig(os.path.join(ASSETS_DIR, "fig_temp_comparison.png"), dpi=150); plt.close(fig)
 
 
 if __name__ == "__main__":

@@ -1,9 +1,9 @@
 {
-  "n_records": 3282,
+  "n_records": 3285,
   "n_train": 2189,
   "n_val": 730,
-  "n_test": 363,
-  "flood_rate": 0.2498,
+  "n_test": 366,
+  "flood_rate": 0.2496,
   "rf_best_params": {
     "max_depth": 11,
     "min_samples_leaf": 1,
@@ -11,88 +11,55 @@
   },
   "flood": {
     "Random Forest": {
-      "accuracy": 91.74,
+      "accuracy": 91.8,
       "precision": 86.75,
       "recall": 79.12,
       "f1": 82.76
     },
     "XGBoost": {
-      "accuracy": 90.08,
+      "accuracy": 90.16,
       "precision": 83.13,
       "recall": 75.82,
       "f1": 79.31
     },
     "Decision Tree": {
-      "accuracy": 86.78,
+      "accuracy": 86.89,
       "precision": 74.16,
       "recall": 72.53,
       "f1": 73.33
     },
     "MLP Neural Network": {
-      "accuracy": 91.74,
+      "accuracy": 91.8,
       "precision": 82.11,
       "recall": 85.71,
       "f1": 83.87
     },
     "Persistence baseline": {
-      "accuracy": 89.53,
+      "accuracy": 89.62,
       "precision": 79.12,
       "recall": 79.12,
       "f1": 79.12
     }
   },
-  "temperature": {
-    "Random Forest": {
-      "rmse": 0.828,
-      "mae": 0.65,
-      "r2": 0.636,
-      "acc_within_2c": 97.52
-    },
-    "XGBoost": {
-      "rmse": 0.861,
-      "mae": 0.679,
-      "r2": 0.607,
-      "acc_within_2c": 98.35
-    },
-    "Decision Tree": {
-      "rmse": 1.045,
-      "mae": 0.771,
-      "r2": 0.421,
-      "acc_within_2c": 92.56
-    },
-    "MLP Neural Network": {
-      "rmse": 0.851,
-      "mae": 0.657,
-      "r2": 0.616,
-      "acc_within_2c": 96.42
-    },
-    "Persistence baseline": {
-      "rmse": 0.876,
-      "mae": 0.678,
-      "r2": 0.593,
-      "acc_within_2c": 96.97
-    }
-  },
   "flood_champion": "MLP Neural Network",
-  "temp_champion": "XGBoost",
   "confusion": {
-    "tn": 255,
+    "tn": 258,
     "fp": 17,
     "fn": 13,
     "tp": 78,
-    "correct": 333,
-    "total": 363
+    "correct": 336,
+    "total": 366
   },
   "feature_importance": {
-    "month_sin": 0.0148,
-    "month_cos": 0.0122,
-    "rainfall_mm": 0.0068,
-    "rain_7d": 0.1218,
-    "rain_30d": 0.1317,
-    "discharge_m3s": 0.2345,
-    "discharge_lag1": 0.2415,
-    "discharge_lag3": 0.2354,
+    "month_sin": 0.0141,
+    "month_cos": 0.0124,
+    "rainfall_mm": -0.0007,
+    "rain_7d": 0.113,
+    "rain_30d": 0.1234,
+    "discharge_m3s": 0.2439,
+    "discharge_lag1": 0.2515,
+    "discharge_lag3": 0.2406,
     "soil_moisture": 0.0,
-    "veg_index": 0.0013
+    "veg_index": 0.0018
   }
 }

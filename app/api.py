@@ -3,14 +3,14 @@ api.py - FastAPI inference service for the Osogbo / Osun River corridor pilot.
 
 Endpoints:
   GET  /health     - service and model readiness
-  POST /predict    - flood classification + probability + 72-hour temperature
+  POST /predict    - flood classification + probability
   GET  /benchmark  - the four-model benchmark table (for the interface)
   GET  /           - the browser-based forecast interface (static HTML/JS)
 
-The champion models (whichever architecture app/benchmark.py's four-way
-comparison found best for each task - see app/model_core.py's
-CHAMPION_FLOOD_MODEL / CHAMPION_TEMP_MODEL) are loaded from models/ if
-present, or trained once on startup (deterministic, seed-fixed) and cached.
+The champion model (whichever architecture app/benchmark.py's four-way
+comparison found best - see app/model_core.py's CHAMPION_FLOOD_MODEL) is
+loaded from models/ if present, or trained once on startup (deterministic,
+seed-fixed) and cached.
 """
 from __future__ import annotations
 
@@ -49,28 +49,25 @@ def get_bundle():
         if _bundle is not None:  # re-check: another thread may have finished while we waited
             return _bundle
         fp = os.path.join(MODELS_DIR, "flood_champion.joblib")
-        tp = os.path.join(MODELS_DIR, "temp_champion.joblib")
-        if os.path.exists(fp) and os.path.exists(tp):
+        if os.path.exists(fp):
             # A cached artefact on disk is only ever written by app/benchmark.py
-            # after its guardrail confirms the winner matches these constants,
-            # so it's safe to label the loaded model with them.
-            _bundle = {"flood_model": joblib.load(fp), "temp_model": joblib.load(tp),
-                      "flood_model_name": mc.CHAMPION_FLOOD_MODEL,
-                      "temp_model_name": mc.CHAMPION_TEMP_MODEL}
+            # after its guardrail confirms the winner matches this constant,
+            # so it's safe to label the loaded model with it.
+            _bundle = {"flood_model": joblib.load(fp),
+                      "flood_model_name": mc.CHAMPION_FLOOD_MODEL}
         else:
-            # Cold start with no cached artefacts (e.g. Render free tier, where
+            # Cold start with no cached artefact (e.g. Render free tier, where
             # models/*.joblib is gitignored by design): retrain from scratch,
-            # deploying the same champion architectures pinned in model_core.py.
+            # deploying the same champion architecture pinned in model_core.py.
             os.makedirs(MODELS_DIR, exist_ok=True)
             _bundle = mc.train_champion()
             joblib.dump(_bundle["flood_model"], fp)
-            joblib.dump(_bundle["temp_model"], tp)
     return _bundle
 
 
 app = FastAPI(title="Clisense - Osun River Corridor Forecast API", version="2.0.0",
-              description="Flood classification and 72-hour temperature forecasting "
-                          "for smallholder farmers in Osogbo, Osun State, Nigeria.")
+              description="Flood classification for smallholder farmers in "
+                          "Osogbo, Osun State, Nigeria.")
 # Public, read-only demo API: no cookies or auth headers are used, so a wildcard
 # origin is safe. allow_credentials must stay False here - browsers reject the
 # allow_origins="*" + allow_credentials=True combination outright, which would
@@ -92,11 +89,10 @@ def health():
     b = get_bundle()
     return {
         "status": "healthy",
-        "model": f"{b['flood_model_name']} (flood champion), "
-                f"{b['temp_model_name']} (temperature champion)",
+        "model": f"{b['flood_model_name']} (flood champion)",
         "community": mc.COMMUNITY,
         "state": mc.STATE,
-        "tasks": ["flood_classification", "temperature_72h"],
+        "tasks": ["flood_classification"],
         "flood_features": len(mc.FLOOD_FEATURES),
         "loaded": b is not None,
     }
