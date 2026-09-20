@@ -120,8 +120,7 @@ data/                 # dataset export helper
 
 72-hour temperature forecasting was benchmarked in an earlier iteration
 (XGBoost champion) but has been descoped from this phase to keep the
-capstone deliverable focused on the single, better-validated flood
+project focused on the single, better-validated flood
 classification task. Africa's Talking IVR/SMS delivery, the Yoruba voice
 layer, live CHIRPS/MODIS/NIHSA ingestion, and the CliNode sensor network
-remain designed but unbuilt, and are the recommendations in Chapter Six of
-the capstone report.
+remain designed.
